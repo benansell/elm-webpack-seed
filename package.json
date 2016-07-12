@@ -1,0 +1,31 @@
+{
+  "name": "elm-webpack-seed",
+  "version": "0.0.1",
+  "description": "A starter project for elm apps using webpack",
+  "keywords": [
+    "elm",
+    "webpack"
+  ],
+  "author": "bja <code@benansell.com>",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:benansell/elm-webpack-seed.git"
+  },
+  "license": "MIT",
+  "main": "index.html",
+  "dependencies": {},
+  "devDependencies": {
+    "copy-webpack-plugin": "^3.0.1",
+    "elm": "^0.17.1",
+    "elm-webpack-loader": "^3.0.3",
+    "rimraf": "^2.5.3",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1",
+    "webpack-merge": "^0.14.0"
+  },
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "webpack",
+    "start": "webpack-dev-server --content-base src/ --port 8000"
+  }
+}

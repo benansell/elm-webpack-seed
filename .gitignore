@@ -1,0 +1,11 @@
+# npm
+node_modules
+
+# elm
+elm-stuff
+
+# app
+dist
+
+# emacs temp files
+.\#*
