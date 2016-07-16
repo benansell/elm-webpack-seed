@@ -1,4 +1,8 @@
+/* global process */
+
 var CopyWebpackPlugin = require('copy-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 var WebpackMerge = require('webpack-merge');
 
 var common = {
@@ -18,24 +22,34 @@ var common = {
 
     module: {
         loaders: [{
-                test: /\.html$/,
-                exclude: /node_modules/,
-                loader: 'file?name=[name].[ext]'
-            },
-
-            {
-                test: /\.elm$/,
-                exclude: [/elm-stuff/, /node_modules/],
-                loader: 'elm'
-            },
-        ]
+            test: /\.elm$/,
+            exclude: [/elm-stuff/, /node_modules/, /src\/Stylesheets.elm$/],
+            loader: 'elm'
+        }]
     },
+
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: 'src/index.tpl.html'
+        })
+    ],
 
     target: 'web'
 };
 
 
 var devOnly = {
+    module: {
+        loaders: [{
+            test: /src\/Stylesheets.elm$/,
+            loaders: [
+                'style-loader',
+                'css-loader',
+                'elm-css-webpack-loader'
+            ]
+        }]
+    },
+
     devServer: {
         inline: true,
         progress: true,
@@ -44,26 +58,35 @@ var devOnly = {
 };
 
 var prodOnly = {
+    module: {
+        loaders: [{
+            test: /src\/Stylesheets.elm/,
+            loader: ExtractTextPlugin.extract(
+                'style-loader', [
+                    'css-loader',
+                    'elm-css-webpack-loader'
+                ])
+        }]
+    },
+
     plugins: [
-        new CopyWebpackPlugin([
-            {
-                from: 'src/index.html'
-            }
-        ])
+        new CopyWebpackPlugin([{
+            from: 'src/index.html'
+        }]),
+        new ExtractTextPlugin('app.css')
     ]
 };
-
 
 var npm_target = process.env.npm_lifecycle_event;
 var environment;
 
-if(npm_target === 'start') {
+if (npm_target === 'start') {
     environment = 'development';
 } else {
     environment = 'production';
 }
 
-if(environment === 'development') {
+if (environment === 'development') {
     console.log('running development');
     module.exports = WebpackMerge(common, devOnly);
 } else {

@@ -16,9 +16,15 @@
   "dependencies": {},
   "devDependencies": {
     "copy-webpack-plugin": "^3.0.1",
+    "css-loader": "^0.23.1",
     "elm": "^0.17.1",
+    "elm-css": "^0.5.1",
+    "elm-css-webpack-loader": "^2.0.1",
     "elm-webpack-loader": "^3.0.3",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "html-webpack-plugin": "^2.22.0",
     "rimraf": "^2.5.3",
+    "style-loader": "^0.13.1",
     "webpack": "^1.13.1",
     "webpack-dev-server": "^1.14.1",
     "webpack-merge": "^0.14.0"
@@ -26,6 +32,7 @@
   "scripts": {
     "clean": "rimraf dist",
     "build": "webpack",
+    "build-css": "elm-css src/Stylesheets.elm -o ./dist",
     "start": "webpack-dev-server --content-base src/ --port 8000"
   }
 }
