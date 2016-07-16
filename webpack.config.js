@@ -3,17 +3,14 @@
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var UnminifiedWebpackPlugin = require('unminified-webpack-plugin');
+var Webpack = require('webpack');
 var WebpackMerge = require('webpack-merge');
 
 var common = {
     entry: [
         './src/index.js'
     ],
-
-    output: {
-        path: './dist',
-        filename: 'index.js'
-    },
 
     resolve: {
         modulesDirectories: ['node_modules'],
@@ -58,6 +55,11 @@ var devOnly = {
 };
 
 var prodOnly = {
+    output: {
+        path: './dist',
+        filename: 'index.min.js'
+    },
+
     module: {
         loaders: [{
             test: /src\/Stylesheets.elm/,
@@ -73,7 +75,13 @@ var prodOnly = {
         new CopyWebpackPlugin([{
             from: 'src/index.html'
         }]),
-        new ExtractTextPlugin('app.css')
+        new ExtractTextPlugin('app.css'),
+        new Webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: false
+            }
+        }),
+        new UnminifiedWebpackPlugin()
     ]
 };
 

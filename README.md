@@ -1,12 +1,19 @@
 # elm-webpack-seed
-A starter project for elm apps using [webpack](http://webpack.github.io/) and [elm-css](http://package.elm-lang.org/packages/rtfeldman/elm-css/latest)
+A starter project for elm apps using [webpack](https://webpack.github.io/) and [elm-css](http://package.elm-lang.org/packages/rtfeldman/elm-css/latest)
 
 The seed application is a static app that displays "Hello World" in the content of a [hero layout](https://philipwalton.github.io/solved-by-flexbox/demos/holy-grail/) using flexbox
 
 If you are looking for a webpack starter that does not use elm-css checkout [elm-webpack-starter](https://github.com/moarwick/elm-webpack-starter)
 
+### Prerequisites
+The install guide assumes that you already have the following installed:
+* [npm](https://docs.npmjs.com/)
+* [elm](http://elm-lang.org/install) - v17.1
+
 ### Install
 ```
+git clone https://github.com/benansell/elm-webpack-seed.git
+cd elm-webpack-seed
 npm install
 elm package install
 ```
@@ -33,7 +40,7 @@ The output will be placed in the `dist` folder
 
 ## Directory Layout
 ```
-dist/                    --> Output for deployment - See [Production](#Production)
+dist/                    --> output for deployment - See Production section
 elm-package.json         --> definition of the elm required packages
 elm-stuff/               --> elm installed packages
 node_modules/            --> npm installed modules
