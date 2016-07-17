@@ -49,6 +49,7 @@ The output will be placed in the `dist` folder. The output file names contain a 
 the contents of the bundle change.
 
 The following chunks are defined:
+
 | Chunk | Change trigger        | Description                                   |
 |-------|-----------------------|-----------------------------------------------|
 |app    | app js/css changes    | application specific code                     |
