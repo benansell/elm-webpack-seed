@@ -1,16 +1,23 @@
 # elm-webpack-seed
 A starter project for elm apps using [webpack](https://webpack.github.io/) and [elm-css](http://package.elm-lang.org/packages/rtfeldman/elm-css/latest)
 
-The seed application is a static app that displays "Hello World" in the content of a [hero layout](https://philipwalton.github.io/solved-by-flexbox/demos/holy-grail/) using flexbox
+The seed application is a static app that displays "Hello World" in the content of a [hero layout](https://philipwalton.github.io/solved-by-flexbox/demos/holy-grail/) using flexbox.
 
 If you are looking for a webpack starter that does not use elm-css checkout [elm-webpack-starter](https://github.com/moarwick/elm-webpack-starter)
 
-### Prerequisites
+## Features
+The seed app contains the following features:
+* elm-css - use elm to write your css
+* autoprefixer - automatically adds browser specific prefixes to css
+* dev server - local development
+* deployment - bundles and minifies js & css for production
+
+## Prerequisites
 The install guide assumes that you already have the following installed:
 * [npm](https://docs.npmjs.com/)
 * [elm](http://elm-lang.org/install) - v17.1
 
-### Install
+## Install
 ```
 git clone https://github.com/benansell/elm-webpack-seed.git
 cd elm-webpack-seed
@@ -18,14 +25,14 @@ npm install
 elm package install
 ```
 
-### Development
+## Development
 Running the following command will start the app locally:
 ```
 npm start
 ```
 Now browse to the app at `http://localhost:8000/`
 
-The css can be generated separately by running
+The un-minified un-autoprefixed css can be generated separately by running
 ```
 npm run build-css
 ```

@@ -15,6 +15,7 @@
   "main": "index.html",
   "dependencies": {},
   "devDependencies": {
+    "autoprefixer": "^6.3.7",
     "copy-webpack-plugin": "^3.0.1",
     "css-loader": "^0.23.1",
     "elm-css": "^0.5.1",
@@ -22,6 +23,7 @@
     "elm-webpack-loader": "^3.0.3",
     "extract-text-webpack-plugin": "^1.0.1",
     "html-webpack-plugin": "^2.22.0",
+    "postcss-loader": "^0.9.1",
     "rimraf": "^2.5.3",
     "style-loader": "^0.13.1",
     "unminified-webpack-plugin": "^1.1.0",

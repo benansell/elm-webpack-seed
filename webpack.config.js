@@ -1,5 +1,6 @@
 /* global process */
 
+var AutoPrefixer = require('autoprefixer');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -20,7 +21,11 @@ var common = {
     module: {
         loaders: [{
             test: /\.elm$/,
-            exclude: [/elm-stuff/, /node_modules/, /src\/Stylesheets.elm$/],
+            exclude: [
+                /elm-stuff/,
+                /node_modules/,
+                /src\/Stylesheets.elm$/
+            ],
             loader: 'elm'
         }]
     },
@@ -30,6 +35,10 @@ var common = {
             template: 'src/index.tpl.html'
         })
     ],
+
+    postcss: [AutoPrefixer({
+        browsers: ['last 2 versions']
+    })],
 
     target: 'web'
 };
@@ -42,6 +51,7 @@ var devOnly = {
             loaders: [
                 'style-loader',
                 'css-loader',
+                'postcss-loader',
                 'elm-css-webpack-loader'
             ]
         }]
@@ -66,6 +76,7 @@ var prodOnly = {
             loader: ExtractTextPlugin.extract(
                 'style-loader', [
                     'css-loader',
+                    'postcss-loader',
                     'elm-css-webpack-loader'
                 ])
         }]
