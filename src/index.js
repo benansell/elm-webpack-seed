@@ -1,6 +1,9 @@
 (function() {
     'use strict';
 
+    // vendor / 3rd party
+    require('font-awesome/css/font-awesome.css');
+
     // elm-css
     require('./Stylesheets');
 

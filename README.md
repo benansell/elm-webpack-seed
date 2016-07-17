@@ -8,6 +8,7 @@ If you are looking for a webpack starter that does not use elm-css checkout [elm
 ## Features
 The seed app contains the following features:
 * elm-css - use elm to write your css
+* fontawesome - use elm to add fontawesome icons
 * autoprefixer - automatically adds browser specific prefixes to css
 * dev server - local development
 * deployment - bundles and minifies js & css for production

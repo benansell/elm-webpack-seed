@@ -8,6 +8,8 @@ var UnminifiedWebpackPlugin = require('unminified-webpack-plugin');
 var Webpack = require('webpack');
 var WebpackMerge = require('webpack-merge');
 
+var extractVendor = new ExtractTextPlugin('vendor.css');
+
 var common = {
     entry: [
         './src/index.js'
@@ -20,20 +22,32 @@ var common = {
 
     module: {
         loaders: [{
-            test: /\.elm$/,
-            exclude: [
-                /elm-stuff/,
-                /node_modules/,
-                /src\/Stylesheets.elm$/
-            ],
-            loader: 'elm'
-        }]
+                test: /\.css$/,
+                loader: extractVendor.extract('style-loader', 'css-loader')
+            },
+
+            {
+                test: /\.(eot|svg|ttf|woff|woff2)(\?v=\d+\.\d+\.\d+)?/,
+                loader: 'file-loader'
+            },
+
+            {
+                test: /\.elm$/,
+                exclude: [
+                    /elm-stuff/,
+                    /node_modules/,
+                    /src\/Stylesheets.elm$/
+                ],
+                loader: 'elm-webpack-loader'
+            }
+        ]
     },
 
     plugins: [
         new HtmlWebpackPlugin({
             template: 'src/index.tpl.html'
-        })
+        }),
+        extractVendor
     ],
 
     postcss: [AutoPrefixer({
@@ -45,6 +59,10 @@ var common = {
 
 
 var devOnly = {
+    output: {
+        filename: 'index.js'
+    },
+
     module: {
         loaders: [{
             test: /src\/Stylesheets.elm$/,
