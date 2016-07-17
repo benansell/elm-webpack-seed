@@ -5,19 +5,18 @@ import Css.Elements as Css
 import Css.Namespace exposing (namespace)
 import Html.CssHelpers exposing (Namespace, withNamespace)
 
-
 type CssClasses
-    = Page
+    = Aside
     | Body
     | Content
-    | Nav
-    | Aside
     | Footer
     | FooterItems
+    | Nav
+    | Page
 
 
 type CssIds
-    = Main
+    = App
 
 
 layoutNamespace : Namespace String a b c

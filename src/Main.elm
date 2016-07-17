@@ -57,7 +57,6 @@ viewFooter =
             , li []
                 [ a [ Attr.href "https://github.com/benansell/elm-webpack-seed" ]
                     [ FontAwesomeBrand.github, text " Github" ]
-
                 ]
             ]
         ]

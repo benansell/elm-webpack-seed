@@ -12,6 +12,7 @@ The seed app contains the following features:
 * autoprefixer - automatically adds browser specific prefixes to css
 * dev server - local development
 * deployment - bundles and minifies js & css for production
+* long-term caching - output file names use chunkhash for cache busting
 
 ## Prerequisites
 The install guide assumes that you already have the following installed:
@@ -37,14 +38,25 @@ The un-minified un-autoprefixed css can be generated separately by running
 ```
 npm run build-css
 ```
-The output will be put in `dist/app.css`
+The output will be put in `dist/` as css files without hash's in the file names
 
 ## Production
 To generate the files for deployment run:
 ```
 npm run build
 ```
-The output will be placed in the `dist` folder
+The output will be placed in the `dist` folder. The output file names contain a hash that changes when
+the contents of the bundle change.
+
+The following chunks are defined:
+| Chunk | Change trigger        | Description                                   |
+|-------|-----------------------|-----------------------------------------------|
+|app    | app js/css changes    | application specific code                     |
+|vendor | vendor js/css changes | 3rd party dependencies                        |
+|init   | any js/css change     | initial chunk and details of all other chunks |
+
+Note: The other hashed files in the output directory are the font files for fontawesome that are
+automatically bundled by webpack.
 
 ## Directory Layout
 ```
@@ -55,9 +67,10 @@ node_modules/            --> npm installed modules
 package.json             --> definition of the npm required packages
 src/                     --> source code directory
     index.tpl.html       --> template html file used by webpack to create index.html
-    index.js             --> added into the index.html file by webpack html loader
+    app.js               --> app specific js added into the index.html file by webpack html loader
     Main.elm             --> example basic elm application with a hero layout
     SharedCss.elm        --> example css rules
     Stylesheets.elm      --> Used by elm-css to generate the css
+    vendor.js            --> 3rd party dependencies, such as fontawesome
 webpack.config.js        --> webpack configuration
 ```

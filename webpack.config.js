@@ -8,12 +8,21 @@ var UnminifiedWebpackPlugin = require('unminified-webpack-plugin');
 var Webpack = require('webpack');
 var WebpackMerge = require('webpack-merge');
 
-var extractVendor = new ExtractTextPlugin('vendor.css');
+
+var npm_target = process.env.npm_lifecycle_event;
+var environment;
+
+if (npm_target === 'start') {
+    environment = 'development';
+} else {
+    environment = 'production';
+}
 
 var common = {
-    entry: [
-        './src/index.js'
-    ],
+    entry: {
+        app: './src/app.js',
+        vendor: './src/vendor.js'
+    },
 
     resolve: {
         modulesDirectories: ['node_modules'],
@@ -22,11 +31,6 @@ var common = {
 
     module: {
         loaders: [{
-                test: /\.css$/,
-                loader: extractVendor.extract('style-loader', 'css-loader')
-            },
-
-            {
                 test: /\.(eot|svg|ttf|woff|woff2)(\?v=\d+\.\d+\.\d+)?/,
                 loader: 'file-loader'
             },
@@ -47,7 +51,11 @@ var common = {
         new HtmlWebpackPlugin({
             template: 'src/index.tpl.html'
         }),
-        extractVendor
+        new Webpack.optimize.CommonsChunkPlugin({
+            name: "init",
+            minChunks: Infinity
+        }),
+        new Webpack.optimize.OccurenceOrderPlugin()
     ],
 
     postcss: [AutoPrefixer({
@@ -57,76 +65,89 @@ var common = {
     target: 'web'
 };
 
-
-var devOnly = {
-    output: {
-        filename: 'index.js'
-    },
-
-    module: {
-        loaders: [{
-            test: /src\/Stylesheets.elm$/,
-            loaders: [
-                'style-loader',
-                'css-loader',
-                'postcss-loader',
-                'elm-css-webpack-loader'
-            ]
-        }]
-    },
-
-    devServer: {
-        inline: true,
-        progress: true,
-        stats: 'errors-only'
-    }
-};
-
-var prodOnly = {
-    output: {
-        path: './dist',
-        filename: 'index.min.js'
-    },
-
-    module: {
-        loaders: [{
-            test: /src\/Stylesheets.elm/,
-            loader: ExtractTextPlugin.extract(
-                'style-loader', [
-                    'css-loader',
-                    'postcss-loader',
-                    'elm-css-webpack-loader'
-                ])
-        }]
-    },
-
-    plugins: [
-        new CopyWebpackPlugin([{
-            from: 'src/index.html'
-        }]),
-        new ExtractTextPlugin('app.css'),
-        new Webpack.optimize.UglifyJsPlugin({
-            compress: {
-                warnings: false
-            }
-        }),
-        new UnminifiedWebpackPlugin()
-    ]
-};
-
-var npm_target = process.env.npm_lifecycle_event;
-var environment;
-
-if (npm_target === 'start') {
-    environment = 'development';
-} else {
-    environment = 'production';
-}
-
 if (environment === 'development') {
     console.log('running development');
+    var extractCssVendor = new ExtractTextPlugin('vendor.css');
+
+    var devOnly = {
+        output: {
+            filename: '[name].js'
+        },
+
+        module: {
+            loaders: [{
+                    test: /\.css$/,
+                    loader: extractCssVendor.extract('style-loader', 'css-loader')
+                },
+
+                {
+                    test: /src\/Stylesheets.elm$/,
+                    loaders: [
+                        'style-loader',
+                        'css-loader',
+                        'postcss-loader',
+                        'elm-css-webpack-loader'
+                    ]
+                }
+            ]
+        },
+
+        plugins: [
+            extractCssVendor
+        ],
+
+        devServer: {
+            inline: true,
+            progress: true,
+            stats: 'errors-only'
+        }
+    };
+
     module.exports = WebpackMerge(common, devOnly);
 } else {
     console.log('building for production');
+    var extractCssApp = new ExtractTextPlugin('app-[chunkhash].css', { allChunks: true });
+    var extractCssVendor = new ExtractTextPlugin('vendor-[chunkhash].css');
+
+    var prodOnly = {
+        output: {
+            path: './dist',
+            filename: '[name]-[chunkhash].min.js',
+            chunkFilename: '[name]-[chunkhash].min.js'
+        },
+
+        module: {
+            loaders: [{
+                    test: /\.css$/,
+                    loader: extractCssVendor.extract('style-loader', 'css-loader')
+                },
+
+                {
+                    test: /src\/Stylesheets.elm/,
+                    loader: extractCssApp.extract(
+                        'style-loader', [
+                            'css-loader',
+                            'postcss-loader',
+                            'elm-css-webpack-loader'
+                        ])
+                }
+            ]
+        },
+
+        plugins: [
+            new CopyWebpackPlugin([{
+                from: 'src/index.html'
+            }]),
+            extractCssApp,
+            extractCssVendor,
+            new UnminifiedWebpackPlugin(),
+            new Webpack.optimize.UglifyJsPlugin({
+                compress: {
+                    warnings: false
+                }
+            })
+        ]
+    };
+
     module.exports = WebpackMerge(common, prodOnly);
 }
