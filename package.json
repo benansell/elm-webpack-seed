@@ -20,6 +20,7 @@
         "css-loader": "^0.23.1",
         "elm-css": "^0.5.1",
         "elm-css-webpack-loader": "^2.0.1",
+        "elm-hot-loader": "^0.3.3",
         "elm-webpack-loader": "^3.0.3",
         "extract-text-webpack-plugin": "^1.0.1",
         "file-loader": "^0.9.0",
@@ -38,6 +39,6 @@
         "prebuild": "rimraf dist",
         "build": "webpack",
         "build-css": "elm-css src/Stylesheets.elm -o ./dist",
-        "start": "webpack-dev-server --content-base src/ --port 8000"
+        "start": "webpack-dev-server --content-base src/ --port 8000 --hot"
     }
 }

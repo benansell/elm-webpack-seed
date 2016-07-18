@@ -11,6 +11,7 @@ The seed app contains the following features:
 * fontawesome - use elm to add fontawesome icons
 * autoprefixer - automatically adds browser specific prefixes to css
 * dev server - local development
+* hot module replacement - support for auto updating modules without refreshing the entire page
 * deployment - bundles and minifies js & css for production
 * long-term caching - output file names use chunkhash for cache busting
 

@@ -31,20 +31,11 @@ var common = {
 
     module: {
         loaders: [{
-                test: /\.(eot|svg|ttf|woff|woff2)(\?v=\d+\.\d+\.\d+)?/,
-                loader: 'file-loader'
-            },
+            test: /\.(eot|svg|ttf|woff|woff2)(\?v=\d+\.\d+\.\d+)?/,
+            loader: 'file-loader'
+        }],
 
-            {
-                test: /\.elm$/,
-                exclude: [
-                    /elm-stuff/,
-                    /node_modules/,
-                    /src\/Stylesheets.elm$/
-                ],
-                loader: 'elm-webpack-loader'
-            }
-        ]
+        noParse: /^(?!.*Stylesheets).*\.elm$/
     },
 
     plugins: [
@@ -88,6 +79,19 @@ if (environment === 'development') {
                         'postcss-loader',
                         'elm-css-webpack-loader'
                     ]
+                },
+
+                {
+                    test: /\.elm$/,
+                    exclude: [
+                        /elm-stuff/,
+                        /node_modules/,
+                        /src\/Stylesheets.elm$/
+                    ],
+                    loaders: [
+                        'elm-hot-loader',
+                        'elm-webpack-loader'
+                    ]
                 }
             ]
         },
@@ -106,7 +110,9 @@ if (environment === 'development') {
     module.exports = WebpackMerge(common, devOnly);
 } else {
     console.log('building for production');
-    var extractCssApp = new ExtractTextPlugin('app-[chunkhash].css', { allChunks: true });
+    var extractCssApp = new ExtractTextPlugin('app-[chunkhash].css', {
+        allChunks: true
+    });
     var extractCssVendor = new ExtractTextPlugin('vendor-[chunkhash].css');
 
     var prodOnly = {
@@ -130,6 +136,16 @@ if (environment === 'development') {
                             'postcss-loader',
                             'elm-css-webpack-loader'
                         ])
+                },
+
+                {
+                    test: /\.elm$/,
+                    exclude: [
+                        /elm-stuff/,
+                        /node_modules/,
+                        /src\/Stylesheets.elm$/
+                    ],
+                    loader: 'elm-webpack-loader'
                 }
             ]
         },
