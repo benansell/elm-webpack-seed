@@ -1,7 +1,7 @@
 module Main exposing (..)
 
 import FontAwesome.Brand as FontAwesomeBrand
-import Html exposing (Html, a, aside, div, footer, header, li, main', nav, span, text, ul)
+import Html exposing (..)
 import Html.Attributes as Attr
 import Html.App as App
 import SharedCss exposing (..)
@@ -34,8 +34,8 @@ view model =
         , div [ class [ SharedCss.Body ] ]
             [ main' [ class [ SharedCss.Content ] ]
                 [ viewContent model ]
-            , nav [ class [ SharedCss.Nav ] ] []
-            , aside [ class [ SharedCss.Aside ] ] []
+            , nav [ class [ SharedCss.Nav ] ] [ viewNav ]
+            , aside [ class [ SharedCss.Aside ] ] [ viewAside ]
             ]
         , footer [ class [ SharedCss.Footer ] ] [ viewFooter ]
         ]
@@ -43,7 +43,19 @@ view model =
 
 viewHeader : Html a
 viewHeader =
-    div [] []
+    div []
+        [ h1 [] [ text "elm-webpack-seed" ]
+        ]
+
+
+viewNav : Html a
+viewNav =
+    div [] [ h2 [] [ text "Navigation" ] ]
+
+
+viewAside : Html a
+viewAside =
+    div [] [ h3 [] [ text "Aside" ] ]
 
 
 viewFooter : Html a
@@ -52,7 +64,16 @@ viewFooter =
         [ ul [ class [ SharedCss.FooterItems ] ]
             [ li []
                 [ a [ Attr.href "http://elm-lang.org/" ]
-                    [ text "Powered by elm" ]
+                    [ div [ class [ SharedCss.Media ] ]
+                        [ img
+                            [ Attr.src "assets/elm_logo.svg"
+                            , class [ SharedCss.MediaFigure ]
+                            , Attr.style [ ( "maxHeight", "30px" ) ]
+                            ]
+                            []
+                        , div [ class [ SharedCss.MediaBody ] ] [ text "Powered by elm" ]
+                        ]
+                    ]
                 ]
             , li []
                 [ a [ Attr.href "https://github.com/benansell/elm-webpack-seed" ]

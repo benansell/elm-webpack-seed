@@ -15,6 +15,9 @@ The seed app contains the following features:
 * deployment - bundles and minifies js & css for production
 * long-term caching - output file names use chunkhash for cache busting
 
+## Demo
+https://github.io/benansell/elm-webpack-seed
+
 ## Prerequisites
 The install guide assumes that you already have the following installed:
 * [npm](https://docs.npmjs.com/)

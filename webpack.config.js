@@ -56,9 +56,11 @@ var common = {
     target: 'web'
 };
 
+var extractCssVendor = null;
+
 if (environment === 'development') {
     console.log('running development');
-    var extractCssVendor = new ExtractTextPlugin('vendor.css');
+    extractCssVendor = new ExtractTextPlugin('vendor.css');
 
     var devOnly = {
         output: {
@@ -113,7 +115,7 @@ if (environment === 'development') {
     var extractCssApp = new ExtractTextPlugin('app-[chunkhash].css', {
         allChunks: true
     });
-    var extractCssVendor = new ExtractTextPlugin('vendor-[chunkhash].css');
+    extractCssVendor = new ExtractTextPlugin('vendor-[chunkhash].css');
 
     var prodOnly = {
         output: {
@@ -153,6 +155,9 @@ if (environment === 'development') {
         plugins: [
             new CopyWebpackPlugin([{
                 from: 'src/index.html'
+            }, {
+                from: 'src/assets',
+                to: 'assets'
             }]),
             extractCssApp,
             extractCssVendor,
