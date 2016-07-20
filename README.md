@@ -16,7 +16,7 @@ The seed app contains the following features:
 * long-term caching - output file names use chunkhash for cache busting
 
 ## Demo
-https://github.io/benansell/elm-webpack-seed
+https://benansell.github.io/elm-webpack-seed
 
 ## Prerequisites
 The install guide assumes that you already have the following installed:
