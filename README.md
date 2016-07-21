@@ -71,8 +71,9 @@ elm-stuff/               --> elm installed packages
 node_modules/            --> npm installed modules
 package.json             --> definition of the npm required packages
 src/                     --> source code directory
-    index.tpl.html       --> template html file used by webpack to create index.html
     app.js               --> app specific js added into the index.html file by webpack html loader
+    assets/              --> application specific assets
+    index.tpl.html       --> template html file used by webpack to create index.html
     Main.elm             --> example basic elm application with a hero layout
     SharedCss.elm        --> example css rules
     Stylesheets.elm      --> Used by elm-css to generate the css
