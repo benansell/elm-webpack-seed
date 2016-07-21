@@ -7996,44 +7996,6 @@ webpackJsonp([1,0],[
 	var _Fresheyeball$elm_font_awesome$FontAwesome_Brand$adn = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Brand_Class$adn);
 	var _Fresheyeball$elm_font_awesome$FontAwesome_Brand$fiveHundredPX = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Brand_Class$fiveHundredPX);
 	
-	var _elm_lang$html$Html_App$programWithFlags = _elm_lang$virtual_dom$VirtualDom$programWithFlags;
-	var _elm_lang$html$Html_App$program = function (app) {
-		return _elm_lang$html$Html_App$programWithFlags(
-			_elm_lang$core$Native_Utils.update(
-				app,
-				{
-					init: function (_p0) {
-						return app.init;
-					}
-				}));
-	};
-	var _elm_lang$html$Html_App$beginnerProgram = function (_p1) {
-		var _p2 = _p1;
-		return _elm_lang$html$Html_App$programWithFlags(
-			{
-				init: function (_p3) {
-					return A2(
-						_elm_lang$core$Platform_Cmd_ops['!'],
-						_p2.model,
-						_elm_lang$core$Native_List.fromArray(
-							[]));
-				},
-				update: F2(
-					function (msg, model) {
-						return A2(
-							_elm_lang$core$Platform_Cmd_ops['!'],
-							A2(_p2.update, msg, model),
-							_elm_lang$core$Native_List.fromArray(
-								[]));
-					}),
-				view: _p2.view,
-				subscriptions: function (_p4) {
-					return _elm_lang$core$Platform_Sub$none;
-				}
-			});
-	};
-	var _elm_lang$html$Html_App$map = _elm_lang$virtual_dom$VirtualDom$map;
-	
 	//import Maybe, Native.List //
 	
 	var _elm_lang$core$Native_Regex = function() {
@@ -11770,6 +11732,44 @@ webpackJsonp([1,0],[
 	var _rtfeldman$elm_css$Css$thick = _rtfeldman$elm_css$Css$IntentionallyUnsupportedPleaseSeeDocs;
 	var _rtfeldman$elm_css$Css$blink = _rtfeldman$elm_css$Css$IntentionallyUnsupportedPleaseSeeDocs;
 	
+	var _elm_lang$html$Html_App$programWithFlags = _elm_lang$virtual_dom$VirtualDom$programWithFlags;
+	var _elm_lang$html$Html_App$program = function (app) {
+		return _elm_lang$html$Html_App$programWithFlags(
+			_elm_lang$core$Native_Utils.update(
+				app,
+				{
+					init: function (_p0) {
+						return app.init;
+					}
+				}));
+	};
+	var _elm_lang$html$Html_App$beginnerProgram = function (_p1) {
+		var _p2 = _p1;
+		return _elm_lang$html$Html_App$programWithFlags(
+			{
+				init: function (_p3) {
+					return A2(
+						_elm_lang$core$Platform_Cmd_ops['!'],
+						_p2.model,
+						_elm_lang$core$Native_List.fromArray(
+							[]));
+				},
+				update: F2(
+					function (msg, model) {
+						return A2(
+							_elm_lang$core$Platform_Cmd_ops['!'],
+							A2(_p2.update, msg, model),
+							_elm_lang$core$Native_List.fromArray(
+								[]));
+					}),
+				view: _p2.view,
+				subscriptions: function (_p4) {
+					return _elm_lang$core$Platform_Sub$none;
+				}
+			});
+	};
+	var _elm_lang$html$Html_App$map = _elm_lang$virtual_dom$VirtualDom$map;
+	
 	var _rtfeldman$elm_css$Css_Elements$typeSelector = F2(
 		function (selectorStr, mixins) {
 			var sequence = A2(
@@ -12196,10 +12196,16 @@ webpackJsonp([1,0],[
 						_rtfeldman$elm_css$Css$margin(
 						_rtfeldman$elm_css$Css$px(0))
 					])),
+				_rtfeldman$elm_css$Css_Elements$footer(
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_rtfeldman$elm_css$Css$flex(_rtfeldman$elm_css$Css$none)
+					])),
 				_rtfeldman$elm_css$Css_Elements$header(
 				_elm_lang$core$Native_List.fromArray(
 					[
 						_rtfeldman$elm_css$Css$backgroundColor(_benansell$elm_webpack_seed$SharedCss$blue),
+						_rtfeldman$elm_css$Css$flex(_rtfeldman$elm_css$Css$none),
 						_benansell$elm_webpack_seed$SharedCss$spaceLeft
 					])),
 				A2(
@@ -12215,7 +12221,8 @@ webpackJsonp([1,0],[
 						_rtfeldman$elm_css$Css$displayFlex,
 						_rtfeldman$elm_css$Css$minHeight(
 						_rtfeldman$elm_css$Css$vh(100)),
-						_rtfeldman$elm_css$Css$flexDirection(_rtfeldman$elm_css$Css$column)
+						_rtfeldman$elm_css$Css$flexDirection(_rtfeldman$elm_css$Css$column),
+						_rtfeldman$elm_css$Css$fontFamily(_rtfeldman$elm_css$Css$sansSerif)
 					])),
 				A2(
 				F2(
@@ -12226,8 +12233,11 @@ webpackJsonp([1,0],[
 				_elm_lang$core$Native_List.fromArray(
 					[
 						_rtfeldman$elm_css$Css$displayFlex,
-						_rtfeldman$elm_css$Css$flex(
-						_rtfeldman$elm_css$Css$int(1))
+						A2(
+						_rtfeldman$elm_css$Css$flex2,
+						_rtfeldman$elm_css$Css$int(1),
+						_rtfeldman$elm_css$Css$int(0)),
+						_rtfeldman$elm_css$Css$flexDirection(_rtfeldman$elm_css$Css$column)
 					])),
 				A2(
 				F2(
@@ -12251,12 +12261,10 @@ webpackJsonp([1,0],[
 				_elm_lang$core$Native_List.fromArray(
 					[
 						_rtfeldman$elm_css$Css$backgroundColor(_benansell$elm_webpack_seed$SharedCss$mediumGray),
-						A3(
-						_rtfeldman$elm_css$Css$flex3,
-						_rtfeldman$elm_css$Css$int(0),
-						_rtfeldman$elm_css$Css$int(0),
-						_rtfeldman$elm_css$Css$em(12)),
-						_benansell$elm_webpack_seed$SharedCss$spaceLeft
+						_rtfeldman$elm_css$Css$padding(
+						_rtfeldman$elm_css$Css$em(1)),
+						_rtfeldman$elm_css$Css$borderRadius(
+						_rtfeldman$elm_css$Css$px(3))
 					])),
 				A2(
 				F2(
@@ -12267,14 +12275,12 @@ webpackJsonp([1,0],[
 				_elm_lang$core$Native_List.fromArray(
 					[
 						_rtfeldman$elm_css$Css$backgroundColor(_benansell$elm_webpack_seed$SharedCss$darkBlueGray),
-						A3(
-						_rtfeldman$elm_css$Css$flex3,
-						_rtfeldman$elm_css$Css$int(0),
-						_rtfeldman$elm_css$Css$int(0),
-						_rtfeldman$elm_css$Css$em(12)),
 						_rtfeldman$elm_css$Css$order(
 						_rtfeldman$elm_css$Css$int(-1)),
-						_benansell$elm_webpack_seed$SharedCss$spaceLeft
+						_rtfeldman$elm_css$Css$padding(
+						_rtfeldman$elm_css$Css$em(1)),
+						_rtfeldman$elm_css$Css$borderRadius(
+						_rtfeldman$elm_css$Css$px(3))
 					])),
 				A2(
 				F2(
@@ -12351,6 +12357,66 @@ webpackJsonp([1,0],[
 					[
 						_rtfeldman$elm_css$Css$marginRight(
 						_rtfeldman$elm_css$Css$em(1))
+					])),
+				A2(
+				_rtfeldman$elm_css$Css$mediaQuery,
+				'(min-width: 500px)',
+				_elm_lang$core$Native_List.fromArray(
+					[
+						A2(
+						F2(
+							function (x, y) {
+								return A2(_rtfeldman$elm_css$Css_ops['.'], x, y);
+							}),
+						_benansell$elm_webpack_seed$SharedCss$Body,
+						_elm_lang$core$Native_List.fromArray(
+							[
+								_rtfeldman$elm_css$Css$flexDirection(_rtfeldman$elm_css$Css$row)
+							])),
+						A2(
+						F2(
+							function (x, y) {
+								return A2(_rtfeldman$elm_css$Css_ops['.'], x, y);
+							}),
+						_benansell$elm_webpack_seed$SharedCss$Content,
+						_elm_lang$core$Native_List.fromArray(
+							[
+								_rtfeldman$elm_css$Css$flex(
+								_rtfeldman$elm_css$Css$int(1)),
+								_rtfeldman$elm_css$Css$padding(
+								_rtfeldman$elm_css$Css$px(0)),
+								_rtfeldman$elm_css$Css$margin(
+								_rtfeldman$elm_css$Css$px(0))
+							])),
+						A2(
+						F2(
+							function (x, y) {
+								return A2(_rtfeldman$elm_css$Css_ops['.'], x, y);
+							}),
+						_benansell$elm_webpack_seed$SharedCss$Nav,
+						_elm_lang$core$Native_List.fromArray(
+							[
+								A3(
+								_rtfeldman$elm_css$Css$flex3,
+								_rtfeldman$elm_css$Css$int(0),
+								_rtfeldman$elm_css$Css$int(0),
+								_rtfeldman$elm_css$Css$em(12))
+							])),
+						A2(
+						F2(
+							function (x, y) {
+								return A2(_rtfeldman$elm_css$Css_ops['.'], x, y);
+							}),
+						_benansell$elm_webpack_seed$SharedCss$Aside,
+						_elm_lang$core$Native_List.fromArray(
+							[
+								A3(
+								_rtfeldman$elm_css$Css$flex3,
+								_rtfeldman$elm_css$Css$int(0),
+								_rtfeldman$elm_css$Css$int(0),
+								_rtfeldman$elm_css$Css$em(12)),
+								_rtfeldman$elm_css$Css$textAlign(_rtfeldman$elm_css$Css$right)
+							]))
 					]))
 			]));
 	var _benansell$elm_webpack_seed$SharedCss$App = {ctor: 'App'};
@@ -12403,10 +12469,14 @@ webpackJsonp([1,0],[
 						_elm_lang$html$Html$text('elm-webpack-seed')
 					]))
 			]));
-	var _benansell$elm_webpack_seed$Main$_p0 = _benansell$elm_webpack_seed$SharedCss$layoutNamespace;
-	var _benansell$elm_webpack_seed$Main$id = _benansell$elm_webpack_seed$Main$_p0.id;
-	var _benansell$elm_webpack_seed$Main$class = _benansell$elm_webpack_seed$Main$_p0.$class;
-	var _benansell$elm_webpack_seed$Main$classList = _benansell$elm_webpack_seed$Main$_p0.classList;
+	var _benansell$elm_webpack_seed$Main$styles = function (_p0) {
+		return _elm_lang$html$Html_Attributes$style(
+			_rtfeldman$elm_css$Css$asPairs(_p0));
+	};
+	var _benansell$elm_webpack_seed$Main$_p1 = _benansell$elm_webpack_seed$SharedCss$layoutNamespace;
+	var _benansell$elm_webpack_seed$Main$id = _benansell$elm_webpack_seed$Main$_p1.id;
+	var _benansell$elm_webpack_seed$Main$class = _benansell$elm_webpack_seed$Main$_p1.$class;
+	var _benansell$elm_webpack_seed$Main$classList = _benansell$elm_webpack_seed$Main$_p1.classList;
 	var _benansell$elm_webpack_seed$Main$viewFooter = A2(
 		_elm_lang$html$Html$div,
 		_elm_lang$core$Native_List.fromArray(
@@ -12455,10 +12525,11 @@ webpackJsonp([1,0],[
 														_benansell$elm_webpack_seed$Main$class(
 														_elm_lang$core$Native_List.fromArray(
 															[_benansell$elm_webpack_seed$SharedCss$MediaFigure])),
-														_elm_lang$html$Html_Attributes$style(
+														_benansell$elm_webpack_seed$Main$styles(
 														_elm_lang$core$Native_List.fromArray(
 															[
-																{ctor: '_Tuple2', _0: 'maxHeight', _1: '30px'}
+																_rtfeldman$elm_css$Css$maxWidth(
+																_rtfeldman$elm_css$Css$px(30))
 															]))
 													]),
 												_elm_lang$core$Native_List.fromArray(
@@ -12577,7 +12648,7 @@ webpackJsonp([1,0],[
 				model: _benansell$elm_webpack_seed$Main$model,
 				view: _benansell$elm_webpack_seed$Main$view,
 				update: F2(
-					function (_p1, model) {
+					function (_p2, model) {
 						return model;
 					})
 			})
