@@ -50,8 +50,12 @@ css =
             , color linkColor
             ]
         , Elements.body [ margin (px 0) ]
+        , Elements.footer
+            [ flex none
+            ]
         , Elements.header
             [ backgroundColor blue
+            , flex none
             , spaceLeft
             ]
         , ((.) Page)
@@ -59,10 +63,12 @@ css =
             , displayFlex
             , minHeight (vh 100)
             , flexDirection column
+            , fontFamily sansSerif
             ]
         , ((.) Body)
             [ displayFlex
-            , flex (int 1)
+            , flex2 (int 1) (int 0)
+            , flexDirection column
             ]
         , ((.) Content)
             [ backgroundColor lightGray
@@ -71,14 +77,14 @@ css =
             ]
         , ((.) Aside)
             [ backgroundColor mediumGray
-            , flex3 (int 0) (int 0) (em 12)
-            , spaceLeft
+            , padding (em 1)
+            , borderRadius (px 3)
             ]
         , ((.) Nav)
             [ backgroundColor darkBlueGray
-            , flex3 (int 0) (int 0) (em 12)
             , order (int -1)
-            , spaceLeft
+            , padding (em 1)
+            , borderRadius (px 3)
             ]
         , ((.) Footer)
             [ backgroundColor darkGray
@@ -105,6 +111,18 @@ css =
             ]
         , ((.) MediaFigure)
             [ marginRight (em 1)
+            ]
+        , (mediaQuery "(min-width: 500px)")
+            [ ((.) Body) [ flexDirection row ]
+            , ((.) Content)
+                [ flex (int 1)
+                , padding (px 0)
+                , margin (px 0)
+                ]
+            , ((.) Nav) [ flex3 (int 0) (int 0) (em 12) ]
+            , ((.) Aside)
+                  [ flex3 (int 0) (int 0) (em 12)
+                  , textAlign right]
             ]
         ]
 

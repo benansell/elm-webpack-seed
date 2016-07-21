@@ -1,6 +1,7 @@
 module Main exposing (..)
 
 import FontAwesome.Brand as FontAwesomeBrand
+import Css as Css
 import Html exposing (..)
 import Html.Attributes as Attr
 import Html.App as App
@@ -27,6 +28,11 @@ model =
 
 { id, class, classList } =
     layoutNamespace
+styles : List Css.Mixin -> Attribute a
+styles =
+    Css.asPairs >> Attr.style
+
+
 view : Model -> Html a
 view model =
     div [ class [ SharedCss.Page ] ]
@@ -68,7 +74,7 @@ viewFooter =
                         [ img
                             [ Attr.src "assets/elm_logo.svg"
                             , class [ SharedCss.MediaFigure ]
-                            , Attr.style [ ( "maxHeight", "30px" ) ]
+                            , styles [ Css.maxWidth (Css.px 30) ]
                             ]
                             []
                         , div [ class [ SharedCss.MediaBody ] ] [ text "Powered by elm" ]

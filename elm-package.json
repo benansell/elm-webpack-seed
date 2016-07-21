@@ -1,5 +1,5 @@
 {
-    "version": "0.0.1",
+    "version": "0.0.2",
     "summary": "A starter project for elm apps using webpack",
     "repository": "https://github.com/benansell/elm-webpack-seed.git",
     "license": "MIT",
