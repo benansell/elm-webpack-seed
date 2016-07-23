@@ -6,6 +6,7 @@ import Html exposing (..)
 import Html.Attributes as Attr
 import Html.App as App
 import SharedCss exposing (..)
+import LogoAnimation as LogoAnim exposing (logoView)
 
 
 main : Program Never
@@ -91,4 +92,4 @@ viewFooter =
 
 viewContent : Model -> Html a
 viewContent model =
-    text model
+    LogoAnim.logoView

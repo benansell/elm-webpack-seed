@@ -78,13 +78,11 @@ css =
         , ((.) Aside)
             [ backgroundColor mediumGray
             , padding (em 1)
-            , borderRadius (px 3)
             ]
         , ((.) Nav)
             [ backgroundColor darkBlueGray
             , order (int -1)
             , padding (em 1)
-            , borderRadius (px 3)
             ]
         , ((.) Footer)
             [ backgroundColor darkGray
