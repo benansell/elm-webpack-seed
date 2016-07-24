@@ -23,3 +23,22 @@ css =
             , width (pct 50)
             ]
         ]
+
+blue : Color
+blue =
+    (hex "#60B5CC")
+
+
+blueGray : Color
+blueGray =
+    (hex "#5A6378")
+
+
+green : Color
+green =
+    (hex "#7FD13B")
+
+
+yellow : Color
+yellow =
+    (hex "#F0AD00")
