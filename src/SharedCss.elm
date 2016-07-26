@@ -16,6 +16,7 @@ type CssClasses
     | MediaBody
     | MediaFigure
     | Nav
+    | NavMessage
     | Page
 
 
@@ -84,6 +85,9 @@ css =
             , order (int -1)
             , padding (em 1)
             ]
+        , ((.) NavMessage)
+            [ color warningColor
+            ]
         , ((.) Footer)
             [ backgroundColor darkGray
             ]
@@ -119,8 +123,9 @@ css =
                 ]
             , ((.) Nav) [ flex3 (int 0) (int 0) (em 12) ]
             , ((.) Aside)
-                  [ flex3 (int 0) (int 0) (em 12)
-                  , textAlign right]
+                [ flex3 (int 0) (int 0) (em 12)
+                , textAlign right
+                ]
             ]
         ]
 
@@ -128,6 +133,11 @@ css =
 linkColor : Color
 linkColor =
     white
+
+
+warningColor : Color
+warningColor =
+    (hex "#E74C3C")
 
 
 white : Color
