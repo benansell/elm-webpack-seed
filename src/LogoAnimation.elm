@@ -98,8 +98,8 @@ centerTriangle =
 
 leftBigTriangle : Shape
 leftBigTriangle =
-    { action = None
-    , actionDuration = 5
+    { action = MoveRight
+    , actionDuration = 5000
     , actionEnd = Nothing
     , actionStart = Nothing
     , color = LogoAnimCss.blueGray
@@ -141,6 +141,7 @@ toPoint ( x, y ) =
 type Action
     = None
     | MoveDown
+    | MoveRight
 
 
 tick : Float -> Model -> Model
@@ -172,6 +173,9 @@ update newAction model =
         MoveDown ->
             { model | action = newAction }
 
+        MoveRight ->
+            { model | action = newAction }
+
 
 updateShape : Float -> Shape -> Shape
 updateShape time shape =
@@ -184,17 +188,25 @@ updateShape time shape =
                 shape
 
             MoveDown ->
-                moveShapeDown progress shape
+                moveShape progress movePointDown shape
+
+            MoveRight ->
+                moveShape progress movePointRight shape
 
 
-moveShapeDown : Float -> Shape -> Shape
-moveShapeDown progress shape =
-    { shape | points = List.map (\x -> movePointDown progress x) shape.points }
+moveShape : Float -> (Float -> Point -> Point) -> Shape -> Shape
+moveShape progress movePoint shape =
+    { shape | points = List.map (\x -> movePoint progress x) shape.points }
 
 
 movePointDown : Float -> Point -> Point
 movePointDown progress point =
     { point | deltaY = 100 * sin (pi * progress) }
+
+
+movePointRight : Float -> Point -> Point
+movePointRight progress point =
+    { point | deltaX = -100 * sin (pi * progress) }
 
 
 timeRemaining : Float -> Maybe Float -> Float
