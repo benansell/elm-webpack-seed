@@ -1,7 +1,6 @@
 module LogoAnimationCss exposing (..)
 
 import Css exposing (..)
-import Css.Elements as Elements
 import Css.Namespace exposing (namespace)
 import Html.CssHelpers exposing (Namespace, withNamespace)
 
@@ -19,10 +18,11 @@ css : Stylesheet
 css =
     (stylesheet << namespace logoAnimationNamespace.name)
         [ ((.) Container)
-            [ padding (pct 25)
-            , width (pct 50)
+            [ padding (pct 2)
+            , width (pct 96)
             ]
         ]
+
 
 blue : Color
 blue =

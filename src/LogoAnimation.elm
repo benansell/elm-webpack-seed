@@ -13,16 +13,26 @@ import LogoAnimationCss as LogoAnimCss exposing (..)
 -- MODEL
 
 
+type alias Point =
+    { x : Float
+    , deltaX : Float
+    , y : Float
+    , deltaY : Float
+    }
+
+
 type alias Shape =
     { action : Action
+    , actionDuration : Float
+    , actionEnd : Maybe Float
+    , actionStart : Maybe Float
     , color : Css.Color
-    , points : List ( Float, Float )
+    , points : List Point
     }
 
 
 type alias Model =
     { action : Action
-    , progress : Int
     , shapes : List (Shape)
     }
 
@@ -30,7 +40,6 @@ type alias Model =
 init : Model
 init =
     { action = None
-    , progress = 0
     , shapes =
         [ bottomBigTriangle
         , bottomRightTriangle
@@ -45,58 +54,84 @@ init =
 
 bottomBigTriangle : Shape
 bottomBigTriangle =
-    { action = None
+    { action = MoveDown
+    , actionDuration = 2000
+    , actionEnd = Nothing
+    , actionStart = Nothing
     , color = LogoAnimCss.blue
-    , points = [ ( 161.649, 170.517 ), ( 8.869, 323.298 ), ( 314.43, 323.298 ) ]
+    , points = List.map toPoint [ ( 361.649, 370.517 ), ( 208.869, 523.298 ), ( 514.43, 523.298 ) ]
     }
 
 
 bottomRightTriangle : Shape
 bottomRightTriangle =
     { action = None
+    , actionDuration = 5
+    , actionEnd = Nothing
+    , actionStart = Nothing
     , color = LogoAnimCss.yellow
-    , points = [ ( 255.522, 246.655 ), ( 323.298, 314.432 ), ( 323.298, 178.879 ) ]
+    , points = List.map toPoint [ ( 455.522, 446.655 ), ( 523.298, 514.432 ), ( 523.298, 378.879 ) ]
     }
 
 
 centerSquare : Shape
 centerSquare =
     { action = None
+    , actionDuration = 5
+    , actionEnd = Nothing
+    , actionStart = Nothing
     , color = LogoAnimCss.green
-    , points = [ ( 170.517, 161.649 ), ( 246.5, 84.916 ), ( 323.298, 161.649 ), ( 246.5, 237.697 ) ]
+    , points = List.map toPoint [ ( 370.517, 361.649 ), ( 446.5, 284.916 ), ( 523.298, 361.649 ), ( 446.5, 437.697 ) ]
     }
 
 
 centerTriangle : Shape
 centerTriangle =
     { action = None
+    , actionDuration = 5
+    , actionEnd = Nothing
+    , actionStart = Nothing
     , color = LogoAnimCss.yellow
-    , points = [ ( 161.649, 152.782 ), ( 231.514, 82.916 ), ( 91.783, 82.916 ) ]
+    , points = List.map toPoint [ ( 361.649, 352.782 ), ( 431.514, 282.916 ), ( 291.783, 282.916 ) ]
     }
 
 
 leftBigTriangle : Shape
 leftBigTriangle =
     { action = None
+    , actionDuration = 5
+    , actionEnd = Nothing
+    , actionStart = Nothing
     , color = LogoAnimCss.blueGray
-    , points = [ ( 152.781, 161.649 ), ( 0, 8.868 ), ( 0, 314.432 ) ]
+    , points = List.map toPoint [ ( 352.781, 361.649 ), ( 200, 208.868 ), ( 200, 514.432 ) ]
     }
 
 
 topParallelogram : Shape
 topParallelogram =
     { action = None
+    , actionDuration = 5
+    , actionEnd = Nothing
+    , actionStart = Nothing
     , color = LogoAnimCss.green
-    , points = [ ( 8.867, 0 ), ( 79.241, 70.375 ), ( 232.213, 70.375 ), ( 161.838, 0 ) ]
+    , points = List.map toPoint [ ( 208.867, 200 ), ( 279.241, 270.375 ), ( 432.213, 270.375 ), ( 361.838, 200 ) ]
     }
 
 
 topRightTriangle : Shape
 topRightTriangle =
     { action = None
+    , actionDuration = 5
+    , actionEnd = Nothing
+    , actionStart = Nothing
     , color = LogoAnimCss.blue
-    , points = [ ( 323.298, 143.724 ), ( 323.298, 0 ), ( 179.573, 0 ) ]
+    , points = List.map toPoint [ ( 523.298, 343.724 ), ( 523.298, 200 ), ( 379.573, 200 ) ]
     }
+
+
+toPoint : ( Float, Float ) -> Point
+toPoint ( x, y ) =
+    { x = x, deltaX = 0, y = y, deltaY = 0 }
 
 
 
@@ -105,20 +140,79 @@ topRightTriangle =
 
 type Action
     = None
+    | MoveDown
 
 
 tick : Float -> Model -> Model
 tick time model =
-    case model.action of
-        None ->
-            model
+    { model
+        | action = None
+        , shapes =
+            List.map
+                (\s ->
+                    if time < Maybe.withDefault 0 s.actionEnd then
+                        updateShape time s
+                    else if s.action == model.action then
+                        updateShape time { s | actionStart = Just time, actionEnd = Just (time + s.actionDuration) }
+                    else if Nothing /= s.actionEnd then
+                        { s | actionStart = Nothing, actionEnd = Nothing }
+                    else
+                        s
+                )
+                model.shapes
+    }
 
 
 update : Action -> Model -> Model
-update action model =
-    case action of
+update newAction model =
+    case newAction of
         None ->
             model
+
+        MoveDown ->
+            { model | action = newAction }
+
+
+updateShape : Float -> Shape -> Shape
+updateShape time shape =
+    let
+        progress =
+            timeRemainingToProgress shape.actionDuration <| timeRemaining time shape.actionEnd
+    in
+        case shape.action of
+            None ->
+                shape
+
+            MoveDown ->
+                moveShapeDown progress shape
+
+
+moveShapeDown : Float -> Shape -> Shape
+moveShapeDown progress shape =
+    { shape | points = List.map (\x -> movePointDown progress x) shape.points }
+
+
+movePointDown : Float -> Point -> Point
+movePointDown progress point =
+    { point | deltaY = 100 * sin (pi * progress) }
+
+
+timeRemaining : Float -> Maybe Float -> Float
+timeRemaining time actionEnd =
+    case actionEnd of
+        Nothing ->
+            0
+
+        Just end ->
+            end - time
+
+
+timeRemainingToProgress : Float -> Float -> Float
+timeRemainingToProgress duration remaining =
+    if remaining <= 0 then
+        1
+    else
+        remaining / duration
 
 
 
@@ -130,14 +224,14 @@ cssToString { value } =
     value
 
 
-pointsToString : List ( Float, Float ) -> String
+pointsToString : List Point -> String
 pointsToString points =
     String.join " " <| List.map pointToString points
 
 
-pointToString : ( Float, Float ) -> String
-pointToString ( x, y ) =
-    toString x ++ "," ++ toString y
+pointToString : Point -> String
+pointToString p =
+    toString (p.x + p.deltaX) ++ "," ++ toString (p.y + p.deltaY)
 
 
 shapeToPolygon : Shape -> Svg Action
@@ -157,7 +251,7 @@ view model =
     div [ class [ LogoAnimCss.Container ] ]
         [ svg
             [ version "1.1"
-            , viewBox <| pointsToString [ ( 0, 0 ), ( 323.141, 322.95 ) ]
+            , viewBox "100 100 523.141 522.95"
             , x <| cssToString (Css.px 0)
             , y <| cssToString (Css.px 0)
             ]
