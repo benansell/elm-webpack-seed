@@ -15,9 +15,25 @@ import LogoAnimationCss as LogoAnimCss exposing (..)
 
 type alias Point =
     { x : Float
-    , deltaX : Float
     , y : Float
-    , deltaY : Float
+    }
+
+
+{-|
+Matrix used to transform points (x,y) into the view plane:
+
+                      | a  b  0 |
+|x' y' 1| = |x y 1| * | c  d  0 |
+                      | tx ty 1 |
+
+-}
+type alias Matrix =
+    { a : Float
+    , b : Float
+    , c : Float
+    , d : Float
+    , tx : Float
+    , ty : Float
     }
 
 
@@ -27,14 +43,21 @@ type alias Shape =
     , actionEnd : Maybe Float
     , actionStart : Maybe Float
     , color : Css.Color
+    , origin : Point
     , points : List Point
+    , initialTransform : Matrix
+    , currentTransform : Matrix
     }
 
 
 type alias Model =
     { action : Action
-    , shapes : List (Shape)
+    , shapes : List Shape
     }
+
+
+type alias Progress =
+    Float
 
 
 init : Model
@@ -54,84 +77,107 @@ init =
 
 bottomBigTriangle : Shape
 bottomBigTriangle =
-    { action = MoveDown
-    , actionDuration = 2000
-    , actionEnd = Nothing
-    , actionStart = Nothing
-    , color = LogoAnimCss.blue
-    , points = List.map toPoint [ ( 361.649, 370.517 ), ( 208.869, 523.298 ), ( 514.43, 523.298 ) ]
-    }
+    createShape MoveDown 2 LogoAnimCss.blue ( 0, 0 ) [ ( 361.649, 370.517 ), ( 208.869, 523.298 ), ( 514.43, 523.298 ) ]
 
 
 bottomRightTriangle : Shape
 bottomRightTriangle =
-    { action = None
-    , actionDuration = 5
-    , actionEnd = Nothing
-    , actionStart = Nothing
-    , color = LogoAnimCss.yellow
-    , points = List.map toPoint [ ( 455.522, 446.655 ), ( 523.298, 514.432 ), ( 523.298, 378.879 ) ]
-    }
+    createShape None 1 LogoAnimCss.yellow ( 0, 0 ) [ ( 455.522, 446.655 ), ( 523.298, 514.432 ), ( 523.298, 378.879 ) ]
 
 
 centerSquare : Shape
 centerSquare =
-    { action = None
-    , actionDuration = 5
-    , actionEnd = Nothing
-    , actionStart = Nothing
-    , color = LogoAnimCss.green
-    , points = List.map toPoint [ ( 370.517, 361.649 ), ( 446.5, 284.916 ), ( 523.298, 361.649 ), ( 446.5, 437.697 ) ]
-    }
+    createShape Shrink 3 LogoAnimCss.green ( 446.9075, 361.3065 ) [ ( -76.3905, 0 ), ( 0, 76.3905 ), ( 76.3905, 0 ), ( 0, -76.3905 ) ]
 
 
 centerTriangle : Shape
 centerTriangle =
-    { action = None
-    , actionDuration = 5
-    , actionEnd = Nothing
-    , actionStart = Nothing
-    , color = LogoAnimCss.yellow
-    , points = List.map toPoint [ ( 361.649, 352.782 ), ( 431.514, 282.916 ), ( 291.783, 282.916 ) ]
-    }
+    createShape None 1 LogoAnimCss.yellow ( 0, 0 ) [ ( 361.649, 352.782 ), ( 431.514, 282.916 ), ( 291.783, 282.916 ) ]
 
 
 leftBigTriangle : Shape
 leftBigTriangle =
-    { action = MoveRight
-    , actionDuration = 5000
-    , actionEnd = Nothing
-    , actionStart = Nothing
-    , color = LogoAnimCss.blueGray
-    , points = List.map toPoint [ ( 352.781, 361.649 ), ( 200, 208.868 ), ( 200, 514.432 ) ]
-    }
+    createShape MoveRight 5 LogoAnimCss.blueGray ( 0, 0 ) [ ( 352.781, 361.649 ), ( 200, 208.868 ), ( 200, 514.432 ) ]
 
 
 topParallelogram : Shape
 topParallelogram =
-    { action = None
-    , actionDuration = 5
-    , actionEnd = Nothing
-    , actionStart = Nothing
-    , color = LogoAnimCss.green
-    , points = List.map toPoint [ ( 208.867, 200 ), ( 279.241, 270.375 ), ( 432.213, 270.375 ), ( 361.838, 200 ) ]
-    }
+    createShape None 1 LogoAnimCss.green ( 0, 0 ) [ ( 208.867, 200 ), ( 279.241, 270.375 ), ( 432.213, 270.375 ), ( 361.838, 200 ) ]
 
 
 topRightTriangle : Shape
 topRightTriangle =
-    { action = None
-    , actionDuration = 5
-    , actionEnd = Nothing
-    , actionStart = Nothing
-    , color = LogoAnimCss.blue
-    , points = List.map toPoint [ ( 523.298, 343.724 ), ( 523.298, 200 ), ( 379.573, 200 ) ]
-    }
+    createShape None 1 LogoAnimCss.blue ( 0, 0 ) [ ( 523.298, 343.724 ), ( 523.298, 200 ), ( 379.573, 200 ) ]
+
+
+createShape : Action -> Float -> Css.Color -> ( Float, Float ) -> List ( Float, Float ) -> Shape
+createShape action durationInSeconds color origin points =
+    let
+        originPoint =
+            toPoint origin
+
+        initialTransform =
+            matrixIdentity originPoint
+    in
+        { action = action
+        , actionDuration = durationInSeconds * 1000
+        , actionEnd = Nothing
+        , actionStart = Nothing
+        , color = color
+        , origin = originPoint
+        , points = List.map toPoint points
+        , initialTransform = initialTransform
+        , currentTransform = initialTransform
+        }
 
 
 toPoint : ( Float, Float ) -> Point
 toPoint ( x, y ) =
-    { x = x, deltaX = 0, y = y, deltaY = 0 }
+    { x = x, y = y }
+
+
+matrixIdentity : Point -> Matrix
+matrixIdentity origin =
+    { a = 1
+    , b = 0
+    , c = 0
+    , d = 1
+    , tx = origin.x
+    , ty = origin.y
+    }
+
+
+matrixScale : Float -> Matrix
+matrixScale k =
+    { a = k
+    , b = 0
+    , c = 0
+    , d = k
+    , tx = 0
+    , ty = 0
+    }
+
+
+matrixTranslate : Float -> Float -> Matrix
+matrixTranslate tx ty =
+    { a = 0
+    , b = 0
+    , c = 0
+    , d = 0
+    , tx = tx
+    , ty = ty
+    }
+
+
+matrixAdd : Matrix -> Matrix -> Matrix
+matrixAdd m1 m2 =
+    { a = m1.a + m2.a
+    , b = m1.b + m2.b
+    , c = m1.c + m2.c
+    , d = m1.d + m2.d
+    , tx = m1.tx + m2.tx
+    , ty = m1.ty + m2.ty
+    }
 
 
 
@@ -142,6 +188,7 @@ type Action
     = None
     | MoveDown
     | MoveRight
+    | Shrink
 
 
 tick : Float -> Model -> Model
@@ -156,7 +203,7 @@ tick time model =
                     else if s.action == model.action then
                         updateShape time { s | actionStart = Just time, actionEnd = Just (time + s.actionDuration) }
                     else if Nothing /= s.actionEnd then
-                        { s | actionStart = Nothing, actionEnd = Nothing }
+                        { s | actionStart = Nothing, actionEnd = Nothing, currentTransform = s.initialTransform }
                     else
                         s
                 )
@@ -166,15 +213,10 @@ tick time model =
 
 update : Action -> Model -> Model
 update newAction model =
-    case newAction of
-        None ->
-            model
-
-        MoveDown ->
-            { model | action = newAction }
-
-        MoveRight ->
-            { model | action = newAction }
+    if newAction == None then
+        model
+    else
+        { model | action = newAction }
 
 
 updateShape : Float -> Shape -> Shape
@@ -188,25 +230,54 @@ updateShape time shape =
                 shape
 
             MoveDown ->
-                moveShape progress movePointDown shape
+                transformMoveDown progress shape
 
             MoveRight ->
-                moveShape progress movePointRight shape
+                transformMoveRight progress shape
+
+            Shrink ->
+                transformShrink progress shape
 
 
-moveShape : Float -> (Float -> Point -> Point) -> Shape -> Shape
-moveShape progress movePoint shape =
-    { shape | points = List.map (\x -> movePoint progress x) shape.points }
+updateTransform : Matrix -> Shape -> Shape
+updateTransform matrix shape =
+    { shape | currentTransform = matrixAdd shape.initialTransform matrix }
 
 
-movePointDown : Float -> Point -> Point
-movePointDown progress point =
-    { point | deltaY = 100 * sin (pi * progress) }
+transformMoveDown : Progress -> Shape -> Shape
+transformMoveDown progress shape =
+    let
+        offset =
+            100 * sin (pi * progress)
+
+        matrix =
+            matrixTranslate 0 offset
+    in
+        updateTransform matrix shape
 
 
-movePointRight : Float -> Point -> Point
-movePointRight progress point =
-    { point | deltaX = -100 * sin (pi * progress) }
+transformMoveRight : Progress -> Shape -> Shape
+transformMoveRight progress shape =
+    let
+        offset =
+            10 * sin (4 * pi * progress)
+
+        matrix =
+            matrixTranslate offset 0
+    in
+        updateTransform matrix shape
+
+
+transformShrink : Progress -> Shape -> Shape
+transformShrink progress shape =
+    let
+        scale =
+            -0.5 * sin (pi * progress)
+
+        matrix =
+            matrixScale scale
+    in
+        updateTransform matrix shape
 
 
 timeRemaining : Float -> Maybe Float -> Float
@@ -219,7 +290,7 @@ timeRemaining time actionEnd =
             end - time
 
 
-timeRemainingToProgress : Float -> Float -> Float
+timeRemainingToProgress : Float -> Float -> Progress
 timeRemainingToProgress duration remaining =
     if remaining <= 0 then
         1
@@ -229,6 +300,18 @@ timeRemainingToProgress duration remaining =
 
 
 -- VIEW
+
+
+shapeToViewPoints : Shape -> List Point
+shapeToViewPoints shape =
+    List.map (\p -> projectPoint p shape.currentTransform) shape.points
+
+
+projectPoint : Point -> Matrix -> Point
+projectPoint point matrix =
+    { x = (point.x * matrix.a) + (point.y * matrix.c) + matrix.tx
+    , y = (point.x * matrix.b) + (point.y * matrix.d) + matrix.ty
+    }
 
 
 cssToString : { a | value : String } -> String
@@ -243,14 +326,14 @@ pointsToString points =
 
 pointToString : Point -> String
 pointToString p =
-    toString (p.x + p.deltaX) ++ "," ++ toString (p.y + p.deltaY)
+    toString (p.x) ++ "," ++ toString (p.y)
 
 
 shapeToPolygon : Shape -> Svg Action
 shapeToPolygon shape =
     polygon
         [ fill <| cssToString shape.color
-        , points <| pointsToString shape.points
+        , points <| pointsToString <| shapeToViewPoints shape
         , onClick shape.action
         ]
         []
