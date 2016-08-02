@@ -22,9 +22,9 @@ type alias Point =
 {-|
 Matrix used to transform points (x,y) into the view plane:
 
-                      | a  b  0 |
-|x' y' 1| = |x y 1| * | c  d  0 |
-                      | tx ty 1 |
+| x' |   | a  b  tx |   | x |
+| y' | = | c  d  ty | * | y |
+| 1  |   | 0  0  1  |   | 1 |
 
 -}
 type alias Matrix =
@@ -77,12 +77,12 @@ init =
 
 bottomBigTriangle : Shape
 bottomBigTriangle =
-    createShape MoveDown 2 LogoAnimCss.blue ( 0, 0 ) [ ( 361.649, 370.517 ), ( 208.869, 523.298 ), ( 514.43, 523.298 ) ]
+    createShape MoveDown 2 LogoAnimCss.blue ( 361.649, 472.371 ) [ ( 0, -101.854 ), ( -152.78, 50.927 ), ( 152.781, 50.927 ) ]
 
 
 bottomRightTriangle : Shape
 bottomRightTriangle =
-    createShape None 1 LogoAnimCss.yellow ( 0, 0 ) [ ( 455.522, 446.655 ), ( 523.298, 514.432 ), ( 523.298, 378.879 ) ]
+    createShape None 1 LogoAnimCss.yellow ( 500.706, 446.655 ) [ ( -45.184, 0 ), ( 22.592, 67.777 ), ( 22.592, -67.776 ) ]
 
 
 centerSquare : Shape
@@ -92,22 +92,22 @@ centerSquare =
 
 centerTriangle : Shape
 centerTriangle =
-    createShape None 1 LogoAnimCss.yellow ( 0, 0 ) [ ( 361.649, 352.782 ), ( 431.514, 282.916 ), ( 291.783, 282.916 ) ]
+    createShape None 1 LogoAnimCss.yellow ( 361.649, 306.205 ) [ ( 0, 46.577 ), ( 69.865, -23.289 ), ( -69.866, -23.289 ) ]
 
 
 leftBigTriangle : Shape
 leftBigTriangle =
-    createShape MoveRight 5 LogoAnimCss.blueGray ( 0, 0 ) [ ( 352.781, 361.649 ), ( 200, 208.868 ), ( 200, 514.432 ) ]
+    createShape MoveRight 5 LogoAnimCss.blueGray ( 250.927, 361.649 ) [ ( 101.854, 0 ), ( -50.927, -152.781 ), ( -50.927, 152.783 ) ]
 
 
 topParallelogram : Shape
 topParallelogram =
-    createShape None 1 LogoAnimCss.green ( 0, 0 ) [ ( 208.867, 200 ), ( 279.241, 270.375 ), ( 432.213, 270.375 ), ( 361.838, 200 ) ]
+    createShape None 1 LogoAnimCss.green ( 320.54, 235.188 ) [ ( -111.673, -35.188 ), ( -41.299, 35.187 ), ( 111.673, 35.187 ), ( 41.298, -35.188 ) ]
 
 
 topRightTriangle : Shape
 topRightTriangle =
-    createShape None 1 LogoAnimCss.blue ( 0, 0 ) [ ( 523.298, 343.724 ), ( 523.298, 200 ), ( 379.573, 200 ) ]
+    createShape Rotate 10 LogoAnimCss.blue ( 475.39, 247.908 ) [ ( 47.908, 95.816 ), ( 47.908, -47.908 ), ( -95.817, -47.908 ) ]
 
 
 createShape : Action -> Float -> Css.Color -> ( Float, Float ) -> List ( Float, Float ) -> Shape
@@ -158,25 +158,36 @@ matrixScale k =
     }
 
 
+matrixRotate : Float -> Matrix
+matrixRotate theta =
+    { a = cos theta
+    , b = sin theta
+    , c = -(sin theta)
+    , d = cos theta
+    , tx = 0
+    , ty = 0
+    }
+
+
 matrixTranslate : Float -> Float -> Matrix
 matrixTranslate tx ty =
-    { a = 0
+    { a = 1
     , b = 0
     , c = 0
-    , d = 0
+    , d = 1
     , tx = tx
     , ty = ty
     }
 
 
-matrixAdd : Matrix -> Matrix -> Matrix
-matrixAdd m1 m2 =
-    { a = m1.a + m2.a
-    , b = m1.b + m2.b
-    , c = m1.c + m2.c
-    , d = m1.d + m2.d
-    , tx = m1.tx + m2.tx
-    , ty = m1.ty + m2.ty
+matrixMultiply : Matrix -> Matrix -> Matrix
+matrixMultiply m1 m2 =
+    { a = (m1.a * m2.a) + (m1.b * m2.c)
+    , b = (m1.a * m2.b) + (m1.b * m2.d)
+    , c = (m1.c * m2.a) + (m1.d * m2.c)
+    , d = (m1.c * m2.b) + (m1.d * m2.d)
+    , tx = (m1.a * m2.tx) + (m1.b * m2.ty) + m1.tx
+    , ty = (m1.c * m2.tx) + (m1.d * m2.ty) + m1.ty
     }
 
 
@@ -188,6 +199,7 @@ type Action
     = None
     | MoveDown
     | MoveRight
+    | Rotate
     | Shrink
 
 
@@ -200,7 +212,7 @@ tick time model =
                 (\s ->
                     if time < Maybe.withDefault 0 s.actionEnd then
                         updateShape time s
-                    else if s.action == model.action then
+                    else if s.action /= None && s.action == model.action then
                         updateShape time { s | actionStart = Just time, actionEnd = Just (time + s.actionDuration) }
                     else if Nothing /= s.actionEnd then
                         { s | actionStart = Nothing, actionEnd = Nothing, currentTransform = s.initialTransform }
@@ -235,13 +247,37 @@ updateShape time shape =
             MoveRight ->
                 transformMoveRight progress shape
 
+            Rotate ->
+                transformRotate progress shape
+
             Shrink ->
                 transformShrink progress shape
 
 
-updateTransform : Matrix -> Shape -> Shape
-updateTransform matrix shape =
-    { shape | currentTransform = matrixAdd shape.initialTransform matrix }
+updateTransform : List Matrix -> Shape -> Shape
+updateTransform transforms shape =
+    let
+        first =
+            firstTransform transforms
+
+        transformsWithInitial =
+            (List.drop 1 transforms) ++ [ shape.initialTransform ]
+    in
+        { shape | currentTransform = List.foldl matrixMultiply first transformsWithInitial }
+
+
+firstTransform : List Matrix -> Matrix
+firstTransform transforms =
+    let
+        head =
+            List.head transforms
+    in
+        case head of
+            Nothing ->
+                matrixIdentity { x = 0, y = 0 }
+
+            Just first ->
+                first
 
 
 transformMoveDown : Progress -> Shape -> Shape
@@ -249,35 +285,57 @@ transformMoveDown progress shape =
     let
         offset =
             100 * sin (pi * progress)
-
-        matrix =
-            matrixTranslate 0 offset
     in
-        updateTransform matrix shape
+        updateTransform [ (matrixTranslate 0 offset) ] shape
 
 
 transformMoveRight : Progress -> Shape -> Shape
 transformMoveRight progress shape =
     let
         offset =
-            10 * sin (4 * pi * progress)
+            -100 * sin (pi * progress)
 
-        matrix =
-            matrixTranslate offset 0
+        scale =
+            0.5 + (0.25 * (1 + cos (2 * pi * progress)))
     in
-        updateTransform matrix shape
+        updateTransform [ (matrixScale scale), (matrixTranslate offset 0) ] shape
+
+
+transformRotate : Progress -> Shape -> Shape
+transformRotate progress shape =
+    if progress < 0.25 then
+        let
+            offset =
+                40 * sin (2 * pi * progress)
+
+            scale =
+                0.8 + (0.1 * (1 + cos (4 * pi * progress)))
+        in
+            updateTransform [ (matrixScale scale), (matrixTranslate offset -offset) ] shape
+    else if progress < 0.75 then
+        let
+            angle =
+                4 * pi * (progress - 0.25)
+        in
+            updateTransform [ (matrixScale 0.8), (matrixRotate angle), (matrixTranslate 40 -40) ] shape
+    else
+        let
+            offset =
+                40 - (40 * cos (2 * pi * progress))
+
+            scale =
+                0.8 + (0.1 * (1 + cos (4 * pi * progress)))
+        in
+            updateTransform [ (matrixScale scale), (matrixTranslate offset -offset) ] shape
 
 
 transformShrink : Progress -> Shape -> Shape
 transformShrink progress shape =
     let
         scale =
-            -0.5 * sin (pi * progress)
-
-        matrix =
-            matrixScale scale
+            0.5 + (0.25 * (1 + cos (8 * pi * progress)))
     in
-        updateTransform matrix shape
+        updateTransform [ (matrixScale scale) ] shape
 
 
 timeRemaining : Float -> Maybe Float -> Float
@@ -295,7 +353,7 @@ timeRemainingToProgress duration remaining =
     if remaining <= 0 then
         1
     else
-        remaining / duration
+        (duration - remaining) / duration
 
 
 
@@ -309,8 +367,8 @@ shapeToViewPoints shape =
 
 projectPoint : Point -> Matrix -> Point
 projectPoint point matrix =
-    { x = (point.x * matrix.a) + (point.y * matrix.c) + matrix.tx
-    , y = (point.x * matrix.b) + (point.y * matrix.d) + matrix.ty
+    { x = (matrix.a * point.x) + (matrix.b * point.y) + matrix.tx
+    , y = (matrix.c * point.x) + (matrix.d * point.y) + matrix.ty
     }
 
 
