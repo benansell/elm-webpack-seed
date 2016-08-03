@@ -97,7 +97,7 @@ centerSquare =
 
 centerTriangle : Shape
 centerTriangle =
-    createShape None 1 LogoAnimCss.yellow ( 361.649, 306.205 ) [ ( 0, 46.577 ), ( 69.865, -23.289 ), ( -69.866, -23.289 ) ]
+    createShape Wobble 2 LogoAnimCss.yellow ( 361.649, 306.205 ) [ ( 0, 46.577 ), ( 69.865, -23.289 ), ( -69.866, -23.289 ) ]
 
 
 leftBigTriangle : Shape
@@ -221,6 +221,7 @@ type Action
     | MoveRight
     | Rotate
     | Shrink
+    | Wobble
 
 
 tick : Float -> Model -> Model
@@ -275,6 +276,9 @@ updateShape time shape =
 
             Shrink ->
                 transformShrink progress shape
+
+            Wobble ->
+                transformWobble progress shape
 
 
 updateTransform : List Matrix -> Shape -> Shape
@@ -381,6 +385,21 @@ transformShrink progress shape =
             scaleProgress 0.5 4 progress
     in
         updateTransform [ (matrixScale scale) ] shape
+
+
+transformWobble : Progress -> Shape -> Shape
+transformWobble progress shape =
+    let
+        angle =
+            degrees 2
+
+        wobbleTick =
+            round <| 25 * progress
+    in
+        if wobbleTick % 2 == 0 then
+            updateTransform [ (matrixRotate Clockwise angle) ] shape
+        else
+            updateTransform [ (matrixRotate AntiClockwise angle) ] shape
 
 
 scaleProgress : Float -> Float -> Progress -> Float
