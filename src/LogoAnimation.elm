@@ -60,6 +60,11 @@ type alias Progress =
     Float
 
 
+type RotateDirection
+    = AntiClockwise
+    | Clockwise
+
+
 init : Model
 init =
     { action = None
@@ -82,7 +87,7 @@ bottomBigTriangle =
 
 bottomRightTriangle : Shape
 bottomRightTriangle =
-    createShape None 1 LogoAnimCss.yellow ( 500.706, 446.655 ) [ ( -45.184, 0 ), ( 22.592, 67.777 ), ( 22.592, -67.776 ) ]
+    createShape Hinge 4 LogoAnimCss.yellow ( 523.298, 514.432 ) [ ( -67.776, -67.777 ), ( 0, 0 ), ( 0, -135.553 ) ]
 
 
 centerSquare : Shape
@@ -158,15 +163,29 @@ matrixScale k =
     }
 
 
-matrixRotate : Float -> Matrix
-matrixRotate theta =
-    { a = cos theta
-    , b = sin theta
-    , c = -(sin theta)
-    , d = cos theta
-    , tx = 0
-    , ty = 0
-    }
+matrixRotate : RotateDirection -> Float -> Matrix
+matrixRotate direction theta =
+    let
+        signedDirection =
+            convertRotateDirecton direction
+    in
+        { a = cos theta
+        , b = signedDirection * -(sin theta)
+        , c = signedDirection * sin theta
+        , d = cos theta
+        , tx = 0
+        , ty = 0
+        }
+
+
+convertRotateDirecton : RotateDirection -> Float
+convertRotateDirecton direction =
+    case direction of
+        Clockwise ->
+            1
+
+        AntiClockwise ->
+            -1
 
 
 matrixTranslate : Float -> Float -> Matrix
@@ -197,6 +216,7 @@ matrixMultiply m1 m2 =
 
 type Action
     = None
+    | Hinge
     | MoveDown
     | MoveRight
     | Rotate
@@ -241,6 +261,9 @@ updateShape time shape =
             None ->
                 shape
 
+            Hinge ->
+                transformHinge progress shape
+
             MoveDown ->
                 transformMoveDown progress shape
 
@@ -280,6 +303,28 @@ firstTransform transforms =
                 first
 
 
+transformHinge : Progress -> Shape -> Shape
+transformHinge progress shape =
+    let
+        angle =
+            2 * pi * progress
+
+        maxScale =
+            0.7
+
+        scale =
+            scaleProgress maxScale 2 progress
+    in
+        if progress < 0.25 then
+            updateTransform [ (matrixScale scale), (matrixRotate Clockwise angle) ] shape
+        else if progress < 0.5 then
+            updateTransform [ (matrixScale maxScale), (matrixRotate Clockwise angle) ] shape
+        else if progress < 0.75 then
+            updateTransform [ (matrixScale maxScale), (matrixRotate AntiClockwise angle) ] shape
+        else
+            updateTransform [ (matrixScale scale), (matrixRotate AntiClockwise angle) ] shape
+
+
 transformMoveDown : Progress -> Shape -> Shape
 transformMoveDown progress shape =
     let
@@ -296,7 +341,7 @@ transformMoveRight progress shape =
             -100 * sin (pi * progress)
 
         scale =
-            0.5 + (0.25 * (1 + cos (2 * pi * progress)))
+            scaleProgress 0.5 1 progress
     in
         updateTransform [ (matrixScale scale), (matrixTranslate offset 0) ] shape
 
@@ -309,7 +354,7 @@ transformRotate progress shape =
                 40 * sin (2 * pi * progress)
 
             scale =
-                0.8 + (0.1 * (1 + cos (4 * pi * progress)))
+                scaleProgress 0.8 2 progress
         in
             updateTransform [ (matrixScale scale), (matrixTranslate offset -offset) ] shape
     else if progress < 0.75 then
@@ -317,14 +362,14 @@ transformRotate progress shape =
             angle =
                 4 * pi * (progress - 0.25)
         in
-            updateTransform [ (matrixScale 0.8), (matrixRotate angle), (matrixTranslate 40 -40) ] shape
+            updateTransform [ (matrixScale 0.8), (matrixRotate AntiClockwise angle), (matrixTranslate 40 -40) ] shape
     else
         let
             offset =
                 40 - (40 * cos (2 * pi * progress))
 
             scale =
-                0.8 + (0.1 * (1 + cos (4 * pi * progress)))
+                scaleProgress 0.8 2 progress
         in
             updateTransform [ (matrixScale scale), (matrixTranslate offset -offset) ] shape
 
@@ -333,9 +378,21 @@ transformShrink : Progress -> Shape -> Shape
 transformShrink progress shape =
     let
         scale =
-            0.5 + (0.25 * (1 + cos (8 * pi * progress)))
+            scaleProgress 0.5 4 progress
     in
         updateTransform [ (matrixScale scale) ] shape
+
+
+scaleProgress : Float -> Float -> Progress -> Float
+scaleProgress scale cycle progress =
+    let
+        angle =
+            2 * pi * cycle * progress
+
+        offset =
+            (1 - scale) / 2
+    in
+        scale + (offset * (1 + cos angle))
 
 
 timeRemaining : Float -> Maybe Float -> Float
