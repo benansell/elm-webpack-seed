@@ -107,7 +107,7 @@ leftBigTriangle =
 
 topParallelogram : Shape
 topParallelogram =
-    createShape None 1 LogoAnimCss.green ( 320.54, 235.188 ) [ ( -111.673, -35.188 ), ( -41.299, 35.187 ), ( 111.673, 35.187 ), ( 41.298, -35.188 ) ]
+    createShape Shear 4 LogoAnimCss.green ( 320.54, 235.188 ) [ ( -111.673, -35.188 ), ( -41.299, 35.187 ), ( 111.673, 35.187 ), ( 41.298, -35.188 ) ]
 
 
 topRightTriangle : Shape
@@ -158,6 +158,17 @@ matrixScale k =
     , b = 0
     , c = 0
     , d = k
+    , tx = 0
+    , ty = 0
+    }
+
+
+matrixShear : Float -> Matrix
+matrixShear k =
+    { a = 1
+    , b = k
+    , c = 0
+    , d = 1
     , tx = 0
     , ty = 0
     }
@@ -220,6 +231,7 @@ type Action
     | MoveDown
     | MoveRight
     | Rotate
+    | Shear
     | Shrink
     | Wobble
 
@@ -273,6 +285,9 @@ updateShape time shape =
 
             Rotate ->
                 transformRotate progress shape
+
+            Shear ->
+                transformShear progress shape
 
             Shrink ->
                 transformShrink progress shape
@@ -376,6 +391,44 @@ transformRotate progress shape =
                 scaleProgress 0.8 2 progress
         in
             updateTransform [ (matrixScale scale), (matrixTranslate offset -offset) ] shape
+
+
+transformShear : Progress -> Shape -> Shape
+transformShear progress shape =
+    let
+        maxOffset =
+            -80
+    in
+        if progress < 0.25 then
+            let
+                offset =
+                    maxOffset * sin (2 * pi * progress)
+
+                scale =
+                    scaleProgress 0.8 2 progress
+            in
+                updateTransform [ (matrixTranslate offset offset) ] shape
+        else if progress < 0.5 then
+            let
+                shear =
+                    -8 * (progress - 0.25)
+            in
+                updateTransform [ (matrixShear shear), (matrixTranslate maxOffset maxOffset) ] shape
+        else if progress < 0.75 then
+            let
+                shear =
+                    -2 - (-8 * (progress - 0.5))
+            in
+                updateTransform [ (matrixShear shear), (matrixTranslate maxOffset maxOffset) ] shape
+        else
+            let
+                offset =
+                    maxOffset - (maxOffset * cos (2 * pi * progress))
+
+                scale =
+                    scaleProgress 0.8 2 progress
+            in
+                updateTransform [ (matrixTranslate offset offset) ] shape
 
 
 transformShrink : Progress -> Shape -> Shape
