@@ -7996,6 +7996,824 @@ webpackJsonp([1,0],[
 	var _Fresheyeball$elm_font_awesome$FontAwesome_Brand$adn = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Brand_Class$adn);
 	var _Fresheyeball$elm_font_awesome$FontAwesome_Brand$fiveHundredPX = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Brand_Class$fiveHundredPX);
 	
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$wrench = 'wrench';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$wifi = 'wifi';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$wheelchair_alt = 'wheelchair-alt';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$wheelchair = 'wheelchair';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$warning = 'warning';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$volume_up = 'volume-up';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$volume_off = 'volume-off';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$volume_down = 'volume-down';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$volume_control_phone = 'volume-control-phone';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$video_camera = 'video-camera';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$users = 'users';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$user_times = 'user-times';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$user_secret = 'user-secret';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$user_plus = 'user-plus';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$user = 'user';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$upload = 'upload';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$unsorted = 'unsorted';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$unlock_alt = 'unlock-alt';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$unlock = 'unlock';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$university = 'university';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$universal_access = 'universal-access';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$umbrella = 'umbrella';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$tv = 'tv';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$tty = 'tty';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$truck = 'truck';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$trophy = 'trophy';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$tree = 'tree';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$trash_o = 'trash-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$trash = 'trash';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$trademark = 'trademark';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$toggle_up = 'toggle-up';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$toggle_right = 'toggle-right';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$toggle_on = 'toggle-on';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$toggle_off = 'toggle-off';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$toggle_left = 'toggle-left';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$toggle_down = 'toggle-down';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$tint = 'tint';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$times_circle_o = 'times-circle-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$times_circle = 'times-circle';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$times = 'times';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$ticket = 'ticket';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$thumbs_up = 'thumbs-up';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$thumbs_o_up = 'thumbs-o-up';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$thumbs_o_down = 'thumbs-o-down';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$thumbs_down = 'thumbs-down';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$thumb_tack = 'thumb-tack';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$terminal = 'terminal';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$television = 'television';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$taxi = 'taxi';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$tasks = 'tasks';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$tags = 'tags';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$tag = 'tag';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$tachometer = 'tachometer';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$tablet = 'tablet';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$support = 'support';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$sun_o = 'sun-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$suitcase = 'suitcase';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$street_view = 'street-view';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$sticky_note_o = 'sticky-note-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$sticky_note = 'sticky-note';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$star_o = 'star-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$star_half_o = 'star-half-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$star_half_full = 'star-half-full';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$star_half_empty = 'star-half-empty';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$star_half = 'star-half';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$star = 'star';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$square_o = 'square-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$square = 'square';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$spoon = 'spoon';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$spinner = 'spinner';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$space_shuttle = 'space-shuttle';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$sort_up = 'sort-up';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$sort_numeric_desc = 'sort-numeric-desc';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$sort_numeric_asc = 'sort-numeric-asc';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$sort_down = 'sort-down';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$sort_desc = 'sort-desc';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$sort_asc = 'sort-asc';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$sort_amount_desc = 'sort-amount-desc';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$sort_amount_asc = 'sort-amount-asc';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$sort_alpha_desc = 'sort-alpha-desc';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$sort_alpha_asc = 'sort-alpha-asc';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$sort = 'sort';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$soccer_ball_o = 'soccer-ball-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$smile_o = 'smile-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$sliders = 'sliders';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$sitemap = 'sitemap';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$signing = 'signing';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$signal = 'signal';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$sign_out = 'sign-out';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$sign_language = 'sign-language';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$sign_in = 'sign-in';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$shopping_cart = 'shopping-cart';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$shopping_basket = 'shopping-basket';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$shopping_bag = 'shopping-bag';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$ship = 'ship';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$shield = 'shield';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$share_square_o = 'share-square-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$share_square = 'share-square';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$share_alt_square = 'share-alt-square';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$share_alt = 'share-alt';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$share = 'share';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$server = 'server';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$send_o = 'send-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$send = 'send';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$search_plus = 'search-plus';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$search_minus = 'search-minus';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$search = 'search';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$rss_square = 'rss-square';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$rss = 'rss';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$rocket = 'rocket';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$road = 'road';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$retweet = 'retweet';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$reply_all = 'reply-all';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$reply = 'reply';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$reorder = 'reorder';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$remove = 'remove';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$registered = 'registered';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$refresh = 'refresh';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$recycle = 'recycle';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$random = 'random';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$quote_right = 'quote-right';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$quote_left = 'quote-left';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$question_circle_o = 'question-circle-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$question_circle = 'question-circle';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$question = 'question';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$qrcode = 'qrcode';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$puzzle_piece = 'puzzle-piece';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$print = 'print';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$power_off = 'power-off';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$plus_square_o = 'plus-square-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$plus_square = 'plus-square';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$plus_circle = 'plus-circle';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$plus = 'plus';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$plug = 'plug';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$plane = 'plane';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$pie_chart = 'pie-chart';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$picture_o = 'picture-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$photo = 'photo';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$phone_square = 'phone-square';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$phone = 'phone';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$percent = 'percent';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$pencil_square_o = 'pencil-square-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$pencil_square = 'pencil-square';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$pencil = 'pencil';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$paw = 'paw';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$paper_plane_o = 'paper-plane-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$paper_plane = 'paper-plane';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$paint_brush = 'paint-brush';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$object_ungroup = 'object-ungroup';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$object_group = 'object-group';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$newspaper_o = 'newspaper-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$navicon = 'navicon';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$music = 'music';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$mouse_pointer = 'mouse-pointer';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$motorcycle = 'motorcycle';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$mortar_board = 'mortar-board';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$moon_o = 'moon-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$money = 'money';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$mobile_phone = 'mobile-phone';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$mobile = 'mobile';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$minus_square_o = 'minus-square-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$minus_square = 'minus-square';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$minus_circle = 'minus-circle';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$minus = 'minus';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$microphone_slash = 'microphone-slash';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$microphone = 'microphone';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$meh_o = 'meh-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$map_signs = 'map-signs';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$map_pin = 'map-pin';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$map_o = 'map-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$map_marker = 'map-marker';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$map = 'map';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$male = 'male';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$mail_reply_all = 'mail-reply-all';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$mail_reply = 'mail-reply';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$mail_forward = 'mail-forward';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$magnet = 'magnet';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$magic = 'magic';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$low_vision = 'low-vision';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$lock = 'lock';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$location_arrow = 'location-arrow';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$line_chart = 'line-chart';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$lightbulb_o = 'lightbulb-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$life_saver = 'life-saver';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$life_ring = 'life-ring';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$life_buoy = 'life-buoy';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$life_bouy = 'life-bouy';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$level_up = 'level-up';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$level_down = 'level-down';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$lemon_o = 'lemon-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$legal = 'legal';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$leaf = 'leaf';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$laptop = 'laptop';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$language = 'language';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$keyboard_o = 'keyboard-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$key = 'key';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$institution = 'institution';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$info_circle = 'info-circle';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$info = 'info';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$industry = 'industry';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$inbox = 'inbox';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$image = 'image';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$i_cursor = 'i-cursor';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$hourglass_start = 'hourglass-start';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$hourglass_o = 'hourglass-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$hourglass_half = 'hourglass-half';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$hourglass_end = 'hourglass-end';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$hourglass_3 = 'hourglass-3';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$hourglass_2 = 'hourglass-2';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$hourglass_1 = 'hourglass-1';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$hourglass = 'hourglass';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$hotel = 'hotel';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$home = 'home';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$history = 'history';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$heartbeat = 'heartbeat';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$heart_o = 'heart-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$heart = 'heart';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$headphones = 'headphones';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$hdd_o = 'hdd-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$hashtag = 'hashtag';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$hard_of_hearing = 'hard-of-hearing';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$hand_stop_o = 'hand-stop-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$hand_spock_o = 'hand-spock-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$hand_scissors_o = 'hand-scissors-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$hand_rock_o = 'hand-rock-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$hand_pointer_o = 'hand-pointer-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$hand_peace_o = 'hand-peace-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$hand_paper_o = 'hand-paper-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$hand_lizard_o = 'hand-lizard-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$hand_grab_o = 'hand-grab-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$group = 'group';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$graduation_cap = 'graduation-cap';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$globe = 'globe';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$glass = 'glass';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$gift = 'gift';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$gears = 'gears';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$gear = 'gear';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$gavel = 'gavel';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$gamepad = 'gamepad';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$futbol_o = 'futbol-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$frown_o = 'frown-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$folder_open_o = 'folder-open-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$folder_open = 'folder-open';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$folder_o = 'folder-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$folder = 'folder';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$flask = 'flask';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$flash = 'flash';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$flag_o = 'flag-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$flag_checkered = 'flag-checkered';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$flag = 'flag';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$fire_extinguisher = 'fire-extinguisher';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$fire = 'fire';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$filter = 'filter';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$film = 'film';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$file_zip_o = 'file-zip-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$file_word_o = 'file-word-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$file_video_o = 'file-video-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$file_sound_o = 'file-sound-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$file_powerpoint_o = 'file-powerpoint-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$file_picture_o = 'file-picture-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$file_photo_o = 'file-photo-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$file_pdf_o = 'file-pdf-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$file_movie_o = 'file-movie-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$file_image_o = 'file-image-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$file_excel_o = 'file-excel-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$file_code_o = 'file-code-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$file_audio_o = 'file-audio-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$file_archive_o = 'file-archive-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$fighter_jet = 'fighter-jet';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$female = 'female';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$feed = 'feed';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$fax = 'fax';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$eyedropper = 'eyedropper';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$eye_slash = 'eye-slash';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$eye = 'eye';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$external_link_square = 'external-link-square';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$external_link = 'external-link';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$exclamation_triangle = 'exclamation-triangle';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$exclamation_circle = 'exclamation-circle';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$exclamation = 'exclamation';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$exchange = 'exchange';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$eraser = 'eraser';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$envelope_square = 'envelope-square';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$envelope_o = 'envelope-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$envelope = 'envelope';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$ellipsis_v = 'ellipsis-v';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$ellipsis_h = 'ellipsis-h';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$edit = 'edit';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$download = 'download';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$dot_circle_o = 'dot-circle-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$diamond = 'diamond';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$desktop = 'desktop';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$deafness = 'deafness';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$deaf = 'deaf';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$database = 'database';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$dashboard = 'dashboard';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$cutlery = 'cutlery';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$cubes = 'cubes';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$cube = 'cube';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$crosshairs = 'crosshairs';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$crop = 'crop';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$credit_card_alt = 'credit-card-alt';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$credit_card = 'credit-card';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$creative_commons = 'creative-commons';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$copyright = 'copyright';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$compass = 'compass';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$comments_o = 'comments-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$comments = 'comments';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$commenting_o = 'commenting-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$commenting = 'commenting';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$comment_o = 'comment-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$comment = 'comment';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$cogs = 'cogs';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$cog = 'cog';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$coffee = 'coffee';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$code_fork = 'code-fork';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$code = 'code';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$cloud_upload = 'cloud-upload';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$cloud_download = 'cloud-download';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$cloud = 'cloud';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$close = 'close';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$clone = 'clone';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$clock_o = 'clock-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$circle_thin = 'circle-thin';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$circle_o_notch = 'circle-o-notch';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$circle_o = 'circle-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$circle = 'circle';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$child = 'child';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$check_square_o = 'check-square-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$check_square = 'check-square';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$check_circle_o = 'check-circle-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$check_circle = 'check-circle';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$check = 'check';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$certificate = 'certificate';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$cc = 'cc';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$cart_plus = 'cart-plus';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$cart_arrow_down = 'cart-arrow-down';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$caret_square_o_up = 'caret-square-o-up';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$caret_square_o_right = 'caret-square-o-right';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$caret_square_o_left = 'caret-square-o-left';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$caret_square_o_down = 'caret-square-o-down';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$car = 'car';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$camera_retro = 'camera-retro';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$camera = 'camera';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$calendar_times_o = 'calendar-times-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$calendar_plus_o = 'calendar-plus-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$calendar_o = 'calendar-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$calendar_minus_o = 'calendar-minus-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$calendar_check_o = 'calendar-check-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$calendar = 'calendar';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$calculator = 'calculator';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$cab = 'cab';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$bus = 'bus';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$bullseye = 'bullseye';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$bullhorn = 'bullhorn';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$building_o = 'building-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$building = 'building';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$bug = 'bug';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$briefcase = 'briefcase';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$braille = 'braille';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$bookmark_o = 'bookmark-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$bookmark = 'bookmark';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$book = 'book';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$bomb = 'bomb';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$bolt = 'bolt';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$bluetooth_b = 'bluetooth-b';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$bluetooth = 'bluetooth';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$blind = 'blind';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$birthday_cake = 'birthday-cake';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$binoculars = 'binoculars';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$bicycle = 'bicycle';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$bell_slash_o = 'bell-slash-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$bell_slash = 'bell-slash';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$bell_o = 'bell-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$bell = 'bell';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$beer = 'beer';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$bed = 'bed';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$battery_three_quarters = 'battery-three-quarters';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$battery_quarter = 'battery-quarter';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$battery_half = 'battery-half';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$battery_full = 'battery-full';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$battery_empty = 'battery-empty';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$battery_4 = 'battery-4';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$battery_3 = 'battery-3';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$battery_2 = 'battery-2';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$battery_1 = 'battery-1';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$battery_0 = 'battery-0';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$bars = 'bars';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$barcode = 'barcode';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$bar_chart_o = 'bar-chart-o';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$bar_chart = 'bar-chart';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$bank = 'bank';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$ban = 'ban';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$balance_scale = 'balance-scale';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$automobile = 'automobile';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$audio_description = 'audio-description';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$at = 'at';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$asterisk = 'asterisk';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$assistive_listening_systems = 'assistive-listening-systems';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$asl_interpreting = 'asl-interpreting';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$arrows_v = 'arrows-v';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$arrows_h = 'arrows-h';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$arrows = 'arrows';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$area_chart = 'area-chart';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$archive = 'archive';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$anchor = 'anchor';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$american_sign_language_interpreting = 'american-sign-language-interpreting';
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$adjust = 'adjust';
+	
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$wrench = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$wrench);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$wifi = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$wifi);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$wheelchair_alt = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$wheelchair_alt);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$wheelchair = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$wheelchair);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$warning = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$warning);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$volume_up = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$volume_up);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$volume_off = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$volume_off);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$volume_down = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$volume_down);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$volume_control_phone = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$volume_control_phone);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$video_camera = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$video_camera);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$users = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$users);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$user_times = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$user_times);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$user_secret = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$user_secret);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$user_plus = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$user_plus);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$user = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$user);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$upload = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$upload);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$unsorted = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$unsorted);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$unlock_alt = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$unlock_alt);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$unlock = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$unlock);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$university = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$university);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$universal_access = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$universal_access);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$umbrella = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$umbrella);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$tv = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$tv);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$tty = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$tty);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$truck = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$truck);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$trophy = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$trophy);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$tree = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$tree);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$trash_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$trash_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$trash = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$trash);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$trademark = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$trademark);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$toggle_up = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$toggle_up);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$toggle_right = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$toggle_right);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$toggle_on = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$toggle_on);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$toggle_off = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$toggle_off);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$toggle_left = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$toggle_left);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$toggle_down = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$toggle_down);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$tint = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$tint);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$times_circle_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$times_circle_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$times_circle = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$times_circle);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$times = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$times);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$ticket = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$ticket);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$thumbs_up = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$thumbs_up);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$thumbs_o_up = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$thumbs_o_up);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$thumbs_o_down = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$thumbs_o_down);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$thumbs_down = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$thumbs_down);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$thumb_tack = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$thumb_tack);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$terminal = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$terminal);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$television = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$television);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$taxi = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$taxi);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$tasks = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$tasks);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$tags = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$tags);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$tag = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$tag);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$tachometer = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$tachometer);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$tablet = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$tablet);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$support = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$support);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$sun_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$sun_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$suitcase = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$suitcase);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$street_view = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$street_view);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$sticky_note_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$sticky_note_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$sticky_note = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$sticky_note);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$star_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$star_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$star_half_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$star_half_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$star_half_full = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$star_half_full);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$star_half_empty = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$star_half_empty);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$star_half = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$star_half);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$star = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$star);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$square_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$square_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$square = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$square);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$spoon = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$spoon);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$spinner = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$spinner);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$space_shuttle = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$space_shuttle);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$sort_up = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$sort_up);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$sort_numeric_desc = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$sort_numeric_desc);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$sort_numeric_asc = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$sort_numeric_asc);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$sort_down = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$sort_down);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$sort_desc = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$sort_desc);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$sort_asc = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$sort_asc);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$sort_amount_desc = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$sort_amount_desc);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$sort_amount_asc = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$sort_amount_asc);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$sort_alpha_desc = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$sort_alpha_desc);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$sort_alpha_asc = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$sort_alpha_asc);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$sort = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$sort);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$soccer_ball_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$soccer_ball_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$smile_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$smile_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$sliders = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$sliders);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$sitemap = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$sitemap);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$signing = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$signing);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$signal = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$signal);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$sign_out = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$sign_out);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$sign_language = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$sign_language);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$sign_in = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$sign_in);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$shopping_cart = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$shopping_cart);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$shopping_basket = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$shopping_basket);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$shopping_bag = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$shopping_bag);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$ship = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$ship);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$shield = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$shield);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$share_square_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$share_square_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$share_square = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$share_square);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$share_alt_square = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$share_alt_square);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$share_alt = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$share_alt);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$share = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$share);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$server = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$server);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$send_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$send_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$send = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$send);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$search_plus = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$search_plus);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$search_minus = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$search_minus);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$search = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$search);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$rss_square = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$rss_square);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$rss = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$rss);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$rocket = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$rocket);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$road = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$road);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$retweet = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$retweet);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$reply_all = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$reply_all);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$reply = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$reply);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$reorder = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$reorder);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$remove = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$remove);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$registered = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$registered);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$refresh = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$refresh);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$recycle = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$recycle);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$random = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$random);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$quote_right = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$quote_right);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$quote_left = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$quote_left);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$question_circle_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$question_circle_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$question_circle = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$question_circle);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$question = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$question);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$qrcode = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$qrcode);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$puzzle_piece = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$puzzle_piece);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$print = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$print);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$power_off = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$power_off);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$plus_square_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$plus_square_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$plus_square = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$plus_square);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$plus_circle = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$plus_circle);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$plus = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$plus);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$plug = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$plug);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$plane = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$plane);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$pie_chart = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$pie_chart);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$picture_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$picture_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$photo = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$photo);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$phone_square = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$phone_square);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$phone = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$phone);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$percent = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$percent);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$pencil_square_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$pencil_square_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$pencil_square = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$pencil_square);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$pencil = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$pencil);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$paw = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$paw);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$paper_plane_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$paper_plane_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$paper_plane = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$paper_plane);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$paint_brush = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$paint_brush);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$object_ungroup = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$object_ungroup);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$object_group = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$object_group);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$newspaper_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$newspaper_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$navicon = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$navicon);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$music = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$music);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$mouse_pointer = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$mouse_pointer);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$motorcycle = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$motorcycle);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$mortar_board = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$mortar_board);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$moon_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$moon_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$money = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$money);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$mobile_phone = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$mobile_phone);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$mobile = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$mobile);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$minus_square_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$minus_square_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$minus_square = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$minus_square);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$minus_circle = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$minus_circle);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$minus = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$minus);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$microphone_slash = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$microphone_slash);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$microphone = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$microphone);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$meh_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$meh_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$map_signs = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$map_signs);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$map_pin = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$map_pin);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$map_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$map_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$map_marker = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$map_marker);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$map = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$map);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$male = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$male);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$mail_reply_all = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$mail_reply_all);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$mail_reply = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$mail_reply);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$mail_forward = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$mail_forward);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$magnet = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$magnet);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$magic = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$magic);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$low_vision = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$low_vision);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$lock = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$lock);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$location_arrow = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$location_arrow);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$line_chart = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$line_chart);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$lightbulb_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$lightbulb_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$life_saver = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$life_saver);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$life_ring = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$life_ring);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$life_buoy = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$life_buoy);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$life_bouy = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$life_bouy);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$level_up = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$level_up);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$level_down = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$level_down);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$lemon_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$lemon_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$legal = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$legal);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$leaf = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$leaf);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$laptop = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$laptop);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$language = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$language);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$keyboard_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$keyboard_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$key = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$key);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$institution = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$institution);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$info_circle = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$info_circle);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$info = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$info);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$industry = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$industry);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$inbox = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$inbox);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$image = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$image);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$i_cursor = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$i_cursor);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$hourglass_start = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$hourglass_start);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$hourglass_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$hourglass_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$hourglass_half = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$hourglass_half);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$hourglass_end = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$hourglass_end);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$hourglass_3 = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$hourglass_3);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$hourglass_2 = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$hourglass_2);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$hourglass_1 = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$hourglass_1);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$hourglass = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$hourglass);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$hotel = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$hotel);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$home = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$home);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$history = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$history);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$heartbeat = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$heartbeat);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$heart_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$heart_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$heart = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$heart);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$headphones = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$headphones);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$hdd_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$hdd_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$hashtag = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$hashtag);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$hard_of_hearing = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$hard_of_hearing);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$hand_stop_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$hand_stop_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$hand_spock_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$hand_spock_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$hand_scissors_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$hand_scissors_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$hand_rock_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$hand_rock_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$hand_pointer_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$hand_pointer_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$hand_peace_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$hand_peace_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$hand_paper_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$hand_paper_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$hand_lizard_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$hand_lizard_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$hand_grab_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$hand_grab_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$group = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$group);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$graduation_cap = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$graduation_cap);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$globe = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$globe);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$glass = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$glass);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$gift = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$gift);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$gears = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$gears);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$gear = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$gear);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$gavel = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$gavel);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$gamepad = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$gamepad);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$futbol_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$futbol_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$frown_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$frown_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$folder_open_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$folder_open_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$folder_open = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$folder_open);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$folder_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$folder_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$folder = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$folder);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$flask = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$flask);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$flash = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$flash);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$flag_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$flag_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$flag_checkered = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$flag_checkered);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$flag = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$flag);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$fire_extinguisher = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$fire_extinguisher);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$fire = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$fire);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$filter = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$filter);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$film = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$film);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$file_zip_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$file_zip_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$file_word_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$file_word_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$file_video_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$file_video_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$file_sound_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$file_sound_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$file_powerpoint_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$file_powerpoint_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$file_picture_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$file_picture_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$file_photo_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$file_photo_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$file_pdf_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$file_pdf_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$file_movie_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$file_movie_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$file_image_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$file_image_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$file_excel_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$file_excel_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$file_code_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$file_code_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$file_audio_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$file_audio_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$file_archive_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$file_archive_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$fighter_jet = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$fighter_jet);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$female = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$female);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$feed = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$feed);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$fax = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$fax);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$eyedropper = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$eyedropper);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$eye_slash = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$eye_slash);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$eye = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$eye);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$external_link_square = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$external_link_square);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$external_link = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$external_link);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$exclamation_triangle = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$exclamation_triangle);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$exclamation_circle = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$exclamation_circle);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$exclamation = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$exclamation);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$exchange = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$exchange);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$eraser = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$eraser);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$envelope_square = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$envelope_square);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$envelope_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$envelope_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$envelope = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$envelope);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$ellipsis_v = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$ellipsis_v);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$ellipsis_h = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$ellipsis_h);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$edit = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$edit);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$download = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$download);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$dot_circle_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$dot_circle_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$diamond = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$diamond);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$desktop = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$desktop);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$deafness = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$deafness);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$deaf = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$deaf);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$database = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$database);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$dashboard = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$dashboard);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$cutlery = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$cutlery);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$cubes = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$cubes);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$cube = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$cube);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$crosshairs = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$crosshairs);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$crop = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$crop);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$credit_card_alt = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$credit_card_alt);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$credit_card = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$credit_card);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$creative_commons = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$creative_commons);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$copyright = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$copyright);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$compass = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$compass);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$comments_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$comments_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$comments = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$comments);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$commenting_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$commenting_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$commenting = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$commenting);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$comment_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$comment_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$comment = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$comment);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$cogs = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$cogs);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$cog = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$cog);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$coffee = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$coffee);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$code_fork = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$code_fork);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$code = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$code);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$cloud_upload = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$cloud_upload);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$cloud_download = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$cloud_download);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$cloud = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$cloud);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$close = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$close);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$clone = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$clone);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$clock_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$clock_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$circle_thin = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$circle_thin);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$circle_o_notch = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$circle_o_notch);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$circle_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$circle_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$circle = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$circle);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$child = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$child);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$check_square_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$check_square_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$check_square = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$check_square);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$check_circle_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$check_circle_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$check_circle = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$check_circle);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$check = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$check);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$certificate = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$certificate);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$cc = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$cc);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$cart_plus = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$cart_plus);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$cart_arrow_down = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$cart_arrow_down);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$caret_square_o_up = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$caret_square_o_up);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$caret_square_o_right = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$caret_square_o_right);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$caret_square_o_left = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$caret_square_o_left);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$caret_square_o_down = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$caret_square_o_down);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$car = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$car);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$camera_retro = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$camera_retro);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$camera = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$camera);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$calendar_times_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$calendar_times_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$calendar_plus_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$calendar_plus_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$calendar_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$calendar_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$calendar_minus_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$calendar_minus_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$calendar_check_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$calendar_check_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$calendar = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$calendar);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$calculator = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$calculator);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$cab = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$cab);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$bus = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$bus);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$bullseye = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$bullseye);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$bullhorn = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$bullhorn);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$building_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$building_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$building = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$building);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$bug = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$bug);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$briefcase = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$briefcase);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$braille = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$braille);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$bookmark_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$bookmark_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$bookmark = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$bookmark);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$book = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$book);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$bomb = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$bomb);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$bolt = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$bolt);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$bluetooth_b = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$bluetooth_b);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$bluetooth = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$bluetooth);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$blind = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$blind);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$birthday_cake = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$birthday_cake);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$binoculars = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$binoculars);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$bicycle = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$bicycle);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$bell_slash_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$bell_slash_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$bell_slash = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$bell_slash);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$bell_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$bell_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$bell = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$bell);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$beer = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$beer);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$bed = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$bed);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$battery_three_quarters = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$battery_three_quarters);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$battery_quarter = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$battery_quarter);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$battery_half = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$battery_half);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$battery_full = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$battery_full);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$battery_empty = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$battery_empty);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$battery_4 = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$battery_4);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$battery_3 = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$battery_3);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$battery_2 = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$battery_2);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$battery_1 = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$battery_1);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$battery_0 = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$battery_0);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$bars = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$bars);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$barcode = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$barcode);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$bar_chart_o = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$bar_chart_o);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$bar_chart = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$bar_chart);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$bank = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$bank);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$ban = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$ban);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$balance_scale = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$balance_scale);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$automobile = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$automobile);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$audio_description = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$audio_description);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$at = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$at);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$asterisk = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$asterisk);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$assistive_listening_systems = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$assistive_listening_systems);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$asl_interpreting = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$asl_interpreting);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$arrows_v = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$arrows_v);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$arrows_h = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$arrows_h);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$arrows = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$arrows);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$area_chart = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$area_chart);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$archive = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$archive);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$anchor = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$anchor);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$american_sign_language_interpreting = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$american_sign_language_interpreting);
+	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$adjust = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$adjust);
+	
 	//import Maybe, Native.List //
 	
 	var _elm_lang$core$Native_Regex = function() {
@@ -11732,119 +12550,381 @@ webpackJsonp([1,0],[
 	var _rtfeldman$elm_css$Css$thick = _rtfeldman$elm_css$Css$IntentionallyUnsupportedPleaseSeeDocs;
 	var _rtfeldman$elm_css$Css$blink = _rtfeldman$elm_css$Css$IntentionallyUnsupportedPleaseSeeDocs;
 	
-	var _elm_lang$html$Html_App$programWithFlags = _elm_lang$virtual_dom$VirtualDom$programWithFlags;
-	var _elm_lang$html$Html_App$program = function (app) {
-		return _elm_lang$html$Html_App$programWithFlags(
-			_elm_lang$core$Native_Utils.update(
-				app,
-				{
-					init: function (_p0) {
-						return app.init;
-					}
-				}));
-	};
-	var _elm_lang$html$Html_App$beginnerProgram = function (_p1) {
-		var _p2 = _p1;
-		return _elm_lang$html$Html_App$programWithFlags(
-			{
-				init: function (_p3) {
-					return A2(
-						_elm_lang$core$Platform_Cmd_ops['!'],
-						_p2.model,
-						_elm_lang$core$Native_List.fromArray(
-							[]));
-				},
-				update: F2(
-					function (msg, model) {
-						return A2(
-							_elm_lang$core$Platform_Cmd_ops['!'],
-							A2(_p2.update, msg, model),
-							_elm_lang$core$Native_List.fromArray(
-								[]));
-					}),
-				view: _p2.view,
-				subscriptions: function (_p4) {
-					return _elm_lang$core$Platform_Sub$none;
-				}
-			});
-	};
-	var _elm_lang$html$Html_App$map = _elm_lang$virtual_dom$VirtualDom$map;
-	
-	var _rtfeldman$elm_css$Css_Elements$typeSelector = F2(
-		function (selectorStr, mixins) {
-			var sequence = A2(
-				_rtfeldman$elm_css$Css_Structure$TypeSelectorSequence,
-				_rtfeldman$elm_css$Css_Structure$TypeSelector(selectorStr),
-				_elm_lang$core$Native_List.fromArray(
-					[]));
-			var selector = A3(
-				_rtfeldman$elm_css$Css_Structure$Selector,
-				sequence,
-				_elm_lang$core$Native_List.fromArray(
-					[]),
-				_elm_lang$core$Maybe$Nothing);
-			return _rtfeldman$elm_css$Css_Preprocess$Snippet(
-				_elm_lang$core$Native_List.fromArray(
-					[
-						_rtfeldman$elm_css$Css_Preprocess$StyleBlockDeclaration(
-						A3(
-							_rtfeldman$elm_css$Css_Preprocess$StyleBlock,
-							selector,
-							_elm_lang$core$Native_List.fromArray(
-								[]),
-							mixins))
-					]));
+	var _elm_lang$svg$Svg$text = _elm_lang$virtual_dom$VirtualDom$text;
+	var _elm_lang$svg$Svg$svgNamespace = A2(
+		_elm_lang$virtual_dom$VirtualDom$property,
+		'namespace',
+		_elm_lang$core$Json_Encode$string('http://www.w3.org/2000/svg'));
+	var _elm_lang$svg$Svg$node = F3(
+		function (name, attributes, children) {
+			return A3(
+				_elm_lang$virtual_dom$VirtualDom$node,
+				name,
+				A2(_elm_lang$core$List_ops['::'], _elm_lang$svg$Svg$svgNamespace, attributes),
+				children);
 		});
-	var _rtfeldman$elm_css$Css_Elements$html = _rtfeldman$elm_css$Css_Elements$typeSelector('html');
-	var _rtfeldman$elm_css$Css_Elements$body = _rtfeldman$elm_css$Css_Elements$typeSelector('body');
-	var _rtfeldman$elm_css$Css_Elements$article = _rtfeldman$elm_css$Css_Elements$typeSelector('article');
-	var _rtfeldman$elm_css$Css_Elements$header = _rtfeldman$elm_css$Css_Elements$typeSelector('header');
-	var _rtfeldman$elm_css$Css_Elements$footer = _rtfeldman$elm_css$Css_Elements$typeSelector('footer');
-	var _rtfeldman$elm_css$Css_Elements$h1 = _rtfeldman$elm_css$Css_Elements$typeSelector('h1');
-	var _rtfeldman$elm_css$Css_Elements$h2 = _rtfeldman$elm_css$Css_Elements$typeSelector('h2');
-	var _rtfeldman$elm_css$Css_Elements$h3 = _rtfeldman$elm_css$Css_Elements$typeSelector('h3');
-	var _rtfeldman$elm_css$Css_Elements$h4 = _rtfeldman$elm_css$Css_Elements$typeSelector('h4');
-	var _rtfeldman$elm_css$Css_Elements$h5 = _rtfeldman$elm_css$Css_Elements$typeSelector('h5');
-	var _rtfeldman$elm_css$Css_Elements$h6 = _rtfeldman$elm_css$Css_Elements$typeSelector('h6');
-	var _rtfeldman$elm_css$Css_Elements$nav = _rtfeldman$elm_css$Css_Elements$typeSelector('nav');
-	var _rtfeldman$elm_css$Css_Elements$section = _rtfeldman$elm_css$Css_Elements$typeSelector('section');
-	var _rtfeldman$elm_css$Css_Elements$div = _rtfeldman$elm_css$Css_Elements$typeSelector('div');
-	var _rtfeldman$elm_css$Css_Elements$hr = _rtfeldman$elm_css$Css_Elements$typeSelector('hr');
-	var _rtfeldman$elm_css$Css_Elements$li = _rtfeldman$elm_css$Css_Elements$typeSelector('li');
-	var _rtfeldman$elm_css$Css_Elements$main$ = _rtfeldman$elm_css$Css_Elements$typeSelector('main');
-	var _rtfeldman$elm_css$Css_Elements$ol = _rtfeldman$elm_css$Css_Elements$typeSelector('ol');
-	var _rtfeldman$elm_css$Css_Elements$p = _rtfeldman$elm_css$Css_Elements$typeSelector('p');
-	var _rtfeldman$elm_css$Css_Elements$ul = _rtfeldman$elm_css$Css_Elements$typeSelector('ul');
-	var _rtfeldman$elm_css$Css_Elements$pre = _rtfeldman$elm_css$Css_Elements$typeSelector('pre');
-	var _rtfeldman$elm_css$Css_Elements$a = _rtfeldman$elm_css$Css_Elements$typeSelector('a');
-	var _rtfeldman$elm_css$Css_Elements$code = _rtfeldman$elm_css$Css_Elements$typeSelector('code');
-	var _rtfeldman$elm_css$Css_Elements$small = _rtfeldman$elm_css$Css_Elements$typeSelector('small');
-	var _rtfeldman$elm_css$Css_Elements$span = _rtfeldman$elm_css$Css_Elements$typeSelector('span');
-	var _rtfeldman$elm_css$Css_Elements$strong = _rtfeldman$elm_css$Css_Elements$typeSelector('strong');
-	var _rtfeldman$elm_css$Css_Elements$img = _rtfeldman$elm_css$Css_Elements$typeSelector('img');
-	var _rtfeldman$elm_css$Css_Elements$audio = _rtfeldman$elm_css$Css_Elements$typeSelector('audio');
-	var _rtfeldman$elm_css$Css_Elements$video = _rtfeldman$elm_css$Css_Elements$typeSelector('video');
-	var _rtfeldman$elm_css$Css_Elements$canvas = _rtfeldman$elm_css$Css_Elements$typeSelector('canvas');
-	var _rtfeldman$elm_css$Css_Elements$caption = _rtfeldman$elm_css$Css_Elements$typeSelector('caption');
-	var _rtfeldman$elm_css$Css_Elements$col = _rtfeldman$elm_css$Css_Elements$typeSelector('col');
-	var _rtfeldman$elm_css$Css_Elements$colgroup = _rtfeldman$elm_css$Css_Elements$typeSelector('colgroup');
-	var _rtfeldman$elm_css$Css_Elements$table = _rtfeldman$elm_css$Css_Elements$typeSelector('table');
-	var _rtfeldman$elm_css$Css_Elements$tbody = _rtfeldman$elm_css$Css_Elements$typeSelector('tbody');
-	var _rtfeldman$elm_css$Css_Elements$td = _rtfeldman$elm_css$Css_Elements$typeSelector('td');
-	var _rtfeldman$elm_css$Css_Elements$tfoot = _rtfeldman$elm_css$Css_Elements$typeSelector('tfoot');
-	var _rtfeldman$elm_css$Css_Elements$th = _rtfeldman$elm_css$Css_Elements$typeSelector('th');
-	var _rtfeldman$elm_css$Css_Elements$thead = _rtfeldman$elm_css$Css_Elements$typeSelector('thead');
-	var _rtfeldman$elm_css$Css_Elements$tr = _rtfeldman$elm_css$Css_Elements$typeSelector('tr');
-	var _rtfeldman$elm_css$Css_Elements$button = _rtfeldman$elm_css$Css_Elements$typeSelector('button');
-	var _rtfeldman$elm_css$Css_Elements$fieldset = _rtfeldman$elm_css$Css_Elements$typeSelector('fieldset');
-	var _rtfeldman$elm_css$Css_Elements$form = _rtfeldman$elm_css$Css_Elements$typeSelector('form');
-	var _rtfeldman$elm_css$Css_Elements$input = _rtfeldman$elm_css$Css_Elements$typeSelector('input');
-	var _rtfeldman$elm_css$Css_Elements$label = _rtfeldman$elm_css$Css_Elements$typeSelector('label');
-	var _rtfeldman$elm_css$Css_Elements$legend = _rtfeldman$elm_css$Css_Elements$typeSelector('legend');
-	var _rtfeldman$elm_css$Css_Elements$optgroup = _rtfeldman$elm_css$Css_Elements$typeSelector('optgroup');
-	var _rtfeldman$elm_css$Css_Elements$option = _rtfeldman$elm_css$Css_Elements$typeSelector('option');
-	var _rtfeldman$elm_css$Css_Elements$progress = _rtfeldman$elm_css$Css_Elements$typeSelector('progress');
-	var _rtfeldman$elm_css$Css_Elements$select = _rtfeldman$elm_css$Css_Elements$typeSelector('select');
+	var _elm_lang$svg$Svg$svg = _elm_lang$svg$Svg$node('svg');
+	var _elm_lang$svg$Svg$foreignObject = _elm_lang$svg$Svg$node('foreignObject');
+	var _elm_lang$svg$Svg$animate = _elm_lang$svg$Svg$node('animate');
+	var _elm_lang$svg$Svg$animateColor = _elm_lang$svg$Svg$node('animateColor');
+	var _elm_lang$svg$Svg$animateMotion = _elm_lang$svg$Svg$node('animateMotion');
+	var _elm_lang$svg$Svg$animateTransform = _elm_lang$svg$Svg$node('animateTransform');
+	var _elm_lang$svg$Svg$mpath = _elm_lang$svg$Svg$node('mpath');
+	var _elm_lang$svg$Svg$set = _elm_lang$svg$Svg$node('set');
+	var _elm_lang$svg$Svg$a = _elm_lang$svg$Svg$node('a');
+	var _elm_lang$svg$Svg$defs = _elm_lang$svg$Svg$node('defs');
+	var _elm_lang$svg$Svg$g = _elm_lang$svg$Svg$node('g');
+	var _elm_lang$svg$Svg$marker = _elm_lang$svg$Svg$node('marker');
+	var _elm_lang$svg$Svg$mask = _elm_lang$svg$Svg$node('mask');
+	var _elm_lang$svg$Svg$missingGlyph = _elm_lang$svg$Svg$node('missingGlyph');
+	var _elm_lang$svg$Svg$pattern = _elm_lang$svg$Svg$node('pattern');
+	var _elm_lang$svg$Svg$switch = _elm_lang$svg$Svg$node('switch');
+	var _elm_lang$svg$Svg$symbol = _elm_lang$svg$Svg$node('symbol');
+	var _elm_lang$svg$Svg$desc = _elm_lang$svg$Svg$node('desc');
+	var _elm_lang$svg$Svg$metadata = _elm_lang$svg$Svg$node('metadata');
+	var _elm_lang$svg$Svg$title = _elm_lang$svg$Svg$node('title');
+	var _elm_lang$svg$Svg$feBlend = _elm_lang$svg$Svg$node('feBlend');
+	var _elm_lang$svg$Svg$feColorMatrix = _elm_lang$svg$Svg$node('feColorMatrix');
+	var _elm_lang$svg$Svg$feComponentTransfer = _elm_lang$svg$Svg$node('feComponentTransfer');
+	var _elm_lang$svg$Svg$feComposite = _elm_lang$svg$Svg$node('feComposite');
+	var _elm_lang$svg$Svg$feConvolveMatrix = _elm_lang$svg$Svg$node('feConvolveMatrix');
+	var _elm_lang$svg$Svg$feDiffuseLighting = _elm_lang$svg$Svg$node('feDiffuseLighting');
+	var _elm_lang$svg$Svg$feDisplacementMap = _elm_lang$svg$Svg$node('feDisplacementMap');
+	var _elm_lang$svg$Svg$feFlood = _elm_lang$svg$Svg$node('feFlood');
+	var _elm_lang$svg$Svg$feFuncA = _elm_lang$svg$Svg$node('feFuncA');
+	var _elm_lang$svg$Svg$feFuncB = _elm_lang$svg$Svg$node('feFuncB');
+	var _elm_lang$svg$Svg$feFuncG = _elm_lang$svg$Svg$node('feFuncG');
+	var _elm_lang$svg$Svg$feFuncR = _elm_lang$svg$Svg$node('feFuncR');
+	var _elm_lang$svg$Svg$feGaussianBlur = _elm_lang$svg$Svg$node('feGaussianBlur');
+	var _elm_lang$svg$Svg$feImage = _elm_lang$svg$Svg$node('feImage');
+	var _elm_lang$svg$Svg$feMerge = _elm_lang$svg$Svg$node('feMerge');
+	var _elm_lang$svg$Svg$feMergeNode = _elm_lang$svg$Svg$node('feMergeNode');
+	var _elm_lang$svg$Svg$feMorphology = _elm_lang$svg$Svg$node('feMorphology');
+	var _elm_lang$svg$Svg$feOffset = _elm_lang$svg$Svg$node('feOffset');
+	var _elm_lang$svg$Svg$feSpecularLighting = _elm_lang$svg$Svg$node('feSpecularLighting');
+	var _elm_lang$svg$Svg$feTile = _elm_lang$svg$Svg$node('feTile');
+	var _elm_lang$svg$Svg$feTurbulence = _elm_lang$svg$Svg$node('feTurbulence');
+	var _elm_lang$svg$Svg$font = _elm_lang$svg$Svg$node('font');
+	var _elm_lang$svg$Svg$fontFace = _elm_lang$svg$Svg$node('fontFace');
+	var _elm_lang$svg$Svg$fontFaceFormat = _elm_lang$svg$Svg$node('fontFaceFormat');
+	var _elm_lang$svg$Svg$fontFaceName = _elm_lang$svg$Svg$node('fontFaceName');
+	var _elm_lang$svg$Svg$fontFaceSrc = _elm_lang$svg$Svg$node('fontFaceSrc');
+	var _elm_lang$svg$Svg$fontFaceUri = _elm_lang$svg$Svg$node('fontFaceUri');
+	var _elm_lang$svg$Svg$hkern = _elm_lang$svg$Svg$node('hkern');
+	var _elm_lang$svg$Svg$vkern = _elm_lang$svg$Svg$node('vkern');
+	var _elm_lang$svg$Svg$linearGradient = _elm_lang$svg$Svg$node('linearGradient');
+	var _elm_lang$svg$Svg$radialGradient = _elm_lang$svg$Svg$node('radialGradient');
+	var _elm_lang$svg$Svg$stop = _elm_lang$svg$Svg$node('stop');
+	var _elm_lang$svg$Svg$circle = _elm_lang$svg$Svg$node('circle');
+	var _elm_lang$svg$Svg$ellipse = _elm_lang$svg$Svg$node('ellipse');
+	var _elm_lang$svg$Svg$image = _elm_lang$svg$Svg$node('image');
+	var _elm_lang$svg$Svg$line = _elm_lang$svg$Svg$node('line');
+	var _elm_lang$svg$Svg$path = _elm_lang$svg$Svg$node('path');
+	var _elm_lang$svg$Svg$polygon = _elm_lang$svg$Svg$node('polygon');
+	var _elm_lang$svg$Svg$polyline = _elm_lang$svg$Svg$node('polyline');
+	var _elm_lang$svg$Svg$rect = _elm_lang$svg$Svg$node('rect');
+	var _elm_lang$svg$Svg$use = _elm_lang$svg$Svg$node('use');
+	var _elm_lang$svg$Svg$feDistantLight = _elm_lang$svg$Svg$node('feDistantLight');
+	var _elm_lang$svg$Svg$fePointLight = _elm_lang$svg$Svg$node('fePointLight');
+	var _elm_lang$svg$Svg$feSpotLight = _elm_lang$svg$Svg$node('feSpotLight');
+	var _elm_lang$svg$Svg$altGlyph = _elm_lang$svg$Svg$node('altGlyph');
+	var _elm_lang$svg$Svg$altGlyphDef = _elm_lang$svg$Svg$node('altGlyphDef');
+	var _elm_lang$svg$Svg$altGlyphItem = _elm_lang$svg$Svg$node('altGlyphItem');
+	var _elm_lang$svg$Svg$glyph = _elm_lang$svg$Svg$node('glyph');
+	var _elm_lang$svg$Svg$glyphRef = _elm_lang$svg$Svg$node('glyphRef');
+	var _elm_lang$svg$Svg$textPath = _elm_lang$svg$Svg$node('textPath');
+	var _elm_lang$svg$Svg$text$ = _elm_lang$svg$Svg$node('text');
+	var _elm_lang$svg$Svg$tref = _elm_lang$svg$Svg$node('tref');
+	var _elm_lang$svg$Svg$tspan = _elm_lang$svg$Svg$node('tspan');
+	var _elm_lang$svg$Svg$clipPath = _elm_lang$svg$Svg$node('clipPath');
+	var _elm_lang$svg$Svg$colorProfile = _elm_lang$svg$Svg$node('colorProfile');
+	var _elm_lang$svg$Svg$cursor = _elm_lang$svg$Svg$node('cursor');
+	var _elm_lang$svg$Svg$filter = _elm_lang$svg$Svg$node('filter');
+	var _elm_lang$svg$Svg$script = _elm_lang$svg$Svg$node('script');
+	var _elm_lang$svg$Svg$style = _elm_lang$svg$Svg$node('style');
+	var _elm_lang$svg$Svg$view = _elm_lang$svg$Svg$node('view');
+	
+	var _elm_lang$svg$Svg_Attributes$writingMode = _elm_lang$virtual_dom$VirtualDom$attribute('writing-mode');
+	var _elm_lang$svg$Svg_Attributes$wordSpacing = _elm_lang$virtual_dom$VirtualDom$attribute('word-spacing');
+	var _elm_lang$svg$Svg_Attributes$visibility = _elm_lang$virtual_dom$VirtualDom$attribute('visibility');
+	var _elm_lang$svg$Svg_Attributes$unicodeBidi = _elm_lang$virtual_dom$VirtualDom$attribute('unicode-bidi');
+	var _elm_lang$svg$Svg_Attributes$textRendering = _elm_lang$virtual_dom$VirtualDom$attribute('text-rendering');
+	var _elm_lang$svg$Svg_Attributes$textDecoration = _elm_lang$virtual_dom$VirtualDom$attribute('text-decoration');
+	var _elm_lang$svg$Svg_Attributes$textAnchor = _elm_lang$virtual_dom$VirtualDom$attribute('text-anchor');
+	var _elm_lang$svg$Svg_Attributes$stroke = _elm_lang$virtual_dom$VirtualDom$attribute('stroke');
+	var _elm_lang$svg$Svg_Attributes$strokeWidth = _elm_lang$virtual_dom$VirtualDom$attribute('stroke-width');
+	var _elm_lang$svg$Svg_Attributes$strokeOpacity = _elm_lang$virtual_dom$VirtualDom$attribute('stroke-opacity');
+	var _elm_lang$svg$Svg_Attributes$strokeMiterlimit = _elm_lang$virtual_dom$VirtualDom$attribute('stroke-miterlimit');
+	var _elm_lang$svg$Svg_Attributes$strokeLinejoin = _elm_lang$virtual_dom$VirtualDom$attribute('stroke-linejoin');
+	var _elm_lang$svg$Svg_Attributes$strokeLinecap = _elm_lang$virtual_dom$VirtualDom$attribute('stroke-linecap');
+	var _elm_lang$svg$Svg_Attributes$strokeDashoffset = _elm_lang$virtual_dom$VirtualDom$attribute('stroke-dashoffset');
+	var _elm_lang$svg$Svg_Attributes$strokeDasharray = _elm_lang$virtual_dom$VirtualDom$attribute('stroke-dasharray');
+	var _elm_lang$svg$Svg_Attributes$stopOpacity = _elm_lang$virtual_dom$VirtualDom$attribute('stop-opacity');
+	var _elm_lang$svg$Svg_Attributes$stopColor = _elm_lang$virtual_dom$VirtualDom$attribute('stop-color');
+	var _elm_lang$svg$Svg_Attributes$shapeRendering = _elm_lang$virtual_dom$VirtualDom$attribute('shape-rendering');
+	var _elm_lang$svg$Svg_Attributes$pointerEvents = _elm_lang$virtual_dom$VirtualDom$attribute('pointer-events');
+	var _elm_lang$svg$Svg_Attributes$overflow = _elm_lang$virtual_dom$VirtualDom$attribute('overflow');
+	var _elm_lang$svg$Svg_Attributes$opacity = _elm_lang$virtual_dom$VirtualDom$attribute('opacity');
+	var _elm_lang$svg$Svg_Attributes$mask = _elm_lang$virtual_dom$VirtualDom$attribute('mask');
+	var _elm_lang$svg$Svg_Attributes$markerStart = _elm_lang$virtual_dom$VirtualDom$attribute('marker-start');
+	var _elm_lang$svg$Svg_Attributes$markerMid = _elm_lang$virtual_dom$VirtualDom$attribute('marker-mid');
+	var _elm_lang$svg$Svg_Attributes$markerEnd = _elm_lang$virtual_dom$VirtualDom$attribute('marker-end');
+	var _elm_lang$svg$Svg_Attributes$lightingColor = _elm_lang$virtual_dom$VirtualDom$attribute('lighting-color');
+	var _elm_lang$svg$Svg_Attributes$letterSpacing = _elm_lang$virtual_dom$VirtualDom$attribute('letter-spacing');
+	var _elm_lang$svg$Svg_Attributes$kerning = _elm_lang$virtual_dom$VirtualDom$attribute('kerning');
+	var _elm_lang$svg$Svg_Attributes$imageRendering = _elm_lang$virtual_dom$VirtualDom$attribute('image-rendering');
+	var _elm_lang$svg$Svg_Attributes$glyphOrientationVertical = _elm_lang$virtual_dom$VirtualDom$attribute('glyph-orientation-vertical');
+	var _elm_lang$svg$Svg_Attributes$glyphOrientationHorizontal = _elm_lang$virtual_dom$VirtualDom$attribute('glyph-orientation-horizontal');
+	var _elm_lang$svg$Svg_Attributes$fontWeight = _elm_lang$virtual_dom$VirtualDom$attribute('font-weight');
+	var _elm_lang$svg$Svg_Attributes$fontVariant = _elm_lang$virtual_dom$VirtualDom$attribute('font-variant');
+	var _elm_lang$svg$Svg_Attributes$fontStyle = _elm_lang$virtual_dom$VirtualDom$attribute('font-style');
+	var _elm_lang$svg$Svg_Attributes$fontStretch = _elm_lang$virtual_dom$VirtualDom$attribute('font-stretch');
+	var _elm_lang$svg$Svg_Attributes$fontSize = _elm_lang$virtual_dom$VirtualDom$attribute('font-size');
+	var _elm_lang$svg$Svg_Attributes$fontSizeAdjust = _elm_lang$virtual_dom$VirtualDom$attribute('font-size-adjust');
+	var _elm_lang$svg$Svg_Attributes$fontFamily = _elm_lang$virtual_dom$VirtualDom$attribute('font-family');
+	var _elm_lang$svg$Svg_Attributes$floodOpacity = _elm_lang$virtual_dom$VirtualDom$attribute('flood-opacity');
+	var _elm_lang$svg$Svg_Attributes$floodColor = _elm_lang$virtual_dom$VirtualDom$attribute('flood-color');
+	var _elm_lang$svg$Svg_Attributes$filter = _elm_lang$virtual_dom$VirtualDom$attribute('filter');
+	var _elm_lang$svg$Svg_Attributes$fill = _elm_lang$virtual_dom$VirtualDom$attribute('fill');
+	var _elm_lang$svg$Svg_Attributes$fillRule = _elm_lang$virtual_dom$VirtualDom$attribute('fill-rule');
+	var _elm_lang$svg$Svg_Attributes$fillOpacity = _elm_lang$virtual_dom$VirtualDom$attribute('fill-opacity');
+	var _elm_lang$svg$Svg_Attributes$enableBackground = _elm_lang$virtual_dom$VirtualDom$attribute('enable-background');
+	var _elm_lang$svg$Svg_Attributes$dominantBaseline = _elm_lang$virtual_dom$VirtualDom$attribute('dominant-baseline');
+	var _elm_lang$svg$Svg_Attributes$display = _elm_lang$virtual_dom$VirtualDom$attribute('display');
+	var _elm_lang$svg$Svg_Attributes$direction = _elm_lang$virtual_dom$VirtualDom$attribute('direction');
+	var _elm_lang$svg$Svg_Attributes$cursor = _elm_lang$virtual_dom$VirtualDom$attribute('cursor');
+	var _elm_lang$svg$Svg_Attributes$color = _elm_lang$virtual_dom$VirtualDom$attribute('color');
+	var _elm_lang$svg$Svg_Attributes$colorRendering = _elm_lang$virtual_dom$VirtualDom$attribute('color-rendering');
+	var _elm_lang$svg$Svg_Attributes$colorProfile = _elm_lang$virtual_dom$VirtualDom$attribute('color-profile');
+	var _elm_lang$svg$Svg_Attributes$colorInterpolation = _elm_lang$virtual_dom$VirtualDom$attribute('color-interpolation');
+	var _elm_lang$svg$Svg_Attributes$colorInterpolationFilters = _elm_lang$virtual_dom$VirtualDom$attribute('color-interpolation-filters');
+	var _elm_lang$svg$Svg_Attributes$clip = _elm_lang$virtual_dom$VirtualDom$attribute('clip');
+	var _elm_lang$svg$Svg_Attributes$clipRule = _elm_lang$virtual_dom$VirtualDom$attribute('clip-rule');
+	var _elm_lang$svg$Svg_Attributes$clipPath = _elm_lang$virtual_dom$VirtualDom$attribute('clip-path');
+	var _elm_lang$svg$Svg_Attributes$baselineShift = _elm_lang$virtual_dom$VirtualDom$attribute('baseline-shift');
+	var _elm_lang$svg$Svg_Attributes$alignmentBaseline = _elm_lang$virtual_dom$VirtualDom$attribute('alignment-baseline');
+	var _elm_lang$svg$Svg_Attributes$zoomAndPan = _elm_lang$virtual_dom$VirtualDom$attribute('zoomAndPan');
+	var _elm_lang$svg$Svg_Attributes$z = _elm_lang$virtual_dom$VirtualDom$attribute('z');
+	var _elm_lang$svg$Svg_Attributes$yChannelSelector = _elm_lang$virtual_dom$VirtualDom$attribute('yChannelSelector');
+	var _elm_lang$svg$Svg_Attributes$y2 = _elm_lang$virtual_dom$VirtualDom$attribute('y2');
+	var _elm_lang$svg$Svg_Attributes$y1 = _elm_lang$virtual_dom$VirtualDom$attribute('y1');
+	var _elm_lang$svg$Svg_Attributes$y = _elm_lang$virtual_dom$VirtualDom$attribute('y');
+	var _elm_lang$svg$Svg_Attributes$xmlSpace = A2(_elm_lang$virtual_dom$VirtualDom$attributeNS, 'http://www.w3.org/XML/1998/namespace', 'xml:space');
+	var _elm_lang$svg$Svg_Attributes$xmlLang = A2(_elm_lang$virtual_dom$VirtualDom$attributeNS, 'http://www.w3.org/XML/1998/namespace', 'xml:lang');
+	var _elm_lang$svg$Svg_Attributes$xmlBase = A2(_elm_lang$virtual_dom$VirtualDom$attributeNS, 'http://www.w3.org/XML/1998/namespace', 'xml:base');
+	var _elm_lang$svg$Svg_Attributes$xlinkType = A2(_elm_lang$virtual_dom$VirtualDom$attributeNS, 'http://www.w3.org/1999/xlink', 'xlink:type');
+	var _elm_lang$svg$Svg_Attributes$xlinkTitle = A2(_elm_lang$virtual_dom$VirtualDom$attributeNS, 'http://www.w3.org/1999/xlink', 'xlink:title');
+	var _elm_lang$svg$Svg_Attributes$xlinkShow = A2(_elm_lang$virtual_dom$VirtualDom$attributeNS, 'http://www.w3.org/1999/xlink', 'xlink:show');
+	var _elm_lang$svg$Svg_Attributes$xlinkRole = A2(_elm_lang$virtual_dom$VirtualDom$attributeNS, 'http://www.w3.org/1999/xlink', 'xlink:role');
+	var _elm_lang$svg$Svg_Attributes$xlinkHref = A2(_elm_lang$virtual_dom$VirtualDom$attributeNS, 'http://www.w3.org/1999/xlink', 'xlink:href');
+	var _elm_lang$svg$Svg_Attributes$xlinkArcrole = A2(_elm_lang$virtual_dom$VirtualDom$attributeNS, 'http://www.w3.org/1999/xlink', 'xlink:arcrole');
+	var _elm_lang$svg$Svg_Attributes$xlinkActuate = A2(_elm_lang$virtual_dom$VirtualDom$attributeNS, 'http://www.w3.org/1999/xlink', 'xlink:actuate');
+	var _elm_lang$svg$Svg_Attributes$xChannelSelector = _elm_lang$virtual_dom$VirtualDom$attribute('xChannelSelector');
+	var _elm_lang$svg$Svg_Attributes$x2 = _elm_lang$virtual_dom$VirtualDom$attribute('x2');
+	var _elm_lang$svg$Svg_Attributes$x1 = _elm_lang$virtual_dom$VirtualDom$attribute('x1');
+	var _elm_lang$svg$Svg_Attributes$xHeight = _elm_lang$virtual_dom$VirtualDom$attribute('x-height');
+	var _elm_lang$svg$Svg_Attributes$x = _elm_lang$virtual_dom$VirtualDom$attribute('x');
+	var _elm_lang$svg$Svg_Attributes$widths = _elm_lang$virtual_dom$VirtualDom$attribute('widths');
+	var _elm_lang$svg$Svg_Attributes$width = _elm_lang$virtual_dom$VirtualDom$attribute('width');
+	var _elm_lang$svg$Svg_Attributes$viewTarget = _elm_lang$virtual_dom$VirtualDom$attribute('viewTarget');
+	var _elm_lang$svg$Svg_Attributes$viewBox = _elm_lang$virtual_dom$VirtualDom$attribute('viewBox');
+	var _elm_lang$svg$Svg_Attributes$vertOriginY = _elm_lang$virtual_dom$VirtualDom$attribute('vert-origin-y');
+	var _elm_lang$svg$Svg_Attributes$vertOriginX = _elm_lang$virtual_dom$VirtualDom$attribute('vert-origin-x');
+	var _elm_lang$svg$Svg_Attributes$vertAdvY = _elm_lang$virtual_dom$VirtualDom$attribute('vert-adv-y');
+	var _elm_lang$svg$Svg_Attributes$version = _elm_lang$virtual_dom$VirtualDom$attribute('version');
+	var _elm_lang$svg$Svg_Attributes$values = _elm_lang$virtual_dom$VirtualDom$attribute('values');
+	var _elm_lang$svg$Svg_Attributes$vMathematical = _elm_lang$virtual_dom$VirtualDom$attribute('v-mathematical');
+	var _elm_lang$svg$Svg_Attributes$vIdeographic = _elm_lang$virtual_dom$VirtualDom$attribute('v-ideographic');
+	var _elm_lang$svg$Svg_Attributes$vHanging = _elm_lang$virtual_dom$VirtualDom$attribute('v-hanging');
+	var _elm_lang$svg$Svg_Attributes$vAlphabetic = _elm_lang$virtual_dom$VirtualDom$attribute('v-alphabetic');
+	var _elm_lang$svg$Svg_Attributes$unitsPerEm = _elm_lang$virtual_dom$VirtualDom$attribute('units-per-em');
+	var _elm_lang$svg$Svg_Attributes$unicodeRange = _elm_lang$virtual_dom$VirtualDom$attribute('unicode-range');
+	var _elm_lang$svg$Svg_Attributes$unicode = _elm_lang$virtual_dom$VirtualDom$attribute('unicode');
+	var _elm_lang$svg$Svg_Attributes$underlineThickness = _elm_lang$virtual_dom$VirtualDom$attribute('underline-thickness');
+	var _elm_lang$svg$Svg_Attributes$underlinePosition = _elm_lang$virtual_dom$VirtualDom$attribute('underline-position');
+	var _elm_lang$svg$Svg_Attributes$u2 = _elm_lang$virtual_dom$VirtualDom$attribute('u2');
+	var _elm_lang$svg$Svg_Attributes$u1 = _elm_lang$virtual_dom$VirtualDom$attribute('u1');
+	var _elm_lang$svg$Svg_Attributes$type$ = _elm_lang$virtual_dom$VirtualDom$attribute('type');
+	var _elm_lang$svg$Svg_Attributes$transform = _elm_lang$virtual_dom$VirtualDom$attribute('transform');
+	var _elm_lang$svg$Svg_Attributes$to = _elm_lang$virtual_dom$VirtualDom$attribute('to');
+	var _elm_lang$svg$Svg_Attributes$title = _elm_lang$virtual_dom$VirtualDom$attribute('title');
+	var _elm_lang$svg$Svg_Attributes$textLength = _elm_lang$virtual_dom$VirtualDom$attribute('textLength');
+	var _elm_lang$svg$Svg_Attributes$targetY = _elm_lang$virtual_dom$VirtualDom$attribute('targetY');
+	var _elm_lang$svg$Svg_Attributes$targetX = _elm_lang$virtual_dom$VirtualDom$attribute('targetX');
+	var _elm_lang$svg$Svg_Attributes$target = _elm_lang$virtual_dom$VirtualDom$attribute('target');
+	var _elm_lang$svg$Svg_Attributes$tableValues = _elm_lang$virtual_dom$VirtualDom$attribute('tableValues');
+	var _elm_lang$svg$Svg_Attributes$systemLanguage = _elm_lang$virtual_dom$VirtualDom$attribute('systemLanguage');
+	var _elm_lang$svg$Svg_Attributes$surfaceScale = _elm_lang$virtual_dom$VirtualDom$attribute('surfaceScale');
+	var _elm_lang$svg$Svg_Attributes$style = _elm_lang$virtual_dom$VirtualDom$attribute('style');
+	var _elm_lang$svg$Svg_Attributes$string = _elm_lang$virtual_dom$VirtualDom$attribute('string');
+	var _elm_lang$svg$Svg_Attributes$strikethroughThickness = _elm_lang$virtual_dom$VirtualDom$attribute('strikethrough-thickness');
+	var _elm_lang$svg$Svg_Attributes$strikethroughPosition = _elm_lang$virtual_dom$VirtualDom$attribute('strikethrough-position');
+	var _elm_lang$svg$Svg_Attributes$stitchTiles = _elm_lang$virtual_dom$VirtualDom$attribute('stitchTiles');
+	var _elm_lang$svg$Svg_Attributes$stemv = _elm_lang$virtual_dom$VirtualDom$attribute('stemv');
+	var _elm_lang$svg$Svg_Attributes$stemh = _elm_lang$virtual_dom$VirtualDom$attribute('stemh');
+	var _elm_lang$svg$Svg_Attributes$stdDeviation = _elm_lang$virtual_dom$VirtualDom$attribute('stdDeviation');
+	var _elm_lang$svg$Svg_Attributes$startOffset = _elm_lang$virtual_dom$VirtualDom$attribute('startOffset');
+	var _elm_lang$svg$Svg_Attributes$spreadMethod = _elm_lang$virtual_dom$VirtualDom$attribute('spreadMethod');
+	var _elm_lang$svg$Svg_Attributes$speed = _elm_lang$virtual_dom$VirtualDom$attribute('speed');
+	var _elm_lang$svg$Svg_Attributes$specularExponent = _elm_lang$virtual_dom$VirtualDom$attribute('specularExponent');
+	var _elm_lang$svg$Svg_Attributes$specularConstant = _elm_lang$virtual_dom$VirtualDom$attribute('specularConstant');
+	var _elm_lang$svg$Svg_Attributes$spacing = _elm_lang$virtual_dom$VirtualDom$attribute('spacing');
+	var _elm_lang$svg$Svg_Attributes$slope = _elm_lang$virtual_dom$VirtualDom$attribute('slope');
+	var _elm_lang$svg$Svg_Attributes$seed = _elm_lang$virtual_dom$VirtualDom$attribute('seed');
+	var _elm_lang$svg$Svg_Attributes$scale = _elm_lang$virtual_dom$VirtualDom$attribute('scale');
+	var _elm_lang$svg$Svg_Attributes$ry = _elm_lang$virtual_dom$VirtualDom$attribute('ry');
+	var _elm_lang$svg$Svg_Attributes$rx = _elm_lang$virtual_dom$VirtualDom$attribute('rx');
+	var _elm_lang$svg$Svg_Attributes$rotate = _elm_lang$virtual_dom$VirtualDom$attribute('rotate');
+	var _elm_lang$svg$Svg_Attributes$result = _elm_lang$virtual_dom$VirtualDom$attribute('result');
+	var _elm_lang$svg$Svg_Attributes$restart = _elm_lang$virtual_dom$VirtualDom$attribute('restart');
+	var _elm_lang$svg$Svg_Attributes$requiredFeatures = _elm_lang$virtual_dom$VirtualDom$attribute('requiredFeatures');
+	var _elm_lang$svg$Svg_Attributes$requiredExtensions = _elm_lang$virtual_dom$VirtualDom$attribute('requiredExtensions');
+	var _elm_lang$svg$Svg_Attributes$repeatDur = _elm_lang$virtual_dom$VirtualDom$attribute('repeatDur');
+	var _elm_lang$svg$Svg_Attributes$repeatCount = _elm_lang$virtual_dom$VirtualDom$attribute('repeatCount');
+	var _elm_lang$svg$Svg_Attributes$renderingIntent = _elm_lang$virtual_dom$VirtualDom$attribute('rendering-intent');
+	var _elm_lang$svg$Svg_Attributes$refY = _elm_lang$virtual_dom$VirtualDom$attribute('refY');
+	var _elm_lang$svg$Svg_Attributes$refX = _elm_lang$virtual_dom$VirtualDom$attribute('refX');
+	var _elm_lang$svg$Svg_Attributes$radius = _elm_lang$virtual_dom$VirtualDom$attribute('radius');
+	var _elm_lang$svg$Svg_Attributes$r = _elm_lang$virtual_dom$VirtualDom$attribute('r');
+	var _elm_lang$svg$Svg_Attributes$primitiveUnits = _elm_lang$virtual_dom$VirtualDom$attribute('primitiveUnits');
+	var _elm_lang$svg$Svg_Attributes$preserveAspectRatio = _elm_lang$virtual_dom$VirtualDom$attribute('preserveAspectRatio');
+	var _elm_lang$svg$Svg_Attributes$preserveAlpha = _elm_lang$virtual_dom$VirtualDom$attribute('preserveAlpha');
+	var _elm_lang$svg$Svg_Attributes$pointsAtZ = _elm_lang$virtual_dom$VirtualDom$attribute('pointsAtZ');
+	var _elm_lang$svg$Svg_Attributes$pointsAtY = _elm_lang$virtual_dom$VirtualDom$attribute('pointsAtY');
+	var _elm_lang$svg$Svg_Attributes$pointsAtX = _elm_lang$virtual_dom$VirtualDom$attribute('pointsAtX');
+	var _elm_lang$svg$Svg_Attributes$points = _elm_lang$virtual_dom$VirtualDom$attribute('points');
+	var _elm_lang$svg$Svg_Attributes$pointOrder = _elm_lang$virtual_dom$VirtualDom$attribute('point-order');
+	var _elm_lang$svg$Svg_Attributes$patternUnits = _elm_lang$virtual_dom$VirtualDom$attribute('patternUnits');
+	var _elm_lang$svg$Svg_Attributes$patternTransform = _elm_lang$virtual_dom$VirtualDom$attribute('patternTransform');
+	var _elm_lang$svg$Svg_Attributes$patternContentUnits = _elm_lang$virtual_dom$VirtualDom$attribute('patternContentUnits');
+	var _elm_lang$svg$Svg_Attributes$pathLength = _elm_lang$virtual_dom$VirtualDom$attribute('pathLength');
+	var _elm_lang$svg$Svg_Attributes$path = _elm_lang$virtual_dom$VirtualDom$attribute('path');
+	var _elm_lang$svg$Svg_Attributes$panose1 = _elm_lang$virtual_dom$VirtualDom$attribute('panose-1');
+	var _elm_lang$svg$Svg_Attributes$overlineThickness = _elm_lang$virtual_dom$VirtualDom$attribute('overline-thickness');
+	var _elm_lang$svg$Svg_Attributes$overlinePosition = _elm_lang$virtual_dom$VirtualDom$attribute('overline-position');
+	var _elm_lang$svg$Svg_Attributes$origin = _elm_lang$virtual_dom$VirtualDom$attribute('origin');
+	var _elm_lang$svg$Svg_Attributes$orientation = _elm_lang$virtual_dom$VirtualDom$attribute('orientation');
+	var _elm_lang$svg$Svg_Attributes$orient = _elm_lang$virtual_dom$VirtualDom$attribute('orient');
+	var _elm_lang$svg$Svg_Attributes$order = _elm_lang$virtual_dom$VirtualDom$attribute('order');
+	var _elm_lang$svg$Svg_Attributes$operator = _elm_lang$virtual_dom$VirtualDom$attribute('operator');
+	var _elm_lang$svg$Svg_Attributes$offset = _elm_lang$virtual_dom$VirtualDom$attribute('offset');
+	var _elm_lang$svg$Svg_Attributes$numOctaves = _elm_lang$virtual_dom$VirtualDom$attribute('numOctaves');
+	var _elm_lang$svg$Svg_Attributes$name = _elm_lang$virtual_dom$VirtualDom$attribute('name');
+	var _elm_lang$svg$Svg_Attributes$mode = _elm_lang$virtual_dom$VirtualDom$attribute('mode');
+	var _elm_lang$svg$Svg_Attributes$min = _elm_lang$virtual_dom$VirtualDom$attribute('min');
+	var _elm_lang$svg$Svg_Attributes$method = _elm_lang$virtual_dom$VirtualDom$attribute('method');
+	var _elm_lang$svg$Svg_Attributes$media = _elm_lang$virtual_dom$VirtualDom$attribute('media');
+	var _elm_lang$svg$Svg_Attributes$max = _elm_lang$virtual_dom$VirtualDom$attribute('max');
+	var _elm_lang$svg$Svg_Attributes$mathematical = _elm_lang$virtual_dom$VirtualDom$attribute('mathematical');
+	var _elm_lang$svg$Svg_Attributes$maskUnits = _elm_lang$virtual_dom$VirtualDom$attribute('maskUnits');
+	var _elm_lang$svg$Svg_Attributes$maskContentUnits = _elm_lang$virtual_dom$VirtualDom$attribute('maskContentUnits');
+	var _elm_lang$svg$Svg_Attributes$markerWidth = _elm_lang$virtual_dom$VirtualDom$attribute('markerWidth');
+	var _elm_lang$svg$Svg_Attributes$markerUnits = _elm_lang$virtual_dom$VirtualDom$attribute('markerUnits');
+	var _elm_lang$svg$Svg_Attributes$markerHeight = _elm_lang$virtual_dom$VirtualDom$attribute('markerHeight');
+	var _elm_lang$svg$Svg_Attributes$local = _elm_lang$virtual_dom$VirtualDom$attribute('local');
+	var _elm_lang$svg$Svg_Attributes$limitingConeAngle = _elm_lang$virtual_dom$VirtualDom$attribute('limitingConeAngle');
+	var _elm_lang$svg$Svg_Attributes$lengthAdjust = _elm_lang$virtual_dom$VirtualDom$attribute('lengthAdjust');
+	var _elm_lang$svg$Svg_Attributes$lang = _elm_lang$virtual_dom$VirtualDom$attribute('lang');
+	var _elm_lang$svg$Svg_Attributes$keyTimes = _elm_lang$virtual_dom$VirtualDom$attribute('keyTimes');
+	var _elm_lang$svg$Svg_Attributes$keySplines = _elm_lang$virtual_dom$VirtualDom$attribute('keySplines');
+	var _elm_lang$svg$Svg_Attributes$keyPoints = _elm_lang$virtual_dom$VirtualDom$attribute('keyPoints');
+	var _elm_lang$svg$Svg_Attributes$kernelUnitLength = _elm_lang$virtual_dom$VirtualDom$attribute('kernelUnitLength');
+	var _elm_lang$svg$Svg_Attributes$kernelMatrix = _elm_lang$virtual_dom$VirtualDom$attribute('kernelMatrix');
+	var _elm_lang$svg$Svg_Attributes$k4 = _elm_lang$virtual_dom$VirtualDom$attribute('k4');
+	var _elm_lang$svg$Svg_Attributes$k3 = _elm_lang$virtual_dom$VirtualDom$attribute('k3');
+	var _elm_lang$svg$Svg_Attributes$k2 = _elm_lang$virtual_dom$VirtualDom$attribute('k2');
+	var _elm_lang$svg$Svg_Attributes$k1 = _elm_lang$virtual_dom$VirtualDom$attribute('k1');
+	var _elm_lang$svg$Svg_Attributes$k = _elm_lang$virtual_dom$VirtualDom$attribute('k');
+	var _elm_lang$svg$Svg_Attributes$intercept = _elm_lang$virtual_dom$VirtualDom$attribute('intercept');
+	var _elm_lang$svg$Svg_Attributes$in2 = _elm_lang$virtual_dom$VirtualDom$attribute('in2');
+	var _elm_lang$svg$Svg_Attributes$in$ = _elm_lang$virtual_dom$VirtualDom$attribute('in');
+	var _elm_lang$svg$Svg_Attributes$ideographic = _elm_lang$virtual_dom$VirtualDom$attribute('ideographic');
+	var _elm_lang$svg$Svg_Attributes$id = _elm_lang$virtual_dom$VirtualDom$attribute('id');
+	var _elm_lang$svg$Svg_Attributes$horizOriginY = _elm_lang$virtual_dom$VirtualDom$attribute('horiz-origin-y');
+	var _elm_lang$svg$Svg_Attributes$horizOriginX = _elm_lang$virtual_dom$VirtualDom$attribute('horiz-origin-x');
+	var _elm_lang$svg$Svg_Attributes$horizAdvX = _elm_lang$virtual_dom$VirtualDom$attribute('horiz-adv-x');
+	var _elm_lang$svg$Svg_Attributes$height = _elm_lang$virtual_dom$VirtualDom$attribute('height');
+	var _elm_lang$svg$Svg_Attributes$hanging = _elm_lang$virtual_dom$VirtualDom$attribute('hanging');
+	var _elm_lang$svg$Svg_Attributes$gradientUnits = _elm_lang$virtual_dom$VirtualDom$attribute('gradientUnits');
+	var _elm_lang$svg$Svg_Attributes$gradientTransform = _elm_lang$virtual_dom$VirtualDom$attribute('gradientTransform');
+	var _elm_lang$svg$Svg_Attributes$glyphRef = _elm_lang$virtual_dom$VirtualDom$attribute('glyphRef');
+	var _elm_lang$svg$Svg_Attributes$glyphName = _elm_lang$virtual_dom$VirtualDom$attribute('glyph-name');
+	var _elm_lang$svg$Svg_Attributes$g2 = _elm_lang$virtual_dom$VirtualDom$attribute('g2');
+	var _elm_lang$svg$Svg_Attributes$g1 = _elm_lang$virtual_dom$VirtualDom$attribute('g1');
+	var _elm_lang$svg$Svg_Attributes$fy = _elm_lang$virtual_dom$VirtualDom$attribute('fy');
+	var _elm_lang$svg$Svg_Attributes$fx = _elm_lang$virtual_dom$VirtualDom$attribute('fx');
+	var _elm_lang$svg$Svg_Attributes$from = _elm_lang$virtual_dom$VirtualDom$attribute('from');
+	var _elm_lang$svg$Svg_Attributes$format = _elm_lang$virtual_dom$VirtualDom$attribute('format');
+	var _elm_lang$svg$Svg_Attributes$filterUnits = _elm_lang$virtual_dom$VirtualDom$attribute('filterUnits');
+	var _elm_lang$svg$Svg_Attributes$filterRes = _elm_lang$virtual_dom$VirtualDom$attribute('filterRes');
+	var _elm_lang$svg$Svg_Attributes$externalResourcesRequired = _elm_lang$virtual_dom$VirtualDom$attribute('externalResourcesRequired');
+	var _elm_lang$svg$Svg_Attributes$exponent = _elm_lang$virtual_dom$VirtualDom$attribute('exponent');
+	var _elm_lang$svg$Svg_Attributes$end = _elm_lang$virtual_dom$VirtualDom$attribute('end');
+	var _elm_lang$svg$Svg_Attributes$elevation = _elm_lang$virtual_dom$VirtualDom$attribute('elevation');
+	var _elm_lang$svg$Svg_Attributes$edgeMode = _elm_lang$virtual_dom$VirtualDom$attribute('edgeMode');
+	var _elm_lang$svg$Svg_Attributes$dy = _elm_lang$virtual_dom$VirtualDom$attribute('dy');
+	var _elm_lang$svg$Svg_Attributes$dx = _elm_lang$virtual_dom$VirtualDom$attribute('dx');
+	var _elm_lang$svg$Svg_Attributes$dur = _elm_lang$virtual_dom$VirtualDom$attribute('dur');
+	var _elm_lang$svg$Svg_Attributes$divisor = _elm_lang$virtual_dom$VirtualDom$attribute('divisor');
+	var _elm_lang$svg$Svg_Attributes$diffuseConstant = _elm_lang$virtual_dom$VirtualDom$attribute('diffuseConstant');
+	var _elm_lang$svg$Svg_Attributes$descent = _elm_lang$virtual_dom$VirtualDom$attribute('descent');
+	var _elm_lang$svg$Svg_Attributes$decelerate = _elm_lang$virtual_dom$VirtualDom$attribute('decelerate');
+	var _elm_lang$svg$Svg_Attributes$d = _elm_lang$virtual_dom$VirtualDom$attribute('d');
+	var _elm_lang$svg$Svg_Attributes$cy = _elm_lang$virtual_dom$VirtualDom$attribute('cy');
+	var _elm_lang$svg$Svg_Attributes$cx = _elm_lang$virtual_dom$VirtualDom$attribute('cx');
+	var _elm_lang$svg$Svg_Attributes$contentStyleType = _elm_lang$virtual_dom$VirtualDom$attribute('contentStyleType');
+	var _elm_lang$svg$Svg_Attributes$contentScriptType = _elm_lang$virtual_dom$VirtualDom$attribute('contentScriptType');
+	var _elm_lang$svg$Svg_Attributes$clipPathUnits = _elm_lang$virtual_dom$VirtualDom$attribute('clipPathUnits');
+	var _elm_lang$svg$Svg_Attributes$class = _elm_lang$virtual_dom$VirtualDom$attribute('class');
+	var _elm_lang$svg$Svg_Attributes$capHeight = _elm_lang$virtual_dom$VirtualDom$attribute('cap-height');
+	var _elm_lang$svg$Svg_Attributes$calcMode = _elm_lang$virtual_dom$VirtualDom$attribute('calcMode');
+	var _elm_lang$svg$Svg_Attributes$by = _elm_lang$virtual_dom$VirtualDom$attribute('by');
+	var _elm_lang$svg$Svg_Attributes$bias = _elm_lang$virtual_dom$VirtualDom$attribute('bias');
+	var _elm_lang$svg$Svg_Attributes$begin = _elm_lang$virtual_dom$VirtualDom$attribute('begin');
+	var _elm_lang$svg$Svg_Attributes$bbox = _elm_lang$virtual_dom$VirtualDom$attribute('bbox');
+	var _elm_lang$svg$Svg_Attributes$baseProfile = _elm_lang$virtual_dom$VirtualDom$attribute('baseProfile');
+	var _elm_lang$svg$Svg_Attributes$baseFrequency = _elm_lang$virtual_dom$VirtualDom$attribute('baseFrequency');
+	var _elm_lang$svg$Svg_Attributes$azimuth = _elm_lang$virtual_dom$VirtualDom$attribute('azimuth');
+	var _elm_lang$svg$Svg_Attributes$autoReverse = _elm_lang$virtual_dom$VirtualDom$attribute('autoReverse');
+	var _elm_lang$svg$Svg_Attributes$attributeType = _elm_lang$virtual_dom$VirtualDom$attribute('attributeType');
+	var _elm_lang$svg$Svg_Attributes$attributeName = _elm_lang$virtual_dom$VirtualDom$attribute('attributeName');
+	var _elm_lang$svg$Svg_Attributes$ascent = _elm_lang$virtual_dom$VirtualDom$attribute('ascent');
+	var _elm_lang$svg$Svg_Attributes$arabicForm = _elm_lang$virtual_dom$VirtualDom$attribute('arabic-form');
+	var _elm_lang$svg$Svg_Attributes$amplitude = _elm_lang$virtual_dom$VirtualDom$attribute('amplitude');
+	var _elm_lang$svg$Svg_Attributes$allowReorder = _elm_lang$virtual_dom$VirtualDom$attribute('allowReorder');
+	var _elm_lang$svg$Svg_Attributes$alphabetic = _elm_lang$virtual_dom$VirtualDom$attribute('alphabetic');
+	var _elm_lang$svg$Svg_Attributes$additive = _elm_lang$virtual_dom$VirtualDom$attribute('additive');
+	var _elm_lang$svg$Svg_Attributes$accumulate = _elm_lang$virtual_dom$VirtualDom$attribute('accumulate');
+	var _elm_lang$svg$Svg_Attributes$accelerate = _elm_lang$virtual_dom$VirtualDom$attribute('accelerate');
+	var _elm_lang$svg$Svg_Attributes$accentHeight = _elm_lang$virtual_dom$VirtualDom$attribute('accent-height');
+	
+	var _elm_lang$svg$Svg_Events$on = _elm_lang$virtual_dom$VirtualDom$on;
+	var _elm_lang$svg$Svg_Events$simpleOn = F2(
+		function (name, msg) {
+			return A2(
+				_elm_lang$svg$Svg_Events$on,
+				name,
+				_elm_lang$core$Json_Decode$succeed(msg));
+		});
+	var _elm_lang$svg$Svg_Events$onBegin = _elm_lang$svg$Svg_Events$simpleOn('begin');
+	var _elm_lang$svg$Svg_Events$onEnd = _elm_lang$svg$Svg_Events$simpleOn('end');
+	var _elm_lang$svg$Svg_Events$onRepeat = _elm_lang$svg$Svg_Events$simpleOn('repeat');
+	var _elm_lang$svg$Svg_Events$onAbort = _elm_lang$svg$Svg_Events$simpleOn('abort');
+	var _elm_lang$svg$Svg_Events$onError = _elm_lang$svg$Svg_Events$simpleOn('error');
+	var _elm_lang$svg$Svg_Events$onResize = _elm_lang$svg$Svg_Events$simpleOn('resize');
+	var _elm_lang$svg$Svg_Events$onScroll = _elm_lang$svg$Svg_Events$simpleOn('scroll');
+	var _elm_lang$svg$Svg_Events$onLoad = _elm_lang$svg$Svg_Events$simpleOn('load');
+	var _elm_lang$svg$Svg_Events$onUnload = _elm_lang$svg$Svg_Events$simpleOn('unload');
+	var _elm_lang$svg$Svg_Events$onZoom = _elm_lang$svg$Svg_Events$simpleOn('zoom');
+	var _elm_lang$svg$Svg_Events$onActivate = _elm_lang$svg$Svg_Events$simpleOn('activate');
+	var _elm_lang$svg$Svg_Events$onClick = _elm_lang$svg$Svg_Events$simpleOn('click');
+	var _elm_lang$svg$Svg_Events$onFocusIn = _elm_lang$svg$Svg_Events$simpleOn('focusin');
+	var _elm_lang$svg$Svg_Events$onFocusOut = _elm_lang$svg$Svg_Events$simpleOn('focusout');
+	var _elm_lang$svg$Svg_Events$onMouseDown = _elm_lang$svg$Svg_Events$simpleOn('mousedown');
+	var _elm_lang$svg$Svg_Events$onMouseMove = _elm_lang$svg$Svg_Events$simpleOn('mousemove');
+	var _elm_lang$svg$Svg_Events$onMouseOut = _elm_lang$svg$Svg_Events$simpleOn('mouseout');
+	var _elm_lang$svg$Svg_Events$onMouseOver = _elm_lang$svg$Svg_Events$simpleOn('mouseover');
+	var _elm_lang$svg$Svg_Events$onMouseUp = _elm_lang$svg$Svg_Events$simpleOn('mouseup');
 	
 	var _rtfeldman$elm_css$Css_Namespace$applyNamespaceToProperty = F2(
 		function (name, property) {
@@ -12151,6 +13231,1348 @@ webpackJsonp([1,0],[
 			return {$class: a, classList: b, id: c, name: d};
 		});
 	
+	var _benansell$elm_webpack_seed$LogoAnimationCss$yellow = _rtfeldman$elm_css$Css$hex('#F0AD00');
+	var _benansell$elm_webpack_seed$LogoAnimationCss$green = _rtfeldman$elm_css$Css$hex('#7FD13B');
+	var _benansell$elm_webpack_seed$LogoAnimationCss$blueGray = _rtfeldman$elm_css$Css$hex('#5A6378');
+	var _benansell$elm_webpack_seed$LogoAnimationCss$blue = _rtfeldman$elm_css$Css$hex('#60B5CC');
+	var _benansell$elm_webpack_seed$LogoAnimationCss$logoAnimationNamespace = _rtfeldman$elm_css_helpers$Html_CssHelpers$withNamespace('logoAnimation');
+	var _benansell$elm_webpack_seed$LogoAnimationCss$Container = {ctor: 'Container'};
+	var _benansell$elm_webpack_seed$LogoAnimationCss$css = function (_p0) {
+		return _rtfeldman$elm_css$Css$stylesheet(
+			A2(_rtfeldman$elm_css$Css_Namespace$namespace, _benansell$elm_webpack_seed$LogoAnimationCss$logoAnimationNamespace.name, _p0));
+	}(
+		_elm_lang$core$Native_List.fromArray(
+			[
+				A2(
+				F2(
+					function (x, y) {
+						return A2(_rtfeldman$elm_css$Css_ops['.'], x, y);
+					}),
+				_benansell$elm_webpack_seed$LogoAnimationCss$Container,
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_rtfeldman$elm_css$Css$padding(
+						_rtfeldman$elm_css$Css$pct(2)),
+						_rtfeldman$elm_css$Css$width(
+						_rtfeldman$elm_css$Css$pct(96))
+					]))
+			]));
+	
+	var _benansell$elm_webpack_seed$LogoAnimation$_p0 = _benansell$elm_webpack_seed$LogoAnimationCss$logoAnimationNamespace;
+	var _benansell$elm_webpack_seed$LogoAnimation$id = _benansell$elm_webpack_seed$LogoAnimation$_p0.id;
+	var _benansell$elm_webpack_seed$LogoAnimation$class = _benansell$elm_webpack_seed$LogoAnimation$_p0.$class;
+	var _benansell$elm_webpack_seed$LogoAnimation$classList = _benansell$elm_webpack_seed$LogoAnimation$_p0.classList;
+	var _benansell$elm_webpack_seed$LogoAnimation$pointToString = function (p) {
+		return A2(
+			_elm_lang$core$Basics_ops['++'],
+			_elm_lang$core$Basics$toString(p.x),
+			A2(
+				_elm_lang$core$Basics_ops['++'],
+				',',
+				_elm_lang$core$Basics$toString(p.y)));
+	};
+	var _benansell$elm_webpack_seed$LogoAnimation$pointsToString = function (points) {
+		return A2(
+			_elm_lang$core$String$join,
+			' ',
+			A2(_elm_lang$core$List$map, _benansell$elm_webpack_seed$LogoAnimation$pointToString, points));
+	};
+	var _benansell$elm_webpack_seed$LogoAnimation$cssToString = function (_p1) {
+		var _p2 = _p1;
+		return _p2.value;
+	};
+	var _benansell$elm_webpack_seed$LogoAnimation$actionToString = function (action) {
+		var _p3 = action;
+		switch (_p3.ctor) {
+			case 'None':
+				return _elm_lang$core$Maybe$Nothing;
+			case 'Hinge':
+				return _elm_lang$core$Maybe$Just('Hinge');
+			case 'MoveDown':
+				return _elm_lang$core$Maybe$Just('Move Down');
+			case 'MoveRight':
+				return _elm_lang$core$Maybe$Just('Move Right');
+			case 'Rotate':
+				return _elm_lang$core$Maybe$Just('Rotate');
+			case 'Shear':
+				return _elm_lang$core$Maybe$Just('Shear');
+			case 'Shrink':
+				return _elm_lang$core$Maybe$Just('Shrink');
+			default:
+				return _elm_lang$core$Maybe$Just('Shake');
+		}
+	};
+	var _benansell$elm_webpack_seed$LogoAnimation$projectPoint = F2(
+		function (point, matrix) {
+			return {x: ((matrix.a * point.x) + (matrix.b * point.y)) + matrix.tx, y: ((matrix.c * point.x) + (matrix.d * point.y)) + matrix.ty};
+		});
+	var _benansell$elm_webpack_seed$LogoAnimation$shapeToViewPoints = function (shape) {
+		return A2(
+			_elm_lang$core$List$map,
+			function (p) {
+				return A2(_benansell$elm_webpack_seed$LogoAnimation$projectPoint, p, shape.currentTransform);
+			},
+			shape.points);
+	};
+	var _benansell$elm_webpack_seed$LogoAnimation$shapeToPolygon = function (shape) {
+		return A2(
+			_elm_lang$svg$Svg$polygon,
+			_elm_lang$core$Native_List.fromArray(
+				[
+					_elm_lang$svg$Svg_Attributes$fill(
+					_benansell$elm_webpack_seed$LogoAnimation$cssToString(shape.color)),
+					_elm_lang$svg$Svg_Attributes$points(
+					_benansell$elm_webpack_seed$LogoAnimation$pointsToString(
+						_benansell$elm_webpack_seed$LogoAnimation$shapeToViewPoints(shape))),
+					_elm_lang$svg$Svg_Events$onClick(shape.action)
+				]),
+			_elm_lang$core$Native_List.fromArray(
+				[]));
+	};
+	var _benansell$elm_webpack_seed$LogoAnimation$view = function (model) {
+		return A2(
+			_elm_lang$html$Html$div,
+			_elm_lang$core$Native_List.fromArray(
+				[
+					_benansell$elm_webpack_seed$LogoAnimation$class(
+					_elm_lang$core$Native_List.fromArray(
+						[_benansell$elm_webpack_seed$LogoAnimationCss$Container]))
+				]),
+			_elm_lang$core$Native_List.fromArray(
+				[
+					A2(
+					_elm_lang$svg$Svg$svg,
+					_elm_lang$core$Native_List.fromArray(
+						[
+							_elm_lang$svg$Svg_Attributes$version('1.1'),
+							_elm_lang$svg$Svg_Attributes$viewBox('100 100 523.141 522.95'),
+							_elm_lang$svg$Svg_Attributes$x(
+							_benansell$elm_webpack_seed$LogoAnimation$cssToString(
+								_rtfeldman$elm_css$Css$px(0))),
+							_elm_lang$svg$Svg_Attributes$y(
+							_benansell$elm_webpack_seed$LogoAnimation$cssToString(
+								_rtfeldman$elm_css$Css$px(0)))
+						]),
+					_elm_lang$core$Native_List.fromArray(
+						[
+							A2(
+							_elm_lang$svg$Svg$g,
+							_elm_lang$core$Native_List.fromArray(
+								[]),
+							A2(_elm_lang$core$List$map, _benansell$elm_webpack_seed$LogoAnimation$shapeToPolygon, model.shapes))
+						]))
+				]));
+	};
+	var _benansell$elm_webpack_seed$LogoAnimation$timeRemainingToProgress = F2(
+		function (duration, remaining) {
+			return (_elm_lang$core$Native_Utils.cmp(remaining, 0) < 1) ? 1 : ((duration - remaining) / duration);
+		});
+	var _benansell$elm_webpack_seed$LogoAnimation$timeRemaining = F2(
+		function (time, actionEnd) {
+			var _p4 = actionEnd;
+			if (_p4.ctor === 'Nothing') {
+				return 0;
+			} else {
+				return _p4._0 - time;
+			}
+		});
+	var _benansell$elm_webpack_seed$LogoAnimation$translateProgress = F3(
+		function (direction, offset, progress) {
+			var _p5 = direction;
+			if (_p5.ctor === 'Forward') {
+				return offset * _elm_lang$core$Basics$sin((2 * _elm_lang$core$Basics$pi) * progress);
+			} else {
+				return offset - (offset * _elm_lang$core$Basics$cos((2 * _elm_lang$core$Basics$pi) * progress));
+			}
+		});
+	var _benansell$elm_webpack_seed$LogoAnimation$scaleProgress = F3(
+		function (scale, cycle, progress) {
+			var offset = (1 - scale) / 2;
+			var angle = ((2 * _elm_lang$core$Basics$pi) * cycle) * progress;
+			return scale + (offset * (1 + _elm_lang$core$Basics$cos(angle)));
+		});
+	var _benansell$elm_webpack_seed$LogoAnimation$matrixMultiply = F2(
+		function (m1, m2) {
+			return {a: (m1.a * m2.a) + (m1.b * m2.c), b: (m1.a * m2.b) + (m1.b * m2.d), c: (m1.c * m2.a) + (m1.d * m2.c), d: (m1.c * m2.b) + (m1.d * m2.d), tx: ((m1.a * m2.tx) + (m1.b * m2.ty)) + m1.tx, ty: ((m1.c * m2.tx) + (m1.d * m2.ty)) + m1.ty};
+		});
+	var _benansell$elm_webpack_seed$LogoAnimation$matrixTranslate = F2(
+		function (tx, ty) {
+			return {a: 1, b: 0, c: 0, d: 1, tx: tx, ty: ty};
+		});
+	var _benansell$elm_webpack_seed$LogoAnimation$convertRotateDirecton = function (direction) {
+		var _p6 = direction;
+		if (_p6.ctor === 'Clockwise') {
+			return 1;
+		} else {
+			return -1;
+		}
+	};
+	var _benansell$elm_webpack_seed$LogoAnimation$matrixRotate = F2(
+		function (direction, theta) {
+			var signedDirection = _benansell$elm_webpack_seed$LogoAnimation$convertRotateDirecton(direction);
+			return {
+				a: _elm_lang$core$Basics$cos(theta),
+				b: signedDirection * (0 - _elm_lang$core$Basics$sin(theta)),
+				c: signedDirection * _elm_lang$core$Basics$sin(theta),
+				d: _elm_lang$core$Basics$cos(theta),
+				tx: 0,
+				ty: 0
+			};
+		});
+	var _benansell$elm_webpack_seed$LogoAnimation$matrixShear = function (k) {
+		return {a: 1, b: k, c: 0, d: 1, tx: 0, ty: 0};
+	};
+	var _benansell$elm_webpack_seed$LogoAnimation$matrixScale = function (k) {
+		return {a: k, b: 0, c: 0, d: k, tx: 0, ty: 0};
+	};
+	var _benansell$elm_webpack_seed$LogoAnimation$matrixIdentity = function (origin) {
+		return {a: 1, b: 0, c: 0, d: 1, tx: origin.x, ty: origin.y};
+	};
+	var _benansell$elm_webpack_seed$LogoAnimation$firstTransform = function (transforms) {
+		var head = _elm_lang$core$List$head(transforms);
+		var _p7 = head;
+		if (_p7.ctor === 'Nothing') {
+			return _benansell$elm_webpack_seed$LogoAnimation$matrixIdentity(
+				{x: 0, y: 0});
+		} else {
+			return _p7._0;
+		}
+	};
+	var _benansell$elm_webpack_seed$LogoAnimation$updateTransform = F2(
+		function (transforms, shape) {
+			var transformsWithInitial = A2(
+				_elm_lang$core$Basics_ops['++'],
+				A2(_elm_lang$core$List$drop, 1, transforms),
+				_elm_lang$core$Native_List.fromArray(
+					[shape.initialTransform]));
+			var first = _benansell$elm_webpack_seed$LogoAnimation$firstTransform(transforms);
+			return _elm_lang$core$Native_Utils.update(
+				shape,
+				{
+					currentTransform: A3(_elm_lang$core$List$foldl, _benansell$elm_webpack_seed$LogoAnimation$matrixMultiply, first, transformsWithInitial)
+				});
+		});
+	var _benansell$elm_webpack_seed$LogoAnimation$transformShrink = F2(
+		function (progress, shape) {
+			var scale = A3(_benansell$elm_webpack_seed$LogoAnimation$scaleProgress, 0.5, 4, progress);
+			return A2(
+				_benansell$elm_webpack_seed$LogoAnimation$updateTransform,
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_benansell$elm_webpack_seed$LogoAnimation$matrixScale(scale)
+					]),
+				shape);
+		});
+	var _benansell$elm_webpack_seed$LogoAnimation$toPoint = function (_p8) {
+		var _p9 = _p8;
+		return {x: _p9._0, y: _p9._1};
+	};
+	var _benansell$elm_webpack_seed$LogoAnimation$createShape = F5(
+		function (action, durationInSeconds, color, origin, points) {
+			var originPoint = _benansell$elm_webpack_seed$LogoAnimation$toPoint(origin);
+			var initialTransform = _benansell$elm_webpack_seed$LogoAnimation$matrixIdentity(originPoint);
+			return {
+				action: action,
+				actionDuration: durationInSeconds * 1000,
+				actionEnd: _elm_lang$core$Maybe$Nothing,
+				actionStart: _elm_lang$core$Maybe$Nothing,
+				color: color,
+				origin: originPoint,
+				points: A2(_elm_lang$core$List$map, _benansell$elm_webpack_seed$LogoAnimation$toPoint, points),
+				initialTransform: initialTransform,
+				currentTransform: initialTransform
+			};
+		});
+	var _benansell$elm_webpack_seed$LogoAnimation$Point = F2(
+		function (a, b) {
+			return {x: a, y: b};
+		});
+	var _benansell$elm_webpack_seed$LogoAnimation$Matrix = F6(
+		function (a, b, c, d, e, f) {
+			return {a: a, b: b, c: c, d: d, tx: e, ty: f};
+		});
+	var _benansell$elm_webpack_seed$LogoAnimation$Shape = F9(
+		function (a, b, c, d, e, f, g, h, i) {
+			return {action: a, actionDuration: b, actionEnd: c, actionStart: d, color: e, origin: f, points: g, initialTransform: h, currentTransform: i};
+		});
+	var _benansell$elm_webpack_seed$LogoAnimation$Model = F2(
+		function (a, b) {
+			return {action: a, shapes: b};
+		});
+	var _benansell$elm_webpack_seed$LogoAnimation$Backward = {ctor: 'Backward'};
+	var _benansell$elm_webpack_seed$LogoAnimation$Forward = {ctor: 'Forward'};
+	var _benansell$elm_webpack_seed$LogoAnimation$transformMoveDown = F2(
+		function (progress, shape) {
+			var offset = A3(_benansell$elm_webpack_seed$LogoAnimation$translateProgress, _benansell$elm_webpack_seed$LogoAnimation$Forward, 100, progress / 2);
+			return A2(
+				_benansell$elm_webpack_seed$LogoAnimation$updateTransform,
+				_elm_lang$core$Native_List.fromArray(
+					[
+						A2(_benansell$elm_webpack_seed$LogoAnimation$matrixTranslate, 0, offset)
+					]),
+				shape);
+		});
+	var _benansell$elm_webpack_seed$LogoAnimation$transformMoveRight = F2(
+		function (progress, shape) {
+			var scale = A3(_benansell$elm_webpack_seed$LogoAnimation$scaleProgress, 0.5, 1, progress);
+			var offset = A3(_benansell$elm_webpack_seed$LogoAnimation$translateProgress, _benansell$elm_webpack_seed$LogoAnimation$Forward, -100, progress / 2);
+			return A2(
+				_benansell$elm_webpack_seed$LogoAnimation$updateTransform,
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_benansell$elm_webpack_seed$LogoAnimation$matrixScale(scale),
+						A2(_benansell$elm_webpack_seed$LogoAnimation$matrixTranslate, offset, 0)
+					]),
+				shape);
+		});
+	var _benansell$elm_webpack_seed$LogoAnimation$transformShear = F2(
+		function (progress, shape) {
+			var maxShear = -2;
+			var maxOffset = -80;
+			if (_elm_lang$core$Native_Utils.cmp(progress, 0.25) < 0) {
+				var offset = A3(_benansell$elm_webpack_seed$LogoAnimation$translateProgress, _benansell$elm_webpack_seed$LogoAnimation$Forward, maxOffset, progress);
+				return A2(
+					_benansell$elm_webpack_seed$LogoAnimation$updateTransform,
+					_elm_lang$core$Native_List.fromArray(
+						[
+							A2(_benansell$elm_webpack_seed$LogoAnimation$matrixTranslate, offset, offset)
+						]),
+					shape);
+			} else {
+				if (_elm_lang$core$Native_Utils.cmp(progress, 0.5) < 0) {
+					var shear = (maxShear * 4) * (progress - 0.25);
+					return A2(
+						_benansell$elm_webpack_seed$LogoAnimation$updateTransform,
+						_elm_lang$core$Native_List.fromArray(
+							[
+								_benansell$elm_webpack_seed$LogoAnimation$matrixShear(shear),
+								A2(_benansell$elm_webpack_seed$LogoAnimation$matrixTranslate, maxOffset, maxOffset)
+							]),
+						shape);
+				} else {
+					if (_elm_lang$core$Native_Utils.cmp(progress, 0.75) < 0) {
+						var shear = maxShear - ((maxShear * 4) * (progress - 0.5));
+						return A2(
+							_benansell$elm_webpack_seed$LogoAnimation$updateTransform,
+							_elm_lang$core$Native_List.fromArray(
+								[
+									_benansell$elm_webpack_seed$LogoAnimation$matrixShear(shear),
+									A2(_benansell$elm_webpack_seed$LogoAnimation$matrixTranslate, maxOffset, maxOffset)
+								]),
+							shape);
+					} else {
+						var offset = A3(_benansell$elm_webpack_seed$LogoAnimation$translateProgress, _benansell$elm_webpack_seed$LogoAnimation$Backward, maxOffset, progress);
+						return A2(
+							_benansell$elm_webpack_seed$LogoAnimation$updateTransform,
+							_elm_lang$core$Native_List.fromArray(
+								[
+									A2(_benansell$elm_webpack_seed$LogoAnimation$matrixTranslate, offset, offset)
+								]),
+							shape);
+					}
+				}
+			}
+		});
+	var _benansell$elm_webpack_seed$LogoAnimation$Clockwise = {ctor: 'Clockwise'};
+	var _benansell$elm_webpack_seed$LogoAnimation$AntiClockwise = {ctor: 'AntiClockwise'};
+	var _benansell$elm_webpack_seed$LogoAnimation$transformHinge = F2(
+		function (progress, shape) {
+			var maxScale = 0.7;
+			var scale = A3(_benansell$elm_webpack_seed$LogoAnimation$scaleProgress, maxScale, 2, progress);
+			var angle = (2 * _elm_lang$core$Basics$pi) * progress;
+			return (_elm_lang$core$Native_Utils.cmp(progress, 0.25) < 0) ? A2(
+				_benansell$elm_webpack_seed$LogoAnimation$updateTransform,
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_benansell$elm_webpack_seed$LogoAnimation$matrixScale(scale),
+						A2(_benansell$elm_webpack_seed$LogoAnimation$matrixRotate, _benansell$elm_webpack_seed$LogoAnimation$Clockwise, angle)
+					]),
+				shape) : ((_elm_lang$core$Native_Utils.cmp(progress, 0.5) < 0) ? A2(
+				_benansell$elm_webpack_seed$LogoAnimation$updateTransform,
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_benansell$elm_webpack_seed$LogoAnimation$matrixScale(maxScale),
+						A2(_benansell$elm_webpack_seed$LogoAnimation$matrixRotate, _benansell$elm_webpack_seed$LogoAnimation$Clockwise, angle)
+					]),
+				shape) : ((_elm_lang$core$Native_Utils.cmp(progress, 0.75) < 0) ? A2(
+				_benansell$elm_webpack_seed$LogoAnimation$updateTransform,
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_benansell$elm_webpack_seed$LogoAnimation$matrixScale(maxScale),
+						A2(_benansell$elm_webpack_seed$LogoAnimation$matrixRotate, _benansell$elm_webpack_seed$LogoAnimation$AntiClockwise, angle)
+					]),
+				shape) : A2(
+				_benansell$elm_webpack_seed$LogoAnimation$updateTransform,
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_benansell$elm_webpack_seed$LogoAnimation$matrixScale(scale),
+						A2(_benansell$elm_webpack_seed$LogoAnimation$matrixRotate, _benansell$elm_webpack_seed$LogoAnimation$AntiClockwise, angle)
+					]),
+				shape)));
+		});
+	var _benansell$elm_webpack_seed$LogoAnimation$transformRotate = F2(
+		function (progress, shape) {
+			var maxScale = 0.8;
+			var maxOffset = 40;
+			if (_elm_lang$core$Native_Utils.cmp(progress, 0.25) < 0) {
+				var scale = A3(_benansell$elm_webpack_seed$LogoAnimation$scaleProgress, maxScale, 2, progress);
+				var offset = A3(_benansell$elm_webpack_seed$LogoAnimation$translateProgress, _benansell$elm_webpack_seed$LogoAnimation$Forward, maxOffset, progress);
+				return A2(
+					_benansell$elm_webpack_seed$LogoAnimation$updateTransform,
+					_elm_lang$core$Native_List.fromArray(
+						[
+							_benansell$elm_webpack_seed$LogoAnimation$matrixScale(scale),
+							A2(_benansell$elm_webpack_seed$LogoAnimation$matrixTranslate, offset, 0 - offset)
+						]),
+					shape);
+			} else {
+				if (_elm_lang$core$Native_Utils.cmp(progress, 0.75) < 0) {
+					var angle = (4 * _elm_lang$core$Basics$pi) * (progress - 0.25);
+					return A2(
+						_benansell$elm_webpack_seed$LogoAnimation$updateTransform,
+						_elm_lang$core$Native_List.fromArray(
+							[
+								_benansell$elm_webpack_seed$LogoAnimation$matrixScale(maxScale),
+								A2(_benansell$elm_webpack_seed$LogoAnimation$matrixRotate, _benansell$elm_webpack_seed$LogoAnimation$AntiClockwise, angle),
+								A2(_benansell$elm_webpack_seed$LogoAnimation$matrixTranslate, maxOffset, 0 - maxOffset)
+							]),
+						shape);
+				} else {
+					var scale = A3(_benansell$elm_webpack_seed$LogoAnimation$scaleProgress, maxScale, 2, progress);
+					var offset = A3(_benansell$elm_webpack_seed$LogoAnimation$translateProgress, _benansell$elm_webpack_seed$LogoAnimation$Backward, maxOffset, progress);
+					return A2(
+						_benansell$elm_webpack_seed$LogoAnimation$updateTransform,
+						_elm_lang$core$Native_List.fromArray(
+							[
+								_benansell$elm_webpack_seed$LogoAnimation$matrixScale(scale),
+								A2(_benansell$elm_webpack_seed$LogoAnimation$matrixTranslate, offset, 0 - offset)
+							]),
+						shape);
+				}
+			}
+		});
+	var _benansell$elm_webpack_seed$LogoAnimation$transformWobble = F2(
+		function (progress, shape) {
+			var wobbleTick = _elm_lang$core$Basics$round(25 * progress);
+			var angle = _elm_lang$core$Basics$degrees(1);
+			return _elm_lang$core$Native_Utils.eq(
+				A2(_elm_lang$core$Basics_ops['%'], wobbleTick, 2),
+				0) ? A2(
+				_benansell$elm_webpack_seed$LogoAnimation$updateTransform,
+				_elm_lang$core$Native_List.fromArray(
+					[
+						A2(_benansell$elm_webpack_seed$LogoAnimation$matrixRotate, _benansell$elm_webpack_seed$LogoAnimation$Clockwise, angle)
+					]),
+				shape) : A2(
+				_benansell$elm_webpack_seed$LogoAnimation$updateTransform,
+				_elm_lang$core$Native_List.fromArray(
+					[
+						A2(_benansell$elm_webpack_seed$LogoAnimation$matrixRotate, _benansell$elm_webpack_seed$LogoAnimation$AntiClockwise, angle)
+					]),
+				shape);
+		});
+	var _benansell$elm_webpack_seed$LogoAnimation$updateShape = F2(
+		function (time, shape) {
+			var progress = A2(
+				_benansell$elm_webpack_seed$LogoAnimation$timeRemainingToProgress,
+				shape.actionDuration,
+				A2(_benansell$elm_webpack_seed$LogoAnimation$timeRemaining, time, shape.actionEnd));
+			var _p10 = shape.action;
+			switch (_p10.ctor) {
+				case 'None':
+					return shape;
+				case 'Hinge':
+					return A2(_benansell$elm_webpack_seed$LogoAnimation$transformHinge, progress, shape);
+				case 'MoveDown':
+					return A2(_benansell$elm_webpack_seed$LogoAnimation$transformMoveDown, progress, shape);
+				case 'MoveRight':
+					return A2(_benansell$elm_webpack_seed$LogoAnimation$transformMoveRight, progress, shape);
+				case 'Rotate':
+					return A2(_benansell$elm_webpack_seed$LogoAnimation$transformRotate, progress, shape);
+				case 'Shear':
+					return A2(_benansell$elm_webpack_seed$LogoAnimation$transformShear, progress, shape);
+				case 'Shrink':
+					return A2(_benansell$elm_webpack_seed$LogoAnimation$transformShrink, progress, shape);
+				default:
+					return A2(_benansell$elm_webpack_seed$LogoAnimation$transformWobble, progress, shape);
+			}
+		});
+	var _benansell$elm_webpack_seed$LogoAnimation$Wobble = {ctor: 'Wobble'};
+	var _benansell$elm_webpack_seed$LogoAnimation$centerTriangle = A5(
+		_benansell$elm_webpack_seed$LogoAnimation$createShape,
+		_benansell$elm_webpack_seed$LogoAnimation$Wobble,
+		2,
+		_benansell$elm_webpack_seed$LogoAnimationCss$yellow,
+		{ctor: '_Tuple2', _0: 361.649, _1: 306.205},
+		_elm_lang$core$Native_List.fromArray(
+			[
+				{ctor: '_Tuple2', _0: 0, _1: 46.577},
+				{ctor: '_Tuple2', _0: 69.865, _1: -23.289},
+				{ctor: '_Tuple2', _0: -69.866, _1: -23.289}
+			]));
+	var _benansell$elm_webpack_seed$LogoAnimation$Shrink = {ctor: 'Shrink'};
+	var _benansell$elm_webpack_seed$LogoAnimation$centerSquare = A5(
+		_benansell$elm_webpack_seed$LogoAnimation$createShape,
+		_benansell$elm_webpack_seed$LogoAnimation$Shrink,
+		3,
+		_benansell$elm_webpack_seed$LogoAnimationCss$green,
+		{ctor: '_Tuple2', _0: 446.9075, _1: 361.3065},
+		_elm_lang$core$Native_List.fromArray(
+			[
+				{ctor: '_Tuple2', _0: -76.3905, _1: 0},
+				{ctor: '_Tuple2', _0: 0, _1: 76.3905},
+				{ctor: '_Tuple2', _0: 76.3905, _1: 0},
+				{ctor: '_Tuple2', _0: 0, _1: -76.3905}
+			]));
+	var _benansell$elm_webpack_seed$LogoAnimation$Shear = {ctor: 'Shear'};
+	var _benansell$elm_webpack_seed$LogoAnimation$topParallelogram = A5(
+		_benansell$elm_webpack_seed$LogoAnimation$createShape,
+		_benansell$elm_webpack_seed$LogoAnimation$Shear,
+		4,
+		_benansell$elm_webpack_seed$LogoAnimationCss$green,
+		{ctor: '_Tuple2', _0: 320.54, _1: 235.188},
+		_elm_lang$core$Native_List.fromArray(
+			[
+				{ctor: '_Tuple2', _0: -111.673, _1: -35.188},
+				{ctor: '_Tuple2', _0: -41.299, _1: 35.187},
+				{ctor: '_Tuple2', _0: 111.673, _1: 35.187},
+				{ctor: '_Tuple2', _0: 41.298, _1: -35.188}
+			]));
+	var _benansell$elm_webpack_seed$LogoAnimation$Rotate = {ctor: 'Rotate'};
+	var _benansell$elm_webpack_seed$LogoAnimation$topRightTriangle = A5(
+		_benansell$elm_webpack_seed$LogoAnimation$createShape,
+		_benansell$elm_webpack_seed$LogoAnimation$Rotate,
+		10,
+		_benansell$elm_webpack_seed$LogoAnimationCss$blue,
+		{ctor: '_Tuple2', _0: 475.39, _1: 247.908},
+		_elm_lang$core$Native_List.fromArray(
+			[
+				{ctor: '_Tuple2', _0: 47.908, _1: 95.816},
+				{ctor: '_Tuple2', _0: 47.908, _1: -47.908},
+				{ctor: '_Tuple2', _0: -95.817, _1: -47.908}
+			]));
+	var _benansell$elm_webpack_seed$LogoAnimation$MoveRight = {ctor: 'MoveRight'};
+	var _benansell$elm_webpack_seed$LogoAnimation$leftBigTriangle = A5(
+		_benansell$elm_webpack_seed$LogoAnimation$createShape,
+		_benansell$elm_webpack_seed$LogoAnimation$MoveRight,
+		5,
+		_benansell$elm_webpack_seed$LogoAnimationCss$blueGray,
+		{ctor: '_Tuple2', _0: 250.927, _1: 361.649},
+		_elm_lang$core$Native_List.fromArray(
+			[
+				{ctor: '_Tuple2', _0: 101.854, _1: 0},
+				{ctor: '_Tuple2', _0: -50.927, _1: -152.781},
+				{ctor: '_Tuple2', _0: -50.927, _1: 152.783}
+			]));
+	var _benansell$elm_webpack_seed$LogoAnimation$MoveDown = {ctor: 'MoveDown'};
+	var _benansell$elm_webpack_seed$LogoAnimation$bottomBigTriangle = A5(
+		_benansell$elm_webpack_seed$LogoAnimation$createShape,
+		_benansell$elm_webpack_seed$LogoAnimation$MoveDown,
+		2,
+		_benansell$elm_webpack_seed$LogoAnimationCss$blue,
+		{ctor: '_Tuple2', _0: 361.649, _1: 472.371},
+		_elm_lang$core$Native_List.fromArray(
+			[
+				{ctor: '_Tuple2', _0: 0, _1: -101.854},
+				{ctor: '_Tuple2', _0: -152.78, _1: 50.927},
+				{ctor: '_Tuple2', _0: 152.781, _1: 50.927}
+			]));
+	var _benansell$elm_webpack_seed$LogoAnimation$Hinge = {ctor: 'Hinge'};
+	var _benansell$elm_webpack_seed$LogoAnimation$bottomRightTriangle = A5(
+		_benansell$elm_webpack_seed$LogoAnimation$createShape,
+		_benansell$elm_webpack_seed$LogoAnimation$Hinge,
+		4,
+		_benansell$elm_webpack_seed$LogoAnimationCss$yellow,
+		{ctor: '_Tuple2', _0: 523.298, _1: 514.432},
+		_elm_lang$core$Native_List.fromArray(
+			[
+				{ctor: '_Tuple2', _0: -67.776, _1: -67.777},
+				{ctor: '_Tuple2', _0: 0, _1: 0},
+				{ctor: '_Tuple2', _0: 0, _1: -135.553}
+			]));
+	var _benansell$elm_webpack_seed$LogoAnimation$None = {ctor: 'None'};
+	var _benansell$elm_webpack_seed$LogoAnimation$init = {
+		action: _benansell$elm_webpack_seed$LogoAnimation$None,
+		shapes: _elm_lang$core$Native_List.fromArray(
+			[_benansell$elm_webpack_seed$LogoAnimation$bottomBigTriangle, _benansell$elm_webpack_seed$LogoAnimation$bottomRightTriangle, _benansell$elm_webpack_seed$LogoAnimation$centerSquare, _benansell$elm_webpack_seed$LogoAnimation$centerTriangle, _benansell$elm_webpack_seed$LogoAnimation$leftBigTriangle, _benansell$elm_webpack_seed$LogoAnimation$topParallelogram, _benansell$elm_webpack_seed$LogoAnimation$topRightTriangle])
+	};
+	var _benansell$elm_webpack_seed$LogoAnimation$tick = F2(
+		function (time, model) {
+			return _elm_lang$core$Native_Utils.update(
+				model,
+				{
+					action: _benansell$elm_webpack_seed$LogoAnimation$None,
+					shapes: A2(
+						_elm_lang$core$List$map,
+						function (s) {
+							return (_elm_lang$core$Native_Utils.cmp(
+								time,
+								A2(_elm_lang$core$Maybe$withDefault, 0, s.actionEnd)) < 0) ? A2(_benansell$elm_webpack_seed$LogoAnimation$updateShape, time, s) : (((!_elm_lang$core$Native_Utils.eq(s.action, _benansell$elm_webpack_seed$LogoAnimation$None)) && _elm_lang$core$Native_Utils.eq(s.action, model.action)) ? A2(
+								_benansell$elm_webpack_seed$LogoAnimation$updateShape,
+								time,
+								_elm_lang$core$Native_Utils.update(
+									s,
+									{
+										actionStart: _elm_lang$core$Maybe$Just(time),
+										actionEnd: _elm_lang$core$Maybe$Just(time + s.actionDuration)
+									})) : ((!_elm_lang$core$Native_Utils.eq(_elm_lang$core$Maybe$Nothing, s.actionEnd)) ? _elm_lang$core$Native_Utils.update(
+								s,
+								{actionStart: _elm_lang$core$Maybe$Nothing, actionEnd: _elm_lang$core$Maybe$Nothing, currentTransform: s.initialTransform}) : s));
+						},
+						model.shapes)
+				});
+		});
+	var _benansell$elm_webpack_seed$LogoAnimation$update = F2(
+		function (newAction, model) {
+			return _elm_lang$core$Native_Utils.eq(newAction, _benansell$elm_webpack_seed$LogoAnimation$None) ? model : _elm_lang$core$Native_Utils.update(
+				model,
+				{action: newAction});
+		});
+	
+	var _elm_lang$animation_frame$Native_AnimationFrame = function()
+	{
+	
+	var hasStartTime =
+		window.performance &&
+		window.performance.timing &&
+		window.performance.timing.navigationStart;
+	
+	var navStart = hasStartTime
+		? window.performance.timing.navigationStart
+		: Date.now();
+	
+	var rAF = _elm_lang$core$Native_Scheduler.nativeBinding(function(callback)
+	{
+		var id = requestAnimationFrame(function(time) {
+			var timeNow = time
+				? (time > navStart ? time : time + navStart)
+				: Date.now();
+	
+			callback(_elm_lang$core$Native_Scheduler.succeed(timeNow));
+		});
+	
+		return function() {
+			cancelAnimationFrame(id);
+		};
+	});
+	
+	return {
+		rAF: rAF
+	};
+	
+	}();
+	
+	var _elm_lang$core$Task$onError = _elm_lang$core$Native_Scheduler.onError;
+	var _elm_lang$core$Task$andThen = _elm_lang$core$Native_Scheduler.andThen;
+	var _elm_lang$core$Task$spawnCmd = F2(
+		function (router, _p0) {
+			var _p1 = _p0;
+			return _elm_lang$core$Native_Scheduler.spawn(
+				A2(
+					_elm_lang$core$Task$andThen,
+					_p1._0,
+					_elm_lang$core$Platform$sendToApp(router)));
+		});
+	var _elm_lang$core$Task$fail = _elm_lang$core$Native_Scheduler.fail;
+	var _elm_lang$core$Task$mapError = F2(
+		function (f, task) {
+			return A2(
+				_elm_lang$core$Task$onError,
+				task,
+				function (err) {
+					return _elm_lang$core$Task$fail(
+						f(err));
+				});
+		});
+	var _elm_lang$core$Task$succeed = _elm_lang$core$Native_Scheduler.succeed;
+	var _elm_lang$core$Task$map = F2(
+		function (func, taskA) {
+			return A2(
+				_elm_lang$core$Task$andThen,
+				taskA,
+				function (a) {
+					return _elm_lang$core$Task$succeed(
+						func(a));
+				});
+		});
+	var _elm_lang$core$Task$map2 = F3(
+		function (func, taskA, taskB) {
+			return A2(
+				_elm_lang$core$Task$andThen,
+				taskA,
+				function (a) {
+					return A2(
+						_elm_lang$core$Task$andThen,
+						taskB,
+						function (b) {
+							return _elm_lang$core$Task$succeed(
+								A2(func, a, b));
+						});
+				});
+		});
+	var _elm_lang$core$Task$map3 = F4(
+		function (func, taskA, taskB, taskC) {
+			return A2(
+				_elm_lang$core$Task$andThen,
+				taskA,
+				function (a) {
+					return A2(
+						_elm_lang$core$Task$andThen,
+						taskB,
+						function (b) {
+							return A2(
+								_elm_lang$core$Task$andThen,
+								taskC,
+								function (c) {
+									return _elm_lang$core$Task$succeed(
+										A3(func, a, b, c));
+								});
+						});
+				});
+		});
+	var _elm_lang$core$Task$map4 = F5(
+		function (func, taskA, taskB, taskC, taskD) {
+			return A2(
+				_elm_lang$core$Task$andThen,
+				taskA,
+				function (a) {
+					return A2(
+						_elm_lang$core$Task$andThen,
+						taskB,
+						function (b) {
+							return A2(
+								_elm_lang$core$Task$andThen,
+								taskC,
+								function (c) {
+									return A2(
+										_elm_lang$core$Task$andThen,
+										taskD,
+										function (d) {
+											return _elm_lang$core$Task$succeed(
+												A4(func, a, b, c, d));
+										});
+								});
+						});
+				});
+		});
+	var _elm_lang$core$Task$map5 = F6(
+		function (func, taskA, taskB, taskC, taskD, taskE) {
+			return A2(
+				_elm_lang$core$Task$andThen,
+				taskA,
+				function (a) {
+					return A2(
+						_elm_lang$core$Task$andThen,
+						taskB,
+						function (b) {
+							return A2(
+								_elm_lang$core$Task$andThen,
+								taskC,
+								function (c) {
+									return A2(
+										_elm_lang$core$Task$andThen,
+										taskD,
+										function (d) {
+											return A2(
+												_elm_lang$core$Task$andThen,
+												taskE,
+												function (e) {
+													return _elm_lang$core$Task$succeed(
+														A5(func, a, b, c, d, e));
+												});
+										});
+								});
+						});
+				});
+		});
+	var _elm_lang$core$Task$andMap = F2(
+		function (taskFunc, taskValue) {
+			return A2(
+				_elm_lang$core$Task$andThen,
+				taskFunc,
+				function (func) {
+					return A2(
+						_elm_lang$core$Task$andThen,
+						taskValue,
+						function (value) {
+							return _elm_lang$core$Task$succeed(
+								func(value));
+						});
+				});
+		});
+	var _elm_lang$core$Task$sequence = function (tasks) {
+		var _p2 = tasks;
+		if (_p2.ctor === '[]') {
+			return _elm_lang$core$Task$succeed(
+				_elm_lang$core$Native_List.fromArray(
+					[]));
+		} else {
+			return A3(
+				_elm_lang$core$Task$map2,
+				F2(
+					function (x, y) {
+						return A2(_elm_lang$core$List_ops['::'], x, y);
+					}),
+				_p2._0,
+				_elm_lang$core$Task$sequence(_p2._1));
+		}
+	};
+	var _elm_lang$core$Task$onEffects = F3(
+		function (router, commands, state) {
+			return A2(
+				_elm_lang$core$Task$map,
+				function (_p3) {
+					return {ctor: '_Tuple0'};
+				},
+				_elm_lang$core$Task$sequence(
+					A2(
+						_elm_lang$core$List$map,
+						_elm_lang$core$Task$spawnCmd(router),
+						commands)));
+		});
+	var _elm_lang$core$Task$toMaybe = function (task) {
+		return A2(
+			_elm_lang$core$Task$onError,
+			A2(_elm_lang$core$Task$map, _elm_lang$core$Maybe$Just, task),
+			function (_p4) {
+				return _elm_lang$core$Task$succeed(_elm_lang$core$Maybe$Nothing);
+			});
+	};
+	var _elm_lang$core$Task$fromMaybe = F2(
+		function ($default, maybe) {
+			var _p5 = maybe;
+			if (_p5.ctor === 'Just') {
+				return _elm_lang$core$Task$succeed(_p5._0);
+			} else {
+				return _elm_lang$core$Task$fail($default);
+			}
+		});
+	var _elm_lang$core$Task$toResult = function (task) {
+		return A2(
+			_elm_lang$core$Task$onError,
+			A2(_elm_lang$core$Task$map, _elm_lang$core$Result$Ok, task),
+			function (msg) {
+				return _elm_lang$core$Task$succeed(
+					_elm_lang$core$Result$Err(msg));
+			});
+	};
+	var _elm_lang$core$Task$fromResult = function (result) {
+		var _p6 = result;
+		if (_p6.ctor === 'Ok') {
+			return _elm_lang$core$Task$succeed(_p6._0);
+		} else {
+			return _elm_lang$core$Task$fail(_p6._0);
+		}
+	};
+	var _elm_lang$core$Task$init = _elm_lang$core$Task$succeed(
+		{ctor: '_Tuple0'});
+	var _elm_lang$core$Task$onSelfMsg = F3(
+		function (_p9, _p8, _p7) {
+			return _elm_lang$core$Task$succeed(
+				{ctor: '_Tuple0'});
+		});
+	var _elm_lang$core$Task$command = _elm_lang$core$Native_Platform.leaf('Task');
+	var _elm_lang$core$Task$T = function (a) {
+		return {ctor: 'T', _0: a};
+	};
+	var _elm_lang$core$Task$perform = F3(
+		function (onFail, onSuccess, task) {
+			return _elm_lang$core$Task$command(
+				_elm_lang$core$Task$T(
+					A2(
+						_elm_lang$core$Task$onError,
+						A2(_elm_lang$core$Task$map, onSuccess, task),
+						function (x) {
+							return _elm_lang$core$Task$succeed(
+								onFail(x));
+						})));
+		});
+	var _elm_lang$core$Task$cmdMap = F2(
+		function (tagger, _p10) {
+			var _p11 = _p10;
+			return _elm_lang$core$Task$T(
+				A2(_elm_lang$core$Task$map, tagger, _p11._0));
+		});
+	_elm_lang$core$Native_Platform.effectManagers['Task'] = {pkg: 'elm-lang/core', init: _elm_lang$core$Task$init, onEffects: _elm_lang$core$Task$onEffects, onSelfMsg: _elm_lang$core$Task$onSelfMsg, tag: 'cmd', cmdMap: _elm_lang$core$Task$cmdMap};
+	
+	//import Native.Scheduler //
+	
+	var _elm_lang$core$Native_Time = function() {
+	
+	var now = _elm_lang$core$Native_Scheduler.nativeBinding(function(callback)
+	{
+		callback(_elm_lang$core$Native_Scheduler.succeed(Date.now()));
+	});
+	
+	function setInterval_(interval, task)
+	{
+		return _elm_lang$core$Native_Scheduler.nativeBinding(function(callback)
+		{
+			var id = setInterval(function() {
+				_elm_lang$core$Native_Scheduler.rawSpawn(task);
+			}, interval);
+	
+			return function() { clearInterval(id); };
+		});
+	}
+	
+	return {
+		now: now,
+		setInterval_: F2(setInterval_)
+	};
+	
+	}();
+	var _elm_lang$core$Time$setInterval = _elm_lang$core$Native_Time.setInterval_;
+	var _elm_lang$core$Time$spawnHelp = F3(
+		function (router, intervals, processes) {
+			var _p0 = intervals;
+			if (_p0.ctor === '[]') {
+				return _elm_lang$core$Task$succeed(processes);
+			} else {
+				var _p1 = _p0._0;
+				return A2(
+					_elm_lang$core$Task$andThen,
+					_elm_lang$core$Native_Scheduler.spawn(
+						A2(
+							_elm_lang$core$Time$setInterval,
+							_p1,
+							A2(_elm_lang$core$Platform$sendToSelf, router, _p1))),
+					function (id) {
+						return A3(
+							_elm_lang$core$Time$spawnHelp,
+							router,
+							_p0._1,
+							A3(_elm_lang$core$Dict$insert, _p1, id, processes));
+					});
+			}
+		});
+	var _elm_lang$core$Time$addMySub = F2(
+		function (_p2, state) {
+			var _p3 = _p2;
+			var _p6 = _p3._1;
+			var _p5 = _p3._0;
+			var _p4 = A2(_elm_lang$core$Dict$get, _p5, state);
+			if (_p4.ctor === 'Nothing') {
+				return A3(
+					_elm_lang$core$Dict$insert,
+					_p5,
+					_elm_lang$core$Native_List.fromArray(
+						[_p6]),
+					state);
+			} else {
+				return A3(
+					_elm_lang$core$Dict$insert,
+					_p5,
+					A2(_elm_lang$core$List_ops['::'], _p6, _p4._0),
+					state);
+			}
+		});
+	var _elm_lang$core$Time$inMilliseconds = function (t) {
+		return t;
+	};
+	var _elm_lang$core$Time$millisecond = 1;
+	var _elm_lang$core$Time$second = 1000 * _elm_lang$core$Time$millisecond;
+	var _elm_lang$core$Time$minute = 60 * _elm_lang$core$Time$second;
+	var _elm_lang$core$Time$hour = 60 * _elm_lang$core$Time$minute;
+	var _elm_lang$core$Time$inHours = function (t) {
+		return t / _elm_lang$core$Time$hour;
+	};
+	var _elm_lang$core$Time$inMinutes = function (t) {
+		return t / _elm_lang$core$Time$minute;
+	};
+	var _elm_lang$core$Time$inSeconds = function (t) {
+		return t / _elm_lang$core$Time$second;
+	};
+	var _elm_lang$core$Time$now = _elm_lang$core$Native_Time.now;
+	var _elm_lang$core$Time$onSelfMsg = F3(
+		function (router, interval, state) {
+			var _p7 = A2(_elm_lang$core$Dict$get, interval, state.taggers);
+			if (_p7.ctor === 'Nothing') {
+				return _elm_lang$core$Task$succeed(state);
+			} else {
+				return A2(
+					_elm_lang$core$Task$andThen,
+					_elm_lang$core$Time$now,
+					function (time) {
+						return A2(
+							_elm_lang$core$Task$andThen,
+							_elm_lang$core$Task$sequence(
+								A2(
+									_elm_lang$core$List$map,
+									function (tagger) {
+										return A2(
+											_elm_lang$core$Platform$sendToApp,
+											router,
+											tagger(time));
+									},
+									_p7._0)),
+							function (_p8) {
+								return _elm_lang$core$Task$succeed(state);
+							});
+					});
+			}
+		});
+	var _elm_lang$core$Time$subscription = _elm_lang$core$Native_Platform.leaf('Time');
+	var _elm_lang$core$Time$State = F2(
+		function (a, b) {
+			return {taggers: a, processes: b};
+		});
+	var _elm_lang$core$Time$init = _elm_lang$core$Task$succeed(
+		A2(_elm_lang$core$Time$State, _elm_lang$core$Dict$empty, _elm_lang$core$Dict$empty));
+	var _elm_lang$core$Time$onEffects = F3(
+		function (router, subs, _p9) {
+			var _p10 = _p9;
+			var rightStep = F3(
+				function (_p12, id, _p11) {
+					var _p13 = _p11;
+					return {
+						ctor: '_Tuple3',
+						_0: _p13._0,
+						_1: _p13._1,
+						_2: A2(
+							_elm_lang$core$Task$andThen,
+							_elm_lang$core$Native_Scheduler.kill(id),
+							function (_p14) {
+								return _p13._2;
+							})
+					};
+				});
+			var bothStep = F4(
+				function (interval, taggers, id, _p15) {
+					var _p16 = _p15;
+					return {
+						ctor: '_Tuple3',
+						_0: _p16._0,
+						_1: A3(_elm_lang$core$Dict$insert, interval, id, _p16._1),
+						_2: _p16._2
+					};
+				});
+			var leftStep = F3(
+				function (interval, taggers, _p17) {
+					var _p18 = _p17;
+					return {
+						ctor: '_Tuple3',
+						_0: A2(_elm_lang$core$List_ops['::'], interval, _p18._0),
+						_1: _p18._1,
+						_2: _p18._2
+					};
+				});
+			var newTaggers = A3(_elm_lang$core$List$foldl, _elm_lang$core$Time$addMySub, _elm_lang$core$Dict$empty, subs);
+			var _p19 = A6(
+				_elm_lang$core$Dict$merge,
+				leftStep,
+				bothStep,
+				rightStep,
+				newTaggers,
+				_p10.processes,
+				{
+					ctor: '_Tuple3',
+					_0: _elm_lang$core$Native_List.fromArray(
+						[]),
+					_1: _elm_lang$core$Dict$empty,
+					_2: _elm_lang$core$Task$succeed(
+						{ctor: '_Tuple0'})
+				});
+			var spawnList = _p19._0;
+			var existingDict = _p19._1;
+			var killTask = _p19._2;
+			return A2(
+				_elm_lang$core$Task$andThen,
+				killTask,
+				function (_p20) {
+					return A2(
+						_elm_lang$core$Task$andThen,
+						A3(_elm_lang$core$Time$spawnHelp, router, spawnList, existingDict),
+						function (newProcesses) {
+							return _elm_lang$core$Task$succeed(
+								A2(_elm_lang$core$Time$State, newTaggers, newProcesses));
+						});
+				});
+		});
+	var _elm_lang$core$Time$Every = F2(
+		function (a, b) {
+			return {ctor: 'Every', _0: a, _1: b};
+		});
+	var _elm_lang$core$Time$every = F2(
+		function (interval, tagger) {
+			return _elm_lang$core$Time$subscription(
+				A2(_elm_lang$core$Time$Every, interval, tagger));
+		});
+	var _elm_lang$core$Time$subMap = F2(
+		function (f, _p21) {
+			var _p22 = _p21;
+			return A2(
+				_elm_lang$core$Time$Every,
+				_p22._0,
+				function (_p23) {
+					return f(
+						_p22._1(_p23));
+				});
+		});
+	_elm_lang$core$Native_Platform.effectManagers['Time'] = {pkg: 'elm-lang/core', init: _elm_lang$core$Time$init, onEffects: _elm_lang$core$Time$onEffects, onSelfMsg: _elm_lang$core$Time$onSelfMsg, tag: 'sub', subMap: _elm_lang$core$Time$subMap};
+	
+	var _elm_lang$core$Process$kill = _elm_lang$core$Native_Scheduler.kill;
+	var _elm_lang$core$Process$sleep = _elm_lang$core$Native_Scheduler.sleep;
+	var _elm_lang$core$Process$spawn = _elm_lang$core$Native_Scheduler.spawn;
+	
+	var _elm_lang$animation_frame$AnimationFrame$rAF = _elm_lang$animation_frame$Native_AnimationFrame.rAF;
+	var _elm_lang$animation_frame$AnimationFrame$subscription = _elm_lang$core$Native_Platform.leaf('AnimationFrame');
+	var _elm_lang$animation_frame$AnimationFrame$State = F3(
+		function (a, b, c) {
+			return {subs: a, request: b, oldTime: c};
+		});
+	var _elm_lang$animation_frame$AnimationFrame$init = _elm_lang$core$Task$succeed(
+		A3(
+			_elm_lang$animation_frame$AnimationFrame$State,
+			_elm_lang$core$Native_List.fromArray(
+				[]),
+			_elm_lang$core$Maybe$Nothing,
+			0));
+	var _elm_lang$animation_frame$AnimationFrame$onEffects = F3(
+		function (router, subs, _p0) {
+			var _p1 = _p0;
+			var _p5 = _p1.request;
+			var _p4 = _p1.oldTime;
+			var _p2 = {ctor: '_Tuple2', _0: _p5, _1: subs};
+			if (_p2._0.ctor === 'Nothing') {
+				if (_p2._1.ctor === '[]') {
+					return _elm_lang$core$Task$succeed(
+						A3(
+							_elm_lang$animation_frame$AnimationFrame$State,
+							_elm_lang$core$Native_List.fromArray(
+								[]),
+							_elm_lang$core$Maybe$Nothing,
+							_p4));
+				} else {
+					return A2(
+						_elm_lang$core$Task$andThen,
+						_elm_lang$core$Process$spawn(
+							A2(
+								_elm_lang$core$Task$andThen,
+								_elm_lang$animation_frame$AnimationFrame$rAF,
+								_elm_lang$core$Platform$sendToSelf(router))),
+						function (pid) {
+							return A2(
+								_elm_lang$core$Task$andThen,
+								_elm_lang$core$Time$now,
+								function (time) {
+									return _elm_lang$core$Task$succeed(
+										A3(
+											_elm_lang$animation_frame$AnimationFrame$State,
+											subs,
+											_elm_lang$core$Maybe$Just(pid),
+											time));
+								});
+						});
+				}
+			} else {
+				if (_p2._1.ctor === '[]') {
+					return A2(
+						_elm_lang$core$Task$andThen,
+						_elm_lang$core$Process$kill(_p2._0._0),
+						function (_p3) {
+							return _elm_lang$core$Task$succeed(
+								A3(
+									_elm_lang$animation_frame$AnimationFrame$State,
+									_elm_lang$core$Native_List.fromArray(
+										[]),
+									_elm_lang$core$Maybe$Nothing,
+									_p4));
+						});
+				} else {
+					return _elm_lang$core$Task$succeed(
+						A3(_elm_lang$animation_frame$AnimationFrame$State, subs, _p5, _p4));
+				}
+			}
+		});
+	var _elm_lang$animation_frame$AnimationFrame$onSelfMsg = F3(
+		function (router, newTime, _p6) {
+			var _p7 = _p6;
+			var _p10 = _p7.subs;
+			var diff = newTime - _p7.oldTime;
+			var send = function (sub) {
+				var _p8 = sub;
+				if (_p8.ctor === 'Time') {
+					return A2(
+						_elm_lang$core$Platform$sendToApp,
+						router,
+						_p8._0(newTime));
+				} else {
+					return A2(
+						_elm_lang$core$Platform$sendToApp,
+						router,
+						_p8._0(diff));
+				}
+			};
+			return A2(
+				_elm_lang$core$Task$andThen,
+				_elm_lang$core$Process$spawn(
+					A2(
+						_elm_lang$core$Task$andThen,
+						_elm_lang$animation_frame$AnimationFrame$rAF,
+						_elm_lang$core$Platform$sendToSelf(router))),
+				function (pid) {
+					return A2(
+						_elm_lang$core$Task$andThen,
+						_elm_lang$core$Task$sequence(
+							A2(_elm_lang$core$List$map, send, _p10)),
+						function (_p9) {
+							return _elm_lang$core$Task$succeed(
+								A3(
+									_elm_lang$animation_frame$AnimationFrame$State,
+									_p10,
+									_elm_lang$core$Maybe$Just(pid),
+									newTime));
+						});
+				});
+		});
+	var _elm_lang$animation_frame$AnimationFrame$Diff = function (a) {
+		return {ctor: 'Diff', _0: a};
+	};
+	var _elm_lang$animation_frame$AnimationFrame$diffs = function (tagger) {
+		return _elm_lang$animation_frame$AnimationFrame$subscription(
+			_elm_lang$animation_frame$AnimationFrame$Diff(tagger));
+	};
+	var _elm_lang$animation_frame$AnimationFrame$Time = function (a) {
+		return {ctor: 'Time', _0: a};
+	};
+	var _elm_lang$animation_frame$AnimationFrame$times = function (tagger) {
+		return _elm_lang$animation_frame$AnimationFrame$subscription(
+			_elm_lang$animation_frame$AnimationFrame$Time(tagger));
+	};
+	var _elm_lang$animation_frame$AnimationFrame$subMap = F2(
+		function (func, sub) {
+			var _p11 = sub;
+			if (_p11.ctor === 'Time') {
+				return _elm_lang$animation_frame$AnimationFrame$Time(
+					function (_p12) {
+						return func(
+							_p11._0(_p12));
+					});
+			} else {
+				return _elm_lang$animation_frame$AnimationFrame$Diff(
+					function (_p13) {
+						return func(
+							_p11._0(_p13));
+					});
+			}
+		});
+	_elm_lang$core$Native_Platform.effectManagers['AnimationFrame'] = {pkg: 'elm-lang/animation-frame', init: _elm_lang$animation_frame$AnimationFrame$init, onEffects: _elm_lang$animation_frame$AnimationFrame$onEffects, onSelfMsg: _elm_lang$animation_frame$AnimationFrame$onSelfMsg, tag: 'sub', subMap: _elm_lang$animation_frame$AnimationFrame$subMap};
+	
+	var _elm_lang$html$Html_App$programWithFlags = _elm_lang$virtual_dom$VirtualDom$programWithFlags;
+	var _elm_lang$html$Html_App$program = function (app) {
+		return _elm_lang$html$Html_App$programWithFlags(
+			_elm_lang$core$Native_Utils.update(
+				app,
+				{
+					init: function (_p0) {
+						return app.init;
+					}
+				}));
+	};
+	var _elm_lang$html$Html_App$beginnerProgram = function (_p1) {
+		var _p2 = _p1;
+		return _elm_lang$html$Html_App$programWithFlags(
+			{
+				init: function (_p3) {
+					return A2(
+						_elm_lang$core$Platform_Cmd_ops['!'],
+						_p2.model,
+						_elm_lang$core$Native_List.fromArray(
+							[]));
+				},
+				update: F2(
+					function (msg, model) {
+						return A2(
+							_elm_lang$core$Platform_Cmd_ops['!'],
+							A2(_p2.update, msg, model),
+							_elm_lang$core$Native_List.fromArray(
+								[]));
+					}),
+				view: _p2.view,
+				subscriptions: function (_p4) {
+					return _elm_lang$core$Platform_Sub$none;
+				}
+			});
+	};
+	var _elm_lang$html$Html_App$map = _elm_lang$virtual_dom$VirtualDom$map;
+	
+	var _rtfeldman$elm_css$Css_Elements$typeSelector = F2(
+		function (selectorStr, mixins) {
+			var sequence = A2(
+				_rtfeldman$elm_css$Css_Structure$TypeSelectorSequence,
+				_rtfeldman$elm_css$Css_Structure$TypeSelector(selectorStr),
+				_elm_lang$core$Native_List.fromArray(
+					[]));
+			var selector = A3(
+				_rtfeldman$elm_css$Css_Structure$Selector,
+				sequence,
+				_elm_lang$core$Native_List.fromArray(
+					[]),
+				_elm_lang$core$Maybe$Nothing);
+			return _rtfeldman$elm_css$Css_Preprocess$Snippet(
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_rtfeldman$elm_css$Css_Preprocess$StyleBlockDeclaration(
+						A3(
+							_rtfeldman$elm_css$Css_Preprocess$StyleBlock,
+							selector,
+							_elm_lang$core$Native_List.fromArray(
+								[]),
+							mixins))
+					]));
+		});
+	var _rtfeldman$elm_css$Css_Elements$html = _rtfeldman$elm_css$Css_Elements$typeSelector('html');
+	var _rtfeldman$elm_css$Css_Elements$body = _rtfeldman$elm_css$Css_Elements$typeSelector('body');
+	var _rtfeldman$elm_css$Css_Elements$article = _rtfeldman$elm_css$Css_Elements$typeSelector('article');
+	var _rtfeldman$elm_css$Css_Elements$header = _rtfeldman$elm_css$Css_Elements$typeSelector('header');
+	var _rtfeldman$elm_css$Css_Elements$footer = _rtfeldman$elm_css$Css_Elements$typeSelector('footer');
+	var _rtfeldman$elm_css$Css_Elements$h1 = _rtfeldman$elm_css$Css_Elements$typeSelector('h1');
+	var _rtfeldman$elm_css$Css_Elements$h2 = _rtfeldman$elm_css$Css_Elements$typeSelector('h2');
+	var _rtfeldman$elm_css$Css_Elements$h3 = _rtfeldman$elm_css$Css_Elements$typeSelector('h3');
+	var _rtfeldman$elm_css$Css_Elements$h4 = _rtfeldman$elm_css$Css_Elements$typeSelector('h4');
+	var _rtfeldman$elm_css$Css_Elements$h5 = _rtfeldman$elm_css$Css_Elements$typeSelector('h5');
+	var _rtfeldman$elm_css$Css_Elements$h6 = _rtfeldman$elm_css$Css_Elements$typeSelector('h6');
+	var _rtfeldman$elm_css$Css_Elements$nav = _rtfeldman$elm_css$Css_Elements$typeSelector('nav');
+	var _rtfeldman$elm_css$Css_Elements$section = _rtfeldman$elm_css$Css_Elements$typeSelector('section');
+	var _rtfeldman$elm_css$Css_Elements$div = _rtfeldman$elm_css$Css_Elements$typeSelector('div');
+	var _rtfeldman$elm_css$Css_Elements$hr = _rtfeldman$elm_css$Css_Elements$typeSelector('hr');
+	var _rtfeldman$elm_css$Css_Elements$li = _rtfeldman$elm_css$Css_Elements$typeSelector('li');
+	var _rtfeldman$elm_css$Css_Elements$main$ = _rtfeldman$elm_css$Css_Elements$typeSelector('main');
+	var _rtfeldman$elm_css$Css_Elements$ol = _rtfeldman$elm_css$Css_Elements$typeSelector('ol');
+	var _rtfeldman$elm_css$Css_Elements$p = _rtfeldman$elm_css$Css_Elements$typeSelector('p');
+	var _rtfeldman$elm_css$Css_Elements$ul = _rtfeldman$elm_css$Css_Elements$typeSelector('ul');
+	var _rtfeldman$elm_css$Css_Elements$pre = _rtfeldman$elm_css$Css_Elements$typeSelector('pre');
+	var _rtfeldman$elm_css$Css_Elements$a = _rtfeldman$elm_css$Css_Elements$typeSelector('a');
+	var _rtfeldman$elm_css$Css_Elements$code = _rtfeldman$elm_css$Css_Elements$typeSelector('code');
+	var _rtfeldman$elm_css$Css_Elements$small = _rtfeldman$elm_css$Css_Elements$typeSelector('small');
+	var _rtfeldman$elm_css$Css_Elements$span = _rtfeldman$elm_css$Css_Elements$typeSelector('span');
+	var _rtfeldman$elm_css$Css_Elements$strong = _rtfeldman$elm_css$Css_Elements$typeSelector('strong');
+	var _rtfeldman$elm_css$Css_Elements$img = _rtfeldman$elm_css$Css_Elements$typeSelector('img');
+	var _rtfeldman$elm_css$Css_Elements$audio = _rtfeldman$elm_css$Css_Elements$typeSelector('audio');
+	var _rtfeldman$elm_css$Css_Elements$video = _rtfeldman$elm_css$Css_Elements$typeSelector('video');
+	var _rtfeldman$elm_css$Css_Elements$canvas = _rtfeldman$elm_css$Css_Elements$typeSelector('canvas');
+	var _rtfeldman$elm_css$Css_Elements$caption = _rtfeldman$elm_css$Css_Elements$typeSelector('caption');
+	var _rtfeldman$elm_css$Css_Elements$col = _rtfeldman$elm_css$Css_Elements$typeSelector('col');
+	var _rtfeldman$elm_css$Css_Elements$colgroup = _rtfeldman$elm_css$Css_Elements$typeSelector('colgroup');
+	var _rtfeldman$elm_css$Css_Elements$table = _rtfeldman$elm_css$Css_Elements$typeSelector('table');
+	var _rtfeldman$elm_css$Css_Elements$tbody = _rtfeldman$elm_css$Css_Elements$typeSelector('tbody');
+	var _rtfeldman$elm_css$Css_Elements$td = _rtfeldman$elm_css$Css_Elements$typeSelector('td');
+	var _rtfeldman$elm_css$Css_Elements$tfoot = _rtfeldman$elm_css$Css_Elements$typeSelector('tfoot');
+	var _rtfeldman$elm_css$Css_Elements$th = _rtfeldman$elm_css$Css_Elements$typeSelector('th');
+	var _rtfeldman$elm_css$Css_Elements$thead = _rtfeldman$elm_css$Css_Elements$typeSelector('thead');
+	var _rtfeldman$elm_css$Css_Elements$tr = _rtfeldman$elm_css$Css_Elements$typeSelector('tr');
+	var _rtfeldman$elm_css$Css_Elements$button = _rtfeldman$elm_css$Css_Elements$typeSelector('button');
+	var _rtfeldman$elm_css$Css_Elements$fieldset = _rtfeldman$elm_css$Css_Elements$typeSelector('fieldset');
+	var _rtfeldman$elm_css$Css_Elements$form = _rtfeldman$elm_css$Css_Elements$typeSelector('form');
+	var _rtfeldman$elm_css$Css_Elements$input = _rtfeldman$elm_css$Css_Elements$typeSelector('input');
+	var _rtfeldman$elm_css$Css_Elements$label = _rtfeldman$elm_css$Css_Elements$typeSelector('label');
+	var _rtfeldman$elm_css$Css_Elements$legend = _rtfeldman$elm_css$Css_Elements$typeSelector('legend');
+	var _rtfeldman$elm_css$Css_Elements$optgroup = _rtfeldman$elm_css$Css_Elements$typeSelector('optgroup');
+	var _rtfeldman$elm_css$Css_Elements$option = _rtfeldman$elm_css$Css_Elements$typeSelector('option');
+	var _rtfeldman$elm_css$Css_Elements$progress = _rtfeldman$elm_css$Css_Elements$typeSelector('progress');
+	var _rtfeldman$elm_css$Css_Elements$select = _rtfeldman$elm_css$Css_Elements$typeSelector('select');
+	
 	var _benansell$elm_webpack_seed$SharedCss$blue = A4(_rtfeldman$elm_css$Css$rgba, 25, 133, 161, 1);
 	var _benansell$elm_webpack_seed$SharedCss$darkBlueGray = A4(_rtfeldman$elm_css$Css$rgba, 76, 92, 104, 1);
 	var _benansell$elm_webpack_seed$SharedCss$darkGray = A4(_rtfeldman$elm_css$Css$rgba, 70, 73, 76, 1);
@@ -12169,6 +14591,8 @@ webpackJsonp([1,0],[
 		_rtfeldman$elm_css$Css$pct(5));
 	var _benansell$elm_webpack_seed$SharedCss$layoutNamespace = _rtfeldman$elm_css_helpers$Html_CssHelpers$withNamespace('layout');
 	var _benansell$elm_webpack_seed$SharedCss$Page = {ctor: 'Page'};
+	var _benansell$elm_webpack_seed$SharedCss$NavMessage = {ctor: 'NavMessage'};
+	var _benansell$elm_webpack_seed$SharedCss$NavAsideStatus = {ctor: 'NavAsideStatus'};
 	var _benansell$elm_webpack_seed$SharedCss$Nav = {ctor: 'Nav'};
 	var _benansell$elm_webpack_seed$SharedCss$MediaFigure = {ctor: 'MediaFigure'};
 	var _benansell$elm_webpack_seed$SharedCss$MediaBody = {ctor: 'MediaBody'};
@@ -12262,9 +14686,7 @@ webpackJsonp([1,0],[
 					[
 						_rtfeldman$elm_css$Css$backgroundColor(_benansell$elm_webpack_seed$SharedCss$mediumGray),
 						_rtfeldman$elm_css$Css$padding(
-						_rtfeldman$elm_css$Css$em(1)),
-						_rtfeldman$elm_css$Css$borderRadius(
-						_rtfeldman$elm_css$Css$px(3))
+						_rtfeldman$elm_css$Css$em(1))
 					])),
 				A2(
 				F2(
@@ -12278,9 +14700,32 @@ webpackJsonp([1,0],[
 						_rtfeldman$elm_css$Css$order(
 						_rtfeldman$elm_css$Css$int(-1)),
 						_rtfeldman$elm_css$Css$padding(
-						_rtfeldman$elm_css$Css$em(1)),
-						_rtfeldman$elm_css$Css$borderRadius(
-						_rtfeldman$elm_css$Css$px(3))
+						_rtfeldman$elm_css$Css$em(1))
+					])),
+				A2(
+				F2(
+					function (x, y) {
+						return A2(_rtfeldman$elm_css$Css_ops['.'], x, y);
+					}),
+				_benansell$elm_webpack_seed$SharedCss$NavAsideStatus,
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_rtfeldman$elm_css$Css$fontWeight(
+						_rtfeldman$elm_css$Css$int(300))
+					])),
+				A2(
+				F2(
+					function (x, y) {
+						return A2(_rtfeldman$elm_css$Css_ops['.'], x, y);
+					}),
+				_benansell$elm_webpack_seed$SharedCss$NavMessage,
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_rtfeldman$elm_css$Css$color(_benansell$elm_webpack_seed$SharedCss$white),
+						_rtfeldman$elm_css$Css$fontWeight(
+						_rtfeldman$elm_css$Css$int(300)),
+						_rtfeldman$elm_css$Css$lineHeight(
+						_rtfeldman$elm_css$Css$em(1.4))
 					])),
 				A2(
 				F2(
@@ -12414,46 +14859,12 @@ webpackJsonp([1,0],[
 								_rtfeldman$elm_css$Css$flex3,
 								_rtfeldman$elm_css$Css$int(0),
 								_rtfeldman$elm_css$Css$int(0),
-								_rtfeldman$elm_css$Css$em(12)),
-								_rtfeldman$elm_css$Css$textAlign(_rtfeldman$elm_css$Css$right)
+								_rtfeldman$elm_css$Css$em(12))
 							]))
 					]))
 			]));
 	var _benansell$elm_webpack_seed$SharedCss$App = {ctor: 'App'};
 	
-	var _benansell$elm_webpack_seed$Main$viewContent = function (model) {
-		return _elm_lang$html$Html$text(model);
-	};
-	var _benansell$elm_webpack_seed$Main$viewAside = A2(
-		_elm_lang$html$Html$div,
-		_elm_lang$core$Native_List.fromArray(
-			[]),
-		_elm_lang$core$Native_List.fromArray(
-			[
-				A2(
-				_elm_lang$html$Html$h3,
-				_elm_lang$core$Native_List.fromArray(
-					[]),
-				_elm_lang$core$Native_List.fromArray(
-					[
-						_elm_lang$html$Html$text('Aside')
-					]))
-			]));
-	var _benansell$elm_webpack_seed$Main$viewNav = A2(
-		_elm_lang$html$Html$div,
-		_elm_lang$core$Native_List.fromArray(
-			[]),
-		_elm_lang$core$Native_List.fromArray(
-			[
-				A2(
-				_elm_lang$html$Html$h2,
-				_elm_lang$core$Native_List.fromArray(
-					[]),
-				_elm_lang$core$Native_List.fromArray(
-					[
-						_elm_lang$html$Html$text('Navigation')
-					]))
-			]));
 	var _benansell$elm_webpack_seed$Main$viewHeader = A2(
 		_elm_lang$html$Html$div,
 		_elm_lang$core$Native_List.fromArray(
@@ -12477,6 +14888,49 @@ webpackJsonp([1,0],[
 	var _benansell$elm_webpack_seed$Main$id = _benansell$elm_webpack_seed$Main$_p1.id;
 	var _benansell$elm_webpack_seed$Main$class = _benansell$elm_webpack_seed$Main$_p1.$class;
 	var _benansell$elm_webpack_seed$Main$classList = _benansell$elm_webpack_seed$Main$_p1.classList;
+	var _benansell$elm_webpack_seed$Main$viewNav = function (model) {
+		return A2(
+			_elm_lang$html$Html$div,
+			_elm_lang$core$Native_List.fromArray(
+				[]),
+			_elm_lang$core$Native_List.fromArray(
+				[
+					A2(
+					_elm_lang$html$Html$p,
+					_elm_lang$core$Native_List.fromArray(
+						[
+							_benansell$elm_webpack_seed$Main$class(
+							_elm_lang$core$Native_List.fromArray(
+								[_benansell$elm_webpack_seed$SharedCss$NavMessage]))
+						]),
+					_elm_lang$core$Native_List.fromArray(
+						[
+							_Fresheyeball$elm_font_awesome$FontAwesome_Web$info_circle,
+							_elm_lang$html$Html$text('  Nudge the logo to make it move')
+						]))
+				]));
+	};
+	var _benansell$elm_webpack_seed$Main$viewAside = function (model) {
+		return A2(
+			_elm_lang$html$Html$span,
+			_elm_lang$core$Native_List.fromArray(
+				[]),
+			_elm_lang$core$Native_List.fromArray(
+				[
+					A2(
+					_elm_lang$html$Html$p,
+					_elm_lang$core$Native_List.fromArray(
+						[
+							_benansell$elm_webpack_seed$Main$class(
+							_elm_lang$core$Native_List.fromArray(
+								[_benansell$elm_webpack_seed$SharedCss$NavAsideStatus]))
+						]),
+					_elm_lang$core$Native_List.fromArray(
+						[
+							_elm_lang$html$Html$text(model.status)
+						]))
+				]));
+	};
 	var _benansell$elm_webpack_seed$Main$viewFooter = A2(
 		_elm_lang$html$Html$div,
 		_elm_lang$core$Native_List.fromArray(
@@ -12569,6 +15023,63 @@ webpackJsonp([1,0],[
 							]))
 					]))
 			]));
+	var _benansell$elm_webpack_seed$Main$updateStatus = function (action) {
+		var actionDescription = _benansell$elm_webpack_seed$LogoAnimation$actionToString(action);
+		var _p2 = actionDescription;
+		if (_p2.ctor === 'Nothing') {
+			return 'Waiting...';
+		} else {
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				'Last action: ',
+				_elm_lang$core$String$toLower(_p2._0));
+		}
+	};
+	var _benansell$elm_webpack_seed$Main$update = F2(
+		function (msg, model) {
+			var _p3 = msg;
+			if (_p3.ctor === 'Tick') {
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{
+							logoModel: A2(_benansell$elm_webpack_seed$LogoAnimation$tick, _p3._0, model.logoModel)
+						}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			} else {
+				var _p4 = _p3._0;
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{
+							logoModel: A2(_benansell$elm_webpack_seed$LogoAnimation$update, _p4, model.logoModel),
+							status: _benansell$elm_webpack_seed$Main$updateStatus(_p4)
+						}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			}
+		});
+	var _benansell$elm_webpack_seed$Main$init = {
+		ctor: '_Tuple2',
+		_0: {logoModel: _benansell$elm_webpack_seed$LogoAnimation$init, status: 'Waiting...'},
+		_1: _elm_lang$core$Platform_Cmd$none
+	};
+	var _benansell$elm_webpack_seed$Main$Model = F2(
+		function (a, b) {
+			return {logoModel: a, status: b};
+		});
+	var _benansell$elm_webpack_seed$Main$Logo = function (a) {
+		return {ctor: 'Logo', _0: a};
+	};
+	var _benansell$elm_webpack_seed$Main$viewContent = function (model) {
+		return A2(
+			_elm_lang$html$Html_App$map,
+			_benansell$elm_webpack_seed$Main$Logo,
+			_benansell$elm_webpack_seed$LogoAnimation$view(model.logoModel));
+	};
 	var _benansell$elm_webpack_seed$Main$view = function (model) {
 		return A2(
 			_elm_lang$html$Html$div,
@@ -12617,7 +15128,9 @@ webpackJsonp([1,0],[
 										[_benansell$elm_webpack_seed$SharedCss$Nav]))
 								]),
 							_elm_lang$core$Native_List.fromArray(
-								[_benansell$elm_webpack_seed$Main$viewNav])),
+								[
+									_benansell$elm_webpack_seed$Main$viewNav(model)
+								])),
 							A2(
 							_elm_lang$html$Html$aside,
 							_elm_lang$core$Native_List.fromArray(
@@ -12627,7 +15140,9 @@ webpackJsonp([1,0],[
 										[_benansell$elm_webpack_seed$SharedCss$Aside]))
 								]),
 							_elm_lang$core$Native_List.fromArray(
-								[_benansell$elm_webpack_seed$Main$viewAside]))
+								[
+									_benansell$elm_webpack_seed$Main$viewAside(model)
+								]))
 						])),
 					A2(
 					_elm_lang$html$Html$footer,
@@ -12641,17 +15156,15 @@ webpackJsonp([1,0],[
 						[_benansell$elm_webpack_seed$Main$viewFooter]))
 				]));
 	};
-	var _benansell$elm_webpack_seed$Main$model = 'Hello World';
+	var _benansell$elm_webpack_seed$Main$Tick = function (a) {
+		return {ctor: 'Tick', _0: a};
+	};
+	var _benansell$elm_webpack_seed$Main$subscriptions = function (model) {
+		return _elm_lang$animation_frame$AnimationFrame$times(_benansell$elm_webpack_seed$Main$Tick);
+	};
 	var _benansell$elm_webpack_seed$Main$main = {
-		main: _elm_lang$html$Html_App$beginnerProgram(
-			{
-				model: _benansell$elm_webpack_seed$Main$model,
-				view: _benansell$elm_webpack_seed$Main$view,
-				update: F2(
-					function (_p2, model) {
-						return model;
-					})
-			})
+		main: _elm_lang$html$Html_App$program(
+			{init: _benansell$elm_webpack_seed$Main$init, view: _benansell$elm_webpack_seed$Main$view, update: _benansell$elm_webpack_seed$Main$update, subscriptions: _benansell$elm_webpack_seed$Main$subscriptions})
 	};
 	
 	var Elm = {};
