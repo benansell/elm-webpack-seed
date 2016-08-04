@@ -1,4 +1,4 @@
-module LogoAnimation exposing (Action, Model, init, tick, update, view)
+module LogoAnimation exposing (Action, Model, actionToString, init, tick, update, view)
 
 import Css as Css
 import Html exposing (div, Html)
@@ -58,6 +58,11 @@ type alias Model =
 
 type alias Progress =
     Float
+
+
+type Direction
+    = Forward
+    | Backward
 
 
 type RotateDirection
@@ -348,7 +353,7 @@ transformMoveDown : Progress -> Shape -> Shape
 transformMoveDown progress shape =
     let
         offset =
-            100 * sin (pi * progress)
+            translateProgress Forward 100 (progress / 2)
     in
         updateTransform [ (matrixTranslate 0 offset) ] shape
 
@@ -357,7 +362,7 @@ transformMoveRight : Progress -> Shape -> Shape
 transformMoveRight progress shape =
     let
         offset =
-            -100 * sin (pi * progress)
+            translateProgress Forward -100 (progress / 2)
 
         scale =
             scaleProgress 0.5 1 progress
@@ -367,30 +372,37 @@ transformMoveRight progress shape =
 
 transformRotate : Progress -> Shape -> Shape
 transformRotate progress shape =
-    if progress < 0.25 then
-        let
-            offset =
-                40 * sin (2 * pi * progress)
+    let
+        maxOffset =
+            40
 
-            scale =
-                scaleProgress 0.8 2 progress
-        in
-            updateTransform [ (matrixScale scale), (matrixTranslate offset -offset) ] shape
-    else if progress < 0.75 then
-        let
-            angle =
-                4 * pi * (progress - 0.25)
-        in
-            updateTransform [ (matrixScale 0.8), (matrixRotate AntiClockwise angle), (matrixTranslate 40 -40) ] shape
-    else
-        let
-            offset =
-                40 - (40 * cos (2 * pi * progress))
+        maxScale =
+            0.8
+    in
+        if progress < 0.25 then
+            let
+                offset =
+                    translateProgress Forward maxOffset progress
 
-            scale =
-                scaleProgress 0.8 2 progress
-        in
-            updateTransform [ (matrixScale scale), (matrixTranslate offset -offset) ] shape
+                scale =
+                    scaleProgress maxScale 2 progress
+            in
+                updateTransform [ (matrixScale scale), (matrixTranslate offset -offset) ] shape
+        else if progress < 0.75 then
+            let
+                angle =
+                    4 * pi * (progress - 0.25)
+            in
+                updateTransform [ (matrixScale maxScale), (matrixRotate AntiClockwise angle), (matrixTranslate maxOffset -maxOffset) ] shape
+        else
+            let
+                offset =
+                    translateProgress Backward maxOffset progress
+
+                scale =
+                    scaleProgress maxScale 2 progress
+            in
+                updateTransform [ (matrixScale scale), (matrixTranslate offset -offset) ] shape
 
 
 transformShear : Progress -> Shape -> Shape
@@ -398,35 +410,32 @@ transformShear progress shape =
     let
         maxOffset =
             -80
+
+        maxShear =
+            -2
     in
         if progress < 0.25 then
             let
                 offset =
-                    maxOffset * sin (2 * pi * progress)
-
-                scale =
-                    scaleProgress 0.8 2 progress
+                    translateProgress Forward maxOffset progress
             in
                 updateTransform [ (matrixTranslate offset offset) ] shape
         else if progress < 0.5 then
             let
                 shear =
-                    -8 * (progress - 0.25)
+                    maxShear * 4 * (progress - 0.25)
             in
                 updateTransform [ (matrixShear shear), (matrixTranslate maxOffset maxOffset) ] shape
         else if progress < 0.75 then
             let
                 shear =
-                    -2 - (-8 * (progress - 0.5))
+                    maxShear - (maxShear * 4 * (progress - 0.5))
             in
                 updateTransform [ (matrixShear shear), (matrixTranslate maxOffset maxOffset) ] shape
         else
             let
                 offset =
-                    maxOffset - (maxOffset * cos (2 * pi * progress))
-
-                scale =
-                    scaleProgress 0.8 2 progress
+                    translateProgress Backward maxOffset progress
             in
                 updateTransform [ (matrixTranslate offset offset) ] shape
 
@@ -444,7 +453,7 @@ transformWobble : Progress -> Shape -> Shape
 transformWobble progress shape =
     let
         angle =
-            degrees 2
+            degrees 1
 
         wobbleTick =
             round <| 25 * progress
@@ -465,6 +474,16 @@ scaleProgress scale cycle progress =
             (1 - scale) / 2
     in
         scale + (offset * (1 + cos angle))
+
+
+translateProgress : Direction -> Float -> Progress -> Float
+translateProgress direction offset progress =
+    case direction of
+        Forward ->
+            offset * sin (2 * pi * progress)
+
+        Backward ->
+            offset - (offset * cos (2 * pi * progress))
 
 
 timeRemaining : Float -> Maybe Float -> Float
@@ -499,6 +518,34 @@ projectPoint point matrix =
     { x = (matrix.a * point.x) + (matrix.b * point.y) + matrix.tx
     , y = (matrix.c * point.x) + (matrix.d * point.y) + matrix.ty
     }
+
+
+actionToString : Action -> Maybe String
+actionToString action =
+    case action of
+        None ->
+            Nothing
+
+        Hinge ->
+            Just "Hinge"
+
+        MoveDown ->
+            Just "Move Down"
+
+        MoveRight ->
+            Just "Move Right"
+
+        Rotate ->
+            Just "Rotate"
+
+        Shear ->
+            Just "Shear"
+
+        Shrink ->
+            Just "Shrink"
+
+        Wobble ->
+            Just "Shake"
 
 
 cssToString : { a | value : String } -> String

@@ -8,6 +8,7 @@ import Html exposing (..)
 import Html.Attributes as Attr
 import Html.App as App
 import SharedCss exposing (..)
+import String
 import LogoAnimation as LogoAnim exposing (Action, Model, init, tick, update, view)
 
 
@@ -34,7 +35,7 @@ type alias Model =
 init : ( Model, Cmd Msg )
 init =
     ( { logoModel = LogoAnim.init
-      , status = "Sleeping..."
+      , status = "Waiting..."
       }
     , Cmd.none
     )
@@ -56,7 +57,26 @@ update msg model =
             ( { model | logoModel = LogoAnim.tick time model.logoModel }, Cmd.none )
 
         Logo msg ->
-            ( { model | logoModel = LogoAnim.update msg model.logoModel }, Cmd.none )
+            ( { model
+                | logoModel = LogoAnim.update msg model.logoModel
+                , status = updateStatus msg
+              }
+            , Cmd.none
+            )
+
+
+updateStatus : Action -> String
+updateStatus action =
+    let
+        actionDescription =
+            LogoAnim.actionToString action
+    in
+        case actionDescription of
+            Nothing ->
+                "Waiting..."
+
+            Just description ->
+                "Last action: " ++ String.toLower description
 
 
 
@@ -102,12 +122,15 @@ viewHeader =
 
 viewNav : Model -> Html Msg
 viewNav model =
-    div [] [ h2 [ class [ SharedCss.NavMessage ] ] [ FontAwesomeWeb.warning, text " Logo is sleeping" ] ]
+    div [] [ p [ class [ SharedCss.NavMessage ] ] [ FontAwesomeWeb.info_circle, text "  Nudge the logo to make it move" ] ]
 
 
 viewAside : Model -> Html Msg
 viewAside model =
-    div [] [ h3 [] [ text model.status ] ]
+    span []
+        [ p [ class [ SharedCss.NavAsideStatus ] ]
+            [ text model.status ]
+        ]
 
 
 viewFooter : Html a
