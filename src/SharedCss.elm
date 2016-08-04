@@ -16,6 +16,8 @@ type CssClasses
     | MediaBody
     | MediaFigure
     | Nav
+    | NavAsideStatus
+    | NavMessage
     | Page
 
 
@@ -78,13 +80,19 @@ css =
         , ((.) Aside)
             [ backgroundColor mediumGray
             , padding (em 1)
-            , borderRadius (px 3)
             ]
         , ((.) Nav)
             [ backgroundColor darkBlueGray
             , order (int -1)
             , padding (em 1)
-            , borderRadius (px 3)
+            ]
+        , ((.) NavAsideStatus)
+            [ fontWeight (int 300)
+            ]
+        , ((.) NavMessage)
+            [ color white
+            , fontWeight (int 300)
+            , lineHeight (em 1.4)
             ]
         , ((.) Footer)
             [ backgroundColor darkGray
@@ -120,9 +128,7 @@ css =
                 , margin (px 0)
                 ]
             , ((.) Nav) [ flex3 (int 0) (int 0) (em 12) ]
-            , ((.) Aside)
-                  [ flex3 (int 0) (int 0) (em 12)
-                  , textAlign right]
+            , ((.) Aside) [ flex3 (int 0) (int 0) (em 12) ]
             ]
         ]
 

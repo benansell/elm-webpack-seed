@@ -1,29 +1,95 @@
 module Main exposing (..)
 
-import FontAwesome.Brand as FontAwesomeBrand
+import AnimationFrame exposing (times)
 import Css as Css
+import FontAwesome.Brand as FontAwesomeBrand
+import FontAwesome.Web as FontAwesomeWeb
 import Html exposing (..)
 import Html.Attributes as Attr
 import Html.App as App
 import SharedCss exposing (..)
+import String
+import LogoAnimation as LogoAnim exposing (Action, Model, init, tick, update, view)
 
 
 main : Program Never
 main =
-    App.beginnerProgram
-        { model = model
+    App.program
+        { init = init
         , view = view
-        , update = \_ model -> model
+        , update = update
+        , subscriptions = subscriptions
         }
 
 
+
+-- MODEL
+
+
 type alias Model =
-    String
+    { logoModel : LogoAnim.Model
+    , status : String
+    }
 
 
-model : Model
-model =
-    "Hello World"
+init : ( Model, Cmd Msg )
+init =
+    ( { logoModel = LogoAnim.init
+      , status = "Waiting..."
+      }
+    , Cmd.none
+    )
+
+
+
+-- UPDATE
+
+
+type Msg
+    = Tick Float
+    | Logo LogoAnim.Action
+
+
+update : Msg -> Model -> ( Model, Cmd Msg )
+update msg model =
+    case msg of
+        Tick time ->
+            ( { model | logoModel = LogoAnim.tick time model.logoModel }, Cmd.none )
+
+        Logo msg ->
+            ( { model
+                | logoModel = LogoAnim.update msg model.logoModel
+                , status = updateStatus msg
+              }
+            , Cmd.none
+            )
+
+
+updateStatus : Action -> String
+updateStatus action =
+    let
+        actionDescription =
+            LogoAnim.actionToString action
+    in
+        case actionDescription of
+            Nothing ->
+                "Waiting..."
+
+            Just description ->
+                "Last action: " ++ String.toLower description
+
+
+
+-- SUBSCRIPTIONS
+
+
+subscriptions : Model -> Sub Msg
+subscriptions model =
+    AnimationFrame.times Tick
+
+
+
+-- VIEW
 
 
 { id, class, classList } =
@@ -33,15 +99,15 @@ styles =
     Css.asPairs >> Attr.style
 
 
-view : Model -> Html a
+view : Model -> Html Msg
 view model =
     div [ class [ SharedCss.Page ] ]
         [ header [] [ viewHeader ]
         , div [ class [ SharedCss.Body ] ]
             [ main' [ class [ SharedCss.Content ] ]
                 [ viewContent model ]
-            , nav [ class [ SharedCss.Nav ] ] [ viewNav ]
-            , aside [ class [ SharedCss.Aside ] ] [ viewAside ]
+            , nav [ class [ SharedCss.Nav ] ] [ viewNav model ]
+            , aside [ class [ SharedCss.Aside ] ] [ viewAside model ]
             ]
         , footer [ class [ SharedCss.Footer ] ] [ viewFooter ]
         ]
@@ -54,14 +120,17 @@ viewHeader =
         ]
 
 
-viewNav : Html a
-viewNav =
-    div [] [ h2 [] [ text "Navigation" ] ]
+viewNav : Model -> Html Msg
+viewNav model =
+    div [] [ p [ class [ SharedCss.NavMessage ] ] [ FontAwesomeWeb.info_circle, text "  Nudge the logo to make it move" ] ]
 
 
-viewAside : Html a
-viewAside =
-    div [] [ h3 [] [ text "Aside" ] ]
+viewAside : Model -> Html Msg
+viewAside model =
+    span []
+        [ p [ class [ SharedCss.NavAsideStatus ] ]
+            [ text model.status ]
+        ]
 
 
 viewFooter : Html a
@@ -89,6 +158,6 @@ viewFooter =
         ]
 
 
-viewContent : Model -> Html a
+viewContent : Model -> Html Msg
 viewContent model =
-    text model
+    App.map Logo <| LogoAnim.view model.logoModel
