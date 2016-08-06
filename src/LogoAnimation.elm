@@ -8,6 +8,7 @@ import Svg exposing (..)
 import Svg.Attributes exposing (..)
 import Svg.Events exposing (onClick)
 import LogoAnimationCss as LogoAnimCss exposing (..)
+import GeometricTransformer2D as Transformer
 
 
 -- MODEL
@@ -19,24 +20,6 @@ type alias Point =
     }
 
 
-{-|
-Matrix used to transform points (x,y) into the view plane:
-
-| x' |   | a  b  tx |   | x |
-| y' | = | c  d  ty | * | y |
-| 1  |   | 0  0  1  |   | 1 |
-
--}
-type alias Matrix =
-    { a : Float
-    , b : Float
-    , c : Float
-    , d : Float
-    , tx : Float
-    , ty : Float
-    }
-
-
 type alias Shape =
     { action : Action
     , actionDuration : Float
@@ -45,8 +28,8 @@ type alias Shape =
     , color : Css.Color
     , origin : Point
     , points : List Point
-    , initialTransform : Matrix
-    , currentTransform : Matrix
+    , initialTransform : Transformer.Transformation
+    , currentTransform : Transformer.Transformation
     }
 
 
@@ -63,11 +46,6 @@ type alias Progress =
 type Direction
     = Forward
     | Backward
-
-
-type RotateDirection
-    = AntiClockwise
-    | Clockwise
 
 
 init : Model
@@ -127,7 +105,9 @@ createShape action durationInSeconds color origin points =
             toPoint origin
 
         initialTransform =
-            matrixIdentity originPoint
+            originPoint
+                |> fromPoint
+                |> Transformer.identity
     in
         { action = action
         , actionDuration = durationInSeconds * 1000
@@ -146,84 +126,9 @@ toPoint ( x, y ) =
     { x = x, y = y }
 
 
-matrixIdentity : Point -> Matrix
-matrixIdentity origin =
-    { a = 1
-    , b = 0
-    , c = 0
-    , d = 1
-    , tx = origin.x
-    , ty = origin.y
-    }
-
-
-matrixScale : Float -> Matrix
-matrixScale k =
-    { a = k
-    , b = 0
-    , c = 0
-    , d = k
-    , tx = 0
-    , ty = 0
-    }
-
-
-matrixShear : Float -> Matrix
-matrixShear k =
-    { a = 1
-    , b = k
-    , c = 0
-    , d = 1
-    , tx = 0
-    , ty = 0
-    }
-
-
-matrixRotate : RotateDirection -> Float -> Matrix
-matrixRotate direction theta =
-    let
-        signedDirection =
-            convertRotateDirecton direction
-    in
-        { a = cos theta
-        , b = signedDirection * -(sin theta)
-        , c = signedDirection * sin theta
-        , d = cos theta
-        , tx = 0
-        , ty = 0
-        }
-
-
-convertRotateDirecton : RotateDirection -> Float
-convertRotateDirecton direction =
-    case direction of
-        Clockwise ->
-            1
-
-        AntiClockwise ->
-            -1
-
-
-matrixTranslate : Float -> Float -> Matrix
-matrixTranslate tx ty =
-    { a = 1
-    , b = 0
-    , c = 0
-    , d = 1
-    , tx = tx
-    , ty = ty
-    }
-
-
-matrixMultiply : Matrix -> Matrix -> Matrix
-matrixMultiply m1 m2 =
-    { a = (m1.a * m2.a) + (m1.b * m2.c)
-    , b = (m1.a * m2.b) + (m1.b * m2.d)
-    , c = (m1.c * m2.a) + (m1.d * m2.c)
-    , d = (m1.c * m2.b) + (m1.d * m2.d)
-    , tx = (m1.a * m2.tx) + (m1.b * m2.ty) + m1.tx
-    , ty = (m1.c * m2.tx) + (m1.d * m2.ty) + m1.ty
-    }
+fromPoint : Point -> ( Float, Float )
+fromPoint p =
+    ( p.x, p.y )
 
 
 
@@ -301,7 +206,7 @@ updateShape time shape =
                 transformWobble progress shape
 
 
-updateTransform : List Matrix -> Shape -> Shape
+updateTransform : List Transformer.Transformation -> Shape -> Shape
 updateTransform transforms shape =
     let
         first =
@@ -310,10 +215,10 @@ updateTransform transforms shape =
         transformsWithInitial =
             (List.drop 1 transforms) ++ [ shape.initialTransform ]
     in
-        { shape | currentTransform = List.foldl matrixMultiply first transformsWithInitial }
+        { shape | currentTransform = List.foldl Transformer.combine first transformsWithInitial }
 
 
-firstTransform : List Matrix -> Matrix
+firstTransform : List Transformer.Transformation -> Transformer.Transformation
 firstTransform transforms =
     let
         head =
@@ -321,7 +226,7 @@ firstTransform transforms =
     in
         case head of
             Nothing ->
-                matrixIdentity { x = 0, y = 0 }
+                Transformer.identity ( 0, 0 )
 
             Just first ->
                 first
@@ -340,13 +245,13 @@ transformHinge progress shape =
             scaleProgress maxScale 2 progress
     in
         if progress < 0.25 then
-            updateTransform [ (matrixScale scale), (matrixRotate Clockwise angle) ] shape
+            updateTransform [ (Transformer.scale scale), (Transformer.rotate Transformer.Clockwise angle) ] shape
         else if progress < 0.5 then
-            updateTransform [ (matrixScale maxScale), (matrixRotate Clockwise angle) ] shape
+            updateTransform [ (Transformer.scale maxScale), (Transformer.rotate Transformer.Clockwise angle) ] shape
         else if progress < 0.75 then
-            updateTransform [ (matrixScale maxScale), (matrixRotate AntiClockwise angle) ] shape
+            updateTransform [ (Transformer.scale maxScale), (Transformer.rotate Transformer.AntiClockwise angle) ] shape
         else
-            updateTransform [ (matrixScale scale), (matrixRotate AntiClockwise angle) ] shape
+            updateTransform [ (Transformer.scale scale), (Transformer.rotate Transformer.AntiClockwise angle) ] shape
 
 
 transformMoveDown : Progress -> Shape -> Shape
@@ -355,7 +260,7 @@ transformMoveDown progress shape =
         offset =
             translateProgress Forward 100 (progress / 2)
     in
-        updateTransform [ (matrixTranslate 0 offset) ] shape
+        updateTransform [ (Transformer.translate 0 offset) ] shape
 
 
 transformMoveRight : Progress -> Shape -> Shape
@@ -367,7 +272,7 @@ transformMoveRight progress shape =
         scale =
             scaleProgress 0.5 1 progress
     in
-        updateTransform [ (matrixScale scale), (matrixTranslate offset 0) ] shape
+        updateTransform [ (Transformer.scale scale), (Transformer.translate offset 0) ] shape
 
 
 transformRotate : Progress -> Shape -> Shape
@@ -387,13 +292,13 @@ transformRotate progress shape =
                 scale =
                     scaleProgress maxScale 2 progress
             in
-                updateTransform [ (matrixScale scale), (matrixTranslate offset -offset) ] shape
+                updateTransform [ (Transformer.scale scale), (Transformer.translate offset -offset) ] shape
         else if progress < 0.75 then
             let
                 angle =
                     4 * pi * (progress - 0.25)
             in
-                updateTransform [ (matrixScale maxScale), (matrixRotate AntiClockwise angle), (matrixTranslate maxOffset -maxOffset) ] shape
+                updateTransform [ (Transformer.scale maxScale), (Transformer.rotate Transformer.AntiClockwise angle), (Transformer.translate maxOffset -maxOffset) ] shape
         else
             let
                 offset =
@@ -402,7 +307,7 @@ transformRotate progress shape =
                 scale =
                     scaleProgress maxScale 2 progress
             in
-                updateTransform [ (matrixScale scale), (matrixTranslate offset -offset) ] shape
+                updateTransform [ (Transformer.scale scale), (Transformer.translate offset -offset) ] shape
 
 
 transformShear : Progress -> Shape -> Shape
@@ -419,25 +324,25 @@ transformShear progress shape =
                 offset =
                     translateProgress Forward maxOffset progress
             in
-                updateTransform [ (matrixTranslate offset offset) ] shape
+                updateTransform [ (Transformer.translate offset offset) ] shape
         else if progress < 0.5 then
             let
                 shear =
                     maxShear * 4 * (progress - 0.25)
             in
-                updateTransform [ (matrixShear shear), (matrixTranslate maxOffset maxOffset) ] shape
+                updateTransform [ (Transformer.shear Transformer.Horizontal shear), (Transformer.translate maxOffset maxOffset) ] shape
         else if progress < 0.75 then
             let
                 shear =
                     maxShear - (maxShear * 4 * (progress - 0.5))
             in
-                updateTransform [ (matrixShear shear), (matrixTranslate maxOffset maxOffset) ] shape
+                updateTransform [ (Transformer.shear Transformer.Horizontal shear), (Transformer.translate maxOffset maxOffset) ] shape
         else
             let
                 offset =
                     translateProgress Backward maxOffset progress
             in
-                updateTransform [ (matrixTranslate offset offset) ] shape
+                updateTransform [ (Transformer.translate offset offset) ] shape
 
 
 transformShrink : Progress -> Shape -> Shape
@@ -446,7 +351,7 @@ transformShrink progress shape =
         scale =
             scaleProgress 0.5 4 progress
     in
-        updateTransform [ (matrixScale scale) ] shape
+        updateTransform [ (Transformer.scale scale) ] shape
 
 
 transformWobble : Progress -> Shape -> Shape
@@ -459,9 +364,9 @@ transformWobble progress shape =
             round <| 25 * progress
     in
         if wobbleTick % 2 == 0 then
-            updateTransform [ (matrixRotate Clockwise angle) ] shape
+            updateTransform [ (Transformer.rotate Transformer.Clockwise angle) ] shape
         else
-            updateTransform [ (matrixRotate AntiClockwise angle) ] shape
+            updateTransform [ (Transformer.rotate Transformer.AntiClockwise angle) ] shape
 
 
 scaleProgress : Float -> Float -> Progress -> Float
@@ -510,14 +415,13 @@ timeRemainingToProgress duration remaining =
 
 shapeToViewPoints : Shape -> List Point
 shapeToViewPoints shape =
-    List.map (\p -> projectPoint p shape.currentTransform) shape.points
-
-
-projectPoint : Point -> Matrix -> Point
-projectPoint point matrix =
-    { x = (matrix.a * point.x) + (matrix.b * point.y) + matrix.tx
-    , y = (matrix.c * point.x) + (matrix.d * point.y) + matrix.ty
-    }
+    List.map
+        (\p ->
+            fromPoint p
+                |> Transformer.apply shape.currentTransform
+                |> toPoint
+        )
+        shape.points
 
 
 actionToString : Action -> Maybe String
