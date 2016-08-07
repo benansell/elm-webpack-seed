@@ -1,31 +1,66 @@
 module GeometricTransformer2D
     exposing
-        ( Transformation
+        ( Point
         , RotateDirection(..)
         , ShearDirection(..)
+        , Transformation
         , apply
         , combine
+        , fromPoint
         , identity
         , rotate
         , scale
+        , scaleUniform
         , shear
+        , toPoint
         , translate
         )
 
 {-| A library for manipulating points by applying geometric transformations
 using homogeneous coordinates which can be useful in [`2D computer graphics`](https://en.wikipedia.org/wiki/2D_computer_graphics)
 
+# Working with Points
+@docs Point, toPoint, fromPoint
+
 # Creating Transformations
-@docs identity, rotate, scale, shear, translate
+@docs Transformation, identity, rotate, scale, scaleUniform, shear, translate
 
 # Applying and Combining
 @docs apply, combine
 
 # Misc
-@docs Transformation, RotateDirection, ShearDirection
+@docs RotateDirection, ShearDirection
 
 
 -}
+
+{- POINT -}
+
+
+{-| Representation of a 2D point by its position
+-}
+type alias Point =
+    { x : Float
+    , y : Float
+    }
+
+
+{-| Converts a tuple of x,y coordinate values to a point
+-}
+toPoint : ( Float, Float ) -> Point
+toPoint ( x, y ) =
+    { x = x, y = y }
+
+
+{-| Converts a point to a x,y coordinate tuple
+-}
+fromPoint : Point -> ( Float, Float )
+fromPoint p =
+    ( p.x, p.y )
+
+
+
+{- TRANSFORMATION -}
 
 
 {-| Representation of the 2D matrix used to transform points (x,y) in the view plane:
@@ -57,13 +92,13 @@ type ShearDirection
     | Vertical
 
 
-{-| Apply the transformation to the x,y coordinate tuple.
+{-| Apply the transformation to the point.
 -}
-apply : Transformation -> ( Float, Float ) -> ( Float, Float )
-apply t ( x, y ) =
-    ( (t.a * x) + (t.b * y) + t.tx
-    , (t.c * x) + (t.d * y) + t.ty
-    )
+apply : Transformation -> Point -> Point
+apply t p =
+    { x = (t.a * p.x) + (t.b * p.y) + t.tx
+    , y = (t.c * p.x) + (t.d * p.y) + t.ty
+    }
 
 
 {-| Combine two transformations
@@ -79,18 +114,18 @@ combine t1 t2 =
     }
 
 
-{-| Creates an identity transformation for the x,y coordinate tuple. This is
+{-| Creates an identity transformation for the point. This is
 often used to create an initial transform that creates a local origin for a set
 of points that allows them to be transformed relative to the local origin.
 -}
-identity : ( Float, Float ) -> Transformation
-identity ( x, y ) =
+identity : Point -> Transformation
+identity p =
     { a = 1
     , b = 0
     , c = 0
     , d = 1
-    , tx = x
-    , ty = y
+    , tx = p.x
+    , ty = p.y
     }
 
 
@@ -116,18 +151,26 @@ rotate direction theta =
         }
 
 
-{-| Creates a transformation that will scale each point by a factor k relative
-to the origin
+{-| Creates a transformation that will scale each point x value by the width and
+y value by the height relative to the origin
 -}
-scale : Float -> Transformation
-scale k =
-    { a = k
+scale : Float -> Float -> Transformation
+scale width height =
+    { a = width
     , b = 0
     , c = 0
-    , d = k
+    , d = height
     , tx = 0
     , ty = 0
     }
+
+
+{-| Creates a transformation that will scale each point by a factor k relative
+to the origin
+-}
+scaleUniform : Float -> Transformation
+scaleUniform k =
+    scale k k
 
 
 {-| Creates a transformation that will shear each point in the given direction

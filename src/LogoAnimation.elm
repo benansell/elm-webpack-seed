@@ -14,20 +14,14 @@ import GeometricTransformer2D as Transformer
 -- MODEL
 
 
-type alias Point =
-    { x : Float
-    , y : Float
-    }
-
-
 type alias Shape =
     { action : Action
     , actionDuration : Float
     , actionEnd : Maybe Float
     , actionStart : Maybe Float
     , color : Css.Color
-    , origin : Point
-    , points : List Point
+    , origin : Transformer.Point
+    , points : List Transformer.Point
     , initialTransform : Transformer.Transformation
     , currentTransform : Transformer.Transformation
     }
@@ -99,15 +93,13 @@ topRightTriangle =
 
 
 createShape : Action -> Float -> Css.Color -> ( Float, Float ) -> List ( Float, Float ) -> Shape
-createShape action durationInSeconds color origin points =
+createShape action durationInSeconds color origin coordinates =
     let
         originPoint =
-            toPoint origin
+            Transformer.toPoint origin
 
         initialTransform =
-            originPoint
-                |> fromPoint
-                |> Transformer.identity
+            Transformer.identity originPoint
     in
         { action = action
         , actionDuration = durationInSeconds * 1000
@@ -115,20 +107,10 @@ createShape action durationInSeconds color origin points =
         , actionStart = Nothing
         , color = color
         , origin = originPoint
-        , points = List.map toPoint points
+        , points = List.map Transformer.toPoint coordinates
         , initialTransform = initialTransform
         , currentTransform = initialTransform
         }
-
-
-toPoint : ( Float, Float ) -> Point
-toPoint ( x, y ) =
-    { x = x, y = y }
-
-
-fromPoint : Point -> ( Float, Float )
-fromPoint p =
-    ( p.x, p.y )
 
 
 
@@ -226,7 +208,7 @@ firstTransform transforms =
     in
         case head of
             Nothing ->
-                Transformer.identity ( 0, 0 )
+                ( 0, 0 ) |> Transformer.toPoint |> Transformer.identity
 
             Just first ->
                 first
@@ -245,13 +227,13 @@ transformHinge progress shape =
             scaleProgress maxScale 2 progress
     in
         if progress < 0.25 then
-            updateTransform [ (Transformer.scale scale), (Transformer.rotate Transformer.Clockwise angle) ] shape
+            updateTransform [ (Transformer.scaleUniform scale), (Transformer.rotate Transformer.Clockwise angle) ] shape
         else if progress < 0.5 then
-            updateTransform [ (Transformer.scale maxScale), (Transformer.rotate Transformer.Clockwise angle) ] shape
+            updateTransform [ (Transformer.scaleUniform maxScale), (Transformer.rotate Transformer.Clockwise angle) ] shape
         else if progress < 0.75 then
-            updateTransform [ (Transformer.scale maxScale), (Transformer.rotate Transformer.AntiClockwise angle) ] shape
+            updateTransform [ (Transformer.scaleUniform maxScale), (Transformer.rotate Transformer.AntiClockwise angle) ] shape
         else
-            updateTransform [ (Transformer.scale scale), (Transformer.rotate Transformer.AntiClockwise angle) ] shape
+            updateTransform [ (Transformer.scaleUniform scale), (Transformer.rotate Transformer.AntiClockwise angle) ] shape
 
 
 transformMoveDown : Progress -> Shape -> Shape
@@ -272,7 +254,7 @@ transformMoveRight progress shape =
         scale =
             scaleProgress 0.5 1 progress
     in
-        updateTransform [ (Transformer.scale scale), (Transformer.translate offset 0) ] shape
+        updateTransform [ (Transformer.scaleUniform scale), (Transformer.translate offset 0) ] shape
 
 
 transformRotate : Progress -> Shape -> Shape
@@ -292,13 +274,13 @@ transformRotate progress shape =
                 scale =
                     scaleProgress maxScale 2 progress
             in
-                updateTransform [ (Transformer.scale scale), (Transformer.translate offset -offset) ] shape
+                updateTransform [ (Transformer.scaleUniform scale), (Transformer.translate offset -offset) ] shape
         else if progress < 0.75 then
             let
                 angle =
                     4 * pi * (progress - 0.25)
             in
-                updateTransform [ (Transformer.scale maxScale), (Transformer.rotate Transformer.AntiClockwise angle), (Transformer.translate maxOffset -maxOffset) ] shape
+                updateTransform [ (Transformer.scaleUniform maxScale), (Transformer.rotate Transformer.AntiClockwise angle), (Transformer.translate maxOffset -maxOffset) ] shape
         else
             let
                 offset =
@@ -307,7 +289,7 @@ transformRotate progress shape =
                 scale =
                     scaleProgress maxScale 2 progress
             in
-                updateTransform [ (Transformer.scale scale), (Transformer.translate offset -offset) ] shape
+                updateTransform [ (Transformer.scaleUniform scale), (Transformer.translate offset -offset) ] shape
 
 
 transformShear : Progress -> Shape -> Shape
@@ -351,7 +333,7 @@ transformShrink progress shape =
         scale =
             scaleProgress 0.5 4 progress
     in
-        updateTransform [ (Transformer.scale scale) ] shape
+        updateTransform [ (Transformer.scaleUniform scale) ] shape
 
 
 transformWobble : Progress -> Shape -> Shape
@@ -413,15 +395,9 @@ timeRemainingToProgress duration remaining =
 -- VIEW
 
 
-shapeToViewPoints : Shape -> List Point
+shapeToViewPoints : Shape -> List Transformer.Point
 shapeToViewPoints shape =
-    List.map
-        (\p ->
-            fromPoint p
-                |> Transformer.apply shape.currentTransform
-                |> toPoint
-        )
-        shape.points
+    List.map (Transformer.apply shape.currentTransform) shape.points
 
 
 actionToString : Action -> Maybe String
@@ -457,12 +433,12 @@ cssToString { value } =
     value
 
 
-pointsToString : List Point -> String
+pointsToString : List Transformer.Point -> String
 pointsToString points =
     String.join " " <| List.map pointToString points
 
 
-pointToString : Point -> String
+pointToString : Transformer.Point -> String
 pointToString p =
     toString (p.x) ++ "," ++ toString (p.y)
 
