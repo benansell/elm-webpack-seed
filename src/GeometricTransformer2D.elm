@@ -201,8 +201,8 @@ shear direction k =
 {-| Creates a transformation that will move each point
 by the tx ty offset amounts
 -}
-translate : Float -> Float -> Transformation
-translate tx ty =
+translate : ( Float, Float ) -> Transformation
+translate ( tx, ty ) =
     { a = 1
     , b = 0
     , c = 0
