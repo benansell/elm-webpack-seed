@@ -54,7 +54,11 @@ update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
         Tick time ->
-            ( { model | logoModel = LogoAnim.tick time model.logoModel }, Cmd.none )
+            ( { model
+                | logoModel = LogoAnim.tick time model.logoModel
+              }
+            , Cmd.none
+            )
 
         Logo msg ->
             ( { model
@@ -160,4 +164,5 @@ viewFooter =
 
 viewContent : Model -> Html Msg
 viewContent model =
-    App.map Logo <| LogoAnim.view model.logoModel
+    LogoAnim.view model.logoModel
+        |> App.map Logo

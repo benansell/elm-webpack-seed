@@ -148,6 +148,14 @@ actionToPath action =
 -- UPDATE
 
 
+update : Action -> Model -> Model
+update newAction model =
+    if newAction == None then
+        model
+    else
+        { model | action = newAction }
+
+
 tick : Float -> Model -> Model
 tick time model =
     { model
@@ -158,9 +166,17 @@ tick time model =
                     if time < Maybe.withDefault 0 s.actionEnd then
                         updateShape time s
                     else if s.action /= None && s.action == model.action then
-                        updateShape time { s | actionStart = Just time, actionEnd = calculateEndTime s.path time }
+                        updateShape time
+                            { s
+                                | actionStart = Just time
+                                , actionEnd = calculateEndTime s.path time
+                            }
                     else if Nothing /= s.actionEnd then
-                        { s | actionStart = Nothing, actionEnd = Nothing, currentTransform = s.initialTransform }
+                        { s
+                            | actionStart = Nothing
+                            , actionEnd = Nothing
+                            , currentTransform = s.initialTransform
+                        }
                     else
                         s
                 )
@@ -175,15 +191,7 @@ calculateEndTime path time =
             Nothing
 
         Just p ->
-            Just <| ShapePath.pathEndTime p time
-
-
-update : Action -> Model -> Model
-update newAction model =
-    if newAction == None then
-        model
-    else
-        { model | action = newAction }
+            Just <| time + p.duration
 
 
 updateShape : Float -> Shape -> Shape
@@ -208,7 +216,7 @@ transformsAtTime path endTime time =
             []
 
         Just p ->
-            ShapePath.transformsAtTime p (Maybe.withDefault 0 endTime) time
+            ShapePath.pathToTransformations p (Maybe.withDefault 0 endTime) time
 
 
 firstTransform : List Transformer.Transformation -> Transformer.Transformation
@@ -219,7 +227,9 @@ firstTransform transforms =
     in
         case head of
             Nothing ->
-                ( 0, 0 ) |> Transformer.toPoint |> Transformer.identity
+                ( 0, 0 )
+                    |> Transformer.toPoint
+                    |> Transformer.identity
 
             Just first ->
                 first
@@ -269,7 +279,8 @@ cssToString { value } =
 
 pointsToString : List Transformer.Point -> String
 pointsToString points =
-    String.join " " <| List.map pointToString points
+    List.map pointToString points
+        |> String.join " "
 
 
 pointToString : Transformer.Point -> String
@@ -280,8 +291,11 @@ pointToString p =
 shapeToPolygon : Shape -> Svg Action
 shapeToPolygon shape =
     polygon
-        [ fill <| cssToString shape.color
-        , points <| pointsToString <| shapeToViewPoints shape
+        [ fill
+            <| cssToString shape.color
+        , points
+            <| pointsToString
+            <| shapeToViewPoints shape
         , onClick shape.action
         ]
         []
@@ -295,8 +309,12 @@ view model =
         [ svg
             [ version "1.1"
             , viewBox "100 100 523.141 522.95"
-            , x <| cssToString (Css.px 0)
-            , y <| cssToString (Css.px 0)
+            , x
+                <| cssToString (Css.px 0)
+            , y
+                <| cssToString (Css.px 0)
             ]
-            [ g [] (List.map shapeToPolygon model.shapes) ]
+            [ g []
+                <| List.map shapeToPolygon model.shapes
+            ]
         ]

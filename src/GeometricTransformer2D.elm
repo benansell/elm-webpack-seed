@@ -25,7 +25,7 @@ using homogeneous coordinates which can be useful in [`2D computer graphics`](ht
 # Creating Transformations
 @docs Transformation, identity, rotate, scale, scaleUniform, shear, translate
 
-# Applying and Combining
+# Applying and Combining Transformations
 @docs apply, combine
 
 # Misc
@@ -34,7 +34,7 @@ using homogeneous coordinates which can be useful in [`2D computer graphics`](ht
 
 -}
 
-{- POINT -}
+-- POINT
 
 
 {-| Representation of a 2D point by its position
@@ -60,7 +60,7 @@ fromPoint p =
 
 
 
-{- TRANSFORMATION -}
+-- TRANSFORMATION
 
 
 {-| Representation of the 2D matrix used to transform points (x,y) in the view plane:
