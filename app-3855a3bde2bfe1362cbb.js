@@ -1538,22 +1538,124 @@ webpackJsonp([1,0],[
 				return A2(_elm_lang$core$List_ops['::'], _p21._0, spersed);
 			}
 		});
-	var _elm_lang$core$List$take = F2(
+	var _elm_lang$core$List$takeReverse = F3(
+		function (n, list, taken) {
+			takeReverse:
+			while (true) {
+				if (_elm_lang$core$Native_Utils.cmp(n, 0) < 1) {
+					return taken;
+				} else {
+					var _p22 = list;
+					if (_p22.ctor === '[]') {
+						return taken;
+					} else {
+						var _v23 = n - 1,
+							_v24 = _p22._1,
+							_v25 = A2(_elm_lang$core$List_ops['::'], _p22._0, taken);
+						n = _v23;
+						list = _v24;
+						taken = _v25;
+						continue takeReverse;
+					}
+				}
+			}
+		});
+	var _elm_lang$core$List$takeTailRec = F2(
 		function (n, list) {
+			return _elm_lang$core$List$reverse(
+				A3(
+					_elm_lang$core$List$takeReverse,
+					n,
+					list,
+					_elm_lang$core$Native_List.fromArray(
+						[])));
+		});
+	var _elm_lang$core$List$takeFast = F3(
+		function (ctr, n, list) {
 			if (_elm_lang$core$Native_Utils.cmp(n, 0) < 1) {
 				return _elm_lang$core$Native_List.fromArray(
 					[]);
 			} else {
-				var _p22 = list;
-				if (_p22.ctor === '[]') {
-					return list;
-				} else {
-					return A2(
-						_elm_lang$core$List_ops['::'],
-						_p22._0,
-						A2(_elm_lang$core$List$take, n - 1, _p22._1));
-				}
+				var _p23 = {ctor: '_Tuple2', _0: n, _1: list};
+				_v26_5:
+				do {
+					_v26_1:
+					do {
+						if (_p23.ctor === '_Tuple2') {
+							if (_p23._1.ctor === '[]') {
+								return list;
+							} else {
+								if (_p23._1._1.ctor === '::') {
+									switch (_p23._0) {
+										case 1:
+											break _v26_1;
+										case 2:
+											return _elm_lang$core$Native_List.fromArray(
+												[_p23._1._0, _p23._1._1._0]);
+										case 3:
+											if (_p23._1._1._1.ctor === '::') {
+												return _elm_lang$core$Native_List.fromArray(
+													[_p23._1._0, _p23._1._1._0, _p23._1._1._1._0]);
+											} else {
+												break _v26_5;
+											}
+										default:
+											if ((_p23._1._1._1.ctor === '::') && (_p23._1._1._1._1.ctor === '::')) {
+												var _p28 = _p23._1._1._1._0;
+												var _p27 = _p23._1._1._0;
+												var _p26 = _p23._1._0;
+												var _p25 = _p23._1._1._1._1._0;
+												var _p24 = _p23._1._1._1._1._1;
+												return (_elm_lang$core$Native_Utils.cmp(ctr, 1000) > 0) ? A2(
+													_elm_lang$core$List_ops['::'],
+													_p26,
+													A2(
+														_elm_lang$core$List_ops['::'],
+														_p27,
+														A2(
+															_elm_lang$core$List_ops['::'],
+															_p28,
+															A2(
+																_elm_lang$core$List_ops['::'],
+																_p25,
+																A2(_elm_lang$core$List$takeTailRec, n - 4, _p24))))) : A2(
+													_elm_lang$core$List_ops['::'],
+													_p26,
+													A2(
+														_elm_lang$core$List_ops['::'],
+														_p27,
+														A2(
+															_elm_lang$core$List_ops['::'],
+															_p28,
+															A2(
+																_elm_lang$core$List_ops['::'],
+																_p25,
+																A3(_elm_lang$core$List$takeFast, ctr + 1, n - 4, _p24)))));
+											} else {
+												break _v26_5;
+											}
+									}
+								} else {
+									if (_p23._0 === 1) {
+										break _v26_1;
+									} else {
+										break _v26_5;
+									}
+								}
+							}
+						} else {
+							break _v26_5;
+						}
+					} while(false);
+					return _elm_lang$core$Native_List.fromArray(
+						[_p23._1._0]);
+				} while(false);
+				return list;
 			}
+		});
+	var _elm_lang$core$List$take = F2(
+		function (n, list) {
+			return A3(_elm_lang$core$List$takeFast, 0, n, list);
 		});
 	var _elm_lang$core$List$repeatHelp = F3(
 		function (result, n, value) {
@@ -1562,12 +1664,12 @@ webpackJsonp([1,0],[
 				if (_elm_lang$core$Native_Utils.cmp(n, 0) < 1) {
 					return result;
 				} else {
-					var _v23 = A2(_elm_lang$core$List_ops['::'], value, result),
-						_v24 = n - 1,
-						_v25 = value;
-					result = _v23;
-					n = _v24;
-					value = _v25;
+					var _v27 = A2(_elm_lang$core$List_ops['::'], value, result),
+						_v28 = n - 1,
+						_v29 = value;
+					result = _v27;
+					n = _v28;
+					value = _v29;
 					continue repeatHelp;
 				}
 			}
@@ -2550,7 +2652,10 @@ webpackJsonp([1,0],[
 		var process;
 		while (numSteps < MAX_STEPS && (process = workQueue.shift()))
 		{
-			numSteps = step(numSteps, process);
+			if (process.root)
+			{
+				numSteps = step(numSteps, process);
+			}
 		}
 		if (!process)
 		{
@@ -4000,13 +4105,21 @@ webpackJsonp([1,0],[
 	function indexes(sub, str)
 	{
 		var subLen = sub.length;
+		
+		if (subLen < 1)
+		{
+			return _elm_lang$core$Native_List.Nil;
+		}
+	
 		var i = 0;
 		var is = [];
+	
 		while ((i = str.indexOf(sub, i)) > -1)
 		{
 			is.push(i);
 			i = i + subLen;
-		}
+		}	
+		
 		return _elm_lang$core$Native_List.fromArray(is);
 	}
 	
@@ -4135,6 +4248,7 @@ webpackJsonp([1,0],[
 	};
 	
 	}();
+	
 	//import Native.Utils //
 	
 	var _elm_lang$core$Native_Char = function() {
@@ -5406,7 +5520,7 @@ webpackJsonp([1,0],[
 						+ ':\n\n' + problems.join('\n');
 	
 				case 'custom':
-					return 'A `customDecode` failed'
+					return 'A `customDecoder` failed'
 						+ (context === '_' ? '' : ' at ' + context)
 						+ ' with the message: ' + problem.msg;
 	
@@ -8813,6 +8927,76 @@ webpackJsonp([1,0],[
 	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$anchor = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$anchor);
 	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$american_sign_language_interpreting = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$american_sign_language_interpreting);
 	var _Fresheyeball$elm_font_awesome$FontAwesome_Web$adjust = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Web_Class$adjust);
+	
+	var _benansell$elm_webpack_seed$GeometricTransformer2D$translate = function (_p0) {
+		var _p1 = _p0;
+		return {a: 1, b: 0, c: 0, d: 1, tx: _p1._0, ty: _p1._1};
+	};
+	var _benansell$elm_webpack_seed$GeometricTransformer2D$shear = F2(
+		function (direction, k) {
+			var _p2 = direction;
+			if (_p2.ctor === 'Horizontal') {
+				return {a: 1, b: k, c: 0, d: 1, tx: 0, ty: 0};
+			} else {
+				return {a: 1, b: 0, c: k, d: 1, tx: 0, ty: 0};
+			}
+		});
+	var _benansell$elm_webpack_seed$GeometricTransformer2D$scale = F2(
+		function (width, height) {
+			return {a: width, b: 0, c: 0, d: height, tx: 0, ty: 0};
+		});
+	var _benansell$elm_webpack_seed$GeometricTransformer2D$scaleUniform = function (k) {
+		return A2(_benansell$elm_webpack_seed$GeometricTransformer2D$scale, k, k);
+	};
+	var _benansell$elm_webpack_seed$GeometricTransformer2D$rotate = F2(
+		function (direction, theta) {
+			var signedDirection = function () {
+				var _p3 = direction;
+				if (_p3.ctor === 'Clockwise') {
+					return 1;
+				} else {
+					return -1;
+				}
+			}();
+			return {
+				a: _elm_lang$core$Basics$cos(theta),
+				b: signedDirection * (0 - _elm_lang$core$Basics$sin(theta)),
+				c: signedDirection * _elm_lang$core$Basics$sin(theta),
+				d: _elm_lang$core$Basics$cos(theta),
+				tx: 0,
+				ty: 0
+			};
+		});
+	var _benansell$elm_webpack_seed$GeometricTransformer2D$identity = function (p) {
+		return {a: 1, b: 0, c: 0, d: 1, tx: p.x, ty: p.y};
+	};
+	var _benansell$elm_webpack_seed$GeometricTransformer2D$combine = F2(
+		function (t1, t2) {
+			return {a: (t1.a * t2.a) + (t1.b * t2.c), b: (t1.a * t2.b) + (t1.b * t2.d), c: (t1.c * t2.a) + (t1.d * t2.c), d: (t1.c * t2.b) + (t1.d * t2.d), tx: ((t1.a * t2.tx) + (t1.b * t2.ty)) + t1.tx, ty: ((t1.c * t2.tx) + (t1.d * t2.ty)) + t1.ty};
+		});
+	var _benansell$elm_webpack_seed$GeometricTransformer2D$apply = F2(
+		function (t, p) {
+			return {x: ((t.a * p.x) + (t.b * p.y)) + t.tx, y: ((t.c * p.x) + (t.d * p.y)) + t.ty};
+		});
+	var _benansell$elm_webpack_seed$GeometricTransformer2D$fromPoint = function (p) {
+		return {ctor: '_Tuple2', _0: p.x, _1: p.y};
+	};
+	var _benansell$elm_webpack_seed$GeometricTransformer2D$toPoint = function (_p4) {
+		var _p5 = _p4;
+		return {x: _p5._0, y: _p5._1};
+	};
+	var _benansell$elm_webpack_seed$GeometricTransformer2D$Point = F2(
+		function (a, b) {
+			return {x: a, y: b};
+		});
+	var _benansell$elm_webpack_seed$GeometricTransformer2D$Transformation = F6(
+		function (a, b, c, d, e, f) {
+			return {a: a, b: b, c: c, d: d, tx: e, ty: f};
+		});
+	var _benansell$elm_webpack_seed$GeometricTransformer2D$Clockwise = {ctor: 'Clockwise'};
+	var _benansell$elm_webpack_seed$GeometricTransformer2D$AntiClockwise = {ctor: 'AntiClockwise'};
+	var _benansell$elm_webpack_seed$GeometricTransformer2D$Vertical = {ctor: 'Vertical'};
+	var _benansell$elm_webpack_seed$GeometricTransformer2D$Horizontal = {ctor: 'Horizontal'};
 	
 	//import Maybe, Native.List //
 	
@@ -13258,6 +13442,715 @@ webpackJsonp([1,0],[
 					]))
 			]));
 	
+	var _elm_community$easing_functions$Ease$reverse = F2(
+		function (easing, time) {
+			return easing(1 - time);
+		});
+	var _elm_community$easing_functions$Ease$flip = F2(
+		function (easing, time) {
+			return 1 - easing(1 - time);
+		});
+	var _elm_community$easing_functions$Ease$retour = F2(
+		function (easing, time) {
+			return (_elm_lang$core$Native_Utils.cmp(time, 0.5) < 0) ? easing(time * 2) : A2(_elm_community$easing_functions$Ease$flip, easing, (time - 0.5) * 2);
+		});
+	var _elm_community$easing_functions$Ease$inOut = F3(
+		function (e1, e2, time) {
+			return (_elm_lang$core$Native_Utils.cmp(time, 0.5) < 0) ? (e1(time * 2) / 2) : (0.5 + (e2((time - 0.5) * 2) / 2));
+		});
+	var _elm_community$easing_functions$Ease$inElastic = function (time) {
+		if (_elm_lang$core$Native_Utils.eq(time, 0.0)) {
+			return 0.0;
+		} else {
+			var t$ = time - 1;
+			var p = 0.3;
+			var s = 7.5e-2;
+			return 0 - (Math.pow(2, 10 * t$) * _elm_lang$core$Basics$sin(((t$ - s) * (2 * _elm_lang$core$Basics$pi)) / p));
+		}
+	};
+	var _elm_community$easing_functions$Ease$outElastic = _elm_community$easing_functions$Ease$flip(_elm_community$easing_functions$Ease$inElastic);
+	var _elm_community$easing_functions$Ease$inOutElastic = A2(_elm_community$easing_functions$Ease$inOut, _elm_community$easing_functions$Ease$inElastic, _elm_community$easing_functions$Ease$outElastic);
+	var _elm_community$easing_functions$Ease$outBounce = function (time) {
+		var t4 = time - (2.625 / 2.75);
+		var t3 = time - (2.25 / 2.75);
+		var t2 = time - (1.5 / 2.75);
+		var a = 7.5625;
+		return (_elm_lang$core$Native_Utils.cmp(time, 1 / 2.75) < 0) ? ((a * time) * time) : ((_elm_lang$core$Native_Utils.cmp(time, 2 / 2.75) < 0) ? (((a * t2) * t2) + 0.75) : ((_elm_lang$core$Native_Utils.cmp(time, 2.5 / 2.75) < 0) ? (((a * t3) * t3) + 0.9375) : (((a * t4) * t4) + 0.984375)));
+	};
+	var _elm_community$easing_functions$Ease$inBounce = _elm_community$easing_functions$Ease$flip(_elm_community$easing_functions$Ease$outBounce);
+	var _elm_community$easing_functions$Ease$inOutBounce = A2(_elm_community$easing_functions$Ease$inOut, _elm_community$easing_functions$Ease$inBounce, _elm_community$easing_functions$Ease$outBounce);
+	var _elm_community$easing_functions$Ease$inBack = function (time) {
+		return (time * time) * ((2.70158 * time) - 1.70158);
+	};
+	var _elm_community$easing_functions$Ease$outBack = _elm_community$easing_functions$Ease$flip(_elm_community$easing_functions$Ease$inBack);
+	var _elm_community$easing_functions$Ease$inOutBack = A2(_elm_community$easing_functions$Ease$inOut, _elm_community$easing_functions$Ease$inBack, _elm_community$easing_functions$Ease$outBack);
+	var _elm_community$easing_functions$Ease$outCirc = function (time) {
+		return _elm_lang$core$Basics$sqrt(
+			1 - Math.pow(time - 1, 2));
+	};
+	var _elm_community$easing_functions$Ease$inCirc = _elm_community$easing_functions$Ease$flip(_elm_community$easing_functions$Ease$outCirc);
+	var _elm_community$easing_functions$Ease$inOutCirc = A2(_elm_community$easing_functions$Ease$inOut, _elm_community$easing_functions$Ease$inCirc, _elm_community$easing_functions$Ease$outCirc);
+	var _elm_community$easing_functions$Ease$inExpo = function (time) {
+		return _elm_lang$core$Native_Utils.eq(time, 0.0) ? 0.0 : Math.pow(2, 10 * (time - 1));
+	};
+	var _elm_community$easing_functions$Ease$outExpo = _elm_community$easing_functions$Ease$flip(_elm_community$easing_functions$Ease$inExpo);
+	var _elm_community$easing_functions$Ease$inOutExpo = A2(_elm_community$easing_functions$Ease$inOut, _elm_community$easing_functions$Ease$inExpo, _elm_community$easing_functions$Ease$outExpo);
+	var _elm_community$easing_functions$Ease$outSine = function (time) {
+		return _elm_lang$core$Basics$sin(time * (_elm_lang$core$Basics$pi / 2));
+	};
+	var _elm_community$easing_functions$Ease$inSine = _elm_community$easing_functions$Ease$flip(_elm_community$easing_functions$Ease$outSine);
+	var _elm_community$easing_functions$Ease$inOutSine = A2(_elm_community$easing_functions$Ease$inOut, _elm_community$easing_functions$Ease$inSine, _elm_community$easing_functions$Ease$outSine);
+	var _elm_community$easing_functions$Ease$inQuint = function (time) {
+		return Math.pow(time, 5);
+	};
+	var _elm_community$easing_functions$Ease$outQuint = _elm_community$easing_functions$Ease$flip(_elm_community$easing_functions$Ease$inQuint);
+	var _elm_community$easing_functions$Ease$inOutQuint = A2(_elm_community$easing_functions$Ease$inOut, _elm_community$easing_functions$Ease$inQuint, _elm_community$easing_functions$Ease$outQuint);
+	var _elm_community$easing_functions$Ease$inQuart = function (time) {
+		return Math.pow(time, 4);
+	};
+	var _elm_community$easing_functions$Ease$outQuart = _elm_community$easing_functions$Ease$flip(_elm_community$easing_functions$Ease$inQuart);
+	var _elm_community$easing_functions$Ease$inOutQuart = A2(_elm_community$easing_functions$Ease$inOut, _elm_community$easing_functions$Ease$inQuart, _elm_community$easing_functions$Ease$outQuart);
+	var _elm_community$easing_functions$Ease$inCubic = function (time) {
+		return Math.pow(time, 3);
+	};
+	var _elm_community$easing_functions$Ease$outCubic = _elm_community$easing_functions$Ease$flip(_elm_community$easing_functions$Ease$inCubic);
+	var _elm_community$easing_functions$Ease$inOutCubic = A2(_elm_community$easing_functions$Ease$inOut, _elm_community$easing_functions$Ease$inCubic, _elm_community$easing_functions$Ease$outCubic);
+	var _elm_community$easing_functions$Ease$inQuad = function (time) {
+		return Math.pow(time, 2);
+	};
+	var _elm_community$easing_functions$Ease$outQuad = _elm_community$easing_functions$Ease$flip(_elm_community$easing_functions$Ease$inQuad);
+	var _elm_community$easing_functions$Ease$inOutQuad = A2(_elm_community$easing_functions$Ease$inOut, _elm_community$easing_functions$Ease$inQuad, _elm_community$easing_functions$Ease$outQuad);
+	var _elm_community$easing_functions$Ease$bezier = F5(
+		function (x1, y1, x2, y2, time) {
+			var pair = F4(
+				function (interpolate, _p1, _p0, v) {
+					var _p2 = _p1;
+					var _p3 = _p0;
+					return {
+						ctor: '_Tuple2',
+						_0: A3(interpolate, _p2._0, _p3._0, v),
+						_1: A3(interpolate, _p2._1, _p3._1, v)
+					};
+				});
+			var lerp = F3(
+				function (from, to, v) {
+					return from + ((to - from) * v);
+				});
+			var casteljau = function (ps) {
+				casteljau:
+				while (true) {
+					var _p4 = ps;
+					if (((_p4.ctor === '::') && (_p4._0.ctor === '_Tuple2')) && (_p4._1.ctor === '[]')) {
+						return _p4._0._1;
+					} else {
+						var _p5 = _p4;
+						var _v3 = A3(
+							_elm_lang$core$List$map2,
+							F2(
+								function (x, y) {
+									return A4(pair, lerp, x, y, time);
+								}),
+							_p5,
+							A2(
+								_elm_lang$core$Maybe$withDefault,
+								_elm_lang$core$Native_List.fromArray(
+									[]),
+								_elm_lang$core$List$tail(_p5)));
+						ps = _v3;
+						continue casteljau;
+					}
+				}
+			};
+			return casteljau(
+				_elm_lang$core$Native_List.fromArray(
+					[
+						{ctor: '_Tuple2', _0: 0, _1: 0},
+						{ctor: '_Tuple2', _0: x1, _1: y1},
+						{ctor: '_Tuple2', _0: x2, _1: y2},
+						{ctor: '_Tuple2', _0: 1, _1: 1}
+					]));
+		});
+	var _elm_community$easing_functions$Ease$linear = _elm_lang$core$Basics$identity;
+	
+	var _benansell$elm_webpack_seed$ShapePath$easeTranslate = F2(
+		function (easing, _p0) {
+			var _p1 = _p0;
+			var _p3 = _p1._1;
+			var _p2 = _p1._0;
+			var easeOut = F2(
+				function (p, t) {
+					return t * A2(_elm_community$easing_functions$Ease$reverse, easing, p);
+				});
+			var easeIn = F2(
+				function (p, t) {
+					return t * easing(p);
+				});
+			return {
+				easeIn: function (p) {
+					return {
+						ctor: '_Tuple2',
+						_0: A2(easeIn, p, _p2),
+						_1: A2(easeIn, p, _p3)
+					};
+				},
+				easeOut: function (p) {
+					return {
+						ctor: '_Tuple2',
+						_0: A2(easeOut, p, _p2),
+						_1: A2(easeOut, p, _p3)
+					};
+				}
+			};
+		});
+	var _benansell$elm_webpack_seed$ShapePath$easeScale = F2(
+		function (easing, maxScale) {
+			var scale = 1 - maxScale;
+			var easeProgress = function (p) {
+				return scale * easing(p);
+			};
+			return {
+				easeIn: function (p) {
+					return 1 - easeProgress(p);
+				},
+				easeOut: function (p) {
+					return maxScale + easeProgress(p);
+				}
+			};
+		});
+	var _benansell$elm_webpack_seed$ShapePath$easeSimple = F3(
+		function (easingIn, easingOut, direction) {
+			return {
+				easeIn: function (p) {
+					return direction * easingIn(p);
+				},
+				easeOut: function (p) {
+					return direction * A2(_elm_community$easing_functions$Ease$reverse, easingOut, p);
+				}
+			};
+		});
+	var _benansell$elm_webpack_seed$ShapePath$easeOffset = F3(
+		function (offsetIn, offsetOut, easeCyle) {
+			return {
+				easeIn: function (p) {
+					return offsetIn + easeCyle.easeIn(p);
+				},
+				easeOut: function (p) {
+					return offsetOut + easeCyle.easeOut(p);
+				}
+			};
+		});
+	var _benansell$elm_webpack_seed$ShapePath$easeDuration = F3(
+		function (durationIn, durationOut, easeCycle) {
+			return {
+				easeIn: function (p) {
+					return easeCycle.easeIn(p / durationIn);
+				},
+				easeOut: function (p) {
+					return easeCycle.easeOut(p / durationOut);
+				}
+			};
+		});
+	var _benansell$elm_webpack_seed$ShapePath$createStep = F3(
+		function (start, duration, transforms) {
+			var progressiveTransforms = function (progress) {
+				return A2(
+					_elm_lang$core$List$map,
+					function (t) {
+						return t(progress - start);
+					},
+					transforms);
+			};
+			return {start: start, duration: duration, end: start + duration, progressiveTransforms: progressiveTransforms};
+		});
+	var _benansell$elm_webpack_seed$ShapePath$pushStep = F3(
+		function (duration, transforms, steps) {
+			var previousStep = _elm_lang$core$List$head(steps);
+			var _p4 = previousStep;
+			if (_p4.ctor === 'Nothing') {
+				return _elm_lang$core$Native_List.fromArray(
+					[
+						A3(_benansell$elm_webpack_seed$ShapePath$createStep, 0, duration, transforms)
+					]);
+			} else {
+				return A2(
+					_elm_lang$core$List_ops['::'],
+					A3(_benansell$elm_webpack_seed$ShapePath$createStep, _p4._0.end, duration, transforms),
+					steps);
+			}
+		});
+	var _benansell$elm_webpack_seed$ShapePath$createPath = F2(
+		function (durationInSeconds, steps) {
+			return {duration: durationInSeconds * 1000, steps: steps};
+		});
+	var _benansell$elm_webpack_seed$ShapePath$addWobble = F3(
+		function (duration, angle, start) {
+			var wobbleProgress = _elm_lang$core$Basics$round(25 * start);
+			return _elm_lang$core$Native_Utils.eq(
+				A2(_elm_lang$core$Basics_ops['%'], wobbleProgress, 2),
+				0) ? A3(
+				_benansell$elm_webpack_seed$ShapePath$createStep,
+				start,
+				duration,
+				_elm_lang$core$Native_List.fromArray(
+					[
+						function (_p5) {
+						return A2(
+							_benansell$elm_webpack_seed$GeometricTransformer2D$rotate,
+							_benansell$elm_webpack_seed$GeometricTransformer2D$Clockwise,
+							A2(_elm_lang$core$Basics$always, angle, _p5));
+					}
+					])) : A3(
+				_benansell$elm_webpack_seed$ShapePath$createStep,
+				start,
+				duration,
+				_elm_lang$core$Native_List.fromArray(
+					[
+						function (_p6) {
+						return A2(
+							_benansell$elm_webpack_seed$GeometricTransformer2D$rotate,
+							_benansell$elm_webpack_seed$GeometricTransformer2D$AntiClockwise,
+							A2(_elm_lang$core$Basics$always, angle, _p6));
+					}
+					]));
+		});
+	var _benansell$elm_webpack_seed$ShapePath$wobble = function () {
+		var duration = 1.0e-2;
+		var angle = _elm_lang$core$Basics$degrees(1);
+		return A2(
+			_benansell$elm_webpack_seed$ShapePath$createPath,
+			2,
+			A2(
+				_elm_lang$core$List$map,
+				function (i) {
+					return A3(
+						_benansell$elm_webpack_seed$ShapePath$addWobble,
+						duration,
+						angle,
+						_elm_lang$core$Basics$toFloat(i) / 100);
+				},
+				_elm_lang$core$Native_List.range(0, 100)));
+	}();
+	var _benansell$elm_webpack_seed$ShapePath$shrink = function () {
+		var scale = A3(
+			_benansell$elm_webpack_seed$ShapePath$easeDuration,
+			0.25,
+			0.25,
+			A2(_benansell$elm_webpack_seed$ShapePath$easeScale, _elm_community$easing_functions$Ease$inOutBack, 0.5));
+		return A2(
+			_benansell$elm_webpack_seed$ShapePath$createPath,
+			3,
+			A3(
+				_benansell$elm_webpack_seed$ShapePath$pushStep,
+				0.25,
+				_elm_lang$core$Native_List.fromArray(
+					[
+						function (_p7) {
+						return _benansell$elm_webpack_seed$GeometricTransformer2D$scaleUniform(
+							scale.easeOut(_p7));
+					}
+					]),
+				A3(
+					_benansell$elm_webpack_seed$ShapePath$pushStep,
+					0.25,
+					_elm_lang$core$Native_List.fromArray(
+						[
+							function (_p8) {
+							return _benansell$elm_webpack_seed$GeometricTransformer2D$scaleUniform(
+								scale.easeIn(_p8));
+						}
+						]),
+					A3(
+						_benansell$elm_webpack_seed$ShapePath$pushStep,
+						0.25,
+						_elm_lang$core$Native_List.fromArray(
+							[
+								function (_p9) {
+								return _benansell$elm_webpack_seed$GeometricTransformer2D$scaleUniform(
+									scale.easeOut(_p9));
+							}
+							]),
+						A3(
+							_benansell$elm_webpack_seed$ShapePath$pushStep,
+							0.25,
+							_elm_lang$core$Native_List.fromArray(
+								[
+									function (_p10) {
+									return _benansell$elm_webpack_seed$GeometricTransformer2D$scaleUniform(
+										scale.easeIn(_p10));
+								}
+								]),
+							_elm_lang$core$Native_List.fromArray(
+								[]))))));
+	}();
+	var _benansell$elm_webpack_seed$ShapePath$shear = function () {
+		var shear = A3(
+			_benansell$elm_webpack_seed$ShapePath$easeDuration,
+			0.25,
+			0.25,
+			A3(_benansell$elm_webpack_seed$ShapePath$easeSimple, _elm_community$easing_functions$Ease$linear, _elm_community$easing_functions$Ease$inBounce, -2));
+		var maxOffset = -80;
+		var offset = A3(
+			_benansell$elm_webpack_seed$ShapePath$easeDuration,
+			0.25,
+			0.25,
+			A2(
+				_benansell$elm_webpack_seed$ShapePath$easeTranslate,
+				_elm_community$easing_functions$Ease$outSine,
+				{ctor: '_Tuple2', _0: maxOffset, _1: maxOffset}));
+		return A2(
+			_benansell$elm_webpack_seed$ShapePath$createPath,
+			4,
+			A3(
+				_benansell$elm_webpack_seed$ShapePath$pushStep,
+				0.25,
+				_elm_lang$core$Native_List.fromArray(
+					[
+						function (_p11) {
+						return _benansell$elm_webpack_seed$GeometricTransformer2D$translate(
+							offset.easeOut(_p11));
+					}
+					]),
+				A3(
+					_benansell$elm_webpack_seed$ShapePath$pushStep,
+					0.25,
+					_elm_lang$core$Native_List.fromArray(
+						[
+							function (_p12) {
+							return A2(
+								_benansell$elm_webpack_seed$GeometricTransformer2D$shear,
+								_benansell$elm_webpack_seed$GeometricTransformer2D$Horizontal,
+								shear.easeOut(_p12));
+						},
+							function (_p13) {
+							return _benansell$elm_webpack_seed$GeometricTransformer2D$translate(
+								A2(
+									_elm_lang$core$Basics$always,
+									{ctor: '_Tuple2', _0: maxOffset, _1: maxOffset},
+									_p13));
+						}
+						]),
+					A3(
+						_benansell$elm_webpack_seed$ShapePath$pushStep,
+						0.25,
+						_elm_lang$core$Native_List.fromArray(
+							[
+								function (_p14) {
+								return A2(
+									_benansell$elm_webpack_seed$GeometricTransformer2D$shear,
+									_benansell$elm_webpack_seed$GeometricTransformer2D$Horizontal,
+									shear.easeIn(_p14));
+							},
+								function (_p15) {
+								return _benansell$elm_webpack_seed$GeometricTransformer2D$translate(
+									A2(
+										_elm_lang$core$Basics$always,
+										{ctor: '_Tuple2', _0: maxOffset, _1: maxOffset},
+										_p15));
+							}
+							]),
+						A3(
+							_benansell$elm_webpack_seed$ShapePath$pushStep,
+							0.25,
+							_elm_lang$core$Native_List.fromArray(
+								[
+									function (_p16) {
+									return _benansell$elm_webpack_seed$GeometricTransformer2D$translate(
+										offset.easeIn(_p16));
+								}
+								]),
+							_elm_lang$core$Native_List.fromArray(
+								[]))))));
+	}();
+	var _benansell$elm_webpack_seed$ShapePath$rotate = function () {
+		var angle = A3(
+			_benansell$elm_webpack_seed$ShapePath$easeDuration,
+			0.5,
+			0.5,
+			A3(_benansell$elm_webpack_seed$ShapePath$easeSimple, _elm_community$easing_functions$Ease$linear, _elm_community$easing_functions$Ease$outBack, 2 * _elm_lang$core$Basics$pi));
+		var maxScale = 0.8;
+		var scale = A3(
+			_benansell$elm_webpack_seed$ShapePath$easeDuration,
+			0.25,
+			0.25,
+			A2(_benansell$elm_webpack_seed$ShapePath$easeScale, _elm_community$easing_functions$Ease$linear, maxScale));
+		var maxOffset = 40;
+		var offset = A3(
+			_benansell$elm_webpack_seed$ShapePath$easeDuration,
+			0.25,
+			0.25,
+			A2(
+				_benansell$elm_webpack_seed$ShapePath$easeTranslate,
+				_elm_community$easing_functions$Ease$outSine,
+				{ctor: '_Tuple2', _0: maxOffset, _1: 0 - maxOffset}));
+		return A2(
+			_benansell$elm_webpack_seed$ShapePath$createPath,
+			10,
+			A3(
+				_benansell$elm_webpack_seed$ShapePath$pushStep,
+				0.75,
+				_elm_lang$core$Native_List.fromArray(
+					[
+						function (_p17) {
+						return _benansell$elm_webpack_seed$GeometricTransformer2D$scaleUniform(
+							scale.easeOut(_p17));
+					},
+						function (_p18) {
+						return _benansell$elm_webpack_seed$GeometricTransformer2D$translate(
+							offset.easeOut(_p18));
+					}
+					]),
+				A3(
+					_benansell$elm_webpack_seed$ShapePath$pushStep,
+					0.5,
+					_elm_lang$core$Native_List.fromArray(
+						[
+							function (_p19) {
+							return _benansell$elm_webpack_seed$GeometricTransformer2D$scaleUniform(
+								A2(_elm_lang$core$Basics$always, maxScale, _p19));
+						},
+							function (_p20) {
+							return A2(
+								_benansell$elm_webpack_seed$GeometricTransformer2D$rotate,
+								_benansell$elm_webpack_seed$GeometricTransformer2D$AntiClockwise,
+								angle.easeOut(_p20));
+						},
+							function (_p21) {
+							return _benansell$elm_webpack_seed$GeometricTransformer2D$translate(
+								A2(
+									_elm_lang$core$Basics$always,
+									{ctor: '_Tuple2', _0: maxOffset, _1: 0 - maxOffset},
+									_p21));
+						}
+						]),
+					A3(
+						_benansell$elm_webpack_seed$ShapePath$pushStep,
+						0.25,
+						_elm_lang$core$Native_List.fromArray(
+							[
+								function (_p22) {
+								return _benansell$elm_webpack_seed$GeometricTransformer2D$scaleUniform(
+									scale.easeIn(_p22));
+							},
+								function (_p23) {
+								return _benansell$elm_webpack_seed$GeometricTransformer2D$translate(
+									offset.easeIn(_p23));
+							}
+							]),
+						_elm_lang$core$Native_List.fromArray(
+							[])))));
+	}();
+	var _benansell$elm_webpack_seed$ShapePath$moveRight = function () {
+		var scale = A3(
+			_benansell$elm_webpack_seed$ShapePath$easeDuration,
+			0.5,
+			0.5,
+			A2(_benansell$elm_webpack_seed$ShapePath$easeScale, _elm_community$easing_functions$Ease$inOutBack, 0.5));
+		var offset = A3(
+			_benansell$elm_webpack_seed$ShapePath$easeDuration,
+			0.5,
+			0.5,
+			A2(
+				_benansell$elm_webpack_seed$ShapePath$easeTranslate,
+				_elm_community$easing_functions$Ease$outBounce,
+				{ctor: '_Tuple2', _0: -100, _1: 0}));
+		return A2(
+			_benansell$elm_webpack_seed$ShapePath$createPath,
+			5,
+			A3(
+				_benansell$elm_webpack_seed$ShapePath$pushStep,
+				0.5,
+				_elm_lang$core$Native_List.fromArray(
+					[
+						function (_p24) {
+						return _benansell$elm_webpack_seed$GeometricTransformer2D$scaleUniform(
+							scale.easeOut(_p24));
+					},
+						function (_p25) {
+						return _benansell$elm_webpack_seed$GeometricTransformer2D$translate(
+							offset.easeOut(_p25));
+					}
+					]),
+				A3(
+					_benansell$elm_webpack_seed$ShapePath$pushStep,
+					0.5,
+					_elm_lang$core$Native_List.fromArray(
+						[
+							function (_p26) {
+							return _benansell$elm_webpack_seed$GeometricTransformer2D$scaleUniform(
+								scale.easeIn(_p26));
+						},
+							function (_p27) {
+							return _benansell$elm_webpack_seed$GeometricTransformer2D$translate(
+								offset.easeIn(_p27));
+						}
+						]),
+					_elm_lang$core$Native_List.fromArray(
+						[]))));
+	}();
+	var _benansell$elm_webpack_seed$ShapePath$moveDown = function () {
+		var offset = A3(
+			_benansell$elm_webpack_seed$ShapePath$easeDuration,
+			0.5,
+			0.5,
+			A2(
+				_benansell$elm_webpack_seed$ShapePath$easeTranslate,
+				_elm_community$easing_functions$Ease$outElastic,
+				{ctor: '_Tuple2', _0: 0, _1: 75}));
+		return A2(
+			_benansell$elm_webpack_seed$ShapePath$createPath,
+			2,
+			A3(
+				_benansell$elm_webpack_seed$ShapePath$pushStep,
+				0.5,
+				_elm_lang$core$Native_List.fromArray(
+					[
+						function (_p28) {
+						return _benansell$elm_webpack_seed$GeometricTransformer2D$translate(
+							offset.easeOut(_p28));
+					}
+					]),
+				A3(
+					_benansell$elm_webpack_seed$ShapePath$pushStep,
+					0.5,
+					_elm_lang$core$Native_List.fromArray(
+						[
+							function (_p29) {
+							return _benansell$elm_webpack_seed$GeometricTransformer2D$translate(
+								offset.easeIn(_p29));
+						}
+						]),
+					_elm_lang$core$Native_List.fromArray(
+						[]))));
+	}();
+	var _benansell$elm_webpack_seed$ShapePath$hinge = function () {
+		var maxScale = 0.7;
+		var scale = A3(
+			_benansell$elm_webpack_seed$ShapePath$easeDuration,
+			0.25,
+			0.25,
+			A2(_benansell$elm_webpack_seed$ShapePath$easeScale, _elm_community$easing_functions$Ease$linear, maxScale));
+		var maxAngle = _elm_lang$core$Basics$pi / 2;
+		var angleOne = A3(
+			_benansell$elm_webpack_seed$ShapePath$easeDuration,
+			0.25,
+			0.25,
+			A3(_benansell$elm_webpack_seed$ShapePath$easeSimple, _elm_community$easing_functions$Ease$inQuint, _elm_community$easing_functions$Ease$linear, maxAngle));
+		var angleTwo = A3(
+			_benansell$elm_webpack_seed$ShapePath$easeDuration,
+			0.25,
+			0.25,
+			A3(
+				_benansell$elm_webpack_seed$ShapePath$easeOffset,
+				maxAngle,
+				maxAngle,
+				A3(_benansell$elm_webpack_seed$ShapePath$easeSimple, _elm_community$easing_functions$Ease$outBack, _elm_community$easing_functions$Ease$linear, maxAngle)));
+		return A2(
+			_benansell$elm_webpack_seed$ShapePath$createPath,
+			4,
+			A3(
+				_benansell$elm_webpack_seed$ShapePath$pushStep,
+				0.25,
+				_elm_lang$core$Native_List.fromArray(
+					[
+						function (_p30) {
+						return _benansell$elm_webpack_seed$GeometricTransformer2D$scaleUniform(
+							scale.easeOut(_p30));
+					},
+						function (_p31) {
+						return A2(
+							_benansell$elm_webpack_seed$GeometricTransformer2D$rotate,
+							_benansell$elm_webpack_seed$GeometricTransformer2D$Clockwise,
+							angleOne.easeOut(_p31));
+					}
+					]),
+				A3(
+					_benansell$elm_webpack_seed$ShapePath$pushStep,
+					0.25,
+					_elm_lang$core$Native_List.fromArray(
+						[
+							function (_p32) {
+							return _benansell$elm_webpack_seed$GeometricTransformer2D$scaleUniform(
+								A2(_elm_lang$core$Basics$always, maxScale, _p32));
+						},
+							function (_p33) {
+							return A2(
+								_benansell$elm_webpack_seed$GeometricTransformer2D$rotate,
+								_benansell$elm_webpack_seed$GeometricTransformer2D$Clockwise,
+								angleTwo.easeOut(_p33));
+						}
+						]),
+					A3(
+						_benansell$elm_webpack_seed$ShapePath$pushStep,
+						0.25,
+						_elm_lang$core$Native_List.fromArray(
+							[
+								function (_p34) {
+								return _benansell$elm_webpack_seed$GeometricTransformer2D$scaleUniform(
+									A2(_elm_lang$core$Basics$always, maxScale, _p34));
+							},
+								function (_p35) {
+								return A2(
+									_benansell$elm_webpack_seed$GeometricTransformer2D$rotate,
+									_benansell$elm_webpack_seed$GeometricTransformer2D$Clockwise,
+									angleTwo.easeIn(_p35));
+							}
+							]),
+						A3(
+							_benansell$elm_webpack_seed$ShapePath$pushStep,
+							0.25,
+							_elm_lang$core$Native_List.fromArray(
+								[
+									function (_p36) {
+									return _benansell$elm_webpack_seed$GeometricTransformer2D$scaleUniform(
+										scale.easeIn(_p36));
+								},
+									function (_p37) {
+									return A2(
+										_benansell$elm_webpack_seed$GeometricTransformer2D$rotate,
+										_benansell$elm_webpack_seed$GeometricTransformer2D$Clockwise,
+										angleOne.easeIn(_p37));
+								}
+								]),
+							_elm_lang$core$Native_List.fromArray(
+								[]))))));
+	}();
+	var _benansell$elm_webpack_seed$ShapePath$timeRemainingToProgress = F2(
+		function (duration, remaining) {
+			return (_elm_lang$core$Native_Utils.cmp(remaining, 0) < 1) ? 1 : ((duration - remaining) / duration);
+		});
+	var _benansell$elm_webpack_seed$ShapePath$pathToTransformations = F3(
+		function (path, endTime, time) {
+			var progress = A2(_benansell$elm_webpack_seed$ShapePath$timeRemainingToProgress, path.duration, endTime - time);
+			var currentStep = _elm_lang$core$List$head(
+				A2(
+					_elm_lang$core$List$filter,
+					function (s) {
+						return (_elm_lang$core$Native_Utils.cmp(progress, s.start) > -1) && (_elm_lang$core$Native_Utils.cmp(progress, s.start + s.duration) < 0);
+					},
+					path.steps));
+			var _p38 = currentStep;
+			if (_p38.ctor === 'Nothing') {
+				return _elm_lang$core$Native_List.fromArray(
+					[]);
+			} else {
+				return _p38._0.progressiveTransforms(progress);
+			}
+		});
+	var _benansell$elm_webpack_seed$ShapePath$EaseCycle = F2(
+		function (a, b) {
+			return {easeIn: a, easeOut: b};
+		});
+	var _benansell$elm_webpack_seed$ShapePath$Path = F2(
+		function (a, b) {
+			return {duration: a, steps: b};
+		});
+	var _benansell$elm_webpack_seed$ShapePath$Step = F4(
+		function (a, b, c, d) {
+			return {start: a, duration: b, end: c, progressiveTransforms: d};
+		});
+	var _benansell$elm_webpack_seed$ShapePath$Forward = {ctor: 'Forward'};
+	var _benansell$elm_webpack_seed$ShapePath$Backward = {ctor: 'Backward'};
+	
 	var _benansell$elm_webpack_seed$LogoAnimation$_p0 = _benansell$elm_webpack_seed$LogoAnimationCss$logoAnimationNamespace;
 	var _benansell$elm_webpack_seed$LogoAnimation$id = _benansell$elm_webpack_seed$LogoAnimation$_p0.id;
 	var _benansell$elm_webpack_seed$LogoAnimation$class = _benansell$elm_webpack_seed$LogoAnimation$_p0.$class;
@@ -13302,16 +14195,10 @@ webpackJsonp([1,0],[
 				return _elm_lang$core$Maybe$Just('Shake');
 		}
 	};
-	var _benansell$elm_webpack_seed$LogoAnimation$projectPoint = F2(
-		function (point, matrix) {
-			return {x: ((matrix.a * point.x) + (matrix.b * point.y)) + matrix.tx, y: ((matrix.c * point.x) + (matrix.d * point.y)) + matrix.ty};
-		});
 	var _benansell$elm_webpack_seed$LogoAnimation$shapeToViewPoints = function (shape) {
 		return A2(
 			_elm_lang$core$List$map,
-			function (p) {
-				return A2(_benansell$elm_webpack_seed$LogoAnimation$projectPoint, p, shape.currentTransform);
-			},
+			_benansell$elm_webpack_seed$GeometricTransformer2D$apply(shape.currentTransform),
 			shape.points);
 	};
 	var _benansell$elm_webpack_seed$LogoAnimation$shapeToPolygon = function (shape) {
@@ -13363,345 +14250,104 @@ webpackJsonp([1,0],[
 						]))
 				]));
 	};
-	var _benansell$elm_webpack_seed$LogoAnimation$timeRemainingToProgress = F2(
-		function (duration, remaining) {
-			return (_elm_lang$core$Native_Utils.cmp(remaining, 0) < 1) ? 1 : ((duration - remaining) / duration);
-		});
-	var _benansell$elm_webpack_seed$LogoAnimation$timeRemaining = F2(
-		function (time, actionEnd) {
-			var _p4 = actionEnd;
-			if (_p4.ctor === 'Nothing') {
-				return 0;
-			} else {
-				return _p4._0 - time;
-			}
-		});
-	var _benansell$elm_webpack_seed$LogoAnimation$translateProgress = F3(
-		function (direction, offset, progress) {
-			var _p5 = direction;
-			if (_p5.ctor === 'Forward') {
-				return offset * _elm_lang$core$Basics$sin((2 * _elm_lang$core$Basics$pi) * progress);
-			} else {
-				return offset - (offset * _elm_lang$core$Basics$cos((2 * _elm_lang$core$Basics$pi) * progress));
-			}
-		});
-	var _benansell$elm_webpack_seed$LogoAnimation$scaleProgress = F3(
-		function (scale, cycle, progress) {
-			var offset = (1 - scale) / 2;
-			var angle = ((2 * _elm_lang$core$Basics$pi) * cycle) * progress;
-			return scale + (offset * (1 + _elm_lang$core$Basics$cos(angle)));
-		});
-	var _benansell$elm_webpack_seed$LogoAnimation$matrixMultiply = F2(
-		function (m1, m2) {
-			return {a: (m1.a * m2.a) + (m1.b * m2.c), b: (m1.a * m2.b) + (m1.b * m2.d), c: (m1.c * m2.a) + (m1.d * m2.c), d: (m1.c * m2.b) + (m1.d * m2.d), tx: ((m1.a * m2.tx) + (m1.b * m2.ty)) + m1.tx, ty: ((m1.c * m2.tx) + (m1.d * m2.ty)) + m1.ty};
-		});
-	var _benansell$elm_webpack_seed$LogoAnimation$matrixTranslate = F2(
-		function (tx, ty) {
-			return {a: 1, b: 0, c: 0, d: 1, tx: tx, ty: ty};
-		});
-	var _benansell$elm_webpack_seed$LogoAnimation$convertRotateDirecton = function (direction) {
-		var _p6 = direction;
-		if (_p6.ctor === 'Clockwise') {
-			return 1;
-		} else {
-			return -1;
-		}
-	};
-	var _benansell$elm_webpack_seed$LogoAnimation$matrixRotate = F2(
-		function (direction, theta) {
-			var signedDirection = _benansell$elm_webpack_seed$LogoAnimation$convertRotateDirecton(direction);
-			return {
-				a: _elm_lang$core$Basics$cos(theta),
-				b: signedDirection * (0 - _elm_lang$core$Basics$sin(theta)),
-				c: signedDirection * _elm_lang$core$Basics$sin(theta),
-				d: _elm_lang$core$Basics$cos(theta),
-				tx: 0,
-				ty: 0
-			};
-		});
-	var _benansell$elm_webpack_seed$LogoAnimation$matrixShear = function (k) {
-		return {a: 1, b: k, c: 0, d: 1, tx: 0, ty: 0};
-	};
-	var _benansell$elm_webpack_seed$LogoAnimation$matrixScale = function (k) {
-		return {a: k, b: 0, c: 0, d: k, tx: 0, ty: 0};
-	};
-	var _benansell$elm_webpack_seed$LogoAnimation$matrixIdentity = function (origin) {
-		return {a: 1, b: 0, c: 0, d: 1, tx: origin.x, ty: origin.y};
-	};
 	var _benansell$elm_webpack_seed$LogoAnimation$firstTransform = function (transforms) {
 		var head = _elm_lang$core$List$head(transforms);
-		var _p7 = head;
-		if (_p7.ctor === 'Nothing') {
-			return _benansell$elm_webpack_seed$LogoAnimation$matrixIdentity(
-				{x: 0, y: 0});
+		var _p4 = head;
+		if (_p4.ctor === 'Nothing') {
+			return _benansell$elm_webpack_seed$GeometricTransformer2D$identity(
+				_benansell$elm_webpack_seed$GeometricTransformer2D$toPoint(
+					{ctor: '_Tuple2', _0: 0, _1: 0}));
 		} else {
-			return _p7._0;
+			return _p4._0;
 		}
 	};
-	var _benansell$elm_webpack_seed$LogoAnimation$updateTransform = F2(
-		function (transforms, shape) {
+	var _benansell$elm_webpack_seed$LogoAnimation$transformsAtTime = F3(
+		function (path, endTime, time) {
+			var _p5 = path;
+			if (_p5.ctor === 'Nothing') {
+				return _elm_lang$core$Native_List.fromArray(
+					[]);
+			} else {
+				return A3(
+					_benansell$elm_webpack_seed$ShapePath$pathToTransformations,
+					_p5._0,
+					A2(_elm_lang$core$Maybe$withDefault, 0, endTime),
+					time);
+			}
+		});
+	var _benansell$elm_webpack_seed$LogoAnimation$updateShape = F2(
+		function (time, shape) {
+			var transforms = A3(_benansell$elm_webpack_seed$LogoAnimation$transformsAtTime, shape.path, shape.actionEnd, time);
+			var first = _benansell$elm_webpack_seed$LogoAnimation$firstTransform(transforms);
 			var transformsWithInitial = A2(
 				_elm_lang$core$Basics_ops['++'],
 				A2(_elm_lang$core$List$drop, 1, transforms),
 				_elm_lang$core$Native_List.fromArray(
 					[shape.initialTransform]));
-			var first = _benansell$elm_webpack_seed$LogoAnimation$firstTransform(transforms);
 			return _elm_lang$core$Native_Utils.update(
 				shape,
 				{
-					currentTransform: A3(_elm_lang$core$List$foldl, _benansell$elm_webpack_seed$LogoAnimation$matrixMultiply, first, transformsWithInitial)
+					currentTransform: A3(_elm_lang$core$List$foldl, _benansell$elm_webpack_seed$GeometricTransformer2D$combine, first, transformsWithInitial)
 				});
 		});
-	var _benansell$elm_webpack_seed$LogoAnimation$transformShrink = F2(
-		function (progress, shape) {
-			var scale = A3(_benansell$elm_webpack_seed$LogoAnimation$scaleProgress, 0.5, 4, progress);
-			return A2(
-				_benansell$elm_webpack_seed$LogoAnimation$updateTransform,
-				_elm_lang$core$Native_List.fromArray(
-					[
-						_benansell$elm_webpack_seed$LogoAnimation$matrixScale(scale)
-					]),
-				shape);
+	var _benansell$elm_webpack_seed$LogoAnimation$calculateEndTime = F2(
+		function (path, time) {
+			var _p6 = path;
+			if (_p6.ctor === 'Nothing') {
+				return _elm_lang$core$Maybe$Nothing;
+			} else {
+				return _elm_lang$core$Maybe$Just(time + _p6._0.duration);
+			}
 		});
-	var _benansell$elm_webpack_seed$LogoAnimation$toPoint = function (_p8) {
-		var _p9 = _p8;
-		return {x: _p9._0, y: _p9._1};
+	var _benansell$elm_webpack_seed$LogoAnimation$actionToPath = function (action) {
+		var _p7 = action;
+		switch (_p7.ctor) {
+			case 'None':
+				return _elm_lang$core$Maybe$Nothing;
+			case 'Hinge':
+				return _elm_lang$core$Maybe$Just(_benansell$elm_webpack_seed$ShapePath$hinge);
+			case 'MoveDown':
+				return _elm_lang$core$Maybe$Just(_benansell$elm_webpack_seed$ShapePath$moveDown);
+			case 'MoveRight':
+				return _elm_lang$core$Maybe$Just(_benansell$elm_webpack_seed$ShapePath$moveRight);
+			case 'Rotate':
+				return _elm_lang$core$Maybe$Just(_benansell$elm_webpack_seed$ShapePath$rotate);
+			case 'Shear':
+				return _elm_lang$core$Maybe$Just(_benansell$elm_webpack_seed$ShapePath$shear);
+			case 'Shrink':
+				return _elm_lang$core$Maybe$Just(_benansell$elm_webpack_seed$ShapePath$shrink);
+			default:
+				return _elm_lang$core$Maybe$Just(_benansell$elm_webpack_seed$ShapePath$wobble);
+		}
 	};
-	var _benansell$elm_webpack_seed$LogoAnimation$createShape = F5(
-		function (action, durationInSeconds, color, origin, points) {
-			var originPoint = _benansell$elm_webpack_seed$LogoAnimation$toPoint(origin);
-			var initialTransform = _benansell$elm_webpack_seed$LogoAnimation$matrixIdentity(originPoint);
+	var _benansell$elm_webpack_seed$LogoAnimation$createShape = F4(
+		function (action, color, origin, coordinates) {
+			var originPoint = _benansell$elm_webpack_seed$GeometricTransformer2D$toPoint(origin);
+			var initialTransform = _benansell$elm_webpack_seed$GeometricTransformer2D$identity(originPoint);
 			return {
 				action: action,
-				actionDuration: durationInSeconds * 1000,
 				actionEnd: _elm_lang$core$Maybe$Nothing,
 				actionStart: _elm_lang$core$Maybe$Nothing,
 				color: color,
 				origin: originPoint,
-				points: A2(_elm_lang$core$List$map, _benansell$elm_webpack_seed$LogoAnimation$toPoint, points),
+				points: A2(_elm_lang$core$List$map, _benansell$elm_webpack_seed$GeometricTransformer2D$toPoint, coordinates),
 				initialTransform: initialTransform,
-				currentTransform: initialTransform
+				currentTransform: initialTransform,
+				path: _benansell$elm_webpack_seed$LogoAnimation$actionToPath(action)
 			};
-		});
-	var _benansell$elm_webpack_seed$LogoAnimation$Point = F2(
-		function (a, b) {
-			return {x: a, y: b};
-		});
-	var _benansell$elm_webpack_seed$LogoAnimation$Matrix = F6(
-		function (a, b, c, d, e, f) {
-			return {a: a, b: b, c: c, d: d, tx: e, ty: f};
 		});
 	var _benansell$elm_webpack_seed$LogoAnimation$Shape = F9(
 		function (a, b, c, d, e, f, g, h, i) {
-			return {action: a, actionDuration: b, actionEnd: c, actionStart: d, color: e, origin: f, points: g, initialTransform: h, currentTransform: i};
+			return {action: a, actionEnd: b, actionStart: c, color: d, origin: e, points: f, initialTransform: g, currentTransform: h, path: i};
 		});
 	var _benansell$elm_webpack_seed$LogoAnimation$Model = F2(
 		function (a, b) {
 			return {action: a, shapes: b};
 		});
-	var _benansell$elm_webpack_seed$LogoAnimation$Backward = {ctor: 'Backward'};
-	var _benansell$elm_webpack_seed$LogoAnimation$Forward = {ctor: 'Forward'};
-	var _benansell$elm_webpack_seed$LogoAnimation$transformMoveDown = F2(
-		function (progress, shape) {
-			var offset = A3(_benansell$elm_webpack_seed$LogoAnimation$translateProgress, _benansell$elm_webpack_seed$LogoAnimation$Forward, 100, progress / 2);
-			return A2(
-				_benansell$elm_webpack_seed$LogoAnimation$updateTransform,
-				_elm_lang$core$Native_List.fromArray(
-					[
-						A2(_benansell$elm_webpack_seed$LogoAnimation$matrixTranslate, 0, offset)
-					]),
-				shape);
-		});
-	var _benansell$elm_webpack_seed$LogoAnimation$transformMoveRight = F2(
-		function (progress, shape) {
-			var scale = A3(_benansell$elm_webpack_seed$LogoAnimation$scaleProgress, 0.5, 1, progress);
-			var offset = A3(_benansell$elm_webpack_seed$LogoAnimation$translateProgress, _benansell$elm_webpack_seed$LogoAnimation$Forward, -100, progress / 2);
-			return A2(
-				_benansell$elm_webpack_seed$LogoAnimation$updateTransform,
-				_elm_lang$core$Native_List.fromArray(
-					[
-						_benansell$elm_webpack_seed$LogoAnimation$matrixScale(scale),
-						A2(_benansell$elm_webpack_seed$LogoAnimation$matrixTranslate, offset, 0)
-					]),
-				shape);
-		});
-	var _benansell$elm_webpack_seed$LogoAnimation$transformShear = F2(
-		function (progress, shape) {
-			var maxShear = -2;
-			var maxOffset = -80;
-			if (_elm_lang$core$Native_Utils.cmp(progress, 0.25) < 0) {
-				var offset = A3(_benansell$elm_webpack_seed$LogoAnimation$translateProgress, _benansell$elm_webpack_seed$LogoAnimation$Forward, maxOffset, progress);
-				return A2(
-					_benansell$elm_webpack_seed$LogoAnimation$updateTransform,
-					_elm_lang$core$Native_List.fromArray(
-						[
-							A2(_benansell$elm_webpack_seed$LogoAnimation$matrixTranslate, offset, offset)
-						]),
-					shape);
-			} else {
-				if (_elm_lang$core$Native_Utils.cmp(progress, 0.5) < 0) {
-					var shear = (maxShear * 4) * (progress - 0.25);
-					return A2(
-						_benansell$elm_webpack_seed$LogoAnimation$updateTransform,
-						_elm_lang$core$Native_List.fromArray(
-							[
-								_benansell$elm_webpack_seed$LogoAnimation$matrixShear(shear),
-								A2(_benansell$elm_webpack_seed$LogoAnimation$matrixTranslate, maxOffset, maxOffset)
-							]),
-						shape);
-				} else {
-					if (_elm_lang$core$Native_Utils.cmp(progress, 0.75) < 0) {
-						var shear = maxShear - ((maxShear * 4) * (progress - 0.5));
-						return A2(
-							_benansell$elm_webpack_seed$LogoAnimation$updateTransform,
-							_elm_lang$core$Native_List.fromArray(
-								[
-									_benansell$elm_webpack_seed$LogoAnimation$matrixShear(shear),
-									A2(_benansell$elm_webpack_seed$LogoAnimation$matrixTranslate, maxOffset, maxOffset)
-								]),
-							shape);
-					} else {
-						var offset = A3(_benansell$elm_webpack_seed$LogoAnimation$translateProgress, _benansell$elm_webpack_seed$LogoAnimation$Backward, maxOffset, progress);
-						return A2(
-							_benansell$elm_webpack_seed$LogoAnimation$updateTransform,
-							_elm_lang$core$Native_List.fromArray(
-								[
-									A2(_benansell$elm_webpack_seed$LogoAnimation$matrixTranslate, offset, offset)
-								]),
-							shape);
-					}
-				}
-			}
-		});
-	var _benansell$elm_webpack_seed$LogoAnimation$Clockwise = {ctor: 'Clockwise'};
-	var _benansell$elm_webpack_seed$LogoAnimation$AntiClockwise = {ctor: 'AntiClockwise'};
-	var _benansell$elm_webpack_seed$LogoAnimation$transformHinge = F2(
-		function (progress, shape) {
-			var maxScale = 0.7;
-			var scale = A3(_benansell$elm_webpack_seed$LogoAnimation$scaleProgress, maxScale, 2, progress);
-			var angle = (2 * _elm_lang$core$Basics$pi) * progress;
-			return (_elm_lang$core$Native_Utils.cmp(progress, 0.25) < 0) ? A2(
-				_benansell$elm_webpack_seed$LogoAnimation$updateTransform,
-				_elm_lang$core$Native_List.fromArray(
-					[
-						_benansell$elm_webpack_seed$LogoAnimation$matrixScale(scale),
-						A2(_benansell$elm_webpack_seed$LogoAnimation$matrixRotate, _benansell$elm_webpack_seed$LogoAnimation$Clockwise, angle)
-					]),
-				shape) : ((_elm_lang$core$Native_Utils.cmp(progress, 0.5) < 0) ? A2(
-				_benansell$elm_webpack_seed$LogoAnimation$updateTransform,
-				_elm_lang$core$Native_List.fromArray(
-					[
-						_benansell$elm_webpack_seed$LogoAnimation$matrixScale(maxScale),
-						A2(_benansell$elm_webpack_seed$LogoAnimation$matrixRotate, _benansell$elm_webpack_seed$LogoAnimation$Clockwise, angle)
-					]),
-				shape) : ((_elm_lang$core$Native_Utils.cmp(progress, 0.75) < 0) ? A2(
-				_benansell$elm_webpack_seed$LogoAnimation$updateTransform,
-				_elm_lang$core$Native_List.fromArray(
-					[
-						_benansell$elm_webpack_seed$LogoAnimation$matrixScale(maxScale),
-						A2(_benansell$elm_webpack_seed$LogoAnimation$matrixRotate, _benansell$elm_webpack_seed$LogoAnimation$AntiClockwise, angle)
-					]),
-				shape) : A2(
-				_benansell$elm_webpack_seed$LogoAnimation$updateTransform,
-				_elm_lang$core$Native_List.fromArray(
-					[
-						_benansell$elm_webpack_seed$LogoAnimation$matrixScale(scale),
-						A2(_benansell$elm_webpack_seed$LogoAnimation$matrixRotate, _benansell$elm_webpack_seed$LogoAnimation$AntiClockwise, angle)
-					]),
-				shape)));
-		});
-	var _benansell$elm_webpack_seed$LogoAnimation$transformRotate = F2(
-		function (progress, shape) {
-			var maxScale = 0.8;
-			var maxOffset = 40;
-			if (_elm_lang$core$Native_Utils.cmp(progress, 0.25) < 0) {
-				var scale = A3(_benansell$elm_webpack_seed$LogoAnimation$scaleProgress, maxScale, 2, progress);
-				var offset = A3(_benansell$elm_webpack_seed$LogoAnimation$translateProgress, _benansell$elm_webpack_seed$LogoAnimation$Forward, maxOffset, progress);
-				return A2(
-					_benansell$elm_webpack_seed$LogoAnimation$updateTransform,
-					_elm_lang$core$Native_List.fromArray(
-						[
-							_benansell$elm_webpack_seed$LogoAnimation$matrixScale(scale),
-							A2(_benansell$elm_webpack_seed$LogoAnimation$matrixTranslate, offset, 0 - offset)
-						]),
-					shape);
-			} else {
-				if (_elm_lang$core$Native_Utils.cmp(progress, 0.75) < 0) {
-					var angle = (4 * _elm_lang$core$Basics$pi) * (progress - 0.25);
-					return A2(
-						_benansell$elm_webpack_seed$LogoAnimation$updateTransform,
-						_elm_lang$core$Native_List.fromArray(
-							[
-								_benansell$elm_webpack_seed$LogoAnimation$matrixScale(maxScale),
-								A2(_benansell$elm_webpack_seed$LogoAnimation$matrixRotate, _benansell$elm_webpack_seed$LogoAnimation$AntiClockwise, angle),
-								A2(_benansell$elm_webpack_seed$LogoAnimation$matrixTranslate, maxOffset, 0 - maxOffset)
-							]),
-						shape);
-				} else {
-					var scale = A3(_benansell$elm_webpack_seed$LogoAnimation$scaleProgress, maxScale, 2, progress);
-					var offset = A3(_benansell$elm_webpack_seed$LogoAnimation$translateProgress, _benansell$elm_webpack_seed$LogoAnimation$Backward, maxOffset, progress);
-					return A2(
-						_benansell$elm_webpack_seed$LogoAnimation$updateTransform,
-						_elm_lang$core$Native_List.fromArray(
-							[
-								_benansell$elm_webpack_seed$LogoAnimation$matrixScale(scale),
-								A2(_benansell$elm_webpack_seed$LogoAnimation$matrixTranslate, offset, 0 - offset)
-							]),
-						shape);
-				}
-			}
-		});
-	var _benansell$elm_webpack_seed$LogoAnimation$transformWobble = F2(
-		function (progress, shape) {
-			var wobbleTick = _elm_lang$core$Basics$round(25 * progress);
-			var angle = _elm_lang$core$Basics$degrees(1);
-			return _elm_lang$core$Native_Utils.eq(
-				A2(_elm_lang$core$Basics_ops['%'], wobbleTick, 2),
-				0) ? A2(
-				_benansell$elm_webpack_seed$LogoAnimation$updateTransform,
-				_elm_lang$core$Native_List.fromArray(
-					[
-						A2(_benansell$elm_webpack_seed$LogoAnimation$matrixRotate, _benansell$elm_webpack_seed$LogoAnimation$Clockwise, angle)
-					]),
-				shape) : A2(
-				_benansell$elm_webpack_seed$LogoAnimation$updateTransform,
-				_elm_lang$core$Native_List.fromArray(
-					[
-						A2(_benansell$elm_webpack_seed$LogoAnimation$matrixRotate, _benansell$elm_webpack_seed$LogoAnimation$AntiClockwise, angle)
-					]),
-				shape);
-		});
-	var _benansell$elm_webpack_seed$LogoAnimation$updateShape = F2(
-		function (time, shape) {
-			var progress = A2(
-				_benansell$elm_webpack_seed$LogoAnimation$timeRemainingToProgress,
-				shape.actionDuration,
-				A2(_benansell$elm_webpack_seed$LogoAnimation$timeRemaining, time, shape.actionEnd));
-			var _p10 = shape.action;
-			switch (_p10.ctor) {
-				case 'None':
-					return shape;
-				case 'Hinge':
-					return A2(_benansell$elm_webpack_seed$LogoAnimation$transformHinge, progress, shape);
-				case 'MoveDown':
-					return A2(_benansell$elm_webpack_seed$LogoAnimation$transformMoveDown, progress, shape);
-				case 'MoveRight':
-					return A2(_benansell$elm_webpack_seed$LogoAnimation$transformMoveRight, progress, shape);
-				case 'Rotate':
-					return A2(_benansell$elm_webpack_seed$LogoAnimation$transformRotate, progress, shape);
-				case 'Shear':
-					return A2(_benansell$elm_webpack_seed$LogoAnimation$transformShear, progress, shape);
-				case 'Shrink':
-					return A2(_benansell$elm_webpack_seed$LogoAnimation$transformShrink, progress, shape);
-				default:
-					return A2(_benansell$elm_webpack_seed$LogoAnimation$transformWobble, progress, shape);
-			}
-		});
 	var _benansell$elm_webpack_seed$LogoAnimation$Wobble = {ctor: 'Wobble'};
-	var _benansell$elm_webpack_seed$LogoAnimation$centerTriangle = A5(
+	var _benansell$elm_webpack_seed$LogoAnimation$centerTriangle = A4(
 		_benansell$elm_webpack_seed$LogoAnimation$createShape,
 		_benansell$elm_webpack_seed$LogoAnimation$Wobble,
-		2,
 		_benansell$elm_webpack_seed$LogoAnimationCss$yellow,
 		{ctor: '_Tuple2', _0: 361.649, _1: 306.205},
 		_elm_lang$core$Native_List.fromArray(
@@ -13711,10 +14357,9 @@ webpackJsonp([1,0],[
 				{ctor: '_Tuple2', _0: -69.866, _1: -23.289}
 			]));
 	var _benansell$elm_webpack_seed$LogoAnimation$Shrink = {ctor: 'Shrink'};
-	var _benansell$elm_webpack_seed$LogoAnimation$centerSquare = A5(
+	var _benansell$elm_webpack_seed$LogoAnimation$centerSquare = A4(
 		_benansell$elm_webpack_seed$LogoAnimation$createShape,
 		_benansell$elm_webpack_seed$LogoAnimation$Shrink,
-		3,
 		_benansell$elm_webpack_seed$LogoAnimationCss$green,
 		{ctor: '_Tuple2', _0: 446.9075, _1: 361.3065},
 		_elm_lang$core$Native_List.fromArray(
@@ -13725,10 +14370,9 @@ webpackJsonp([1,0],[
 				{ctor: '_Tuple2', _0: 0, _1: -76.3905}
 			]));
 	var _benansell$elm_webpack_seed$LogoAnimation$Shear = {ctor: 'Shear'};
-	var _benansell$elm_webpack_seed$LogoAnimation$topParallelogram = A5(
+	var _benansell$elm_webpack_seed$LogoAnimation$topParallelogram = A4(
 		_benansell$elm_webpack_seed$LogoAnimation$createShape,
 		_benansell$elm_webpack_seed$LogoAnimation$Shear,
-		4,
 		_benansell$elm_webpack_seed$LogoAnimationCss$green,
 		{ctor: '_Tuple2', _0: 320.54, _1: 235.188},
 		_elm_lang$core$Native_List.fromArray(
@@ -13739,10 +14383,9 @@ webpackJsonp([1,0],[
 				{ctor: '_Tuple2', _0: 41.298, _1: -35.188}
 			]));
 	var _benansell$elm_webpack_seed$LogoAnimation$Rotate = {ctor: 'Rotate'};
-	var _benansell$elm_webpack_seed$LogoAnimation$topRightTriangle = A5(
+	var _benansell$elm_webpack_seed$LogoAnimation$topRightTriangle = A4(
 		_benansell$elm_webpack_seed$LogoAnimation$createShape,
 		_benansell$elm_webpack_seed$LogoAnimation$Rotate,
-		10,
 		_benansell$elm_webpack_seed$LogoAnimationCss$blue,
 		{ctor: '_Tuple2', _0: 475.39, _1: 247.908},
 		_elm_lang$core$Native_List.fromArray(
@@ -13752,10 +14395,9 @@ webpackJsonp([1,0],[
 				{ctor: '_Tuple2', _0: -95.817, _1: -47.908}
 			]));
 	var _benansell$elm_webpack_seed$LogoAnimation$MoveRight = {ctor: 'MoveRight'};
-	var _benansell$elm_webpack_seed$LogoAnimation$leftBigTriangle = A5(
+	var _benansell$elm_webpack_seed$LogoAnimation$leftBigTriangle = A4(
 		_benansell$elm_webpack_seed$LogoAnimation$createShape,
 		_benansell$elm_webpack_seed$LogoAnimation$MoveRight,
-		5,
 		_benansell$elm_webpack_seed$LogoAnimationCss$blueGray,
 		{ctor: '_Tuple2', _0: 250.927, _1: 361.649},
 		_elm_lang$core$Native_List.fromArray(
@@ -13765,10 +14407,9 @@ webpackJsonp([1,0],[
 				{ctor: '_Tuple2', _0: -50.927, _1: 152.783}
 			]));
 	var _benansell$elm_webpack_seed$LogoAnimation$MoveDown = {ctor: 'MoveDown'};
-	var _benansell$elm_webpack_seed$LogoAnimation$bottomBigTriangle = A5(
+	var _benansell$elm_webpack_seed$LogoAnimation$bottomBigTriangle = A4(
 		_benansell$elm_webpack_seed$LogoAnimation$createShape,
 		_benansell$elm_webpack_seed$LogoAnimation$MoveDown,
-		2,
 		_benansell$elm_webpack_seed$LogoAnimationCss$blue,
 		{ctor: '_Tuple2', _0: 361.649, _1: 472.371},
 		_elm_lang$core$Native_List.fromArray(
@@ -13778,10 +14419,9 @@ webpackJsonp([1,0],[
 				{ctor: '_Tuple2', _0: 152.781, _1: 50.927}
 			]));
 	var _benansell$elm_webpack_seed$LogoAnimation$Hinge = {ctor: 'Hinge'};
-	var _benansell$elm_webpack_seed$LogoAnimation$bottomRightTriangle = A5(
+	var _benansell$elm_webpack_seed$LogoAnimation$bottomRightTriangle = A4(
 		_benansell$elm_webpack_seed$LogoAnimation$createShape,
 		_benansell$elm_webpack_seed$LogoAnimation$Hinge,
-		4,
 		_benansell$elm_webpack_seed$LogoAnimationCss$yellow,
 		{ctor: '_Tuple2', _0: 523.298, _1: 514.432},
 		_elm_lang$core$Native_List.fromArray(
@@ -13796,6 +14436,12 @@ webpackJsonp([1,0],[
 		shapes: _elm_lang$core$Native_List.fromArray(
 			[_benansell$elm_webpack_seed$LogoAnimation$bottomBigTriangle, _benansell$elm_webpack_seed$LogoAnimation$bottomRightTriangle, _benansell$elm_webpack_seed$LogoAnimation$centerSquare, _benansell$elm_webpack_seed$LogoAnimation$centerTriangle, _benansell$elm_webpack_seed$LogoAnimation$leftBigTriangle, _benansell$elm_webpack_seed$LogoAnimation$topParallelogram, _benansell$elm_webpack_seed$LogoAnimation$topRightTriangle])
 	};
+	var _benansell$elm_webpack_seed$LogoAnimation$update = F2(
+		function (newAction, model) {
+			return _elm_lang$core$Native_Utils.eq(newAction, _benansell$elm_webpack_seed$LogoAnimation$None) ? model : _elm_lang$core$Native_Utils.update(
+				model,
+				{action: newAction});
+		});
 	var _benansell$elm_webpack_seed$LogoAnimation$tick = F2(
 		function (time, model) {
 			return _elm_lang$core$Native_Utils.update(
@@ -13814,19 +14460,13 @@ webpackJsonp([1,0],[
 									s,
 									{
 										actionStart: _elm_lang$core$Maybe$Just(time),
-										actionEnd: _elm_lang$core$Maybe$Just(time + s.actionDuration)
+										actionEnd: A2(_benansell$elm_webpack_seed$LogoAnimation$calculateEndTime, s.path, time)
 									})) : ((!_elm_lang$core$Native_Utils.eq(_elm_lang$core$Maybe$Nothing, s.actionEnd)) ? _elm_lang$core$Native_Utils.update(
 								s,
 								{actionStart: _elm_lang$core$Maybe$Nothing, actionEnd: _elm_lang$core$Maybe$Nothing, currentTransform: s.initialTransform}) : s));
 						},
 						model.shapes)
 				});
-		});
-	var _benansell$elm_webpack_seed$LogoAnimation$update = F2(
-		function (newAction, model) {
-			return _elm_lang$core$Native_Utils.eq(newAction, _benansell$elm_webpack_seed$LogoAnimation$None) ? model : _elm_lang$core$Native_Utils.update(
-				model,
-				{action: newAction});
 		});
 	
 	var _elm_lang$animation_frame$Native_AnimationFrame = function()
