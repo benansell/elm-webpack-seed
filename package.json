@@ -41,6 +41,8 @@
         "build": "webpack",
         "build-css": "elm-css src/Stylesheets.elm -o ./dist",
         "start": "webpack-dev-server --content-base src/ --port 8000 --hot",
-        "test": "elm-test tests/Main.elm"
+        "test-console": "elm-test tests/TestRunnerConsole.elm || true",
+        "test-html" : "cd tests && elm-reactor",
+        "test": "npm run test-html"
     }
 }

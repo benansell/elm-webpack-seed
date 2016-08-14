@@ -18,6 +18,7 @@
         "elm-lang/svg": "1.1.1 <= v < 2.0.0",
         "rtfeldman/elm-css": "3.1.2 <= v < 4.0.0",
         "rtfeldman/elm-css-helpers": "2.0.0 <= v < 3.0.0",
+        "rtfeldman/html-test-runner": "1.0.0 <= v < 2.0.0",
         "rtfeldman/node-test-runner": "1.0.0 <= v < 2.0.0"
     },
     "elm-version": "0.17.1 <= v < 0.18.0"
