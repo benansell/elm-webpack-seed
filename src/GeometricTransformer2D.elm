@@ -17,7 +17,8 @@ module GeometricTransformer2D
         )
 
 {-| A library for manipulating points by applying geometric transformations
-using homogeneous coordinates which can be useful in [`2D computer graphics`](https://en.wikipedia.org/wiki/2D_computer_graphics)
+using homogeneous coordinates which can be useful in
+[`2D computer graphics`](https://en.wikipedia.org/wiki/2D_computer_graphics)
 
 # Working with Points
 @docs Point, toPoint, fromPoint
@@ -63,7 +64,8 @@ fromPoint p =
 -- TRANSFORMATION
 
 
-{-| Representation of the 2D matrix used to transform points (x,y) in the view plane:
+{-| Representation of the 2D matrix used to transform points (x,y) in the view
+plane:
  | x' |   | a  b  tx |   | x |
  | y' | = | c  d  ty | * | y |
  | 1  |   | 0  0  1  |   | 1 |
