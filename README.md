@@ -1,7 +1,7 @@
 # elm-webpack-seed
 A starter project for elm apps using [webpack](https://webpack.github.io/) and [elm-css](http://package.elm-lang.org/packages/rtfeldman/elm-css/latest)
 
-The seed application is a static app that displays an animated Elm logo in the content of a [hero layout](https://philipwalton.github.io/solved-by-flexbox/demos/holy-grail/) using flexbox.
+The seed application is a static app that displays an animated Elm logo in the content of a [hero layout](https://philipwalton.github.io/solved-by-flexbox/demos/holy-grail/) using flexbox. In addition the seed project contains a test suite using [elm-test](http://package.elm-lang.org/packages/elm-community/elm-test/latest) and a local configuration demonstrating how they can be used for TDD.
 
 If you are looking for a webpack starter that does not use elm-css checkout [elm-webpack-starter](https://github.com/moarwick/elm-webpack-starter)
 
@@ -11,6 +11,7 @@ The seed app contains the following features:
 * fontawesome - use elm to add fontawesome icons
 * autoprefixer - automatically adds browser specific prefixes to css
 * dev server - local development
+* testing - TDD setup with auto-rerun of the tests
 * hot module replacement - support for auto updating modules without refreshing the entire page
 * deployment - bundles and minifies js & css for production
 * long-term caching - output file names use chunkhash for cache busting
@@ -43,6 +44,26 @@ The un-minified un-autoprefixed css can be generated separately by running
 npm run build-css
 ```
 The output will be put in `dist/` as css files without hash's in the file names
+
+## Testing
+The tests are written using [elm-test](http://package.elm-lang.org/packages/elm-community/elm-test/latest) can be run in the following configurations:
+
+| Configuration             | Command              | Output                 |
+|---------------------------|----------------------|------------------------|
+| Single run in the console | npm run test-console | See the console        |
+| Single run in the browser | npm run test-html    | http://localhost:8000/TestRunnerHtml.elm |
+| Auto-rerun in the browser | npm test             | http://localhost:9000/ |
+
+Note: The single run in the browser runs on the same port as the development server
+and so cannot be run at the same time. However, the auto-rerun setup is configured
+to run on a different port and can be run concurrently with the local development
+server.
+
+For example to start the tests so that they auto-rerun on file changes (recommended
+for TDD!) run the following command:
+```
+npm run test
+```
 
 ## Production
 To generate the files for deployment run:
