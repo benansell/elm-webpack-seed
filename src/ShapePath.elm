@@ -1,8 +1,19 @@
-module ShapePath exposing (Path, pathToTransformations, hinge, moveDown, moveRight, rotate, shear, shrink, wobble)
+module ShapePath
+    exposing
+        ( Path
+        , pathToTransformations
+        , hinge
+        , moveDown
+        , moveRight
+        , rotate
+        , shear
+        , shrink
+        , wobble
+        )
 
 import Ease as Ease
 import List as List exposing (head, map)
-import GeometricTransformer2D as Transformer
+import Transformer2D as Transformer
 
 
 -- PROGRESS
