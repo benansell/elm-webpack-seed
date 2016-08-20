@@ -1,4 +1,4 @@
-module LogoAnimationCss exposing (..)
+module LogoAnimationCss exposing (CssClasses(Container), css, logoAnimationNamespace)
 
 import Css exposing (..)
 import Css.Namespace exposing (namespace)

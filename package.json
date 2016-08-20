@@ -1,44 +1,48 @@
 {
-    "name": "elm-webpack-seed",
-    "version": "0.0.4",
-    "description": "A starter project for elm apps using webpack",
-    "keywords": [
-        "elm",
-        "webpack"
-    ],
-    "author": "bja <code@benansell.com>",
-    "repository": {
-        "type": "git",
-        "url": "git@github.com:benansell/elm-webpack-seed.git"
-    },
-    "license": "MIT",
-    "main": "index.html",
-    "dependencies": {},
-    "devDependencies": {
-        "autoprefixer": "^6.3.7",
-        "copy-webpack-plugin": "^3.0.1",
-        "css-loader": "^0.23.1",
-        "elm-css": "^0.5.1",
-        "elm-css-webpack-loader": "^2.0.1",
-        "elm-hot-loader": "^0.3.3",
-        "elm-webpack-loader": "^3.0.3",
-        "extract-text-webpack-plugin": "^1.0.1",
-        "file-loader": "^0.9.0",
-        "font-awesome": "^4.6.3",
-        "html-webpack-plugin": "^2.22.0",
-        "postcss-loader": "^0.9.1",
-        "rimraf": "^2.5.3",
-        "style-loader": "^0.13.1",
-        "unminified-webpack-plugin": "^1.1.0",
-        "webpack": "^1.13.1",
-        "webpack-dev-server": "^1.14.1",
-        "webpack-merge": "^0.14.0"
-    },
-    "scripts": {
-        "clean": "rimraf dist node_modules elm-stuff",
-        "prebuild": "rimraf dist",
-        "build": "webpack",
-        "build-css": "elm-css src/Stylesheets.elm -o ./dist",
-        "start": "webpack-dev-server --content-base src/ --port 8000 --hot"
-    }
+  "name": "elm-webpack-seed",
+  "version": "0.0.4",
+  "description": "A starter project for elm apps using webpack",
+  "keywords": [
+    "elm",
+    "webpack"
+  ],
+  "author": "bja <code@benansell.com>",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:benansell/elm-webpack-seed.git"
+  },
+  "license": "MIT",
+  "main": "index.html",
+  "dependencies": {},
+  "devDependencies": {
+    "autoprefixer": "^6.3.7",
+    "copy-webpack-plugin": "^3.0.1",
+    "css-loader": "^0.23.1",
+    "elm-css": "^0.5.1",
+    "elm-css-webpack-loader": "^2.0.1",
+    "elm-hot-loader": "^0.3.3",
+    "elm-test": "^0.17.1",
+    "elm-webpack-loader": "^3.0.5",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.9.0",
+    "font-awesome": "^4.6.3",
+    "html-webpack-plugin": "^2.22.0",
+    "postcss-loader": "^0.10.0",
+    "rimraf": "^2.5.3",
+    "style-loader": "^0.13.1",
+    "unminified-webpack-plugin": "^1.1.0",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1",
+    "webpack-merge": "^0.14.0"
+  },
+  "scripts": {
+    "clean": "rimraf dist node_modules elm-stuff tests/elm-stuff",
+    "prebuild": "rimraf dist",
+    "build": "webpack",
+    "build-css": "elm-css src/Stylesheets.elm -o ./dist",
+    "start": "webpack-dev-server --content-base src/ --port 8000 --hot",
+    "test-console": "elm-test tests/TestRunnerConsole.elm || true",
+    "test-html" : "cd tests && elm-reactor",
+    "test": "webpack-dev-server --content-base tests/ --port 9000"
+  }
 }

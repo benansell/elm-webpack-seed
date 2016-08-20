@@ -1,15 +1,15 @@
-module Main exposing (..)
+module Main exposing (main)
 
 import AnimationFrame exposing (times)
 import Css as Css
 import FontAwesome.Brand as FontAwesomeBrand
 import FontAwesome.Web as FontAwesomeWeb
-import Html exposing (..)
-import Html.Attributes as Attr
+import Html exposing (Html, Attribute, a, aside, div, footer, h1, header, img, li, main', nav, p, span, text, ul)
 import Html.App as App
-import SharedCss exposing (..)
-import String
+import Html.Attributes as Attr
 import LogoAnimation as LogoAnim exposing (Action, Model, init, tick, update, view)
+import SharedCss exposing (CssClasses, layoutNamespace)
+import String
 
 
 main : Program Never
@@ -96,8 +96,14 @@ subscriptions model =
 -- VIEW
 
 
-{ id, class, classList } =
+{ class } =
     layoutNamespace
+
+
+
+--
+
+
 styles : List Css.Mixin -> Attribute a
 styles =
     Css.asPairs >> Attr.style
@@ -126,14 +132,14 @@ viewHeader =
 
 viewNav : Model -> Html Msg
 viewNav model =
-    div [] [ p [ class [ SharedCss.NavMessage ] ] [ FontAwesomeWeb.info_circle, text "  Nudge the logo to make it move" ] ]
+    div [] [ p [ class [ SharedCss.NavMessage ] ] [ text model.status ] ]
 
 
 viewAside : Model -> Html Msg
 viewAside model =
     span []
         [ p [ class [ SharedCss.NavAsideStatus ] ]
-            [ text model.status ]
+            [ FontAwesomeWeb.info_circle, text "  Nudge the logo to make it move" ]
         ]
 
 
@@ -150,7 +156,7 @@ viewFooter =
                             , styles [ Css.maxWidth (Css.px 30) ]
                             ]
                             []
-                        , div [ class [ SharedCss.MediaBody ] ] [ text "Powered by elm" ]
+                        , div [ class [ SharedCss.MediaBody ] ] [ text "Powered by Elm" ]
                         ]
                     ]
                 ]

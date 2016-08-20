@@ -1,6 +1,6 @@
-port module Stylesheets exposing (..)
+port module Stylesheets exposing (main)
 
-import Css.File exposing (..)
+import Css.File exposing (CssFileStructure, compile, toFileStructure)
 import Html exposing (div)
 import Html.App as App
 import SharedCss exposing (css)

@@ -14,6 +14,8 @@ var environment;
 
 if (npm_target === 'start') {
     environment = 'development';
+} else if (npm_target === 'test') {
+    environment = 'test-unit';
 } else {
     environment = 'production';
 }
@@ -110,6 +112,50 @@ if (environment === 'development') {
     };
 
     module.exports = WebpackMerge(common, devOnly);
+} else if (environment === 'test-unit') {
+    console.log('running unit tests');
+
+    var unitTestsOnly = {
+        entry: {
+            app: './tests/test-app.js'
+        },
+
+        output: {
+            filename: '[name].js'
+        },
+
+        resolve: {
+            extensions: ['', '.js', '.elm']
+        },
+
+        module: {
+            loaders: [{
+                    test: /\.elm$/,
+                    exclude: [
+                        /elm-stuff/,
+                        /node_modules/
+                    ],
+                loaders: [
+                    'elm-webpack-loader?cwd=tests'
+                    ]
+                }
+            ]
+        },
+
+        plugins: [
+            new HtmlWebpackPlugin({
+                template: 'tests/index.html'
+            })
+        ],
+
+        devServer: {
+            inline: true,
+            progress: true,
+            stats: 'errors-only'
+        }
+    };
+
+    module.exports = unitTestsOnly;
 } else {
     console.log('building for production');
     var extractCssApp = new ExtractTextPlugin('app-[chunkhash].css', {
