@@ -1,4 +1,24 @@
-module LogoAnimation exposing (Action, Model, actionToString, init, tick, update, view)
+module LogoAnimation
+    exposing
+        ( Action
+            ( None
+            , Hinge
+            , MoveDown
+            , MoveRight
+            , Rotate
+            , Shear
+            , Shrink
+            , Wobble
+            )
+        , Model
+        , actionToString
+        , createShape
+        , init
+        , shapeToViewPoints
+        , tick
+        , update
+        , view
+        )
 
 import Css as Css
 import Html exposing (div, Html)
@@ -291,17 +311,17 @@ pointToString p =
 shapeToPolygon : Shape -> Svg Action
 shapeToPolygon shape =
     polygon
-        [ fill
-            <| cssToString shape.color
-        , points
-            <| pointsToString
-            <| shapeToViewPoints shape
+        [ fill <|
+            cssToString shape.color
+        , points <|
+            pointsToString <|
+                shapeToViewPoints shape
         , onClick shape.action
         ]
         []
 
 
-{ id, class, classList } =
+{ class } =
     logoAnimationNamespace
 view : Model -> Html Action
 view model =
@@ -309,12 +329,12 @@ view model =
         [ svg
             [ version "1.1"
             , viewBox "100 100 523.141 522.95"
-            , x
-                <| cssToString (Css.px 0)
-            , y
-                <| cssToString (Css.px 0)
+            , x <|
+                cssToString (Css.px 0)
+            , y <|
+                cssToString (Css.px 0)
             ]
-            [ g []
-                <| List.map shapeToPolygon model.shapes
+            [ g [] <|
+                List.map shapeToPolygon model.shapes
             ]
         ]

@@ -1,8 +1,8 @@
 module GeometricTransformer2D
     exposing
         ( Point
-        , RotateDirection(..)
-        , ShearDirection(..)
+        , RotateDirection(AntiClockwise, Clockwise)
+        , ShearDirection(Horizontal, Vertical)
         , Transformation
         , apply
         , combine
