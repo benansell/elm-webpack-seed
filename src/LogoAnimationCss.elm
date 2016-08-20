@@ -1,4 +1,13 @@
-module LogoAnimationCss exposing (CssClasses(Container), css, logoAnimationNamespace)
+module LogoAnimationCss
+    exposing
+        ( CssClasses(Container)
+        , css
+        , blue
+        , blueGray
+        , green
+        , logoAnimationNamespace
+        , yellow
+        )
 
 import Css exposing (..)
 import Css.Namespace exposing (namespace)

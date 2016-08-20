@@ -1,9 +1,9 @@
 module ShapePathTests exposing (all)
 
 import Expect
-import GeometricTransformer2D as Transformer
 import ShapePath
 import Test exposing (Test, describe, test)
+import Transformer2D as Transformer
 
 
 all : Test

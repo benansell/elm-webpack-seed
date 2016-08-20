@@ -13,7 +13,7 @@ module ShapePath
 
 import Ease as Ease
 import List as List exposing (head, map)
-import GeometricTransformer2D as Transformer
+import Transformer2D as Transformer
 
 
 -- PROGRESS

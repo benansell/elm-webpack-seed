@@ -4,7 +4,7 @@ import Css as Css
 import Expect
 import LogoAnimation as LogoAnim
 import Test exposing (Test, describe, test)
-import GeometricTransformer2D as Transformer
+import Transformer2D as Transformer
 
 
 all : Test

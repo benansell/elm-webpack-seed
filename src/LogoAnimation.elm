@@ -23,13 +23,13 @@ module LogoAnimation
 import Css as Css
 import Html exposing (div, Html)
 import List as List exposing (intersperse, map)
+import LogoAnimationCss as LogoAnimCss exposing (..)
+import ShapePath as ShapePath
 import String as String exposing (concat)
 import Svg exposing (..)
 import Svg.Attributes exposing (..)
 import Svg.Events exposing (onClick)
-import LogoAnimationCss as LogoAnimCss exposing (..)
-import GeometricTransformer2D as Transformer
-import ShapePath as ShapePath
+import Transformer2D as Transformer
 
 
 -- MODEL
