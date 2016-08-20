@@ -65,13 +65,16 @@ for TDD!) run the following command:
 npm run test
 ```
 
+Note: Be careful to keep your elm-package.json and test/elm-package.json files in sync;
+otherwise your tests will not run correctly
+
 ## Production
 To generate the files for deployment run:
 ```
 npm run build
 ```
-The output will be placed in the `dist` folder. The output file names contain a hash that changes when
-the contents of the bundle change.
+The output will be placed in the `dist` folder. The output file names contain a hash
+that changes when the contents of the bundle change.
 
 The following chunks are defined:
 
@@ -81,23 +84,36 @@ The following chunks are defined:
 |vendor | vendor js/css changes | 3rd party dependencies                        |
 |init   | any js/css change     | initial chunk and details of all other chunks |
 
-Note: The other hashed files in the output directory are the font files for fontawesome that are
-automatically bundled by webpack.
+Note: The other hashed files in the output directory are the font files for fontawesome
+that are automatically bundled by webpack.
 
 ## Directory Layout
 ```
-dist/                    --> output for deployment - See Production section
-elm-package.json         --> definition of the elm required packages
-elm-stuff/               --> elm installed packages
-node_modules/            --> npm installed modules
-package.json             --> definition of the npm required packages
-src/                     --> source code directory
-    app.js               --> app specific js added into the index.html file by webpack html loader
-    assets/              --> application specific assets
-    index.tpl.html       --> template html file used by webpack to create index.html
-    Main.elm             --> example basic elm application with a hero layout
-    SharedCss.elm        --> example css rules
-    Stylesheets.elm      --> Used by elm-css to generate the css
-    vendor.js            --> 3rd party dependencies, such as fontawesome
-webpack.config.js        --> webpack configuration
+dist/                        --> output for deployment - See Production section
+elm-package.json             --> definition of the elm required packages
+elm-stuff/                   --> elm installed packages
+node_modules/                --> npm installed modules
+package.json                 --> definition of the npm required packages
+src/                         --> source code directory
+    app.js                   --> app specific js added into the index.html file by webpack
+    assets/                  --> application specific assets
+    index.tpl.html           --> template html file used by webpack to create index.html
+    LogoAnimation.elm        --> example content that animates the elm logo
+    LogoAnimationCss.elm     --> example content specific css
+    Main.elm                 --> example basic elm application with a hero layout
+    ShapePath.elm            --> example code used in the animation
+    SharedCss.elm            --> example shared css rules
+    Stylesheets.elm          --> Used by elm-css to generate the css
+    vendor.js                --> 3rd party dependencies, such as fontawesome
+tests/                       --> test code directory
+    elm-package.json         --> definition of the elm required packages for app & testing
+    elm-stuff/               --> elm installed packages for app & testing
+    index.html               --> html file used to display the TDD test results
+    LogoAnimationTests.elm   --> example tests
+    ShapePathTests.elm       --> example tests
+    test-app.js              --> test specific js used for TDD testing
+    TestRunnerConsole.elm    --> harness for running the tests in the console
+    TestRunnerHtml.elm       --> harness for running the tests in the browser
+    Tests.elm                --> defines which tests are run by the test runners
+webpack.config.js            --> webpack configuration - dev, TDD, production
 ```
