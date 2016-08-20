@@ -1,4 +1,22 @@
-module SharedCss exposing (..)
+module SharedCss
+    exposing
+        ( CssClasses
+            ( Aside
+            , Body
+            , Content
+            , Footer
+            , FooterItems
+            , Media
+            , MediaBody
+            , MediaFigure
+            , Nav
+            , NavAsideStatus
+            , NavMessage
+            , Page
+            )
+        , css
+        , layoutNamespace
+        )
 
 import Css exposing (..)
 import Css.Elements as Elements
@@ -51,7 +69,10 @@ css =
             [ textDecoration none
             , color linkColor
             ]
-        , Elements.body [ margin (px 0) ]
+        , Elements.body
+            [ margin (px 0)
+            , minWidth (px 260)
+            ]
         , Elements.footer
             [ flex none
             ]
@@ -120,7 +141,7 @@ css =
         , ((.) MediaFigure)
             [ marginRight (em 1)
             ]
-        , (mediaQuery "(min-width: 500px)")
+        , (mediaQuery "(min-width: 1000px)")
             [ ((.) Body) [ flexDirection row ]
             , ((.) Content)
                 [ flex (int 1)

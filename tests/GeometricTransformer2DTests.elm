@@ -2,7 +2,7 @@ module GeometricTransformer2DTests exposing (all)
 
 import Expect
 import GeometricTransformer2D as Transformer
-import Test exposing (..)
+import Test exposing (Test, describe, test)
 
 
 all : Test

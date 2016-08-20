@@ -3,9 +3,8 @@ module LogoAnimationTests exposing (all)
 import Css as Css
 import Expect
 import LogoAnimation as LogoAnim
-import Test exposing (..)
+import Test exposing (Test, describe, test)
 import GeometricTransformer2D as Transformer
-import String
 
 
 all : Test
@@ -17,10 +16,6 @@ all =
         , tick
         , update
         ]
-
-
-
--- use init to get shapes which can then be used in the tests
 
 
 actionToString : Test
@@ -230,10 +225,6 @@ tick =
                         |> (\p -> p.x == 10 && p.y == 10)
                         |> Expect.true "shape not updated"
             ]
-
-
-
---   |> Test.filter (String.contains "foo")
 
 
 update : Test
