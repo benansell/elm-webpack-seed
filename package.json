@@ -11,7 +11,7 @@
     "type": "git",
     "url": "git@github.com:benansell/elm-webpack-seed.git"
   },
-  "license": "MIT",
+  "license": "BSD-3-Clause",
   "main": "index.html",
   "dependencies": {},
   "devDependencies": {
