@@ -16,10 +16,10 @@ install:
   - npm install -g elm@%ELM_VERSION%
   - npm install
 
-build:
+build: off
+
+build_script:
   - npm run build-ci
 
 test_script:
   - npm run test-console
-
-build: off
