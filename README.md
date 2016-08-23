@@ -1,4 +1,5 @@
-# elm-webpack-seed
+# elm-webpack-seed [![Build status](https://ci.appveyor.com/api/projects/status/pdqp2pxqekxh5txq/branch/master?svg=true)](https://ci.appveyor.com/project/benansell/elm-webpack-seed/branch/master) [![Build Status](https://travis-ci.org/benansell/elm-webpack-seed.svg?branch=master)](https://travis-ci.org/benansell/elm-webpack-seed)
+
 A starter project for elm apps using [webpack](https://webpack.github.io/) and [elm-css](http://package.elm-lang.org/packages/rtfeldman/elm-css/latest)
 
 The seed application is a static app that displays an animated Elm logo in the content of a [hero layout](https://philipwalton.github.io/solved-by-flexbox/demos/holy-grail/) using flexbox. In addition the seed project contains a test suite using [elm-test](http://package.elm-lang.org/packages/elm-community/elm-test/latest) and a local configuration demonstrating how they can be used for TDD.
