@@ -42,7 +42,7 @@
     "build": "webpack",
     "build-ci": "npm build && npm run build-css && npm run build-test-html",
     "build-css": "shx mkdir -p ./dist && elm-css src/Stylesheets.elm -o ./dist",
-    "build-test-html": "cd tests && elm-make TestRunnerHtml.elm",
+    "build-test-html": "cd tests && elm-make --yes TestRunnerHtml.elm",
     "start": "webpack-dev-server --content-base src/ --port 8000 --hot",
     "test-console": "elm-test tests/TestRunnerConsole.elm || true",
     "test-html": "cd tests && elm-reactor",
