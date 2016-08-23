@@ -1,6 +1,6 @@
 {
   "name": "elm-webpack-seed",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "A starter project for elm apps using webpack",
   "keywords": [
     "elm",
