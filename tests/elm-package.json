@@ -1,8 +1,8 @@
 {
-    "version": "0.0.5",
+    "version": "1.0.0",
     "summary": "A starter project for elm apps using webpack",
     "repository": "https://github.com/benansell/elm-webpack-seed.git",
-    "license": "MIT",
+    "license": "BSD-3-Clause",
     "source-directories": [
         ".",
         "../src"
@@ -20,7 +20,7 @@
         "rtfeldman/elm-css": "3.1.2 <= v < 4.0.0",
         "rtfeldman/elm-css-helpers": "2.0.0 <= v < 3.0.0",
         "rtfeldman/html-test-runner": "1.0.0 <= v < 2.0.0",
-        "rtfeldman/node-test-runner": "1.0.0 <= v < 2.0.0"
+        "rtfeldman/node-test-runner": "2.0.0 <= v < 3.0.0"
     },
     "elm-version": "0.17.1 <= v < 0.18.0"
 }

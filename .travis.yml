@@ -1,0 +1,25 @@
+language: node_js
+
+cache:
+  directories:
+    - elm-stuff/build-artifacts
+    - tests/elm-stuff/build-artifacts
+
+os:
+  - linux
+
+env:
+  matrix:
+    - ELM_VERSION=0.17.1 TARGET_NODE_VERSION=node
+
+install:
+  - nvm install $TARGET_NODE_VERSION
+  - nvm use $TARGET_NODE_VERSION
+  - node --version
+  - npm --version
+  - npm install -g elm@$ELM_VERSION
+  - npm install
+
+script:
+  - npm run build-ci
+  - npm run test-console

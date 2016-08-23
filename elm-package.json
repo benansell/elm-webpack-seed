@@ -1,8 +1,8 @@
 {
-    "version": "0.0.5",
+    "version": "0.0.6",
     "summary": "A starter project for elm apps using webpack",
     "repository": "https://github.com/benansell/elm-webpack-seed.git",
-    "license": "MIT",
+    "license": "BSD-3-Clause",
     "source-directories": [
         "src"
     ],
