@@ -1,6 +1,6 @@
 {
   "name": "elm-webpack-seed",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "A starter project for elm apps using webpack",
   "keywords": [
     "elm",
@@ -40,7 +40,7 @@
     "clean": "rimraf dist node_modules elm-stuff tests/elm-stuff",
     "prebuild": "rimraf dist",
     "build": "webpack",
-    "build-ci": "npm build && npm run build-css && npm run build-test-html",
+    "build-ci": "elm-package install --yes && npm run build && npm run build-css && npm run build-test-html",
     "build-css": "shx mkdir -p ./dist && elm-css src/Stylesheets.elm -o ./dist",
     "build-test-html": "cd tests && elm-make --yes TestRunnerHtml.elm",
     "start": "webpack-dev-server --content-base src/ --port 8000 --hot",

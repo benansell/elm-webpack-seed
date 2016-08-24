@@ -40,6 +40,16 @@ npm start
 ```
 Now browse to the app at `http://localhost:8000/`
 
+You can not check the hot module replacement (HMR) is working by changing values in
+the app code and seeing the effect in the browser without having to manually reload
+the page - e.g. try changing the css in src/SharedCss.elm
+
+Warning: Changes to the code used during the init phase (src/Main.elm - init)
+cause a page reload - but *do not* take affect until you manually reload the page. You
+can see this behavior by changing the logo shape definitions - e.g. try changing the
+color of one of the shapes in src/LogoAnimation.elm
+
+
 The un-minified un-autoprefixed css can be generated separately by running
 ```
 npm run build-css
