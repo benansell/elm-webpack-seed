@@ -23,7 +23,7 @@ https://benansell.github.io/elm-webpack-seed
 ## Prerequisites
 The install guide assumes that you already have the following installed:
 * [npm](https://docs.npmjs.com/)
-* [elm](http://elm-lang.org/install) - v17.1
+* [elm](http://elm-lang.org/install) - v18.0
 
 ## Install
 ```

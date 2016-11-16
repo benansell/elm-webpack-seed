@@ -225,7 +225,7 @@ wobble =
         duration =
             0.01
     in
-        List.map (\i -> addWobble duration angle ((toFloat i) / 100)) [0..100]
+        List.map (\i -> addWobble duration angle ((toFloat i) / 100)) (List.range 0 100)
             |> createPath 2
 
 

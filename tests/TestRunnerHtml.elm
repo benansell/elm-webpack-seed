@@ -1,9 +1,9 @@
 module Main exposing (..)
 
-import Test.Runner.Html exposing (run)
+import Test.Runner.Html exposing (TestProgram, run)
 import Tests exposing (all)
 
 
-main : Program Never
+main : TestProgram
 main =
     run Tests.all
