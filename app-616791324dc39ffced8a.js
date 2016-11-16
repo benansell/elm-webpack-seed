@@ -519,11 +519,17 @@ webpackJsonp([1,0],[
 	function update(oldRecord, updatedFields)
 	{
 		var newRecord = {};
+	
 		for (var key in oldRecord)
 		{
-			var value = (key in updatedFields) ? updatedFields[key] : oldRecord[key];
-			newRecord[key] = value;
+			newRecord[key] = oldRecord[key];
 		}
+	
+		for (var key in updatedFields)
+		{
+			newRecord[key] = updatedFields[key];
+		}
+	
 		return newRecord;
 	}
 	
@@ -779,10 +785,19 @@ webpackJsonp([1,0],[
 	};
 	
 	}();
-	var _elm_lang$core$Basics$uncurry = F2(
-		function (f, _p0) {
+	var _elm_lang$core$Basics$never = function (_p0) {
+		never:
+		while (true) {
 			var _p1 = _p0;
-			return A2(f, _p1._0, _p1._1);
+			var _v1 = _p1._0;
+			_p0 = _v1;
+			continue never;
+		}
+	};
+	var _elm_lang$core$Basics$uncurry = F2(
+		function (f, _p2) {
+			var _p3 = _p2;
+			return A2(f, _p3._0, _p3._1);
 		});
 	var _elm_lang$core$Basics$curry = F3(
 		function (f, a, b) {
@@ -793,16 +808,8 @@ webpackJsonp([1,0],[
 		function (f, b, a) {
 			return A2(f, a, b);
 		});
-	var _elm_lang$core$Basics$snd = function (_p2) {
-		var _p3 = _p2;
-		return _p3._1;
-	};
-	var _elm_lang$core$Basics$fst = function (_p4) {
-		var _p5 = _p4;
-		return _p5._0;
-	};
 	var _elm_lang$core$Basics$always = F2(
-		function (a, _p6) {
+		function (a, _p4) {
 			return a;
 		});
 	var _elm_lang$core$Basics$identity = function (x) {
@@ -900,8 +907,8 @@ webpackJsonp([1,0],[
 	var _elm_lang$core$Basics$GT = {ctor: 'GT'};
 	var _elm_lang$core$Basics$EQ = {ctor: 'EQ'};
 	var _elm_lang$core$Basics$LT = {ctor: 'LT'};
-	var _elm_lang$core$Basics$Never = function (a) {
-		return {ctor: 'Never', _0: a};
+	var _elm_lang$core$Basics$JustOneMore = function (a) {
+		return {ctor: 'JustOneMore', _0: a};
 	};
 	
 	//import Native.Utils //
@@ -947,30 +954,11 @@ webpackJsonp([1,0],[
 			}
 		});
 	var _elm_lang$core$Maybe$Nothing = {ctor: 'Nothing'};
-	var _elm_lang$core$Maybe$oneOf = function (maybes) {
-		oneOf:
-		while (true) {
-			var _p1 = maybes;
-			if (_p1.ctor === '[]') {
-				return _elm_lang$core$Maybe$Nothing;
-			} else {
-				var _p3 = _p1._0;
-				var _p2 = _p3;
-				if (_p2.ctor === 'Nothing') {
-					var _v3 = _p1._1;
-					maybes = _v3;
-					continue oneOf;
-				} else {
-					return _p3;
-				}
-			}
-		}
-	};
 	var _elm_lang$core$Maybe$andThen = F2(
-		function (maybeValue, callback) {
-			var _p4 = maybeValue;
-			if (_p4.ctor === 'Just') {
-				return callback(_p4._0);
+		function (callback, maybeValue) {
+			var _p1 = maybeValue;
+			if (_p1.ctor === 'Just') {
+				return callback(_p1._0);
 			} else {
 				return _elm_lang$core$Maybe$Nothing;
 			}
@@ -980,50 +968,50 @@ webpackJsonp([1,0],[
 	};
 	var _elm_lang$core$Maybe$map = F2(
 		function (f, maybe) {
-			var _p5 = maybe;
-			if (_p5.ctor === 'Just') {
+			var _p2 = maybe;
+			if (_p2.ctor === 'Just') {
 				return _elm_lang$core$Maybe$Just(
-					f(_p5._0));
+					f(_p2._0));
 			} else {
 				return _elm_lang$core$Maybe$Nothing;
 			}
 		});
 	var _elm_lang$core$Maybe$map2 = F3(
 		function (func, ma, mb) {
-			var _p6 = {ctor: '_Tuple2', _0: ma, _1: mb};
-			if (((_p6.ctor === '_Tuple2') && (_p6._0.ctor === 'Just')) && (_p6._1.ctor === 'Just')) {
+			var _p3 = {ctor: '_Tuple2', _0: ma, _1: mb};
+			if (((_p3.ctor === '_Tuple2') && (_p3._0.ctor === 'Just')) && (_p3._1.ctor === 'Just')) {
 				return _elm_lang$core$Maybe$Just(
-					A2(func, _p6._0._0, _p6._1._0));
+					A2(func, _p3._0._0, _p3._1._0));
 			} else {
 				return _elm_lang$core$Maybe$Nothing;
 			}
 		});
 	var _elm_lang$core$Maybe$map3 = F4(
 		function (func, ma, mb, mc) {
-			var _p7 = {ctor: '_Tuple3', _0: ma, _1: mb, _2: mc};
-			if ((((_p7.ctor === '_Tuple3') && (_p7._0.ctor === 'Just')) && (_p7._1.ctor === 'Just')) && (_p7._2.ctor === 'Just')) {
+			var _p4 = {ctor: '_Tuple3', _0: ma, _1: mb, _2: mc};
+			if ((((_p4.ctor === '_Tuple3') && (_p4._0.ctor === 'Just')) && (_p4._1.ctor === 'Just')) && (_p4._2.ctor === 'Just')) {
 				return _elm_lang$core$Maybe$Just(
-					A3(func, _p7._0._0, _p7._1._0, _p7._2._0));
+					A3(func, _p4._0._0, _p4._1._0, _p4._2._0));
 			} else {
 				return _elm_lang$core$Maybe$Nothing;
 			}
 		});
 	var _elm_lang$core$Maybe$map4 = F5(
 		function (func, ma, mb, mc, md) {
-			var _p8 = {ctor: '_Tuple4', _0: ma, _1: mb, _2: mc, _3: md};
-			if (((((_p8.ctor === '_Tuple4') && (_p8._0.ctor === 'Just')) && (_p8._1.ctor === 'Just')) && (_p8._2.ctor === 'Just')) && (_p8._3.ctor === 'Just')) {
+			var _p5 = {ctor: '_Tuple4', _0: ma, _1: mb, _2: mc, _3: md};
+			if (((((_p5.ctor === '_Tuple4') && (_p5._0.ctor === 'Just')) && (_p5._1.ctor === 'Just')) && (_p5._2.ctor === 'Just')) && (_p5._3.ctor === 'Just')) {
 				return _elm_lang$core$Maybe$Just(
-					A4(func, _p8._0._0, _p8._1._0, _p8._2._0, _p8._3._0));
+					A4(func, _p5._0._0, _p5._1._0, _p5._2._0, _p5._3._0));
 			} else {
 				return _elm_lang$core$Maybe$Nothing;
 			}
 		});
 	var _elm_lang$core$Maybe$map5 = F6(
 		function (func, ma, mb, mc, md, me) {
-			var _p9 = {ctor: '_Tuple5', _0: ma, _1: mb, _2: mc, _3: md, _4: me};
-			if ((((((_p9.ctor === '_Tuple5') && (_p9._0.ctor === 'Just')) && (_p9._1.ctor === 'Just')) && (_p9._2.ctor === 'Just')) && (_p9._3.ctor === 'Just')) && (_p9._4.ctor === 'Just')) {
+			var _p6 = {ctor: '_Tuple5', _0: ma, _1: mb, _2: mc, _3: md, _4: me};
+			if ((((((_p6.ctor === '_Tuple5') && (_p6._0.ctor === 'Just')) && (_p6._1.ctor === 'Just')) && (_p6._2.ctor === 'Just')) && (_p6._3.ctor === 'Just')) && (_p6._4.ctor === 'Just')) {
 				return _elm_lang$core$Maybe$Just(
-					A5(func, _p9._0._0, _p9._1._0, _p9._2._0, _p9._3._0, _p9._4._0));
+					A5(func, _p6._0._0, _p6._1._0, _p6._2._0, _p6._3._0, _p6._4._0));
 			} else {
 				return _elm_lang$core$Maybe$Nothing;
 			}
@@ -1059,21 +1047,6 @@ webpackJsonp([1,0],[
 			xs = xs._1;
 		}
 		return out;
-	}
-	
-	
-	function range(lo, hi)
-	{
-		var list = Nil;
-		if (lo <= hi)
-		{
-			do
-			{
-				list = Cons(hi, list);
-			}
-			while (hi-- > lo);
-		}
-		return list;
 	}
 	
 	function foldr(f, b, xs)
@@ -1169,7 +1142,6 @@ webpackJsonp([1,0],[
 		cons: F2(Cons),
 		toArray: toArray,
 		fromArray: fromArray,
-		range: range,
 	
 		foldr: F3(foldr),
 	
@@ -1233,14 +1205,12 @@ webpackJsonp([1,0],[
 		});
 	var _elm_lang$core$List$all = F2(
 		function (isOkay, list) {
-			return _elm_lang$core$Basics$not(
-				A2(
-					_elm_lang$core$List$any,
-					function (_p2) {
-						return _elm_lang$core$Basics$not(
-							isOkay(_p2));
-					},
-					list));
+			return !A2(
+				_elm_lang$core$List$any,
+				function (_p2) {
+					return !isOkay(_p2);
+				},
+				list);
 		});
 	var _elm_lang$core$List$foldr = _elm_lang$core$Native_List.foldr;
 	var _elm_lang$core$List$foldl = F3(
@@ -1309,16 +1279,6 @@ webpackJsonp([1,0],[
 			return _elm_lang$core$Maybe$Nothing;
 		}
 	};
-	var _elm_lang$core$List$indexedMap = F2(
-		function (f, xs) {
-			return A3(
-				_elm_lang$core$List$map2,
-				f,
-				_elm_lang$core$Native_List.range(
-					0,
-					_elm_lang$core$List$length(xs) - 1),
-				xs);
-		});
 	var _elm_lang$core$List$member = F2(
 		function (x, xs) {
 			return A2(
@@ -1360,33 +1320,32 @@ webpackJsonp([1,0],[
 				_elm_lang$core$List$foldr,
 				F2(
 					function (x, acc) {
-						return A2(
-							_elm_lang$core$List_ops['::'],
-							f(x),
-							acc);
+						return {
+							ctor: '::',
+							_0: f(x),
+							_1: acc
+						};
 					}),
-				_elm_lang$core$Native_List.fromArray(
-					[]),
+				{ctor: '[]'},
 				xs);
 		});
 	var _elm_lang$core$List$filter = F2(
 		function (pred, xs) {
 			var conditionalCons = F2(
-				function (x, xs$) {
-					return pred(x) ? A2(_elm_lang$core$List_ops['::'], x, xs$) : xs$;
+				function (front, back) {
+					return pred(front) ? {ctor: '::', _0: front, _1: back} : back;
 				});
 			return A3(
 				_elm_lang$core$List$foldr,
 				conditionalCons,
-				_elm_lang$core$Native_List.fromArray(
-					[]),
+				{ctor: '[]'},
 				xs);
 		});
 	var _elm_lang$core$List$maybeCons = F3(
 		function (f, mx, xs) {
 			var _p10 = f(mx);
 			if (_p10.ctor === 'Just') {
-				return A2(_elm_lang$core$List_ops['::'], _p10._0, xs);
+				return {ctor: '::', _0: _p10._0, _1: xs};
 			} else {
 				return xs;
 			}
@@ -1396,8 +1355,7 @@ webpackJsonp([1,0],[
 			return A3(
 				_elm_lang$core$List$foldr,
 				_elm_lang$core$List$maybeCons(f),
-				_elm_lang$core$Native_List.fromArray(
-					[]),
+				{ctor: '[]'},
 				xs);
 		});
 	var _elm_lang$core$List$reverse = function (list) {
@@ -1405,10 +1363,9 @@ webpackJsonp([1,0],[
 			_elm_lang$core$List$foldl,
 			F2(
 				function (x, y) {
-					return A2(_elm_lang$core$List_ops['::'], x, y);
+					return {ctor: '::', _0: x, _1: y};
 				}),
-			_elm_lang$core$Native_List.fromArray(
-				[]),
+			{ctor: '[]'},
 			list);
 	};
 	var _elm_lang$core$List$scanl = F3(
@@ -1417,21 +1374,24 @@ webpackJsonp([1,0],[
 				function (x, accAcc) {
 					var _p11 = accAcc;
 					if (_p11.ctor === '::') {
-						return A2(
-							_elm_lang$core$List_ops['::'],
-							A2(f, x, _p11._0),
-							accAcc);
+						return {
+							ctor: '::',
+							_0: A2(f, x, _p11._0),
+							_1: accAcc
+						};
 					} else {
-						return _elm_lang$core$Native_List.fromArray(
-							[]);
+						return {ctor: '[]'};
 					}
 				});
 			return _elm_lang$core$List$reverse(
 				A3(
 					_elm_lang$core$List$foldl,
 					scan1,
-					_elm_lang$core$Native_List.fromArray(
-						[b]),
+					{
+						ctor: '::',
+						_0: b,
+						_1: {ctor: '[]'}
+					},
 					xs));
 		});
 	var _elm_lang$core$List$append = F2(
@@ -1444,7 +1404,7 @@ webpackJsonp([1,0],[
 					_elm_lang$core$List$foldr,
 					F2(
 						function (x, y) {
-							return A2(_elm_lang$core$List_ops['::'], x, y);
+							return {ctor: '::', _0: x, _1: y};
 						}),
 					ys,
 					xs);
@@ -1454,8 +1414,7 @@ webpackJsonp([1,0],[
 		return A3(
 			_elm_lang$core$List$foldr,
 			_elm_lang$core$List$append,
-			_elm_lang$core$Native_List.fromArray(
-				[]),
+			{ctor: '[]'},
 			lists);
 	};
 	var _elm_lang$core$List$concatMap = F2(
@@ -1472,12 +1431,12 @@ webpackJsonp([1,0],[
 					var _p15 = _p14._1;
 					return pred(x) ? {
 						ctor: '_Tuple2',
-						_0: A2(_elm_lang$core$List_ops['::'], x, _p16),
+						_0: {ctor: '::', _0: x, _1: _p16},
 						_1: _p15
 					} : {
 						ctor: '_Tuple2',
 						_0: _p16,
-						_1: A2(_elm_lang$core$List_ops['::'], x, _p15)
+						_1: {ctor: '::', _0: x, _1: _p15}
 					};
 				});
 			return A3(
@@ -1485,10 +1444,8 @@ webpackJsonp([1,0],[
 				step,
 				{
 					ctor: '_Tuple2',
-					_0: _elm_lang$core$Native_List.fromArray(
-						[]),
-					_1: _elm_lang$core$Native_List.fromArray(
-						[])
+					_0: {ctor: '[]'},
+					_1: {ctor: '[]'}
 				},
 				list);
 		});
@@ -1499,8 +1456,8 @@ webpackJsonp([1,0],[
 				var _p20 = _p17;
 				return {
 					ctor: '_Tuple2',
-					_0: A2(_elm_lang$core$List_ops['::'], _p19._0, _p20._0),
-					_1: A2(_elm_lang$core$List_ops['::'], _p19._1, _p20._1)
+					_0: {ctor: '::', _0: _p19._0, _1: _p20._0},
+					_1: {ctor: '::', _0: _p19._1, _1: _p20._1}
 				};
 			});
 		return A3(
@@ -1508,10 +1465,8 @@ webpackJsonp([1,0],[
 			step,
 			{
 				ctor: '_Tuple2',
-				_0: _elm_lang$core$Native_List.fromArray(
-					[]),
-				_1: _elm_lang$core$Native_List.fromArray(
-					[])
+				_0: {ctor: '[]'},
+				_1: {ctor: '[]'}
 			},
 			pairs);
 	};
@@ -1519,23 +1474,22 @@ webpackJsonp([1,0],[
 		function (sep, xs) {
 			var _p21 = xs;
 			if (_p21.ctor === '[]') {
-				return _elm_lang$core$Native_List.fromArray(
-					[]);
+				return {ctor: '[]'};
 			} else {
 				var step = F2(
 					function (x, rest) {
-						return A2(
-							_elm_lang$core$List_ops['::'],
-							sep,
-							A2(_elm_lang$core$List_ops['::'], x, rest));
+						return {
+							ctor: '::',
+							_0: sep,
+							_1: {ctor: '::', _0: x, _1: rest}
+						};
 					});
 				var spersed = A3(
 					_elm_lang$core$List$foldr,
 					step,
-					_elm_lang$core$Native_List.fromArray(
-						[]),
+					{ctor: '[]'},
 					_p21._1);
-				return A2(_elm_lang$core$List_ops['::'], _p21._0, spersed);
+				return {ctor: '::', _0: _p21._0, _1: spersed};
 			}
 		});
 	var _elm_lang$core$List$takeReverse = F3(
@@ -1551,7 +1505,7 @@ webpackJsonp([1,0],[
 					} else {
 						var _v23 = n - 1,
 							_v24 = _p22._1,
-							_v25 = A2(_elm_lang$core$List_ops['::'], _p22._0, taken);
+							_v25 = {ctor: '::', _0: _p22._0, _1: taken};
 						n = _v23;
 						list = _v24;
 						taken = _v25;
@@ -1567,14 +1521,12 @@ webpackJsonp([1,0],[
 					_elm_lang$core$List$takeReverse,
 					n,
 					list,
-					_elm_lang$core$Native_List.fromArray(
-						[])));
+					{ctor: '[]'}));
 		});
 	var _elm_lang$core$List$takeFast = F3(
 		function (ctr, n, list) {
 			if (_elm_lang$core$Native_Utils.cmp(n, 0) < 1) {
-				return _elm_lang$core$Native_List.fromArray(
-					[]);
+				return {ctor: '[]'};
 			} else {
 				var _p23 = {ctor: '_Tuple2', _0: n, _1: list};
 				_v26_5:
@@ -1590,12 +1542,30 @@ webpackJsonp([1,0],[
 										case 1:
 											break _v26_1;
 										case 2:
-											return _elm_lang$core$Native_List.fromArray(
-												[_p23._1._0, _p23._1._1._0]);
+											return {
+												ctor: '::',
+												_0: _p23._1._0,
+												_1: {
+													ctor: '::',
+													_0: _p23._1._1._0,
+													_1: {ctor: '[]'}
+												}
+											};
 										case 3:
 											if (_p23._1._1._1.ctor === '::') {
-												return _elm_lang$core$Native_List.fromArray(
-													[_p23._1._0, _p23._1._1._0, _p23._1._1._1._0]);
+												return {
+													ctor: '::',
+													_0: _p23._1._0,
+													_1: {
+														ctor: '::',
+														_0: _p23._1._1._0,
+														_1: {
+															ctor: '::',
+															_0: _p23._1._1._1._0,
+															_1: {ctor: '[]'}
+														}
+													}
+												};
 											} else {
 												break _v26_5;
 											}
@@ -1606,31 +1576,39 @@ webpackJsonp([1,0],[
 												var _p26 = _p23._1._0;
 												var _p25 = _p23._1._1._1._1._0;
 												var _p24 = _p23._1._1._1._1._1;
-												return (_elm_lang$core$Native_Utils.cmp(ctr, 1000) > 0) ? A2(
-													_elm_lang$core$List_ops['::'],
-													_p26,
-													A2(
-														_elm_lang$core$List_ops['::'],
-														_p27,
-														A2(
-															_elm_lang$core$List_ops['::'],
-															_p28,
-															A2(
-																_elm_lang$core$List_ops['::'],
-																_p25,
-																A2(_elm_lang$core$List$takeTailRec, n - 4, _p24))))) : A2(
-													_elm_lang$core$List_ops['::'],
-													_p26,
-													A2(
-														_elm_lang$core$List_ops['::'],
-														_p27,
-														A2(
-															_elm_lang$core$List_ops['::'],
-															_p28,
-															A2(
-																_elm_lang$core$List_ops['::'],
-																_p25,
-																A3(_elm_lang$core$List$takeFast, ctr + 1, n - 4, _p24)))));
+												return (_elm_lang$core$Native_Utils.cmp(ctr, 1000) > 0) ? {
+													ctor: '::',
+													_0: _p26,
+													_1: {
+														ctor: '::',
+														_0: _p27,
+														_1: {
+															ctor: '::',
+															_0: _p28,
+															_1: {
+																ctor: '::',
+																_0: _p25,
+																_1: A2(_elm_lang$core$List$takeTailRec, n - 4, _p24)
+															}
+														}
+													}
+												} : {
+													ctor: '::',
+													_0: _p26,
+													_1: {
+														ctor: '::',
+														_0: _p27,
+														_1: {
+															ctor: '::',
+															_0: _p28,
+															_1: {
+																ctor: '::',
+																_0: _p25,
+																_1: A3(_elm_lang$core$List$takeFast, ctr + 1, n - 4, _p24)
+															}
+														}
+													}
+												};
 											} else {
 												break _v26_5;
 											}
@@ -1647,8 +1625,11 @@ webpackJsonp([1,0],[
 							break _v26_5;
 						}
 					} while(false);
-					return _elm_lang$core$Native_List.fromArray(
-						[_p23._1._0]);
+					return {
+						ctor: '::',
+						_0: _p23._1._0,
+						_1: {ctor: '[]'}
+					};
 				} while(false);
 				return list;
 			}
@@ -1664,7 +1645,7 @@ webpackJsonp([1,0],[
 				if (_elm_lang$core$Native_Utils.cmp(n, 0) < 1) {
 					return result;
 				} else {
-					var _v27 = A2(_elm_lang$core$List_ops['::'], value, result),
+					var _v27 = {ctor: '::', _0: value, _1: result},
 						_v28 = n - 1,
 						_v29 = value;
 					result = _v27;
@@ -1678,10 +1659,45 @@ webpackJsonp([1,0],[
 		function (n, value) {
 			return A3(
 				_elm_lang$core$List$repeatHelp,
-				_elm_lang$core$Native_List.fromArray(
-					[]),
+				{ctor: '[]'},
 				n,
 				value);
+		});
+	var _elm_lang$core$List$rangeHelp = F3(
+		function (lo, hi, list) {
+			rangeHelp:
+			while (true) {
+				if (_elm_lang$core$Native_Utils.cmp(lo, hi) < 1) {
+					var _v30 = lo,
+						_v31 = hi - 1,
+						_v32 = {ctor: '::', _0: hi, _1: list};
+					lo = _v30;
+					hi = _v31;
+					list = _v32;
+					continue rangeHelp;
+				} else {
+					return list;
+				}
+			}
+		});
+	var _elm_lang$core$List$range = F2(
+		function (lo, hi) {
+			return A3(
+				_elm_lang$core$List$rangeHelp,
+				lo,
+				hi,
+				{ctor: '[]'});
+		});
+	var _elm_lang$core$List$indexedMap = F2(
+		function (f, xs) {
+			return A3(
+				_elm_lang$core$List$map2,
+				f,
+				A2(
+					_elm_lang$core$List$range,
+					0,
+					_elm_lang$core$List$length(xs) - 1),
+				xs);
 		});
 	
 	var _elm_lang$core$Result$toMaybe = function (result) {
@@ -1705,7 +1721,7 @@ webpackJsonp([1,0],[
 		return {ctor: 'Err', _0: a};
 	};
 	var _elm_lang$core$Result$andThen = F2(
-		function (result, callback) {
+		function (callback, result) {
 			var _p2 = result;
 			if (_p2.ctor === 'Ok') {
 				return callback(_p2._0);
@@ -1806,7 +1822,7 @@ webpackJsonp([1,0],[
 				return _elm_lang$core$Result$Err(_p7._0._0);
 			}
 		});
-	var _elm_lang$core$Result$formatError = F2(
+	var _elm_lang$core$Result$mapError = F2(
 		function (f, result) {
 			var _p8 = result;
 			if (_p8.ctor === 'Ok') {
@@ -1826,6 +1842,470 @@ webpackJsonp([1,0],[
 			}
 		});
 	
+	//import Maybe, Native.List, Native.Utils, Result //
+	
+	var _elm_lang$core$Native_String = function() {
+	
+	function isEmpty(str)
+	{
+		return str.length === 0;
+	}
+	function cons(chr, str)
+	{
+		return chr + str;
+	}
+	function uncons(str)
+	{
+		var hd = str[0];
+		if (hd)
+		{
+			return _elm_lang$core$Maybe$Just(_elm_lang$core$Native_Utils.Tuple2(_elm_lang$core$Native_Utils.chr(hd), str.slice(1)));
+		}
+		return _elm_lang$core$Maybe$Nothing;
+	}
+	function append(a, b)
+	{
+		return a + b;
+	}
+	function concat(strs)
+	{
+		return _elm_lang$core$Native_List.toArray(strs).join('');
+	}
+	function length(str)
+	{
+		return str.length;
+	}
+	function map(f, str)
+	{
+		var out = str.split('');
+		for (var i = out.length; i--; )
+		{
+			out[i] = f(_elm_lang$core$Native_Utils.chr(out[i]));
+		}
+		return out.join('');
+	}
+	function filter(pred, str)
+	{
+		return str.split('').map(_elm_lang$core$Native_Utils.chr).filter(pred).join('');
+	}
+	function reverse(str)
+	{
+		return str.split('').reverse().join('');
+	}
+	function foldl(f, b, str)
+	{
+		var len = str.length;
+		for (var i = 0; i < len; ++i)
+		{
+			b = A2(f, _elm_lang$core$Native_Utils.chr(str[i]), b);
+		}
+		return b;
+	}
+	function foldr(f, b, str)
+	{
+		for (var i = str.length; i--; )
+		{
+			b = A2(f, _elm_lang$core$Native_Utils.chr(str[i]), b);
+		}
+		return b;
+	}
+	function split(sep, str)
+	{
+		return _elm_lang$core$Native_List.fromArray(str.split(sep));
+	}
+	function join(sep, strs)
+	{
+		return _elm_lang$core$Native_List.toArray(strs).join(sep);
+	}
+	function repeat(n, str)
+	{
+		var result = '';
+		while (n > 0)
+		{
+			if (n & 1)
+			{
+				result += str;
+			}
+			n >>= 1, str += str;
+		}
+		return result;
+	}
+	function slice(start, end, str)
+	{
+		return str.slice(start, end);
+	}
+	function left(n, str)
+	{
+		return n < 1 ? '' : str.slice(0, n);
+	}
+	function right(n, str)
+	{
+		return n < 1 ? '' : str.slice(-n);
+	}
+	function dropLeft(n, str)
+	{
+		return n < 1 ? str : str.slice(n);
+	}
+	function dropRight(n, str)
+	{
+		return n < 1 ? str : str.slice(0, -n);
+	}
+	function pad(n, chr, str)
+	{
+		var half = (n - str.length) / 2;
+		return repeat(Math.ceil(half), chr) + str + repeat(half | 0, chr);
+	}
+	function padRight(n, chr, str)
+	{
+		return str + repeat(n - str.length, chr);
+	}
+	function padLeft(n, chr, str)
+	{
+		return repeat(n - str.length, chr) + str;
+	}
+	
+	function trim(str)
+	{
+		return str.trim();
+	}
+	function trimLeft(str)
+	{
+		return str.replace(/^\s+/, '');
+	}
+	function trimRight(str)
+	{
+		return str.replace(/\s+$/, '');
+	}
+	
+	function words(str)
+	{
+		return _elm_lang$core$Native_List.fromArray(str.trim().split(/\s+/g));
+	}
+	function lines(str)
+	{
+		return _elm_lang$core$Native_List.fromArray(str.split(/\r\n|\r|\n/g));
+	}
+	
+	function toUpper(str)
+	{
+		return str.toUpperCase();
+	}
+	function toLower(str)
+	{
+		return str.toLowerCase();
+	}
+	
+	function any(pred, str)
+	{
+		for (var i = str.length; i--; )
+		{
+			if (pred(_elm_lang$core$Native_Utils.chr(str[i])))
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+	function all(pred, str)
+	{
+		for (var i = str.length; i--; )
+		{
+			if (!pred(_elm_lang$core$Native_Utils.chr(str[i])))
+			{
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	function contains(sub, str)
+	{
+		return str.indexOf(sub) > -1;
+	}
+	function startsWith(sub, str)
+	{
+		return str.indexOf(sub) === 0;
+	}
+	function endsWith(sub, str)
+	{
+		return str.length >= sub.length &&
+			str.lastIndexOf(sub) === str.length - sub.length;
+	}
+	function indexes(sub, str)
+	{
+		var subLen = sub.length;
+		
+		if (subLen < 1)
+		{
+			return _elm_lang$core$Native_List.Nil;
+		}
+	
+		var i = 0;
+		var is = [];
+	
+		while ((i = str.indexOf(sub, i)) > -1)
+		{
+			is.push(i);
+			i = i + subLen;
+		}	
+		
+		return _elm_lang$core$Native_List.fromArray(is);
+	}
+	
+	function toInt(s)
+	{
+		var len = s.length;
+		if (len === 0)
+		{
+			return _elm_lang$core$Result$Err("could not convert string '" + s + "' to an Int" );
+		}
+		var start = 0;
+		if (s[0] === '-')
+		{
+			if (len === 1)
+			{
+				return _elm_lang$core$Result$Err("could not convert string '" + s + "' to an Int" );
+			}
+			start = 1;
+		}
+		for (var i = start; i < len; ++i)
+		{
+			var c = s[i];
+			if (c < '0' || '9' < c)
+			{
+				return _elm_lang$core$Result$Err("could not convert string '" + s + "' to an Int" );
+			}
+		}
+		return _elm_lang$core$Result$Ok(parseInt(s, 10));
+	}
+	
+	function toFloat(s)
+	{
+		var len = s.length;
+		if (len === 0)
+		{
+			return _elm_lang$core$Result$Err("could not convert string '" + s + "' to a Float" );
+		}
+		var start = 0;
+		if (s[0] === '-')
+		{
+			if (len === 1)
+			{
+				return _elm_lang$core$Result$Err("could not convert string '" + s + "' to a Float" );
+			}
+			start = 1;
+		}
+		var dotCount = 0;
+		for (var i = start; i < len; ++i)
+		{
+			var c = s[i];
+			if ('0' <= c && c <= '9')
+			{
+				continue;
+			}
+			if (c === '.')
+			{
+				dotCount += 1;
+				if (dotCount <= 1)
+				{
+					continue;
+				}
+			}
+			return _elm_lang$core$Result$Err("could not convert string '" + s + "' to a Float" );
+		}
+		return _elm_lang$core$Result$Ok(parseFloat(s));
+	}
+	
+	function toList(str)
+	{
+		return _elm_lang$core$Native_List.fromArray(str.split('').map(_elm_lang$core$Native_Utils.chr));
+	}
+	function fromList(chars)
+	{
+		return _elm_lang$core$Native_List.toArray(chars).join('');
+	}
+	
+	return {
+		isEmpty: isEmpty,
+		cons: F2(cons),
+		uncons: uncons,
+		append: F2(append),
+		concat: concat,
+		length: length,
+		map: F2(map),
+		filter: F2(filter),
+		reverse: reverse,
+		foldl: F3(foldl),
+		foldr: F3(foldr),
+	
+		split: F2(split),
+		join: F2(join),
+		repeat: F2(repeat),
+	
+		slice: F3(slice),
+		left: F2(left),
+		right: F2(right),
+		dropLeft: F2(dropLeft),
+		dropRight: F2(dropRight),
+	
+		pad: F3(pad),
+		padLeft: F3(padLeft),
+		padRight: F3(padRight),
+	
+		trim: trim,
+		trimLeft: trimLeft,
+		trimRight: trimRight,
+	
+		words: words,
+		lines: lines,
+	
+		toUpper: toUpper,
+		toLower: toLower,
+	
+		any: F2(any),
+		all: F2(all),
+	
+		contains: F2(contains),
+		startsWith: F2(startsWith),
+		endsWith: F2(endsWith),
+		indexes: F2(indexes),
+	
+		toInt: toInt,
+		toFloat: toFloat,
+		toList: toList,
+		fromList: fromList
+	};
+	
+	}();
+	
+	//import Native.Utils //
+	
+	var _elm_lang$core$Native_Char = function() {
+	
+	return {
+		fromCode: function(c) { return _elm_lang$core$Native_Utils.chr(String.fromCharCode(c)); },
+		toCode: function(c) { return c.charCodeAt(0); },
+		toUpper: function(c) { return _elm_lang$core$Native_Utils.chr(c.toUpperCase()); },
+		toLower: function(c) { return _elm_lang$core$Native_Utils.chr(c.toLowerCase()); },
+		toLocaleUpper: function(c) { return _elm_lang$core$Native_Utils.chr(c.toLocaleUpperCase()); },
+		toLocaleLower: function(c) { return _elm_lang$core$Native_Utils.chr(c.toLocaleLowerCase()); }
+	};
+	
+	}();
+	var _elm_lang$core$Char$fromCode = _elm_lang$core$Native_Char.fromCode;
+	var _elm_lang$core$Char$toCode = _elm_lang$core$Native_Char.toCode;
+	var _elm_lang$core$Char$toLocaleLower = _elm_lang$core$Native_Char.toLocaleLower;
+	var _elm_lang$core$Char$toLocaleUpper = _elm_lang$core$Native_Char.toLocaleUpper;
+	var _elm_lang$core$Char$toLower = _elm_lang$core$Native_Char.toLower;
+	var _elm_lang$core$Char$toUpper = _elm_lang$core$Native_Char.toUpper;
+	var _elm_lang$core$Char$isBetween = F3(
+		function (low, high, $char) {
+			var code = _elm_lang$core$Char$toCode($char);
+			return (_elm_lang$core$Native_Utils.cmp(
+				code,
+				_elm_lang$core$Char$toCode(low)) > -1) && (_elm_lang$core$Native_Utils.cmp(
+				code,
+				_elm_lang$core$Char$toCode(high)) < 1);
+		});
+	var _elm_lang$core$Char$isUpper = A2(
+		_elm_lang$core$Char$isBetween,
+		_elm_lang$core$Native_Utils.chr('A'),
+		_elm_lang$core$Native_Utils.chr('Z'));
+	var _elm_lang$core$Char$isLower = A2(
+		_elm_lang$core$Char$isBetween,
+		_elm_lang$core$Native_Utils.chr('a'),
+		_elm_lang$core$Native_Utils.chr('z'));
+	var _elm_lang$core$Char$isDigit = A2(
+		_elm_lang$core$Char$isBetween,
+		_elm_lang$core$Native_Utils.chr('0'),
+		_elm_lang$core$Native_Utils.chr('9'));
+	var _elm_lang$core$Char$isOctDigit = A2(
+		_elm_lang$core$Char$isBetween,
+		_elm_lang$core$Native_Utils.chr('0'),
+		_elm_lang$core$Native_Utils.chr('7'));
+	var _elm_lang$core$Char$isHexDigit = function ($char) {
+		return _elm_lang$core$Char$isDigit($char) || (A3(
+			_elm_lang$core$Char$isBetween,
+			_elm_lang$core$Native_Utils.chr('a'),
+			_elm_lang$core$Native_Utils.chr('f'),
+			$char) || A3(
+			_elm_lang$core$Char$isBetween,
+			_elm_lang$core$Native_Utils.chr('A'),
+			_elm_lang$core$Native_Utils.chr('F'),
+			$char));
+	};
+	
+	var _elm_lang$core$String$fromList = _elm_lang$core$Native_String.fromList;
+	var _elm_lang$core$String$toList = _elm_lang$core$Native_String.toList;
+	var _elm_lang$core$String$toFloat = _elm_lang$core$Native_String.toFloat;
+	var _elm_lang$core$String$toInt = _elm_lang$core$Native_String.toInt;
+	var _elm_lang$core$String$indices = _elm_lang$core$Native_String.indexes;
+	var _elm_lang$core$String$indexes = _elm_lang$core$Native_String.indexes;
+	var _elm_lang$core$String$endsWith = _elm_lang$core$Native_String.endsWith;
+	var _elm_lang$core$String$startsWith = _elm_lang$core$Native_String.startsWith;
+	var _elm_lang$core$String$contains = _elm_lang$core$Native_String.contains;
+	var _elm_lang$core$String$all = _elm_lang$core$Native_String.all;
+	var _elm_lang$core$String$any = _elm_lang$core$Native_String.any;
+	var _elm_lang$core$String$toLower = _elm_lang$core$Native_String.toLower;
+	var _elm_lang$core$String$toUpper = _elm_lang$core$Native_String.toUpper;
+	var _elm_lang$core$String$lines = _elm_lang$core$Native_String.lines;
+	var _elm_lang$core$String$words = _elm_lang$core$Native_String.words;
+	var _elm_lang$core$String$trimRight = _elm_lang$core$Native_String.trimRight;
+	var _elm_lang$core$String$trimLeft = _elm_lang$core$Native_String.trimLeft;
+	var _elm_lang$core$String$trim = _elm_lang$core$Native_String.trim;
+	var _elm_lang$core$String$padRight = _elm_lang$core$Native_String.padRight;
+	var _elm_lang$core$String$padLeft = _elm_lang$core$Native_String.padLeft;
+	var _elm_lang$core$String$pad = _elm_lang$core$Native_String.pad;
+	var _elm_lang$core$String$dropRight = _elm_lang$core$Native_String.dropRight;
+	var _elm_lang$core$String$dropLeft = _elm_lang$core$Native_String.dropLeft;
+	var _elm_lang$core$String$right = _elm_lang$core$Native_String.right;
+	var _elm_lang$core$String$left = _elm_lang$core$Native_String.left;
+	var _elm_lang$core$String$slice = _elm_lang$core$Native_String.slice;
+	var _elm_lang$core$String$repeat = _elm_lang$core$Native_String.repeat;
+	var _elm_lang$core$String$join = _elm_lang$core$Native_String.join;
+	var _elm_lang$core$String$split = _elm_lang$core$Native_String.split;
+	var _elm_lang$core$String$foldr = _elm_lang$core$Native_String.foldr;
+	var _elm_lang$core$String$foldl = _elm_lang$core$Native_String.foldl;
+	var _elm_lang$core$String$reverse = _elm_lang$core$Native_String.reverse;
+	var _elm_lang$core$String$filter = _elm_lang$core$Native_String.filter;
+	var _elm_lang$core$String$map = _elm_lang$core$Native_String.map;
+	var _elm_lang$core$String$length = _elm_lang$core$Native_String.length;
+	var _elm_lang$core$String$concat = _elm_lang$core$Native_String.concat;
+	var _elm_lang$core$String$append = _elm_lang$core$Native_String.append;
+	var _elm_lang$core$String$uncons = _elm_lang$core$Native_String.uncons;
+	var _elm_lang$core$String$cons = _elm_lang$core$Native_String.cons;
+	var _elm_lang$core$String$fromChar = function ($char) {
+		return A2(_elm_lang$core$String$cons, $char, '');
+	};
+	var _elm_lang$core$String$isEmpty = _elm_lang$core$Native_String.isEmpty;
+	
+	var _elm_lang$core$Tuple$mapSecond = F2(
+		function (func, _p0) {
+			var _p1 = _p0;
+			return {
+				ctor: '_Tuple2',
+				_0: _p1._0,
+				_1: func(_p1._1)
+			};
+		});
+	var _elm_lang$core$Tuple$mapFirst = F2(
+		function (func, _p2) {
+			var _p3 = _p2;
+			return {
+				ctor: '_Tuple2',
+				_0: func(_p3._0),
+				_1: _p3._1
+			};
+		});
+	var _elm_lang$core$Tuple$second = function (_p4) {
+		var _p5 = _p4;
+		return _p5._1;
+	};
+	var _elm_lang$core$Tuple$first = function (_p6) {
+		var _p7 = _p6;
+		return _p7._0;
+	};
+	
 	//import //
 	
 	var _elm_lang$core$Native_Platform = function() {
@@ -1833,167 +2313,109 @@ webpackJsonp([1,0],[
 	
 	// PROGRAMS
 	
-	function addPublicModule(object, name, main)
+	function program(impl)
 	{
-		var init = main ? makeEmbed(name, main) : mainIsUndefined(name);
-	
-		object['worker'] = function worker(flags)
+		return function(flagDecoder)
 		{
-			return init(undefined, flags, false);
-		}
-	
-		object['embed'] = function embed(domNode, flags)
-		{
-			return init(domNode, flags, true);
-		}
-	
-		object['fullscreen'] = function fullscreen(flags)
-		{
-			return init(document.body, flags, true);
-		};
-	}
-	
-	
-	// PROGRAM FAIL
-	
-	function mainIsUndefined(name)
-	{
-		return function(domNode)
-		{
-			var message = 'Cannot initialize module `' + name +
-				'` because it has no `main` value!\nWhat should I show on screen?';
-			domNode.innerHTML = errorHtml(message);
-			throw new Error(message);
-		};
-	}
-	
-	function errorHtml(message)
-	{
-		return '<div style="padding-left:1em;">'
-			+ '<h2 style="font-weight:normal;"><b>Oops!</b> Something went wrong when starting your Elm program.</h2>'
-			+ '<pre style="padding-left:1em;">' + message + '</pre>'
-			+ '</div>';
-	}
-	
-	
-	// PROGRAM SUCCESS
-	
-	function makeEmbed(moduleName, main)
-	{
-		return function embed(rootDomNode, flags, withRenderer)
-		{
-			try
+			return function(object, moduleName)
 			{
-				var program = mainToProgram(moduleName, main);
-				if (!withRenderer)
+				object['worker'] = function worker(flags)
 				{
-					program.renderer = dummyRenderer;
-				}
-				return makeEmbedHelp(moduleName, program, rootDomNode, flags);
-			}
-			catch (e)
-			{
-				rootDomNode.innerHTML = errorHtml(e.message);
-				throw e;
-			}
+					if (typeof flags !== 'undefined')
+					{
+						throw new Error(
+							'The `' + moduleName + '` module does not need flags.\n'
+							+ 'Call ' + moduleName + '.worker() with no arguments and you should be all set!'
+						);
+					}
+	
+					return initialize(
+						impl.init,
+						impl.update,
+						impl.subscriptions,
+						renderer
+					);
+				};
+			};
 		};
 	}
 	
-	function dummyRenderer()
+	function programWithFlags(impl)
 	{
-		return { update: function() {} };
+		return function(flagDecoder)
+		{
+			return function(object, moduleName)
+			{
+				object['worker'] = function worker(flags)
+				{
+					if (typeof flagDecoder === 'undefined')
+					{
+						throw new Error(
+							'Are you trying to sneak a Never value into Elm? Trickster!\n'
+							+ 'It looks like ' + moduleName + '.main is defined with `programWithFlags` but has type `Program Never`.\n'
+							+ 'Use `program` instead if you do not want flags.'
+						);
+					}
+	
+					var result = A2(_elm_lang$core$Native_Json.run, flagDecoder, flags);
+					if (result.ctor === 'Err')
+					{
+						throw new Error(
+							moduleName + '.worker(...) was called with an unexpected argument.\n'
+							+ 'I tried to convert it to an Elm value, but ran into this problem:\n\n'
+							+ result._0
+						);
+					}
+	
+					return initialize(
+						impl.init(result._0),
+						impl.update,
+						impl.subscriptions,
+						renderer
+					);
+				};
+			};
+		};
+	}
+	
+	function renderer(enqueue, _)
+	{
+		return function(_) {};
 	}
 	
 	
-	// MAIN TO PROGRAM
+	// HTML TO PROGRAM
 	
-	function mainToProgram(moduleName, wrappedMain)
+	function htmlToProgram(vnode)
 	{
-		var main = wrappedMain.main;
+		var emptyBag = batch(_elm_lang$core$Native_List.Nil);
+		var noChange = _elm_lang$core$Native_Utils.Tuple2(
+			_elm_lang$core$Native_Utils.Tuple0,
+			emptyBag
+		);
 	
-		if (typeof main.init === 'undefined')
-		{
-			var emptyBag = batch(_elm_lang$core$Native_List.Nil);
-			var noChange = _elm_lang$core$Native_Utils.Tuple2(
-				_elm_lang$core$Native_Utils.Tuple0,
-				emptyBag
-			);
-	
-			return _elm_lang$virtual_dom$VirtualDom$programWithFlags({
-				init: function() { return noChange; },
-				view: function() { return main; },
-				update: F2(function() { return noChange; }),
-				subscriptions: function () { return emptyBag; }
-			});
-		}
-	
-		var flags = wrappedMain.flags;
-		var init = flags
-			? initWithFlags(moduleName, main.init, flags)
-			: initWithoutFlags(moduleName, main.init);
-	
-		return _elm_lang$virtual_dom$VirtualDom$programWithFlags({
-			init: init,
-			view: main.view,
-			update: main.update,
-			subscriptions: main.subscriptions,
+		return _elm_lang$virtual_dom$VirtualDom$program({
+			init: noChange,
+			view: function(model) { return main; },
+			update: F2(function(msg, model) { return noChange; }),
+			subscriptions: function (model) { return emptyBag; }
 		});
 	}
 	
-	function initWithoutFlags(moduleName, realInit)
+	
+	// INITIALIZE A PROGRAM
+	
+	function initialize(init, update, subscriptions, renderer)
 	{
-		return function init(flags)
-		{
-			if (typeof flags !== 'undefined')
-			{
-				throw new Error(
-					'You are giving module `' + moduleName + '` an argument in JavaScript.\n'
-					+ 'This module does not take arguments though! You probably need to change the\n'
-					+ 'initialization code to something like `Elm.' + moduleName + '.fullscreen()`'
-				);
-			}
-			return realInit();
-		};
-	}
-	
-	function initWithFlags(moduleName, realInit, flagDecoder)
-	{
-		return function init(flags)
-		{
-			var result = A2(_elm_lang$core$Native_Json.run, flagDecoder, flags);
-			if (result.ctor === 'Err')
-			{
-				throw new Error(
-					'You are trying to initialize module `' + moduleName + '` with an unexpected argument.\n'
-					+ 'When trying to convert it to a usable Elm value, I run into this problem:\n\n'
-					+ result._0
-				);
-			}
-			return realInit(result._0);
-		};
-	}
-	
-	
-	// SETUP RUNTIME SYSTEM
-	
-	function makeEmbedHelp(moduleName, program, rootDomNode, flags)
-	{
-		var init = program.init;
-		var update = program.update;
-		var subscriptions = program.subscriptions;
-		var view = program.view;
-		var makeRenderer = program.renderer;
-	
 		// ambient state
 		var managers = {};
-		var renderer;
+		var updateView;
 	
 		// init and update state in main process
 		var initApp = _elm_lang$core$Native_Scheduler.nativeBinding(function(callback) {
-			var results = init(flags);
-			var model = results._0;
-			renderer = makeRenderer(rootDomNode, enqueue, view(model));
-			var cmds = results._1;
+			var model = init._0;
+			updateView = renderer(enqueue, model);
+			var cmds = init._1;
 			var subs = subscriptions(model);
 			dispatchEffects(managers, cmds, subs);
 			callback(_elm_lang$core$Native_Scheduler.succeed(model));
@@ -2004,7 +2426,7 @@ webpackJsonp([1,0],[
 			return _elm_lang$core$Native_Scheduler.nativeBinding(function(callback) {
 				var results = A2(update, msg, model);
 				model = results._0;
-				renderer.update(view(model));
+				updateView(model);
 				var cmds = results._1;
 				var subs = subscriptions(model);
 				dispatchEffects(managers, cmds, subs);
@@ -2118,10 +2540,10 @@ webpackJsonp([1,0],[
 			var handleMsg = _elm_lang$core$Native_Scheduler.receive(function(msg) {
 				return onMessage(msg, state);
 			});
-			return A2(andThen, handleMsg, loop);
+			return A2(andThen, loop, handleMsg);
 		}
 	
-		var task = A2(andThen, init, loop);
+		var task = A2(andThen, loop, init);
 	
 		return _elm_lang$core$Native_Scheduler.rawSpawn(task);
 	}
@@ -2286,10 +2708,12 @@ webpackJsonp([1,0],[
 		{
 			while (cmdList.ctor !== '[]')
 			{
+				// grab a separate reference to subs in case unsubscribe is called
+				var currentSubs = subs;
 				var value = converter(cmdList._0);
-				for (var i = 0; i < subs.length; i++)
+				for (var i = 0; i < currentSubs.length; i++)
 				{
-					subs[i](value);
+					currentSubs[i](value);
 				}
 				cmdList = cmdList._1;
 			}
@@ -2308,6 +2732,9 @@ webpackJsonp([1,0],[
 	
 		function unsubscribe(callback)
 		{
+			// copy subs into a new array in case unsubscribe is called within a
+			// subscribed callback
+			subs = subs.slice();
 			var index = subs.indexOf(callback);
 			if (index >= 0)
 			{
@@ -2423,11 +2850,14 @@ webpackJsonp([1,0],[
 		sendToSelf: F2(sendToSelf),
 	
 		// global setup
-		mainToProgram: mainToProgram,
 		effectManagers: effectManagers,
 		outgoingPort: outgoingPort,
 		incomingPort: incomingPort,
-		addPublicModule: addPublicModule,
+	
+		htmlToProgram: htmlToProgram,
+		program: program,
+		programWithFlags: programWithFlags,
+		initialize: initialize,
 	
 		// effect bags
 		leaf: leaf,
@@ -2471,21 +2901,21 @@ webpackJsonp([1,0],[
 		};
 	}
 	
-	function andThen(task, callback)
+	function andThen(callback, task)
 	{
 		return {
 			ctor: '_Task_andThen',
-			task: task,
-			callback: callback
+			callback: callback,
+			task: task
 		};
 	}
 	
-	function onError(task, callback)
+	function onError(callback, task)
 	{
 		return {
 			ctor: '_Task_onError',
-			task: task,
-			callback: callback
+			callback: callback,
+			task: task
 		};
 	}
 	
@@ -2718,18 +3148,9 @@ webpackJsonp([1,0],[
 	};
 	
 	}();
-	var _elm_lang$core$Platform$hack = _elm_lang$core$Native_Scheduler.succeed;
-	var _elm_lang$core$Platform$sendToSelf = _elm_lang$core$Native_Platform.sendToSelf;
-	var _elm_lang$core$Platform$sendToApp = _elm_lang$core$Native_Platform.sendToApp;
-	var _elm_lang$core$Platform$Program = {ctor: 'Program'};
-	var _elm_lang$core$Platform$Task = {ctor: 'Task'};
-	var _elm_lang$core$Platform$ProcessId = {ctor: 'ProcessId'};
-	var _elm_lang$core$Platform$Router = {ctor: 'Router'};
-	
 	var _elm_lang$core$Platform_Cmd$batch = _elm_lang$core$Native_Platform.batch;
 	var _elm_lang$core$Platform_Cmd$none = _elm_lang$core$Platform_Cmd$batch(
-		_elm_lang$core$Native_List.fromArray(
-			[]));
+		{ctor: '[]'});
 	var _elm_lang$core$Platform_Cmd_ops = _elm_lang$core$Platform_Cmd_ops || {};
 	_elm_lang$core$Platform_Cmd_ops['!'] = F2(
 		function (model, commands) {
@@ -2744,10 +3165,19 @@ webpackJsonp([1,0],[
 	
 	var _elm_lang$core$Platform_Sub$batch = _elm_lang$core$Native_Platform.batch;
 	var _elm_lang$core$Platform_Sub$none = _elm_lang$core$Platform_Sub$batch(
-		_elm_lang$core$Native_List.fromArray(
-			[]));
+		{ctor: '[]'});
 	var _elm_lang$core$Platform_Sub$map = _elm_lang$core$Native_Platform.map;
 	var _elm_lang$core$Platform_Sub$Sub = {ctor: 'Sub'};
+	
+	var _elm_lang$core$Platform$hack = _elm_lang$core$Native_Scheduler.succeed;
+	var _elm_lang$core$Platform$sendToSelf = _elm_lang$core$Native_Platform.sendToSelf;
+	var _elm_lang$core$Platform$sendToApp = _elm_lang$core$Native_Platform.sendToApp;
+	var _elm_lang$core$Platform$programWithFlags = _elm_lang$core$Native_Platform.programWithFlags;
+	var _elm_lang$core$Platform$program = _elm_lang$core$Native_Platform.program;
+	var _elm_lang$core$Platform$Program = {ctor: 'Program'};
+	var _elm_lang$core$Platform$Task = {ctor: 'Task'};
+	var _elm_lang$core$Platform$ProcessId = {ctor: 'ProcessId'};
+	var _elm_lang$core$Platform$Router = {ctor: 'Router'};
 	
 	var _Fresheyeball$elm_font_awesome$FontAwesome_Brand_Class$youtube_square = 'youtube-square';
 	var _Fresheyeball$elm_font_awesome$FontAwesome_Brand_Class$youtube_play = 'youtube-play';
@@ -3930,7 +4360,8 @@ webpackJsonp([1,0],[
 				function (v0, v1) {
 					return {ctor: '_Tuple2', _0: v0, _1: v1};
 				}),
-			_elm_lang$core$Native_List.range(
+			A2(
+				_elm_lang$core$List$range,
 				0,
 				_elm_lang$core$Native_Array.length(array) - 1),
 			_elm_lang$core$Native_Array.toList(array));
@@ -3946,443 +4377,6 @@ webpackJsonp([1,0],[
 				_elm_lang$core$Basics$always(e));
 		});
 	var _elm_lang$core$Array$Array = {ctor: 'Array'};
-	
-	//import Maybe, Native.List, Native.Utils, Result //
-	
-	var _elm_lang$core$Native_String = function() {
-	
-	function isEmpty(str)
-	{
-		return str.length === 0;
-	}
-	function cons(chr, str)
-	{
-		return chr + str;
-	}
-	function uncons(str)
-	{
-		var hd = str[0];
-		if (hd)
-		{
-			return _elm_lang$core$Maybe$Just(_elm_lang$core$Native_Utils.Tuple2(_elm_lang$core$Native_Utils.chr(hd), str.slice(1)));
-		}
-		return _elm_lang$core$Maybe$Nothing;
-	}
-	function append(a, b)
-	{
-		return a + b;
-	}
-	function concat(strs)
-	{
-		return _elm_lang$core$Native_List.toArray(strs).join('');
-	}
-	function length(str)
-	{
-		return str.length;
-	}
-	function map(f, str)
-	{
-		var out = str.split('');
-		for (var i = out.length; i--; )
-		{
-			out[i] = f(_elm_lang$core$Native_Utils.chr(out[i]));
-		}
-		return out.join('');
-	}
-	function filter(pred, str)
-	{
-		return str.split('').map(_elm_lang$core$Native_Utils.chr).filter(pred).join('');
-	}
-	function reverse(str)
-	{
-		return str.split('').reverse().join('');
-	}
-	function foldl(f, b, str)
-	{
-		var len = str.length;
-		for (var i = 0; i < len; ++i)
-		{
-			b = A2(f, _elm_lang$core$Native_Utils.chr(str[i]), b);
-		}
-		return b;
-	}
-	function foldr(f, b, str)
-	{
-		for (var i = str.length; i--; )
-		{
-			b = A2(f, _elm_lang$core$Native_Utils.chr(str[i]), b);
-		}
-		return b;
-	}
-	function split(sep, str)
-	{
-		return _elm_lang$core$Native_List.fromArray(str.split(sep));
-	}
-	function join(sep, strs)
-	{
-		return _elm_lang$core$Native_List.toArray(strs).join(sep);
-	}
-	function repeat(n, str)
-	{
-		var result = '';
-		while (n > 0)
-		{
-			if (n & 1)
-			{
-				result += str;
-			}
-			n >>= 1, str += str;
-		}
-		return result;
-	}
-	function slice(start, end, str)
-	{
-		return str.slice(start, end);
-	}
-	function left(n, str)
-	{
-		return n < 1 ? '' : str.slice(0, n);
-	}
-	function right(n, str)
-	{
-		return n < 1 ? '' : str.slice(-n);
-	}
-	function dropLeft(n, str)
-	{
-		return n < 1 ? str : str.slice(n);
-	}
-	function dropRight(n, str)
-	{
-		return n < 1 ? str : str.slice(0, -n);
-	}
-	function pad(n, chr, str)
-	{
-		var half = (n - str.length) / 2;
-		return repeat(Math.ceil(half), chr) + str + repeat(half | 0, chr);
-	}
-	function padRight(n, chr, str)
-	{
-		return str + repeat(n - str.length, chr);
-	}
-	function padLeft(n, chr, str)
-	{
-		return repeat(n - str.length, chr) + str;
-	}
-	
-	function trim(str)
-	{
-		return str.trim();
-	}
-	function trimLeft(str)
-	{
-		return str.replace(/^\s+/, '');
-	}
-	function trimRight(str)
-	{
-		return str.replace(/\s+$/, '');
-	}
-	
-	function words(str)
-	{
-		return _elm_lang$core$Native_List.fromArray(str.trim().split(/\s+/g));
-	}
-	function lines(str)
-	{
-		return _elm_lang$core$Native_List.fromArray(str.split(/\r\n|\r|\n/g));
-	}
-	
-	function toUpper(str)
-	{
-		return str.toUpperCase();
-	}
-	function toLower(str)
-	{
-		return str.toLowerCase();
-	}
-	
-	function any(pred, str)
-	{
-		for (var i = str.length; i--; )
-		{
-			if (pred(_elm_lang$core$Native_Utils.chr(str[i])))
-			{
-				return true;
-			}
-		}
-		return false;
-	}
-	function all(pred, str)
-	{
-		for (var i = str.length; i--; )
-		{
-			if (!pred(_elm_lang$core$Native_Utils.chr(str[i])))
-			{
-				return false;
-			}
-		}
-		return true;
-	}
-	
-	function contains(sub, str)
-	{
-		return str.indexOf(sub) > -1;
-	}
-	function startsWith(sub, str)
-	{
-		return str.indexOf(sub) === 0;
-	}
-	function endsWith(sub, str)
-	{
-		return str.length >= sub.length &&
-			str.lastIndexOf(sub) === str.length - sub.length;
-	}
-	function indexes(sub, str)
-	{
-		var subLen = sub.length;
-		
-		if (subLen < 1)
-		{
-			return _elm_lang$core$Native_List.Nil;
-		}
-	
-		var i = 0;
-		var is = [];
-	
-		while ((i = str.indexOf(sub, i)) > -1)
-		{
-			is.push(i);
-			i = i + subLen;
-		}	
-		
-		return _elm_lang$core$Native_List.fromArray(is);
-	}
-	
-	function toInt(s)
-	{
-		var len = s.length;
-		if (len === 0)
-		{
-			return _elm_lang$core$Result$Err("could not convert string '" + s + "' to an Int" );
-		}
-		var start = 0;
-		if (s[0] === '-')
-		{
-			if (len === 1)
-			{
-				return _elm_lang$core$Result$Err("could not convert string '" + s + "' to an Int" );
-			}
-			start = 1;
-		}
-		for (var i = start; i < len; ++i)
-		{
-			var c = s[i];
-			if (c < '0' || '9' < c)
-			{
-				return _elm_lang$core$Result$Err("could not convert string '" + s + "' to an Int" );
-			}
-		}
-		return _elm_lang$core$Result$Ok(parseInt(s, 10));
-	}
-	
-	function toFloat(s)
-	{
-		var len = s.length;
-		if (len === 0)
-		{
-			return _elm_lang$core$Result$Err("could not convert string '" + s + "' to a Float" );
-		}
-		var start = 0;
-		if (s[0] === '-')
-		{
-			if (len === 1)
-			{
-				return _elm_lang$core$Result$Err("could not convert string '" + s + "' to a Float" );
-			}
-			start = 1;
-		}
-		var dotCount = 0;
-		for (var i = start; i < len; ++i)
-		{
-			var c = s[i];
-			if ('0' <= c && c <= '9')
-			{
-				continue;
-			}
-			if (c === '.')
-			{
-				dotCount += 1;
-				if (dotCount <= 1)
-				{
-					continue;
-				}
-			}
-			return _elm_lang$core$Result$Err("could not convert string '" + s + "' to a Float" );
-		}
-		return _elm_lang$core$Result$Ok(parseFloat(s));
-	}
-	
-	function toList(str)
-	{
-		return _elm_lang$core$Native_List.fromArray(str.split('').map(_elm_lang$core$Native_Utils.chr));
-	}
-	function fromList(chars)
-	{
-		return _elm_lang$core$Native_List.toArray(chars).join('');
-	}
-	
-	return {
-		isEmpty: isEmpty,
-		cons: F2(cons),
-		uncons: uncons,
-		append: F2(append),
-		concat: concat,
-		length: length,
-		map: F2(map),
-		filter: F2(filter),
-		reverse: reverse,
-		foldl: F3(foldl),
-		foldr: F3(foldr),
-	
-		split: F2(split),
-		join: F2(join),
-		repeat: F2(repeat),
-	
-		slice: F3(slice),
-		left: F2(left),
-		right: F2(right),
-		dropLeft: F2(dropLeft),
-		dropRight: F2(dropRight),
-	
-		pad: F3(pad),
-		padLeft: F3(padLeft),
-		padRight: F3(padRight),
-	
-		trim: trim,
-		trimLeft: trimLeft,
-		trimRight: trimRight,
-	
-		words: words,
-		lines: lines,
-	
-		toUpper: toUpper,
-		toLower: toLower,
-	
-		any: F2(any),
-		all: F2(all),
-	
-		contains: F2(contains),
-		startsWith: F2(startsWith),
-		endsWith: F2(endsWith),
-		indexes: F2(indexes),
-	
-		toInt: toInt,
-		toFloat: toFloat,
-		toList: toList,
-		fromList: fromList
-	};
-	
-	}();
-	
-	//import Native.Utils //
-	
-	var _elm_lang$core$Native_Char = function() {
-	
-	return {
-		fromCode: function(c) { return _elm_lang$core$Native_Utils.chr(String.fromCharCode(c)); },
-		toCode: function(c) { return c.charCodeAt(0); },
-		toUpper: function(c) { return _elm_lang$core$Native_Utils.chr(c.toUpperCase()); },
-		toLower: function(c) { return _elm_lang$core$Native_Utils.chr(c.toLowerCase()); },
-		toLocaleUpper: function(c) { return _elm_lang$core$Native_Utils.chr(c.toLocaleUpperCase()); },
-		toLocaleLower: function(c) { return _elm_lang$core$Native_Utils.chr(c.toLocaleLowerCase()); }
-	};
-	
-	}();
-	var _elm_lang$core$Char$fromCode = _elm_lang$core$Native_Char.fromCode;
-	var _elm_lang$core$Char$toCode = _elm_lang$core$Native_Char.toCode;
-	var _elm_lang$core$Char$toLocaleLower = _elm_lang$core$Native_Char.toLocaleLower;
-	var _elm_lang$core$Char$toLocaleUpper = _elm_lang$core$Native_Char.toLocaleUpper;
-	var _elm_lang$core$Char$toLower = _elm_lang$core$Native_Char.toLower;
-	var _elm_lang$core$Char$toUpper = _elm_lang$core$Native_Char.toUpper;
-	var _elm_lang$core$Char$isBetween = F3(
-		function (low, high, $char) {
-			var code = _elm_lang$core$Char$toCode($char);
-			return (_elm_lang$core$Native_Utils.cmp(
-				code,
-				_elm_lang$core$Char$toCode(low)) > -1) && (_elm_lang$core$Native_Utils.cmp(
-				code,
-				_elm_lang$core$Char$toCode(high)) < 1);
-		});
-	var _elm_lang$core$Char$isUpper = A2(
-		_elm_lang$core$Char$isBetween,
-		_elm_lang$core$Native_Utils.chr('A'),
-		_elm_lang$core$Native_Utils.chr('Z'));
-	var _elm_lang$core$Char$isLower = A2(
-		_elm_lang$core$Char$isBetween,
-		_elm_lang$core$Native_Utils.chr('a'),
-		_elm_lang$core$Native_Utils.chr('z'));
-	var _elm_lang$core$Char$isDigit = A2(
-		_elm_lang$core$Char$isBetween,
-		_elm_lang$core$Native_Utils.chr('0'),
-		_elm_lang$core$Native_Utils.chr('9'));
-	var _elm_lang$core$Char$isOctDigit = A2(
-		_elm_lang$core$Char$isBetween,
-		_elm_lang$core$Native_Utils.chr('0'),
-		_elm_lang$core$Native_Utils.chr('7'));
-	var _elm_lang$core$Char$isHexDigit = function ($char) {
-		return _elm_lang$core$Char$isDigit($char) || (A3(
-			_elm_lang$core$Char$isBetween,
-			_elm_lang$core$Native_Utils.chr('a'),
-			_elm_lang$core$Native_Utils.chr('f'),
-			$char) || A3(
-			_elm_lang$core$Char$isBetween,
-			_elm_lang$core$Native_Utils.chr('A'),
-			_elm_lang$core$Native_Utils.chr('F'),
-			$char));
-	};
-	
-	var _elm_lang$core$String$fromList = _elm_lang$core$Native_String.fromList;
-	var _elm_lang$core$String$toList = _elm_lang$core$Native_String.toList;
-	var _elm_lang$core$String$toFloat = _elm_lang$core$Native_String.toFloat;
-	var _elm_lang$core$String$toInt = _elm_lang$core$Native_String.toInt;
-	var _elm_lang$core$String$indices = _elm_lang$core$Native_String.indexes;
-	var _elm_lang$core$String$indexes = _elm_lang$core$Native_String.indexes;
-	var _elm_lang$core$String$endsWith = _elm_lang$core$Native_String.endsWith;
-	var _elm_lang$core$String$startsWith = _elm_lang$core$Native_String.startsWith;
-	var _elm_lang$core$String$contains = _elm_lang$core$Native_String.contains;
-	var _elm_lang$core$String$all = _elm_lang$core$Native_String.all;
-	var _elm_lang$core$String$any = _elm_lang$core$Native_String.any;
-	var _elm_lang$core$String$toLower = _elm_lang$core$Native_String.toLower;
-	var _elm_lang$core$String$toUpper = _elm_lang$core$Native_String.toUpper;
-	var _elm_lang$core$String$lines = _elm_lang$core$Native_String.lines;
-	var _elm_lang$core$String$words = _elm_lang$core$Native_String.words;
-	var _elm_lang$core$String$trimRight = _elm_lang$core$Native_String.trimRight;
-	var _elm_lang$core$String$trimLeft = _elm_lang$core$Native_String.trimLeft;
-	var _elm_lang$core$String$trim = _elm_lang$core$Native_String.trim;
-	var _elm_lang$core$String$padRight = _elm_lang$core$Native_String.padRight;
-	var _elm_lang$core$String$padLeft = _elm_lang$core$Native_String.padLeft;
-	var _elm_lang$core$String$pad = _elm_lang$core$Native_String.pad;
-	var _elm_lang$core$String$dropRight = _elm_lang$core$Native_String.dropRight;
-	var _elm_lang$core$String$dropLeft = _elm_lang$core$Native_String.dropLeft;
-	var _elm_lang$core$String$right = _elm_lang$core$Native_String.right;
-	var _elm_lang$core$String$left = _elm_lang$core$Native_String.left;
-	var _elm_lang$core$String$slice = _elm_lang$core$Native_String.slice;
-	var _elm_lang$core$String$repeat = _elm_lang$core$Native_String.repeat;
-	var _elm_lang$core$String$join = _elm_lang$core$Native_String.join;
-	var _elm_lang$core$String$split = _elm_lang$core$Native_String.split;
-	var _elm_lang$core$String$foldr = _elm_lang$core$Native_String.foldr;
-	var _elm_lang$core$String$foldl = _elm_lang$core$Native_String.foldl;
-	var _elm_lang$core$String$reverse = _elm_lang$core$Native_String.reverse;
-	var _elm_lang$core$String$filter = _elm_lang$core$Native_String.filter;
-	var _elm_lang$core$String$map = _elm_lang$core$Native_String.map;
-	var _elm_lang$core$String$length = _elm_lang$core$Native_String.length;
-	var _elm_lang$core$String$concat = _elm_lang$core$Native_String.concat;
-	var _elm_lang$core$String$append = _elm_lang$core$Native_String.append;
-	var _elm_lang$core$String$uncons = _elm_lang$core$Native_String.uncons;
-	var _elm_lang$core$String$cons = _elm_lang$core$Native_String.cons;
-	var _elm_lang$core$String$fromChar = function ($char) {
-		return A2(_elm_lang$core$String$cons, $char, '');
-	};
-	var _elm_lang$core$String$isEmpty = _elm_lang$core$Native_String.isEmpty;
 	
 	var _elm_lang$core$Dict$foldr = F3(
 		function (f, acc, t) {
@@ -4411,10 +4405,9 @@ webpackJsonp([1,0],[
 			_elm_lang$core$Dict$foldr,
 			F3(
 				function (key, value, keyList) {
-					return A2(_elm_lang$core$List_ops['::'], key, keyList);
+					return {ctor: '::', _0: key, _1: keyList};
 				}),
-			_elm_lang$core$Native_List.fromArray(
-				[]),
+			{ctor: '[]'},
 			dict);
 	};
 	var _elm_lang$core$Dict$values = function (dict) {
@@ -4422,10 +4415,9 @@ webpackJsonp([1,0],[
 			_elm_lang$core$Dict$foldr,
 			F3(
 				function (key, value, valueList) {
-					return A2(_elm_lang$core$List_ops['::'], value, valueList);
+					return {ctor: '::', _0: value, _1: valueList};
 				}),
-			_elm_lang$core$Native_List.fromArray(
-				[]),
+			{ctor: '[]'},
 			dict);
 	};
 	var _elm_lang$core$Dict$toList = function (dict) {
@@ -4433,13 +4425,13 @@ webpackJsonp([1,0],[
 			_elm_lang$core$Dict$foldr,
 			F3(
 				function (key, value, list) {
-					return A2(
-						_elm_lang$core$List_ops['::'],
-						{ctor: '_Tuple2', _0: key, _1: value},
-						list);
+					return {
+						ctor: '::',
+						_0: {ctor: '_Tuple2', _0: key, _1: value},
+						_1: list
+					};
 				}),
-			_elm_lang$core$Native_List.fromArray(
-				[]),
+			{ctor: '[]'},
 			dict);
 	};
 	var _elm_lang$core$Dict$foldl = F3(
@@ -4539,18 +4531,43 @@ webpackJsonp([1,0],[
 		function (msg, c, lgot, rgot) {
 			return _elm_lang$core$Native_Debug.crash(
 				_elm_lang$core$String$concat(
-					_elm_lang$core$Native_List.fromArray(
-						[
-							'Internal red-black tree invariant violated, expected ',
-							msg,
-							' and got ',
-							_elm_lang$core$Basics$toString(c),
-							'/',
-							lgot,
-							'/',
-							rgot,
-							'\nPlease report this bug to <https://github.com/elm-lang/core/issues>'
-						])));
+					{
+						ctor: '::',
+						_0: 'Internal red-black tree invariant violated, expected ',
+						_1: {
+							ctor: '::',
+							_0: msg,
+							_1: {
+								ctor: '::',
+								_0: ' and got ',
+								_1: {
+									ctor: '::',
+									_0: _elm_lang$core$Basics$toString(c),
+									_1: {
+										ctor: '::',
+										_0: '/',
+										_1: {
+											ctor: '::',
+											_0: lgot,
+											_1: {
+												ctor: '::',
+												_0: '/',
+												_1: {
+													ctor: '::',
+													_0: rgot,
+													_1: {
+														ctor: '::',
+														_0: '\nPlease report this bug to <https://github.com/elm-lang/core/issues>',
+														_1: {ctor: '[]'}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}));
 		});
 	var _elm_lang$core$Dict$isBBlack = function (dict) {
 		var _p13 = dict;
@@ -5010,11 +5027,11 @@ webpackJsonp([1,0],[
 			}
 		});
 	var _elm_lang$core$Dict$rem = F3(
-		function (c, l, r) {
-			var _p29 = {ctor: '_Tuple2', _0: l, _1: r};
+		function (color, left, right) {
+			var _p29 = {ctor: '_Tuple2', _0: left, _1: right};
 			if (_p29._0.ctor === 'RBEmpty_elm_builtin') {
 				if (_p29._1.ctor === 'RBEmpty_elm_builtin') {
-					var _p30 = c;
+					var _p30 = color;
 					switch (_p30.ctor) {
 						case 'Red':
 							return _elm_lang$core$Dict$RBEmpty_elm_builtin(_elm_lang$core$Dict$LBlack);
@@ -5026,14 +5043,14 @@ webpackJsonp([1,0],[
 				} else {
 					var _p33 = _p29._1._0;
 					var _p32 = _p29._0._0;
-					var _p31 = {ctor: '_Tuple3', _0: c, _1: _p32, _2: _p33};
+					var _p31 = {ctor: '_Tuple3', _0: color, _1: _p32, _2: _p33};
 					if ((((_p31.ctor === '_Tuple3') && (_p31._0.ctor === 'Black')) && (_p31._1.ctor === 'LBlack')) && (_p31._2.ctor === 'Red')) {
 						return A5(_elm_lang$core$Dict$RBNode_elm_builtin, _elm_lang$core$Dict$Black, _p29._1._1, _p29._1._2, _p29._1._3, _p29._1._4);
 					} else {
 						return A4(
 							_elm_lang$core$Dict$reportRemBug,
 							'Black/LBlack/Red',
-							c,
+							color,
 							_elm_lang$core$Basics$toString(_p32),
 							_elm_lang$core$Basics$toString(_p33));
 					}
@@ -5042,14 +5059,14 @@ webpackJsonp([1,0],[
 				if (_p29._1.ctor === 'RBEmpty_elm_builtin') {
 					var _p36 = _p29._1._0;
 					var _p35 = _p29._0._0;
-					var _p34 = {ctor: '_Tuple3', _0: c, _1: _p35, _2: _p36};
+					var _p34 = {ctor: '_Tuple3', _0: color, _1: _p35, _2: _p36};
 					if ((((_p34.ctor === '_Tuple3') && (_p34._0.ctor === 'Black')) && (_p34._1.ctor === 'Red')) && (_p34._2.ctor === 'LBlack')) {
 						return A5(_elm_lang$core$Dict$RBNode_elm_builtin, _elm_lang$core$Dict$Black, _p29._0._1, _p29._0._2, _p29._0._3, _p29._0._4);
 					} else {
 						return A4(
 							_elm_lang$core$Dict$reportRemBug,
 							'Black/Red/LBlack',
-							c,
+							color,
 							_elm_lang$core$Basics$toString(_p35),
 							_elm_lang$core$Basics$toString(_p36));
 					}
@@ -5057,11 +5074,11 @@ webpackJsonp([1,0],[
 					var _p40 = _p29._0._2;
 					var _p39 = _p29._0._4;
 					var _p38 = _p29._0._1;
-					var l$ = A5(_elm_lang$core$Dict$removeMax, _p29._0._0, _p38, _p40, _p29._0._3, _p39);
+					var newLeft = A5(_elm_lang$core$Dict$removeMax, _p29._0._0, _p38, _p40, _p29._0._3, _p39);
 					var _p37 = A3(_elm_lang$core$Dict$maxWithDefault, _p38, _p40, _p39);
 					var k = _p37._0;
 					var v = _p37._1;
-					return A5(_elm_lang$core$Dict$bubble, c, k, v, l$, r);
+					return A5(_elm_lang$core$Dict$bubble, color, k, v, newLeft, right);
 				}
 			}
 		});
@@ -5339,6 +5356,16 @@ webpackJsonp([1,0],[
 		};
 	}
 	
+	function decodeIndex(index, decoder)
+	{
+		return {
+			ctor: '<decoder>',
+			tag: 'index',
+			index: index,
+			decoder: decoder
+		};
+	}
+	
 	function decodeKeyValuePairs(decoder)
 	{
 		return {
@@ -5348,7 +5375,7 @@ webpackJsonp([1,0],[
 		};
 	}
 	
-	function decodeObject(f, decoders)
+	function mapMany(f, decoders)
 	{
 		return {
 			ctor: '<decoder>',
@@ -5358,31 +5385,11 @@ webpackJsonp([1,0],[
 		};
 	}
 	
-	function decodeTuple(f, decoders)
-	{
-		return {
-			ctor: '<decoder>',
-			tag: 'tuple',
-			func: f,
-			decoders: decoders
-		};
-	}
-	
-	function andThen(decoder, callback)
+	function andThen(callback, decoder)
 	{
 		return {
 			ctor: '<decoder>',
 			tag: 'andThen',
-			decoder: decoder,
-			callback: callback
-		};
-	}
-	
-	function customAndThen(decoder, callback)
-	{
-		return {
-			ctor: '<decoder>',
-			tag: 'customAndThen',
 			decoder: decoder,
 			callback: callback
 		};
@@ -5400,87 +5407,44 @@ webpackJsonp([1,0],[
 	
 	// DECODING OBJECTS
 	
-	function decodeObject1(f, d1)
+	function map1(f, d1)
 	{
-		return decodeObject(f, [d1]);
+		return mapMany(f, [d1]);
 	}
 	
-	function decodeObject2(f, d1, d2)
+	function map2(f, d1, d2)
 	{
-		return decodeObject(f, [d1, d2]);
+		return mapMany(f, [d1, d2]);
 	}
 	
-	function decodeObject3(f, d1, d2, d3)
+	function map3(f, d1, d2, d3)
 	{
-		return decodeObject(f, [d1, d2, d3]);
+		return mapMany(f, [d1, d2, d3]);
 	}
 	
-	function decodeObject4(f, d1, d2, d3, d4)
+	function map4(f, d1, d2, d3, d4)
 	{
-		return decodeObject(f, [d1, d2, d3, d4]);
+		return mapMany(f, [d1, d2, d3, d4]);
 	}
 	
-	function decodeObject5(f, d1, d2, d3, d4, d5)
+	function map5(f, d1, d2, d3, d4, d5)
 	{
-		return decodeObject(f, [d1, d2, d3, d4, d5]);
+		return mapMany(f, [d1, d2, d3, d4, d5]);
 	}
 	
-	function decodeObject6(f, d1, d2, d3, d4, d5, d6)
+	function map6(f, d1, d2, d3, d4, d5, d6)
 	{
-		return decodeObject(f, [d1, d2, d3, d4, d5, d6]);
+		return mapMany(f, [d1, d2, d3, d4, d5, d6]);
 	}
 	
-	function decodeObject7(f, d1, d2, d3, d4, d5, d6, d7)
+	function map7(f, d1, d2, d3, d4, d5, d6, d7)
 	{
-		return decodeObject(f, [d1, d2, d3, d4, d5, d6, d7]);
+		return mapMany(f, [d1, d2, d3, d4, d5, d6, d7]);
 	}
 	
-	function decodeObject8(f, d1, d2, d3, d4, d5, d6, d7, d8)
+	function map8(f, d1, d2, d3, d4, d5, d6, d7, d8)
 	{
-		return decodeObject(f, [d1, d2, d3, d4, d5, d6, d7, d8]);
-	}
-	
-	
-	// DECODING TUPLES
-	
-	function decodeTuple1(f, d1)
-	{
-		return decodeTuple(f, [d1]);
-	}
-	
-	function decodeTuple2(f, d1, d2)
-	{
-		return decodeTuple(f, [d1, d2]);
-	}
-	
-	function decodeTuple3(f, d1, d2, d3)
-	{
-		return decodeTuple(f, [d1, d2, d3]);
-	}
-	
-	function decodeTuple4(f, d1, d2, d3, d4)
-	{
-		return decodeTuple(f, [d1, d2, d3, d4]);
-	}
-	
-	function decodeTuple5(f, d1, d2, d3, d4, d5)
-	{
-		return decodeTuple(f, [d1, d2, d3, d4, d5]);
-	}
-	
-	function decodeTuple6(f, d1, d2, d3, d4, d5, d6)
-	{
-		return decodeTuple(f, [d1, d2, d3, d4, d5, d6]);
-	}
-	
-	function decodeTuple7(f, d1, d2, d3, d4, d5, d6, d7)
-	{
-		return decodeTuple(f, [d1, d2, d3, d4, d5, d6, d7]);
-	}
-	
-	function decodeTuple8(f, d1, d2, d3, d4, d5, d6, d7, d8)
-	{
-		return decodeTuple(f, [d1, d2, d3, d4, d5, d6, d7, d8]);
+		return mapMany(f, [d1, d2, d3, d4, d5, d6, d7, d8]);
 	}
 	
 	
@@ -5506,14 +5470,14 @@ webpackJsonp([1,0],[
 		return { tag: 'field', field: field, rest: nestedProblems };
 	}
 	
+	function badIndex(index, nestedProblems)
+	{
+		return { tag: 'index', index: index, rest: nestedProblems };
+	}
+	
 	function badOneOf(problems)
 	{
 		return { tag: 'oneOf', problems: problems };
-	}
-	
-	function badCustom(msg)
-	{
-		return { tag: 'custom', msg: msg };
 	}
 	
 	function bad(msg)
@@ -5543,6 +5507,11 @@ webpackJsonp([1,0],[
 					problem = problem.rest;
 					break;
 	
+				case 'index':
+					context += '[' + problem.index + ']';
+					problem = problem.rest;
+					break;
+	
 				case 'oneOf':
 					var problems = problem.problems;
 					for (var i = 0; i < problems.length; i++)
@@ -5552,11 +5521,6 @@ webpackJsonp([1,0],[
 					return 'I ran into the following problems'
 						+ (context === '_' ? '' : ' at ' + context)
 						+ ':\n\n' + problems.join('\n');
-	
-				case 'custom':
-					return 'A `customDecoder` failed'
-						+ (context === '_' ? '' : ' at ' + context)
-						+ ' with the message: ' + problem.msg;
 	
 				case 'fail':
 					return 'I ran into a `fail` decoder'
@@ -5693,9 +5657,21 @@ webpackJsonp([1,0],[
 				}
 	
 				var result = runHelp(decoder.decoder, value[field]);
-				return (result.tag === 'ok')
-					? result
-					: badField(field, result);
+				return (result.tag === 'ok') ? result : badField(field, result);
+	
+			case 'index':
+				var index = decoder.index;
+				if (!(value instanceof Array))
+				{
+					return badPrimitive('an array', value);
+				}
+				if (index >= value.length)
+				{
+					return badPrimitive('a longer array. Need index ' + index + ' but there are only ' + value.length + ' entries', value);
+				}
+	
+				var result = runHelp(decoder.decoder, value[index]);
+				return (result.tag === 'ok') ? result : badIndex(index, result);
 	
 			case 'key-value':
 				if (typeof value !== 'object' || value === null || value instanceof Array)
@@ -5729,40 +5705,6 @@ webpackJsonp([1,0],[
 					answer = answer(result.value);
 				}
 				return ok(answer);
-	
-			case 'tuple':
-				var decoders = decoder.decoders;
-				var len = decoders.length;
-	
-				if ( !(value instanceof Array) || value.length !== len )
-				{
-					return badPrimitive('a Tuple with ' + len + ' entries', value);
-				}
-	
-				var answer = decoder.func;
-				for (var i = 0; i < len; i++)
-				{
-					var result = runHelp(decoders[i], value[i]);
-					if (result.tag !== 'ok')
-					{
-						return badIndex(i, result);
-					}
-					answer = answer(result.value);
-				}
-				return ok(answer);
-	
-			case 'customAndThen':
-				var result = runHelp(decoder.decoder, value);
-				if (result.tag !== 'ok')
-				{
-					return result;
-				}
-				var realResult = decoder.callback(result.value);
-				if (realResult.ctor === 'Err')
-				{
-					return badCustom(realResult._0);
-				}
-				return ok(realResult._0);
 	
 			case 'andThen':
 				var result = runHelp(decoder.decoder, value);
@@ -5836,8 +5778,10 @@ webpackJsonp([1,0],[
 			case 'field':
 				return a.field === b.field && equality(a.decoder, b.decoder);
 	
+			case 'index':
+				return a.index === b.index && equality(a.decoder, b.decoder);
+	
 			case 'map-many':
-			case 'tuple':
 				if (a.func !== b.func)
 				{
 					return false;
@@ -5845,7 +5789,6 @@ webpackJsonp([1,0],[
 				return listEquality(a.decoders, b.decoders);
 	
 			case 'andThen':
-			case 'customAndThen':
 				return a.callback === b.callback && equality(a.decoder, b.decoder);
 	
 			case 'oneOf':
@@ -5905,28 +5848,19 @@ webpackJsonp([1,0],[
 		decodeContainer: F2(decodeContainer),
 	
 		decodeField: F2(decodeField),
+		decodeIndex: F2(decodeIndex),
 	
-		decodeObject1: F2(decodeObject1),
-		decodeObject2: F3(decodeObject2),
-		decodeObject3: F4(decodeObject3),
-		decodeObject4: F5(decodeObject4),
-		decodeObject5: F6(decodeObject5),
-		decodeObject6: F7(decodeObject6),
-		decodeObject7: F8(decodeObject7),
-		decodeObject8: F9(decodeObject8),
+		map1: F2(map1),
+		map2: F3(map2),
+		map3: F4(map3),
+		map4: F5(map4),
+		map5: F6(map5),
+		map6: F7(map6),
+		map7: F8(map7),
+		map8: F9(map8),
 		decodeKeyValuePairs: decodeKeyValuePairs,
 	
-		decodeTuple1: F2(decodeTuple1),
-		decodeTuple2: F3(decodeTuple2),
-		decodeTuple3: F4(decodeTuple3),
-		decodeTuple4: F5(decodeTuple4),
-		decodeTuple5: F6(decodeTuple5),
-		decodeTuple6: F7(decodeTuple6),
-		decodeTuple7: F8(decodeTuple7),
-		decodeTuple8: F9(decodeTuple8),
-	
 		andThen: F2(andThen),
-		customAndThen: F2(customAndThen),
 		fail: fail,
 		succeed: succeed,
 		oneOf: oneOf,
@@ -5953,68 +5887,71 @@ webpackJsonp([1,0],[
 	var _elm_lang$core$Json_Encode$encode = _elm_lang$core$Native_Json.encode;
 	var _elm_lang$core$Json_Encode$Value = {ctor: 'Value'};
 	
-	var _elm_lang$core$Json_Decode$tuple8 = _elm_lang$core$Native_Json.decodeTuple8;
-	var _elm_lang$core$Json_Decode$tuple7 = _elm_lang$core$Native_Json.decodeTuple7;
-	var _elm_lang$core$Json_Decode$tuple6 = _elm_lang$core$Native_Json.decodeTuple6;
-	var _elm_lang$core$Json_Decode$tuple5 = _elm_lang$core$Native_Json.decodeTuple5;
-	var _elm_lang$core$Json_Decode$tuple4 = _elm_lang$core$Native_Json.decodeTuple4;
-	var _elm_lang$core$Json_Decode$tuple3 = _elm_lang$core$Native_Json.decodeTuple3;
-	var _elm_lang$core$Json_Decode$tuple2 = _elm_lang$core$Native_Json.decodeTuple2;
-	var _elm_lang$core$Json_Decode$tuple1 = _elm_lang$core$Native_Json.decodeTuple1;
-	var _elm_lang$core$Json_Decode$succeed = _elm_lang$core$Native_Json.succeed;
-	var _elm_lang$core$Json_Decode$fail = _elm_lang$core$Native_Json.fail;
-	var _elm_lang$core$Json_Decode$andThen = _elm_lang$core$Native_Json.andThen;
-	var _elm_lang$core$Json_Decode$customDecoder = _elm_lang$core$Native_Json.customAndThen;
-	var _elm_lang$core$Json_Decode$decodeValue = _elm_lang$core$Native_Json.run;
+	var _elm_lang$core$Json_Decode$null = _elm_lang$core$Native_Json.decodeNull;
 	var _elm_lang$core$Json_Decode$value = _elm_lang$core$Native_Json.decodePrimitive('value');
+	var _elm_lang$core$Json_Decode$andThen = _elm_lang$core$Native_Json.andThen;
+	var _elm_lang$core$Json_Decode$fail = _elm_lang$core$Native_Json.fail;
+	var _elm_lang$core$Json_Decode$succeed = _elm_lang$core$Native_Json.succeed;
+	var _elm_lang$core$Json_Decode$lazy = function (thunk) {
+		return A2(
+			_elm_lang$core$Json_Decode$andThen,
+			thunk,
+			_elm_lang$core$Json_Decode$succeed(
+				{ctor: '_Tuple0'}));
+	};
+	var _elm_lang$core$Json_Decode$decodeValue = _elm_lang$core$Native_Json.run;
+	var _elm_lang$core$Json_Decode$decodeString = _elm_lang$core$Native_Json.runOnString;
+	var _elm_lang$core$Json_Decode$map8 = _elm_lang$core$Native_Json.map8;
+	var _elm_lang$core$Json_Decode$map7 = _elm_lang$core$Native_Json.map7;
+	var _elm_lang$core$Json_Decode$map6 = _elm_lang$core$Native_Json.map6;
+	var _elm_lang$core$Json_Decode$map5 = _elm_lang$core$Native_Json.map5;
+	var _elm_lang$core$Json_Decode$map4 = _elm_lang$core$Native_Json.map4;
+	var _elm_lang$core$Json_Decode$map3 = _elm_lang$core$Native_Json.map3;
+	var _elm_lang$core$Json_Decode$map2 = _elm_lang$core$Native_Json.map2;
+	var _elm_lang$core$Json_Decode$map = _elm_lang$core$Native_Json.map1;
+	var _elm_lang$core$Json_Decode$oneOf = _elm_lang$core$Native_Json.oneOf;
 	var _elm_lang$core$Json_Decode$maybe = function (decoder) {
 		return A2(_elm_lang$core$Native_Json.decodeContainer, 'maybe', decoder);
 	};
-	var _elm_lang$core$Json_Decode$null = _elm_lang$core$Native_Json.decodeNull;
-	var _elm_lang$core$Json_Decode$array = function (decoder) {
-		return A2(_elm_lang$core$Native_Json.decodeContainer, 'array', decoder);
-	};
-	var _elm_lang$core$Json_Decode$list = function (decoder) {
-		return A2(_elm_lang$core$Native_Json.decodeContainer, 'list', decoder);
-	};
-	var _elm_lang$core$Json_Decode$bool = _elm_lang$core$Native_Json.decodePrimitive('bool');
-	var _elm_lang$core$Json_Decode$int = _elm_lang$core$Native_Json.decodePrimitive('int');
-	var _elm_lang$core$Json_Decode$float = _elm_lang$core$Native_Json.decodePrimitive('float');
-	var _elm_lang$core$Json_Decode$string = _elm_lang$core$Native_Json.decodePrimitive('string');
-	var _elm_lang$core$Json_Decode$oneOf = _elm_lang$core$Native_Json.oneOf;
-	var _elm_lang$core$Json_Decode$keyValuePairs = _elm_lang$core$Native_Json.decodeKeyValuePairs;
-	var _elm_lang$core$Json_Decode$object8 = _elm_lang$core$Native_Json.decodeObject8;
-	var _elm_lang$core$Json_Decode$object7 = _elm_lang$core$Native_Json.decodeObject7;
-	var _elm_lang$core$Json_Decode$object6 = _elm_lang$core$Native_Json.decodeObject6;
-	var _elm_lang$core$Json_Decode$object5 = _elm_lang$core$Native_Json.decodeObject5;
-	var _elm_lang$core$Json_Decode$object4 = _elm_lang$core$Native_Json.decodeObject4;
-	var _elm_lang$core$Json_Decode$object3 = _elm_lang$core$Native_Json.decodeObject3;
-	var _elm_lang$core$Json_Decode$object2 = _elm_lang$core$Native_Json.decodeObject2;
-	var _elm_lang$core$Json_Decode$object1 = _elm_lang$core$Native_Json.decodeObject1;
-	var _elm_lang$core$Json_Decode_ops = _elm_lang$core$Json_Decode_ops || {};
-	_elm_lang$core$Json_Decode_ops[':='] = _elm_lang$core$Native_Json.decodeField;
+	var _elm_lang$core$Json_Decode$index = _elm_lang$core$Native_Json.decodeIndex;
+	var _elm_lang$core$Json_Decode$field = _elm_lang$core$Native_Json.decodeField;
 	var _elm_lang$core$Json_Decode$at = F2(
 		function (fields, decoder) {
-			return A3(
-				_elm_lang$core$List$foldr,
-				F2(
-					function (x, y) {
-						return A2(_elm_lang$core$Json_Decode_ops[':='], x, y);
-					}),
-				decoder,
-				fields);
+			return A3(_elm_lang$core$List$foldr, _elm_lang$core$Json_Decode$field, decoder, fields);
 		});
-	var _elm_lang$core$Json_Decode$decodeString = _elm_lang$core$Native_Json.runOnString;
-	var _elm_lang$core$Json_Decode$map = _elm_lang$core$Native_Json.decodeObject1;
+	var _elm_lang$core$Json_Decode$keyValuePairs = _elm_lang$core$Native_Json.decodeKeyValuePairs;
 	var _elm_lang$core$Json_Decode$dict = function (decoder) {
 		return A2(
 			_elm_lang$core$Json_Decode$map,
 			_elm_lang$core$Dict$fromList,
 			_elm_lang$core$Json_Decode$keyValuePairs(decoder));
 	};
+	var _elm_lang$core$Json_Decode$array = function (decoder) {
+		return A2(_elm_lang$core$Native_Json.decodeContainer, 'array', decoder);
+	};
+	var _elm_lang$core$Json_Decode$list = function (decoder) {
+		return A2(_elm_lang$core$Native_Json.decodeContainer, 'list', decoder);
+	};
+	var _elm_lang$core$Json_Decode$nullable = function (decoder) {
+		return _elm_lang$core$Json_Decode$oneOf(
+			{
+				ctor: '::',
+				_0: _elm_lang$core$Json_Decode$null(_elm_lang$core$Maybe$Nothing),
+				_1: {
+					ctor: '::',
+					_0: A2(_elm_lang$core$Json_Decode$map, _elm_lang$core$Maybe$Just, decoder),
+					_1: {ctor: '[]'}
+				}
+			});
+	};
+	var _elm_lang$core$Json_Decode$float = _elm_lang$core$Native_Json.decodePrimitive('float');
+	var _elm_lang$core$Json_Decode$int = _elm_lang$core$Native_Json.decodePrimitive('int');
+	var _elm_lang$core$Json_Decode$bool = _elm_lang$core$Native_Json.decodePrimitive('bool');
+	var _elm_lang$core$Json_Decode$string = _elm_lang$core$Native_Json.decodePrimitive('string');
 	var _elm_lang$core$Json_Decode$Decoder = {ctor: 'Decoder'};
 	
-	//import Native.Json //
+	var _elm_lang$virtual_dom$VirtualDom_Debug$wrap;
+	var _elm_lang$virtual_dom$VirtualDom_Debug$wrapWithFlags;
 	
 	var _elm_lang$virtual_dom$Native_VirtualDom = function() {
 	
@@ -6023,6 +5960,7 @@ webpackJsonp([1,0],[
 	var ATTR_KEY = 'ATTR';
 	var ATTR_NS_KEY = 'ATTR_NS';
 	
+	var localDoc = typeof document !== 'undefined' ? document : {};
 	
 	
 	////////////  VIRTUAL DOM NODES  ////////////
@@ -6193,7 +6131,14 @@ webpackJsonp([1,0],[
 			{
 				namespace = entry.value;
 			}
-			else
+			else if (key === 'className')
+			{
+				var classes = facts[key];
+				facts[key] = typeof classes === 'undefined'
+					? entry.value
+					: classes + ' ' + entry.value;
+			}
+	 		else
 			{
 				facts[key] = entry.value;
 			}
@@ -6278,66 +6223,18 @@ webpackJsonp([1,0],[
 	}
 	
 	
-	
-	////////////  RENDERER  ////////////
-	
-	
-	function renderer(parent, tagger, initialVirtualNode)
+	function mapProperty(func, property)
 	{
-		var eventNode = { tagger: tagger, parent: undefined };
-	
-		var domNode = render(initialVirtualNode, eventNode);
-		parent.appendChild(domNode);
-	
-		var state = 'NO_REQUEST';
-		var currentVirtualNode = initialVirtualNode;
-		var nextVirtualNode = initialVirtualNode;
-	
-		function registerVirtualNode(vNode)
+		if (property.key !== EVENT_KEY)
 		{
-			if (state === 'NO_REQUEST')
-			{
-				rAF(updateIfNeeded);
-			}
-			state = 'PENDING_REQUEST';
-			nextVirtualNode = vNode;
+			return property;
 		}
-	
-		function updateIfNeeded()
-		{
-			switch (state)
-			{
-				case 'NO_REQUEST':
-					throw new Error(
-						'Unexpected draw callback.\n' +
-						'Please report this to <https://github.com/elm-lang/core/issues>.'
-					);
-	
-				case 'PENDING_REQUEST':
-					rAF(updateIfNeeded);
-					state = 'EXTRA_REQUEST';
-	
-					var patches = diff(currentVirtualNode, nextVirtualNode);
-					domNode = applyPatches(domNode, currentVirtualNode, patches, eventNode);
-					currentVirtualNode = nextVirtualNode;
-	
-					return;
-	
-				case 'EXTRA_REQUEST':
-					state = 'NO_REQUEST';
-					return;
-			}
-		}
-	
-		return { update: registerVirtualNode };
+		return on(
+			property.realKey,
+			property.value.options,
+			A2(_elm_lang$core$Json$map, func, property.value.decoder)
+		);
 	}
-	
-	
-	var rAF =
-		typeof requestAnimationFrame !== 'undefined'
-			? requestAnimationFrame
-			: function(cb) { setTimeout(cb, 1000 / 60); };
-	
 	
 	
 	////////////  RENDER  ////////////
@@ -6367,22 +6264,18 @@ webpackJsonp([1,0],[
 					subNode = subNode.node;
 				}
 	
-				var subEventRoot = {
-					tagger: tagger,
-					parent: eventNode
-				};
-	
+				var subEventRoot = { tagger: tagger, parent: eventNode };
 				var domNode = render(subNode, subEventRoot);
 				domNode.elm_event_node_ref = subEventRoot;
 				return domNode;
 	
 			case 'text':
-				return document.createTextNode(vNode.text);
+				return localDoc.createTextNode(vNode.text);
 	
 			case 'node':
 				var domNode = vNode.namespace
-					? document.createElementNS(vNode.namespace, vNode.tag)
-					: document.createElement(vNode.tag);
+					? localDoc.createElementNS(vNode.namespace, vNode.tag)
+					: localDoc.createElement(vNode.tag);
 	
 				applyFacts(domNode, eventNode, vNode.facts);
 	
@@ -6397,8 +6290,8 @@ webpackJsonp([1,0],[
 	
 			case 'keyed-node':
 				var domNode = vNode.namespace
-					? document.createElementNS(vNode.namespace, vNode.tag)
-					: document.createElement(vNode.tag);
+					? localDoc.createElementNS(vNode.namespace, vNode.tag)
+					: localDoc.createElement(vNode.tag);
 	
 				applyFacts(domNode, eventNode, vNode.facts);
 	
@@ -7319,7 +7212,14 @@ webpackJsonp([1,0],[
 				return applyPatchesHelp(domNode, patch.data);
 	
 			case 'p-tagger':
-				domNode.elm_event_node_ref.tagger = patch.data;
+				if (typeof domNode.elm_event_node_ref !== 'undefined')
+				{
+					domNode.elm_event_node_ref.tagger = patch.data;
+				}
+				else
+				{
+					domNode.elm_event_node_ref = { tagger: patch.data, parent: patch.eventNode };
+				}
 				return domNode;
 	
 			case 'p-remove-last':
@@ -7423,7 +7323,7 @@ webpackJsonp([1,0],[
 			return;
 		}
 	
-		var frag = document.createDocumentFragment();
+		var frag = localDoc.createDocumentFragment();
 		for (var i = 0; i < endInserts.length; i++)
 		{
 			var insert = endInserts[i];
@@ -7437,28 +7337,480 @@ webpackJsonp([1,0],[
 	}
 	
 	
+	// PROGRAMS
 	
-	////////////  PROGRAMS  ////////////
+	var program = makeProgram(checkNoFlags);
+	var programWithFlags = makeProgram(checkYesFlags);
 	
-	
-	function programWithFlags(details)
+	function makeProgram(flagChecker)
 	{
-		return {
-			init: details.init,
-			update: details.update,
-			subscriptions: details.subscriptions,
-			view: details.view,
-			renderer: renderer
+		return F2(function(debugWrap, impl)
+		{
+			return function(flagDecoder)
+			{
+				return function(object, moduleName, debugMetadata)
+				{
+					var checker = flagChecker(flagDecoder, moduleName);
+					if (typeof debugMetadata === 'undefined')
+					{
+						normalSetup(impl, object, moduleName, checker);
+					}
+					else
+					{
+						debugSetup(A2(debugWrap, debugMetadata, impl), object, moduleName, checker);
+					}
+				};
+			};
+		});
+	}
+	
+	function staticProgram(vNode)
+	{
+		var nothing = _elm_lang$core$Native_Utils.Tuple2(
+			_elm_lang$core$Native_Utils.Tuple0,
+			_elm_lang$core$Platform_Cmd$none
+		);
+		return A2(program, _elm_lang$virtual_dom$VirtualDom_Debug$wrap, {
+			init: nothing,
+			view: function() { return vNode; },
+			update: F2(function() { return nothing; }),
+			subscriptions: function() { return _elm_lang$core$Platform_Sub$none; }
+		})();
+	}
+	
+	
+	// FLAG CHECKERS
+	
+	function checkNoFlags(flagDecoder, moduleName)
+	{
+		return function(init, flags, domNode)
+		{
+			if (typeof flags === 'undefined')
+			{
+				return init;
+			}
+	
+			var errorMessage =
+				'The `' + moduleName + '` module does not need flags.\n'
+				+ 'Initialize it with no arguments and you should be all set!';
+	
+			crash(errorMessage, domNode);
 		};
 	}
+	
+	function checkYesFlags(flagDecoder, moduleName)
+	{
+		return function(init, flags, domNode)
+		{
+			if (typeof flagDecoder === 'undefined')
+			{
+				var errorMessage =
+					'Are you trying to sneak a Never value into Elm? Trickster!\n'
+					+ 'It looks like ' + moduleName + '.main is defined with `programWithFlags` but has type `Program Never`.\n'
+					+ 'Use `program` instead if you do not want flags.'
+	
+				crash(errorMessage, domNode);
+			}
+	
+			var result = A2(_elm_lang$core$Native_Json.run, flagDecoder, flags);
+			if (result.ctor === 'Ok')
+			{
+				return init(result._0);
+			}
+	
+			var errorMessage =
+				'Trying to initialize the `' + moduleName + '` module with an unexpected flag.\n'
+				+ 'I tried to convert it to an Elm value, but ran into this problem:\n\n'
+				+ result._0;
+	
+			crash(errorMessage, domNode);
+		};
+	}
+	
+	function crash(errorMessage, domNode)
+	{
+		if (domNode)
+		{
+			domNode.innerHTML =
+				'<div style="padding-left:1em;">'
+				+ '<h2 style="font-weight:normal;"><b>Oops!</b> Something went wrong when starting your Elm program.</h2>'
+				+ '<pre style="padding-left:1em;">' + errorMessage + '</pre>'
+				+ '</div>';
+		}
+	
+		throw new Error(errorMessage);
+	}
+	
+	
+	//  NORMAL SETUP
+	
+	function normalSetup(impl, object, moduleName, flagChecker)
+	{
+		object['embed'] = function embed(node, flags)
+		{
+			while (node.lastChild)
+			{
+				node.removeChild(node.lastChild);
+			}
+	
+			return _elm_lang$core$Native_Platform.initialize(
+				flagChecker(impl.init, flags, node),
+				impl.update,
+				impl.subscriptions,
+				normalRenderer(node, impl.view)
+			);
+		};
+	
+		object['fullscreen'] = function fullscreen(flags)
+		{
+			return _elm_lang$core$Native_Platform.initialize(
+				flagChecker(impl.init, flags, document.body),
+				impl.update,
+				impl.subscriptions,
+				normalRenderer(document.body, impl.view)
+			);
+		};
+	}
+	
+	function normalRenderer(parentNode, view)
+	{
+		return function(tagger, initialModel)
+		{
+			var eventNode = { tagger: tagger, parent: undefined };
+			var initialVirtualNode = view(initialModel);
+			var domNode = render(initialVirtualNode, eventNode);
+			parentNode.appendChild(domNode);
+			return makeStepper(domNode, view, initialVirtualNode, eventNode);
+		};
+	}
+	
+	
+	// STEPPER
+	
+	var rAF =
+		typeof requestAnimationFrame !== 'undefined'
+			? requestAnimationFrame
+			: function(callback) { callback(); };
+	
+	function makeStepper(domNode, view, initialVirtualNode, eventNode)
+	{
+		var state = 'NO_REQUEST';
+		var currNode = initialVirtualNode;
+		var nextModel;
+	
+		function updateIfNeeded()
+		{
+			switch (state)
+			{
+				case 'NO_REQUEST':
+					throw new Error(
+						'Unexpected draw callback.\n' +
+						'Please report this to <https://github.com/elm-lang/virtual-dom/issues>.'
+					);
+	
+				case 'PENDING_REQUEST':
+					rAF(updateIfNeeded);
+					state = 'EXTRA_REQUEST';
+	
+					var nextNode = view(nextModel);
+					var patches = diff(currNode, nextNode);
+					domNode = applyPatches(domNode, currNode, patches, eventNode);
+					currNode = nextNode;
+	
+					return;
+	
+				case 'EXTRA_REQUEST':
+					state = 'NO_REQUEST';
+					return;
+			}
+		}
+	
+		return function stepper(model)
+		{
+			if (state === 'NO_REQUEST')
+			{
+				rAF(updateIfNeeded);
+			}
+			state = 'PENDING_REQUEST';
+			nextModel = model;
+		};
+	}
+	
+	
+	// DEBUG SETUP
+	
+	function debugSetup(impl, object, moduleName, flagChecker)
+	{
+		object['fullscreen'] = function fullscreen(flags)
+		{
+			var popoutRef = { doc: undefined };
+			return _elm_lang$core$Native_Platform.initialize(
+				flagChecker(impl.init, flags, document.body),
+				impl.update(scrollTask(popoutRef)),
+				impl.subscriptions,
+				debugRenderer(moduleName, document.body, popoutRef, impl.view, impl.viewIn, impl.viewOut)
+			);
+		};
+	
+		object['embed'] = function fullscreen(node, flags)
+		{
+			var popoutRef = { doc: undefined };
+			return _elm_lang$core$Native_Platform.initialize(
+				flagChecker(impl.init, flags, node),
+				impl.update(scrollTask(popoutRef)),
+				impl.subscriptions,
+				debugRenderer(moduleName, node, popoutRef, impl.view, impl.viewIn, impl.viewOut)
+			);
+		};
+	}
+	
+	function scrollTask(popoutRef)
+	{
+		return _elm_lang$core$Native_Scheduler.nativeBinding(function(callback)
+		{
+			var doc = popoutRef.doc;
+			if (doc)
+			{
+				var msgs = doc.getElementsByClassName('debugger-sidebar-messages')[0];
+				if (msgs)
+				{
+					msgs.scrollTop = msgs.scrollHeight;
+				}
+			}
+			callback(_elm_lang$core$Native_Scheduler.succeed(_elm_lang$core$Native_Utils.Tuple0));
+		});
+	}
+	
+	
+	function debugRenderer(moduleName, parentNode, popoutRef, view, viewIn, viewOut)
+	{
+		return function(tagger, initialModel)
+		{
+			var appEventNode = { tagger: tagger, parent: undefined };
+			var eventNode = { tagger: tagger, parent: undefined };
+	
+			// make normal stepper
+			var appVirtualNode = view(initialModel);
+			var appNode = render(appVirtualNode, appEventNode);
+			parentNode.appendChild(appNode);
+			var appStepper = makeStepper(appNode, view, appVirtualNode, appEventNode);
+	
+			// make overlay stepper
+			var overVirtualNode = viewIn(initialModel)._1;
+			var overNode = render(overVirtualNode, eventNode);
+			parentNode.appendChild(overNode);
+			var wrappedViewIn = wrapViewIn(appEventNode, overNode, viewIn);
+			var overStepper = makeStepper(overNode, wrappedViewIn, overVirtualNode, eventNode);
+	
+			// make debugger stepper
+			var debugStepper = makeDebugStepper(initialModel, viewOut, eventNode, parentNode, moduleName, popoutRef);
+	
+			return function stepper(model)
+			{
+				appStepper(model);
+				overStepper(model);
+				debugStepper(model);
+			}
+		};
+	}
+	
+	function makeDebugStepper(initialModel, view, eventNode, parentNode, moduleName, popoutRef)
+	{
+		var curr;
+		var domNode;
+	
+		return function stepper(model)
+		{
+			if (!model.isDebuggerOpen)
+			{
+				return;
+			}
+	
+			if (!popoutRef.doc)
+			{
+				curr = view(model);
+				domNode = openDebugWindow(moduleName, popoutRef, curr, eventNode);
+				return;
+			}
+	
+			// switch to document of popout
+			localDoc = popoutRef.doc;
+	
+			var next = view(model);
+			var patches = diff(curr, next);
+			domNode = applyPatches(domNode, curr, patches, eventNode);
+			curr = next;
+	
+			// switch back to normal document
+			localDoc = document;
+		};
+	}
+	
+	function openDebugWindow(moduleName, popoutRef, virtualNode, eventNode)
+	{
+		var w = 900;
+		var h = 360;
+		var x = screen.width - w;
+		var y = screen.height - h;
+		var debugWindow = window.open('', '', 'width=' + w + ',height=' + h + ',left=' + x + ',top=' + y);
+	
+		// switch to window document
+		localDoc = debugWindow.document;
+	
+		popoutRef.doc = localDoc;
+		localDoc.title = 'Debugger - ' + moduleName;
+		localDoc.body.style.margin = '0';
+		localDoc.body.style.padding = '0';
+		var domNode = render(virtualNode, eventNode);
+		localDoc.body.appendChild(domNode);
+	
+		localDoc.addEventListener('keydown', function(event) {
+			if (event.metaKey && event.which === 82)
+			{
+				window.location.reload();
+			}
+			if (event.which === 38)
+			{
+				eventNode.tagger({ ctor: 'Up' });
+				event.preventDefault();
+			}
+			if (event.which === 40)
+			{
+				eventNode.tagger({ ctor: 'Down' });
+				event.preventDefault();
+			}
+		});
+	
+		function close()
+		{
+			popoutRef.doc = undefined;
+			debugWindow.close();
+		}
+		window.addEventListener('unload', close);
+		debugWindow.addEventListener('unload', function() {
+			popoutRef.doc = undefined;
+			window.removeEventListener('unload', close);
+			eventNode.tagger({ ctor: 'Close' });
+		});
+	
+		// switch back to the normal document
+		localDoc = document;
+	
+		return domNode;
+	}
+	
+	
+	// BLOCK EVENTS
+	
+	function wrapViewIn(appEventNode, overlayNode, viewIn)
+	{
+		var ignorer = makeIgnorer(overlayNode);
+		var blocking = 'Normal';
+		var overflow;
+	
+		var normalTagger = appEventNode.tagger;
+		var blockTagger = function() {};
+	
+		return function(model)
+		{
+			var tuple = viewIn(model);
+			var newBlocking = tuple._0.ctor;
+			appEventNode.tagger = newBlocking === 'Normal' ? normalTagger : blockTagger;
+			if (blocking !== newBlocking)
+			{
+				traverse('removeEventListener', ignorer, blocking);
+				traverse('addEventListener', ignorer, newBlocking);
+	
+				if (blocking === 'Normal')
+				{
+					overflow = document.body.style.overflow;
+					document.body.style.overflow = 'hidden';
+				}
+	
+				if (newBlocking === 'Normal')
+				{
+					document.body.style.overflow = overflow;
+				}
+	
+				blocking = newBlocking;
+			}
+			return tuple._1;
+		}
+	}
+	
+	function traverse(verbEventListener, ignorer, blocking)
+	{
+		switch(blocking)
+		{
+			case 'Normal':
+				return;
+	
+			case 'Pause':
+				return traverseHelp(verbEventListener, ignorer, mostEvents);
+	
+			case 'Message':
+				return traverseHelp(verbEventListener, ignorer, allEvents);
+		}
+	}
+	
+	function traverseHelp(verbEventListener, handler, eventNames)
+	{
+		for (var i = 0; i < eventNames.length; i++)
+		{
+			document.body[verbEventListener](eventNames[i], handler, true);
+		}
+	}
+	
+	function makeIgnorer(overlayNode)
+	{
+		return function(event)
+		{
+			if (event.type === 'keydown' && event.metaKey && event.which === 82)
+			{
+				return;
+			}
+	
+			var isScroll = event.type === 'scroll' || event.type === 'wheel';
+	
+			var node = event.target;
+			while (node !== null)
+			{
+				if (node.className === 'elm-overlay-message-details' && isScroll)
+				{
+					return;
+				}
+	
+				if (node === overlayNode && !isScroll)
+				{
+					return;
+				}
+				node = node.parentNode;
+			}
+	
+			event.stopPropagation();
+			event.preventDefault();
+		}
+	}
+	
+	var mostEvents = [
+		'click', 'dblclick', 'mousemove',
+		'mouseup', 'mousedown', 'mouseenter', 'mouseleave',
+		'touchstart', 'touchend', 'touchcancel', 'touchmove',
+		'pointerdown', 'pointerup', 'pointerover', 'pointerout',
+		'pointerenter', 'pointerleave', 'pointermove', 'pointercancel',
+		'dragstart', 'drag', 'dragend', 'dragenter', 'dragover', 'dragleave', 'drop',
+		'keyup', 'keydown', 'keypress',
+		'input', 'change',
+		'focus', 'blur'
+	];
+	
+	var allEvents = mostEvents.concat('wheel', 'scroll');
 	
 	
 	return {
 		node: node,
 		text: text,
-	
 		custom: custom,
-	
 		map: F2(map),
 	
 		on: F3(on),
@@ -7466,17 +7818,25 @@ webpackJsonp([1,0],[
 		property: F2(property),
 		attribute: F2(attribute),
 		attributeNS: F3(attributeNS),
+		mapProperty: F2(mapProperty),
 	
 		lazy: F2(lazy),
 		lazy2: F3(lazy2),
 		lazy3: F4(lazy3),
 		keyedNode: F3(keyedNode),
 	
-		programWithFlags: programWithFlags
+		program: program,
+		programWithFlags: programWithFlags,
+		staticProgram: staticProgram
 	};
 	
 	}();
-	var _elm_lang$virtual_dom$VirtualDom$programWithFlags = _elm_lang$virtual_dom$Native_VirtualDom.programWithFlags;
+	var _elm_lang$virtual_dom$VirtualDom$programWithFlags = function (impl) {
+		return A2(_elm_lang$virtual_dom$Native_VirtualDom.programWithFlags, _elm_lang$virtual_dom$VirtualDom_Debug$wrapWithFlags, impl);
+	};
+	var _elm_lang$virtual_dom$VirtualDom$program = function (impl) {
+		return A2(_elm_lang$virtual_dom$Native_VirtualDom.program, _elm_lang$virtual_dom$VirtualDom_Debug$wrap, impl);
+	};
 	var _elm_lang$virtual_dom$VirtualDom$keyedNode = _elm_lang$virtual_dom$Native_VirtualDom.keyedNode;
 	var _elm_lang$virtual_dom$VirtualDom$lazy3 = _elm_lang$virtual_dom$Native_VirtualDom.lazy3;
 	var _elm_lang$virtual_dom$VirtualDom$lazy2 = _elm_lang$virtual_dom$Native_VirtualDom.lazy2;
@@ -7488,6 +7848,7 @@ webpackJsonp([1,0],[
 			return A3(_elm_lang$virtual_dom$VirtualDom$onWithOptions, eventName, _elm_lang$virtual_dom$VirtualDom$defaultOptions, decoder);
 		});
 	var _elm_lang$virtual_dom$VirtualDom$style = _elm_lang$virtual_dom$Native_VirtualDom.style;
+	var _elm_lang$virtual_dom$VirtualDom$mapProperty = _elm_lang$virtual_dom$Native_VirtualDom.mapProperty;
 	var _elm_lang$virtual_dom$VirtualDom$attributeNS = _elm_lang$virtual_dom$Native_VirtualDom.attributeNS;
 	var _elm_lang$virtual_dom$VirtualDom$attribute = _elm_lang$virtual_dom$Native_VirtualDom.attribute;
 	var _elm_lang$virtual_dom$VirtualDom$property = _elm_lang$virtual_dom$Native_VirtualDom.property;
@@ -7501,6 +7862,30 @@ webpackJsonp([1,0],[
 	var _elm_lang$virtual_dom$VirtualDom$Node = {ctor: 'Node'};
 	var _elm_lang$virtual_dom$VirtualDom$Property = {ctor: 'Property'};
 	
+	var _elm_lang$html$Html$programWithFlags = _elm_lang$virtual_dom$VirtualDom$programWithFlags;
+	var _elm_lang$html$Html$program = _elm_lang$virtual_dom$VirtualDom$program;
+	var _elm_lang$html$Html$beginnerProgram = function (_p0) {
+		var _p1 = _p0;
+		return _elm_lang$html$Html$program(
+			{
+				init: A2(
+					_elm_lang$core$Platform_Cmd_ops['!'],
+					_p1.model,
+					{ctor: '[]'}),
+				update: F2(
+					function (msg, model) {
+						return A2(
+							_elm_lang$core$Platform_Cmd_ops['!'],
+							A2(_p1.update, msg, model),
+							{ctor: '[]'});
+					}),
+				view: _p1.view,
+				subscriptions: function (_p2) {
+					return _elm_lang$core$Platform_Sub$none;
+				}
+			});
+	};
+	var _elm_lang$html$Html$map = _elm_lang$virtual_dom$VirtualDom$map;
 	var _elm_lang$html$Html$text = _elm_lang$virtual_dom$VirtualDom$text;
 	var _elm_lang$html$Html$node = _elm_lang$virtual_dom$VirtualDom$node;
 	var _elm_lang$html$Html$body = _elm_lang$html$Html$node('body');
@@ -7517,7 +7902,7 @@ webpackJsonp([1,0],[
 	var _elm_lang$html$Html$header = _elm_lang$html$Html$node('header');
 	var _elm_lang$html$Html$footer = _elm_lang$html$Html$node('footer');
 	var _elm_lang$html$Html$address = _elm_lang$html$Html$node('address');
-	var _elm_lang$html$Html$main$ = _elm_lang$html$Html$node('main');
+	var _elm_lang$html$Html$main_ = _elm_lang$html$Html$node('main');
 	var _elm_lang$html$Html$p = _elm_lang$html$Html$node('p');
 	var _elm_lang$html$Html$hr = _elm_lang$html$Html$node('hr');
 	var _elm_lang$html$Html$pre = _elm_lang$html$Html$node('pre');
@@ -7571,7 +7956,6 @@ webpackJsonp([1,0],[
 	var _elm_lang$html$Html$source = _elm_lang$html$Html$node('source');
 	var _elm_lang$html$Html$track = _elm_lang$html$Html$node('track');
 	var _elm_lang$html$Html$canvas = _elm_lang$html$Html$node('canvas');
-	var _elm_lang$html$Html$svg = _elm_lang$html$Html$node('svg');
 	var _elm_lang$html$Html$math = _elm_lang$html$Html$node('math');
 	var _elm_lang$html$Html$table = _elm_lang$html$Html$node('table');
 	var _elm_lang$html$Html$caption = _elm_lang$html$Html$node('caption');
@@ -7603,6 +7987,7 @@ webpackJsonp([1,0],[
 	var _elm_lang$html$Html$menuitem = _elm_lang$html$Html$node('menuitem');
 	var _elm_lang$html$Html$menu = _elm_lang$html$Html$node('menu');
 	
+	var _elm_lang$html$Html_Attributes$map = _elm_lang$virtual_dom$VirtualDom$mapProperty;
 	var _elm_lang$html$Html_Attributes$attribute = _elm_lang$virtual_dom$VirtualDom$attribute;
 	var _elm_lang$html$Html_Attributes$contextmenu = function (value) {
 		return A2(_elm_lang$html$Html_Attributes$attribute, 'contextmenu', value);
@@ -7610,14 +7995,77 @@ webpackJsonp([1,0],[
 	var _elm_lang$html$Html_Attributes$draggable = function (value) {
 		return A2(_elm_lang$html$Html_Attributes$attribute, 'draggable', value);
 	};
+	var _elm_lang$html$Html_Attributes$itemprop = function (value) {
+		return A2(_elm_lang$html$Html_Attributes$attribute, 'itemprop', value);
+	};
+	var _elm_lang$html$Html_Attributes$tabindex = function (n) {
+		return A2(
+			_elm_lang$html$Html_Attributes$attribute,
+			'tabIndex',
+			_elm_lang$core$Basics$toString(n));
+	};
+	var _elm_lang$html$Html_Attributes$charset = function (value) {
+		return A2(_elm_lang$html$Html_Attributes$attribute, 'charset', value);
+	};
+	var _elm_lang$html$Html_Attributes$height = function (value) {
+		return A2(
+			_elm_lang$html$Html_Attributes$attribute,
+			'height',
+			_elm_lang$core$Basics$toString(value));
+	};
+	var _elm_lang$html$Html_Attributes$width = function (value) {
+		return A2(
+			_elm_lang$html$Html_Attributes$attribute,
+			'width',
+			_elm_lang$core$Basics$toString(value));
+	};
+	var _elm_lang$html$Html_Attributes$formaction = function (value) {
+		return A2(_elm_lang$html$Html_Attributes$attribute, 'formAction', value);
+	};
 	var _elm_lang$html$Html_Attributes$list = function (value) {
 		return A2(_elm_lang$html$Html_Attributes$attribute, 'list', value);
+	};
+	var _elm_lang$html$Html_Attributes$minlength = function (n) {
+		return A2(
+			_elm_lang$html$Html_Attributes$attribute,
+			'minLength',
+			_elm_lang$core$Basics$toString(n));
 	};
 	var _elm_lang$html$Html_Attributes$maxlength = function (n) {
 		return A2(
 			_elm_lang$html$Html_Attributes$attribute,
 			'maxlength',
 			_elm_lang$core$Basics$toString(n));
+	};
+	var _elm_lang$html$Html_Attributes$size = function (n) {
+		return A2(
+			_elm_lang$html$Html_Attributes$attribute,
+			'size',
+			_elm_lang$core$Basics$toString(n));
+	};
+	var _elm_lang$html$Html_Attributes$form = function (value) {
+		return A2(_elm_lang$html$Html_Attributes$attribute, 'form', value);
+	};
+	var _elm_lang$html$Html_Attributes$cols = function (n) {
+		return A2(
+			_elm_lang$html$Html_Attributes$attribute,
+			'cols',
+			_elm_lang$core$Basics$toString(n));
+	};
+	var _elm_lang$html$Html_Attributes$rows = function (n) {
+		return A2(
+			_elm_lang$html$Html_Attributes$attribute,
+			'rows',
+			_elm_lang$core$Basics$toString(n));
+	};
+	var _elm_lang$html$Html_Attributes$challenge = function (value) {
+		return A2(_elm_lang$html$Html_Attributes$attribute, 'challenge', value);
+	};
+	var _elm_lang$html$Html_Attributes$media = function (value) {
+		return A2(_elm_lang$html$Html_Attributes$attribute, 'media', value);
+	};
+	var _elm_lang$html$Html_Attributes$rel = function (value) {
+		return A2(_elm_lang$html$Html_Attributes$attribute, 'rel', value);
 	};
 	var _elm_lang$html$Html_Attributes$datetime = function (value) {
 		return A2(_elm_lang$html$Html_Attributes$attribute, 'datetime', value);
@@ -7636,6 +8084,9 @@ webpackJsonp([1,0],[
 			_elm_lang$html$Html_Attributes$attribute,
 			'rowspan',
 			_elm_lang$core$Basics$toString(n));
+	};
+	var _elm_lang$html$Html_Attributes$manifest = function (value) {
+		return A2(_elm_lang$html$Html_Attributes$attribute, 'manifest', value);
 	};
 	var _elm_lang$html$Html_Attributes$property = _elm_lang$virtual_dom$VirtualDom$property;
 	var _elm_lang$html$Html_Attributes$stringProperty = F2(
@@ -7666,20 +8117,8 @@ webpackJsonp([1,0],[
 	var _elm_lang$html$Html_Attributes$dropzone = function (value) {
 		return A2(_elm_lang$html$Html_Attributes$stringProperty, 'dropzone', value);
 	};
-	var _elm_lang$html$Html_Attributes$itemprop = function (value) {
-		return A2(_elm_lang$html$Html_Attributes$stringProperty, 'itemprop', value);
-	};
 	var _elm_lang$html$Html_Attributes$lang = function (value) {
 		return A2(_elm_lang$html$Html_Attributes$stringProperty, 'lang', value);
-	};
-	var _elm_lang$html$Html_Attributes$tabindex = function (n) {
-		return A2(
-			_elm_lang$html$Html_Attributes$stringProperty,
-			'tabIndex',
-			_elm_lang$core$Basics$toString(n));
-	};
-	var _elm_lang$html$Html_Attributes$charset = function (value) {
-		return A2(_elm_lang$html$Html_Attributes$stringProperty, 'charset', value);
 	};
 	var _elm_lang$html$Html_Attributes$content = function (value) {
 		return A2(_elm_lang$html$Html_Attributes$stringProperty, 'content', value);
@@ -7692,18 +8131,6 @@ webpackJsonp([1,0],[
 	};
 	var _elm_lang$html$Html_Attributes$src = function (value) {
 		return A2(_elm_lang$html$Html_Attributes$stringProperty, 'src', value);
-	};
-	var _elm_lang$html$Html_Attributes$height = function (value) {
-		return A2(
-			_elm_lang$html$Html_Attributes$stringProperty,
-			'height',
-			_elm_lang$core$Basics$toString(value));
-	};
-	var _elm_lang$html$Html_Attributes$width = function (value) {
-		return A2(
-			_elm_lang$html$Html_Attributes$stringProperty,
-			'width',
-			_elm_lang$core$Basics$toString(value));
 	};
 	var _elm_lang$html$Html_Attributes$alt = function (value) {
 		return A2(_elm_lang$html$Html_Attributes$stringProperty, 'alt', value);
@@ -7726,7 +8153,7 @@ webpackJsonp([1,0],[
 	var _elm_lang$html$Html_Attributes$srcdoc = function (value) {
 		return A2(_elm_lang$html$Html_Attributes$stringProperty, 'srcdoc', value);
 	};
-	var _elm_lang$html$Html_Attributes$type$ = function (value) {
+	var _elm_lang$html$Html_Attributes$type_ = function (value) {
 		return A2(_elm_lang$html$Html_Attributes$stringProperty, 'type', value);
 	};
 	var _elm_lang$html$Html_Attributes$value = function (value) {
@@ -7753,20 +8180,8 @@ webpackJsonp([1,0],[
 			'autocomplete',
 			bool ? 'on' : 'off');
 	};
-	var _elm_lang$html$Html_Attributes$autosave = function (value) {
-		return A2(_elm_lang$html$Html_Attributes$stringProperty, 'autosave', value);
-	};
 	var _elm_lang$html$Html_Attributes$enctype = function (value) {
 		return A2(_elm_lang$html$Html_Attributes$stringProperty, 'enctype', value);
-	};
-	var _elm_lang$html$Html_Attributes$formaction = function (value) {
-		return A2(_elm_lang$html$Html_Attributes$stringProperty, 'formAction', value);
-	};
-	var _elm_lang$html$Html_Attributes$minlength = function (n) {
-		return A2(
-			_elm_lang$html$Html_Attributes$stringProperty,
-			'minLength',
-			_elm_lang$core$Basics$toString(n));
 	};
 	var _elm_lang$html$Html_Attributes$method = function (value) {
 		return A2(_elm_lang$html$Html_Attributes$stringProperty, 'method', value);
@@ -7777,17 +8192,8 @@ webpackJsonp([1,0],[
 	var _elm_lang$html$Html_Attributes$pattern = function (value) {
 		return A2(_elm_lang$html$Html_Attributes$stringProperty, 'pattern', value);
 	};
-	var _elm_lang$html$Html_Attributes$size = function (n) {
-		return A2(
-			_elm_lang$html$Html_Attributes$stringProperty,
-			'size',
-			_elm_lang$core$Basics$toString(n));
-	};
 	var _elm_lang$html$Html_Attributes$for = function (value) {
 		return A2(_elm_lang$html$Html_Attributes$stringProperty, 'htmlFor', value);
-	};
-	var _elm_lang$html$Html_Attributes$form = function (value) {
-		return A2(_elm_lang$html$Html_Attributes$stringProperty, 'form', value);
 	};
 	var _elm_lang$html$Html_Attributes$max = function (value) {
 		return A2(_elm_lang$html$Html_Attributes$stringProperty, 'max', value);
@@ -7797,18 +8203,6 @@ webpackJsonp([1,0],[
 	};
 	var _elm_lang$html$Html_Attributes$step = function (n) {
 		return A2(_elm_lang$html$Html_Attributes$stringProperty, 'step', n);
-	};
-	var _elm_lang$html$Html_Attributes$cols = function (n) {
-		return A2(
-			_elm_lang$html$Html_Attributes$stringProperty,
-			'cols',
-			_elm_lang$core$Basics$toString(n));
-	};
-	var _elm_lang$html$Html_Attributes$rows = function (n) {
-		return A2(
-			_elm_lang$html$Html_Attributes$stringProperty,
-			'rows',
-			_elm_lang$core$Basics$toString(n));
 	};
 	var _elm_lang$html$Html_Attributes$wrap = function (value) {
 		return A2(_elm_lang$html$Html_Attributes$stringProperty, 'wrap', value);
@@ -7821,9 +8215,6 @@ webpackJsonp([1,0],[
 	};
 	var _elm_lang$html$Html_Attributes$coords = function (value) {
 		return A2(_elm_lang$html$Html_Attributes$stringProperty, 'coords', value);
-	};
-	var _elm_lang$html$Html_Attributes$challenge = function (value) {
-		return A2(_elm_lang$html$Html_Attributes$stringProperty, 'challenge', value);
 	};
 	var _elm_lang$html$Html_Attributes$keytype = function (value) {
 		return A2(_elm_lang$html$Html_Attributes$stringProperty, 'keytype', value);
@@ -7846,14 +8237,8 @@ webpackJsonp([1,0],[
 	var _elm_lang$html$Html_Attributes$hreflang = function (value) {
 		return A2(_elm_lang$html$Html_Attributes$stringProperty, 'hreflang', value);
 	};
-	var _elm_lang$html$Html_Attributes$media = function (value) {
-		return A2(_elm_lang$html$Html_Attributes$stringProperty, 'media', value);
-	};
 	var _elm_lang$html$Html_Attributes$ping = function (value) {
 		return A2(_elm_lang$html$Html_Attributes$stringProperty, 'ping', value);
-	};
-	var _elm_lang$html$Html_Attributes$rel = function (value) {
-		return A2(_elm_lang$html$Html_Attributes$stringProperty, 'rel', value);
 	};
 	var _elm_lang$html$Html_Attributes$start = function (n) {
 		return A2(
@@ -7866,9 +8251,6 @@ webpackJsonp([1,0],[
 	};
 	var _elm_lang$html$Html_Attributes$scope = function (value) {
 		return A2(_elm_lang$html$Html_Attributes$stringProperty, 'scope', value);
-	};
-	var _elm_lang$html$Html_Attributes$manifest = function (value) {
-		return A2(_elm_lang$html$Html_Attributes$stringProperty, 'manifest', value);
 	};
 	var _elm_lang$html$Html_Attributes$boolProperty = F2(
 		function (name, bool) {
@@ -7950,8 +8332,8 @@ webpackJsonp([1,0],[
 				' ',
 				A2(
 					_elm_lang$core$List$map,
-					_elm_lang$core$Basics$fst,
-					A2(_elm_lang$core$List$filter, _elm_lang$core$Basics$snd, list))));
+					_elm_lang$core$Tuple$first,
+					A2(_elm_lang$core$List$filter, _elm_lang$core$Tuple$second, list))));
 	};
 	var _elm_lang$html$Html_Attributes$style = _elm_lang$virtual_dom$VirtualDom$style;
 	
@@ -7961,13 +8343,13 @@ webpackJsonp([1,0],[
 	var _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon = function (s) {
 		return A2(
 			_elm_lang$html$Html$i,
-			_elm_lang$core$Native_List.fromArray(
-				[
-					_elm_lang$html$Html_Attributes$class(
-					_Fresheyeball$elm_font_awesome$FontAwesome_Util$class(s))
-				]),
-			_elm_lang$core$Native_List.fromArray(
-				[]));
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html_Attributes$class(
+					_Fresheyeball$elm_font_awesome$FontAwesome_Util$class(s)),
+				_1: {ctor: '[]'}
+			},
+			{ctor: '[]'});
 	};
 	
 	var _Fresheyeball$elm_font_awesome$FontAwesome_Brand$youtube_square = _Fresheyeball$elm_font_awesome$FontAwesome_Util$icon(_Fresheyeball$elm_font_awesome$FontAwesome_Brand_Class$youtube_square);
@@ -9112,7 +9494,7 @@ webpackJsonp([1,0],[
 			return replacer({
 				match: match,
 				submatches: _elm_lang$core$Native_List.fromArray(submatches),
-				index: arguments[i - 1],
+				index: arguments[arguments.length - 2],
 				number: count
 			});
 		}
@@ -9130,6 +9512,7 @@ webpackJsonp([1,0],[
 		var result;
 		var out = [];
 		var start = re.lastIndex;
+		var restoreLastIndex = re.lastIndex;
 		while (n--)
 		{
 			if (!(result = re.exec(string))) break;
@@ -9137,6 +9520,7 @@ webpackJsonp([1,0],[
 			start = re.lastIndex;
 		}
 		out.push(string.slice(start));
+		re.lastIndex = restoreLastIndex;
 		return _elm_lang$core$Native_List.fromArray(out);
 	}
 	
@@ -9201,8 +9585,7 @@ webpackJsonp([1,0],[
 		while (true) {
 			var _p0 = declarations;
 			if (_p0.ctor === '[]') {
-				return _elm_lang$core$Native_List.fromArray(
-					[]);
+				return {ctor: '[]'};
 			} else {
 				switch (_p0._0.ctor) {
 					case 'StyleBlockDeclaration':
@@ -9212,10 +9595,11 @@ webpackJsonp([1,0],[
 							declarations = _v1;
 							continue dropEmptyDeclarations;
 						} else {
-							return A2(
-								_elm_lang$core$List_ops['::'],
-								_p0._0,
-								_rtfeldman$elm_css$Css_Structure$dropEmptyDeclarations(_p1));
+							return {
+								ctor: '::',
+								_0: _p0._0,
+								_1: _rtfeldman$elm_css$Css_Structure$dropEmptyDeclarations(_p1)
+							};
 						}
 					case 'MediaRule':
 						var _p4 = _p0._1;
@@ -9230,10 +9614,11 @@ webpackJsonp([1,0],[
 							declarations = _v3;
 							continue dropEmptyDeclarations;
 						} else {
-							return A2(
-								_elm_lang$core$List_ops['::'],
-								_p0._0,
-								_rtfeldman$elm_css$Css_Structure$dropEmptyDeclarations(_p4));
+							return {
+								ctor: '::',
+								_0: _p0._0,
+								_1: _rtfeldman$elm_css$Css_Structure$dropEmptyDeclarations(_p4)
+							};
 						}
 					case 'SupportsRule':
 						var _p5 = _p0._1;
@@ -9242,16 +9627,18 @@ webpackJsonp([1,0],[
 							declarations = _v4;
 							continue dropEmptyDeclarations;
 						} else {
-							return A2(
-								_elm_lang$core$List_ops['::'],
-								_p0._0,
-								_rtfeldman$elm_css$Css_Structure$dropEmptyDeclarations(_p5));
+							return {
+								ctor: '::',
+								_0: _p0._0,
+								_1: _rtfeldman$elm_css$Css_Structure$dropEmptyDeclarations(_p5)
+							};
 						}
 					case 'DocumentRule':
-						return A2(
-							_elm_lang$core$List_ops['::'],
-							_p0._0,
-							_rtfeldman$elm_css$Css_Structure$dropEmptyDeclarations(_p0._1));
+						return {
+							ctor: '::',
+							_0: _p0._0,
+							_1: _rtfeldman$elm_css$Css_Structure$dropEmptyDeclarations(_p0._1)
+						};
 					case 'PageRule':
 						var _p6 = _p0._1;
 						if (_elm_lang$core$List$isEmpty(_p0._0._1)) {
@@ -9259,10 +9646,11 @@ webpackJsonp([1,0],[
 							declarations = _v5;
 							continue dropEmptyDeclarations;
 						} else {
-							return A2(
-								_elm_lang$core$List_ops['::'],
-								_p0._0,
-								_rtfeldman$elm_css$Css_Structure$dropEmptyDeclarations(_p6));
+							return {
+								ctor: '::',
+								_0: _p0._0,
+								_1: _rtfeldman$elm_css$Css_Structure$dropEmptyDeclarations(_p6)
+							};
 						}
 					case 'FontFace':
 						var _p7 = _p0._1;
@@ -9271,10 +9659,11 @@ webpackJsonp([1,0],[
 							declarations = _v6;
 							continue dropEmptyDeclarations;
 						} else {
-							return A2(
-								_elm_lang$core$List_ops['::'],
-								_p0._0,
-								_rtfeldman$elm_css$Css_Structure$dropEmptyDeclarations(_p7));
+							return {
+								ctor: '::',
+								_0: _p0._0,
+								_1: _rtfeldman$elm_css$Css_Structure$dropEmptyDeclarations(_p7)
+							};
 						}
 					case 'Keyframes':
 						var _p8 = _p0._1;
@@ -9283,10 +9672,11 @@ webpackJsonp([1,0],[
 							declarations = _v7;
 							continue dropEmptyDeclarations;
 						} else {
-							return A2(
-								_elm_lang$core$List_ops['::'],
-								_p0._0,
-								_rtfeldman$elm_css$Css_Structure$dropEmptyDeclarations(_p8));
+							return {
+								ctor: '::',
+								_0: _p0._0,
+								_1: _rtfeldman$elm_css$Css_Structure$dropEmptyDeclarations(_p8)
+							};
 						}
 					case 'Viewport':
 						var _p9 = _p0._1;
@@ -9295,10 +9685,11 @@ webpackJsonp([1,0],[
 							declarations = _v8;
 							continue dropEmptyDeclarations;
 						} else {
-							return A2(
-								_elm_lang$core$List_ops['::'],
-								_p0._0,
-								_rtfeldman$elm_css$Css_Structure$dropEmptyDeclarations(_p9));
+							return {
+								ctor: '::',
+								_0: _p0._0,
+								_1: _rtfeldman$elm_css$Css_Structure$dropEmptyDeclarations(_p9)
+							};
 						}
 					case 'CounterStyle':
 						var _p10 = _p0._1;
@@ -9307,10 +9698,11 @@ webpackJsonp([1,0],[
 							declarations = _v9;
 							continue dropEmptyDeclarations;
 						} else {
-							return A2(
-								_elm_lang$core$List_ops['::'],
-								_p0._0,
-								_rtfeldman$elm_css$Css_Structure$dropEmptyDeclarations(_p10));
+							return {
+								ctor: '::',
+								_0: _p0._0,
+								_1: _rtfeldman$elm_css$Css_Structure$dropEmptyDeclarations(_p10)
+							};
 						}
 					default:
 						var _p13 = _p0._1;
@@ -9325,10 +9717,11 @@ webpackJsonp([1,0],[
 							declarations = _v11;
 							continue dropEmptyDeclarations;
 						} else {
-							return A2(
-								_elm_lang$core$List_ops['::'],
-								_p0._0,
-								_rtfeldman$elm_css$Css_Structure$dropEmptyDeclarations(_p13));
+							return {
+								ctor: '::',
+								_0: _p0._0,
+								_1: _rtfeldman$elm_css$Css_Structure$dropEmptyDeclarations(_p13)
+							};
 						}
 				}
 			}
@@ -9352,10 +9745,11 @@ webpackJsonp([1,0],[
 				if (_p16._1.ctor === '[]') {
 					return update(_p16._0);
 				} else {
-					return A2(
-						_elm_lang$core$List_ops['::'],
-						_p16._0,
-						A2(_rtfeldman$elm_css$Css_Structure$concatMapLast, update, _p16._1));
+					return {
+						ctor: '::',
+						_0: _p16._0,
+						_1: A2(_rtfeldman$elm_css$Css_Structure$concatMapLast, update, _p16._1)
+					};
 				}
 			}
 		});
@@ -9366,15 +9760,17 @@ webpackJsonp([1,0],[
 				return list;
 			} else {
 				if (_p17._1.ctor === '[]') {
-					return _elm_lang$core$Native_List.fromArray(
-						[
-							update(_p17._0)
-						]);
+					return {
+						ctor: '::',
+						_0: update(_p17._0),
+						_1: {ctor: '[]'}
+					};
 				} else {
-					return A2(
-						_elm_lang$core$List_ops['::'],
-						_p17._0,
-						A2(_rtfeldman$elm_css$Css_Structure$mapLast, update, _p17._1));
+					return {
+						ctor: '::',
+						_0: _p17._0,
+						_1: A2(_rtfeldman$elm_css$Css_Structure$mapLast, update, _p17._1)
+					};
 				}
 			}
 		});
@@ -9439,29 +9835,32 @@ webpackJsonp([1,0],[
 							case 'MediaRule':
 								if (_p18._0._1.ctor === '::') {
 									if (_p18._0._1._1.ctor === '[]') {
-										return _elm_lang$core$Native_List.fromArray(
-											[
-												A2(
+										return {
+											ctor: '::',
+											_0: A2(
 												_rtfeldman$elm_css$Css_Structure$MediaRule,
 												_p18._0._0,
-												update(_p18._0._1._0))
-											]);
+												update(_p18._0._1._0)),
+											_1: {ctor: '[]'}
+										};
 									} else {
 										var _p19 = A2(
 											_rtfeldman$elm_css$Css_Structure$concatMapLastStyleBlock,
 											update,
-											_elm_lang$core$Native_List.fromArray(
-												[
-													A2(_rtfeldman$elm_css$Css_Structure$MediaRule, _p18._0._0, _p18._0._1._1)
-												]));
+											{
+												ctor: '::',
+												_0: A2(_rtfeldman$elm_css$Css_Structure$MediaRule, _p18._0._0, _p18._0._1._1),
+												_1: {ctor: '[]'}
+											});
 										if (((_p19.ctor === '::') && (_p19._0.ctor === 'MediaRule')) && (_p19._1.ctor === '[]')) {
-											return _elm_lang$core$Native_List.fromArray(
-												[
-													A2(
+											return {
+												ctor: '::',
+												_0: A2(
 													_rtfeldman$elm_css$Css_Structure$MediaRule,
 													_p19._0._0,
-													A2(_elm_lang$core$List_ops['::'], _p18._0._1._0, _p19._0._1))
-												]);
+													{ctor: '::', _0: _p18._0._1._0, _1: _p19._0._1}),
+												_1: {ctor: '[]'}
+											};
 										} else {
 											return _p19;
 										}
@@ -9470,13 +9869,14 @@ webpackJsonp([1,0],[
 									break _v15_12;
 								}
 							case 'SupportsRule':
-								return _elm_lang$core$Native_List.fromArray(
-									[
-										A2(
+								return {
+									ctor: '::',
+									_0: A2(
 										_rtfeldman$elm_css$Css_Structure$SupportsRule,
 										_p18._0._0,
-										A2(_rtfeldman$elm_css$Css_Structure$concatMapLastStyleBlock, update, _p18._0._1))
-									]);
+										A2(_rtfeldman$elm_css$Css_Structure$concatMapLastStyleBlock, update, _p18._0._1)),
+									_1: {ctor: '[]'}
+								};
 							case 'DocumentRule':
 								return A2(
 									_elm_lang$core$List$map,
@@ -9500,10 +9900,11 @@ webpackJsonp([1,0],[
 					}
 				}
 			} while(false);
-			return A2(
-				_elm_lang$core$List_ops['::'],
-				_p18._0,
-				A2(_rtfeldman$elm_css$Css_Structure$concatMapLastStyleBlock, update, _p18._1));
+			return {
+				ctor: '::',
+				_0: _p18._0,
+				_1: A2(_rtfeldman$elm_css$Css_Structure$concatMapLastStyleBlock, update, _p18._1)
+			};
 		});
 	var _rtfeldman$elm_css$Css_Structure$StyleBlock = F3(
 		function (a, b, c) {
@@ -9519,8 +9920,11 @@ webpackJsonp([1,0],[
 				A2(
 					_elm_lang$core$Basics_ops['++'],
 					_p21._2,
-					_elm_lang$core$Native_List.fromArray(
-						[property])));
+					{
+						ctor: '::',
+						_0: property,
+						_1: {ctor: '[]'}
+					}));
 		});
 	var _rtfeldman$elm_css$Css_Structure$appendProperty = F2(
 		function (property, declarations) {
@@ -9531,31 +9935,76 @@ webpackJsonp([1,0],[
 				if (_p22._1.ctor === '[]') {
 					switch (_p22._0.ctor) {
 						case 'StyleBlockDeclaration':
-							return _elm_lang$core$Native_List.fromArray(
-								[
-									_rtfeldman$elm_css$Css_Structure$StyleBlockDeclaration(
-									A2(_rtfeldman$elm_css$Css_Structure$withPropertyAppended, property, _p22._0._0))
-								]);
+							return {
+								ctor: '::',
+								_0: _rtfeldman$elm_css$Css_Structure$StyleBlockDeclaration(
+									A2(_rtfeldman$elm_css$Css_Structure$withPropertyAppended, property, _p22._0._0)),
+								_1: {ctor: '[]'}
+							};
 						case 'MediaRule':
-							return _elm_lang$core$Native_List.fromArray(
-								[
-									A2(
+							return {
+								ctor: '::',
+								_0: A2(
 									_rtfeldman$elm_css$Css_Structure$MediaRule,
 									_p22._0._0,
 									A2(
 										_rtfeldman$elm_css$Css_Structure$mapLast,
 										_rtfeldman$elm_css$Css_Structure$withPropertyAppended(property),
-										_p22._0._1))
-								]);
+										_p22._0._1)),
+								_1: {ctor: '[]'}
+							};
 						default:
 							return declarations;
 					}
 				} else {
-					return A2(
-						_elm_lang$core$List_ops['::'],
-						_p22._0,
-						A2(_rtfeldman$elm_css$Css_Structure$appendProperty, property, _p22._1));
+					return {
+						ctor: '::',
+						_0: _p22._0,
+						_1: A2(_rtfeldman$elm_css$Css_Structure$appendProperty, property, _p22._1)
+					};
 				}
+			}
+		});
+	var _rtfeldman$elm_css$Css_Structure$appendToLastSelector = F2(
+		function (f, styleBlock) {
+			var _p23 = styleBlock;
+			if (_p23._1.ctor === '[]') {
+				var _p24 = _p23._0;
+				return {
+					ctor: '::',
+					_0: A3(
+						_rtfeldman$elm_css$Css_Structure$StyleBlock,
+						_p24,
+						{ctor: '[]'},
+						_p23._2),
+					_1: {
+						ctor: '::',
+						_0: A3(
+							_rtfeldman$elm_css$Css_Structure$StyleBlock,
+							f(_p24),
+							{ctor: '[]'},
+							{ctor: '[]'}),
+						_1: {ctor: '[]'}
+					}
+				};
+			} else {
+				var _p26 = _p23._1;
+				var _p25 = _p23._0;
+				var newFirst = f(_p25);
+				var newRest = A2(_elm_lang$core$List$map, f, _p26);
+				return {
+					ctor: '::',
+					_0: A3(_rtfeldman$elm_css$Css_Structure$StyleBlock, _p25, _p26, _p23._2),
+					_1: {
+						ctor: '::',
+						_0: A3(
+							_rtfeldman$elm_css$Css_Structure$StyleBlock,
+							newFirst,
+							newRest,
+							{ctor: '[]'}),
+						_1: {ctor: '[]'}
+					}
+				};
 			}
 		});
 	var _rtfeldman$elm_css$Css_Structure$MediaQuery = function (a) {
@@ -9566,39 +10015,20 @@ webpackJsonp([1,0],[
 			return {ctor: 'Selector', _0: a, _1: b, _2: c};
 		});
 	var _rtfeldman$elm_css$Css_Structure$applyPseudoElement = F2(
-		function (pseudo, _p23) {
-			var _p24 = _p23;
+		function (pseudo, _p27) {
+			var _p28 = _p27;
 			return A3(
 				_rtfeldman$elm_css$Css_Structure$Selector,
-				_p24._0,
-				_p24._1,
+				_p28._0,
+				_p28._1,
 				_elm_lang$core$Maybe$Just(pseudo));
 		});
 	var _rtfeldman$elm_css$Css_Structure$appendPseudoElementToLastSelector = F2(
 		function (pseudo, styleBlock) {
-			var _p25 = styleBlock;
-			if (_p25._1.ctor === '[]') {
-				var _p26 = _p25._0;
-				return _elm_lang$core$Native_List.fromArray(
-					[
-						A3(
-						_rtfeldman$elm_css$Css_Structure$StyleBlock,
-						_p26,
-						_elm_lang$core$Native_List.fromArray(
-							[]),
-						_p25._2),
-						A3(
-						_rtfeldman$elm_css$Css_Structure$StyleBlock,
-						A2(_rtfeldman$elm_css$Css_Structure$applyPseudoElement, pseudo, _p26),
-						_elm_lang$core$Native_List.fromArray(
-							[]),
-						_elm_lang$core$Native_List.fromArray(
-							[]))
-					]);
-			} else {
-				return _elm_lang$core$Native_List.fromArray(
-					[_p25]);
-			}
+			return A2(
+				_rtfeldman$elm_css$Css_Structure$appendToLastSelector,
+				_rtfeldman$elm_css$Css_Structure$applyPseudoElement(pseudo),
+				styleBlock);
 		});
 	var _rtfeldman$elm_css$Css_Structure$CustomSelector = F2(
 		function (a, b) {
@@ -9613,196 +10043,217 @@ webpackJsonp([1,0],[
 		});
 	var _rtfeldman$elm_css$Css_Structure$appendRepeatable = F2(
 		function (selector, sequence) {
-			var _p27 = sequence;
-			switch (_p27.ctor) {
+			var _p29 = sequence;
+			switch (_p29.ctor) {
 				case 'TypeSelectorSequence':
 					return A2(
 						_rtfeldman$elm_css$Css_Structure$TypeSelectorSequence,
-						_p27._0,
+						_p29._0,
 						A2(
 							_elm_lang$core$Basics_ops['++'],
-							_p27._1,
-							_elm_lang$core$Native_List.fromArray(
-								[selector])));
+							_p29._1,
+							{
+								ctor: '::',
+								_0: selector,
+								_1: {ctor: '[]'}
+							}));
 				case 'UniversalSelectorSequence':
 					return _rtfeldman$elm_css$Css_Structure$UniversalSelectorSequence(
 						A2(
 							_elm_lang$core$Basics_ops['++'],
-							_p27._0,
-							_elm_lang$core$Native_List.fromArray(
-								[selector])));
+							_p29._0,
+							{
+								ctor: '::',
+								_0: selector,
+								_1: {ctor: '[]'}
+							}));
 				default:
 					return A2(
 						_rtfeldman$elm_css$Css_Structure$CustomSelector,
-						_p27._0,
+						_p29._0,
 						A2(
 							_elm_lang$core$Basics_ops['++'],
-							_p27._1,
-							_elm_lang$core$Native_List.fromArray(
-								[selector])));
+							_p29._1,
+							{
+								ctor: '::',
+								_0: selector,
+								_1: {ctor: '[]'}
+							}));
 			}
 		});
 	var _rtfeldman$elm_css$Css_Structure$appendRepeatableWithCombinator = F2(
 		function (selector, list) {
-			var _p28 = list;
-			if (_p28.ctor === '[]') {
-				return _elm_lang$core$Native_List.fromArray(
-					[]);
+			var _p30 = list;
+			if (_p30.ctor === '[]') {
+				return {ctor: '[]'};
 			} else {
-				if ((_p28._0.ctor === '_Tuple2') && (_p28._1.ctor === '[]')) {
-					return _elm_lang$core$Native_List.fromArray(
-						[
-							{
+				if ((_p30._0.ctor === '_Tuple2') && (_p30._1.ctor === '[]')) {
+					return {
+						ctor: '::',
+						_0: {
 							ctor: '_Tuple2',
-							_0: _p28._0._0,
-							_1: A2(_rtfeldman$elm_css$Css_Structure$appendRepeatable, selector, _p28._0._1)
-						}
-						]);
+							_0: _p30._0._0,
+							_1: A2(_rtfeldman$elm_css$Css_Structure$appendRepeatable, selector, _p30._0._1)
+						},
+						_1: {ctor: '[]'}
+					};
 				} else {
-					return A2(
-						_elm_lang$core$List_ops['::'],
-						_p28._0,
-						A2(_rtfeldman$elm_css$Css_Structure$appendRepeatableWithCombinator, selector, _p28._1));
+					return {
+						ctor: '::',
+						_0: _p30._0,
+						_1: A2(_rtfeldman$elm_css$Css_Structure$appendRepeatableWithCombinator, selector, _p30._1)
+					};
 				}
 			}
 		});
 	var _rtfeldman$elm_css$Css_Structure$appendRepeatableSelector = F2(
 		function (repeatableSimpleSelector, selector) {
-			var _p29 = selector;
-			if (_p29._1.ctor === '[]') {
+			var _p31 = selector;
+			if (_p31._1.ctor === '[]') {
 				return A3(
 					_rtfeldman$elm_css$Css_Structure$Selector,
-					A2(_rtfeldman$elm_css$Css_Structure$appendRepeatable, repeatableSimpleSelector, _p29._0),
-					_elm_lang$core$Native_List.fromArray(
-						[]),
-					_p29._2);
+					A2(_rtfeldman$elm_css$Css_Structure$appendRepeatable, repeatableSimpleSelector, _p31._0),
+					{ctor: '[]'},
+					_p31._2);
 			} else {
 				return A3(
 					_rtfeldman$elm_css$Css_Structure$Selector,
-					_p29._0,
-					A2(_rtfeldman$elm_css$Css_Structure$appendRepeatableWithCombinator, repeatableSimpleSelector, _p29._1),
-					_p29._2);
+					_p31._0,
+					A2(_rtfeldman$elm_css$Css_Structure$appendRepeatableWithCombinator, repeatableSimpleSelector, _p31._1),
+					_p31._2);
 			}
 		});
 	var _rtfeldman$elm_css$Css_Structure$extendLastSelector = F2(
 		function (selector, declarations) {
-			var _p30 = declarations;
+			var _p32 = declarations;
 			_v24_15:
 			do {
-				if (_p30.ctor === '[]') {
+				if (_p32.ctor === '[]') {
 					return declarations;
 				} else {
-					if (_p30._1.ctor === '[]') {
-						switch (_p30._0.ctor) {
+					if (_p32._1.ctor === '[]') {
+						switch (_p32._0.ctor) {
 							case 'StyleBlockDeclaration':
-								if (_p30._0._0._1.ctor === '[]') {
-									return _elm_lang$core$Native_List.fromArray(
-										[
-											_rtfeldman$elm_css$Css_Structure$StyleBlockDeclaration(
+								if (_p32._0._0._1.ctor === '[]') {
+									return {
+										ctor: '::',
+										_0: _rtfeldman$elm_css$Css_Structure$StyleBlockDeclaration(
 											A3(
 												_rtfeldman$elm_css$Css_Structure$StyleBlock,
-												A2(_rtfeldman$elm_css$Css_Structure$appendRepeatableSelector, selector, _p30._0._0._0),
-												_elm_lang$core$Native_List.fromArray(
-													[]),
-												_p30._0._0._2))
-										]);
+												A2(_rtfeldman$elm_css$Css_Structure$appendRepeatableSelector, selector, _p32._0._0._0),
+												{ctor: '[]'},
+												_p32._0._0._2)),
+										_1: {ctor: '[]'}
+									};
 								} else {
 									var newRest = A2(
 										_rtfeldman$elm_css$Css_Structure$mapLast,
 										_rtfeldman$elm_css$Css_Structure$appendRepeatableSelector(selector),
-										_p30._0._0._1);
-									return _elm_lang$core$Native_List.fromArray(
-										[
-											_rtfeldman$elm_css$Css_Structure$StyleBlockDeclaration(
-											A3(_rtfeldman$elm_css$Css_Structure$StyleBlock, _p30._0._0._0, newRest, _p30._0._0._2))
-										]);
+										_p32._0._0._1);
+									return {
+										ctor: '::',
+										_0: _rtfeldman$elm_css$Css_Structure$StyleBlockDeclaration(
+											A3(_rtfeldman$elm_css$Css_Structure$StyleBlock, _p32._0._0._0, newRest, _p32._0._0._2)),
+										_1: {ctor: '[]'}
+									};
 								}
 							case 'MediaRule':
-								if (_p30._0._1.ctor === '::') {
-									if (_p30._0._1._1.ctor === '[]') {
-										if (_p30._0._1._0._1.ctor === '[]') {
+								if (_p32._0._1.ctor === '::') {
+									if (_p32._0._1._1.ctor === '[]') {
+										if (_p32._0._1._0._1.ctor === '[]') {
 											var newStyleBlock = A3(
 												_rtfeldman$elm_css$Css_Structure$StyleBlock,
-												A2(_rtfeldman$elm_css$Css_Structure$appendRepeatableSelector, selector, _p30._0._1._0._0),
-												_elm_lang$core$Native_List.fromArray(
-													[]),
-												_p30._0._1._0._2);
-											return _elm_lang$core$Native_List.fromArray(
-												[
-													A2(
+												A2(_rtfeldman$elm_css$Css_Structure$appendRepeatableSelector, selector, _p32._0._1._0._0),
+												{ctor: '[]'},
+												_p32._0._1._0._2);
+											return {
+												ctor: '::',
+												_0: A2(
 													_rtfeldman$elm_css$Css_Structure$MediaRule,
-													_p30._0._0,
-													_elm_lang$core$Native_List.fromArray(
-														[newStyleBlock]))
-												]);
+													_p32._0._0,
+													{
+														ctor: '::',
+														_0: newStyleBlock,
+														_1: {ctor: '[]'}
+													}),
+												_1: {ctor: '[]'}
+											};
 										} else {
 											var newRest = A2(
 												_rtfeldman$elm_css$Css_Structure$mapLast,
 												_rtfeldman$elm_css$Css_Structure$appendRepeatableSelector(selector),
-												_p30._0._1._0._1);
-											var newStyleBlock = A3(_rtfeldman$elm_css$Css_Structure$StyleBlock, _p30._0._1._0._0, newRest, _p30._0._1._0._2);
-											return _elm_lang$core$Native_List.fromArray(
-												[
-													A2(
+												_p32._0._1._0._1);
+											var newStyleBlock = A3(_rtfeldman$elm_css$Css_Structure$StyleBlock, _p32._0._1._0._0, newRest, _p32._0._1._0._2);
+											return {
+												ctor: '::',
+												_0: A2(
 													_rtfeldman$elm_css$Css_Structure$MediaRule,
-													_p30._0._0,
-													_elm_lang$core$Native_List.fromArray(
-														[newStyleBlock]))
-												]);
+													_p32._0._0,
+													{
+														ctor: '::',
+														_0: newStyleBlock,
+														_1: {ctor: '[]'}
+													}),
+												_1: {ctor: '[]'}
+											};
 										}
 									} else {
-										var _p31 = A2(
+										var _p33 = A2(
 											_rtfeldman$elm_css$Css_Structure$extendLastSelector,
 											selector,
-											_elm_lang$core$Native_List.fromArray(
-												[
-													A2(_rtfeldman$elm_css$Css_Structure$MediaRule, _p30._0._0, _p30._0._1._1)
-												]));
-										if (((_p31.ctor === '::') && (_p31._0.ctor === 'MediaRule')) && (_p31._1.ctor === '[]')) {
-											return _elm_lang$core$Native_List.fromArray(
-												[
-													A2(
+											{
+												ctor: '::',
+												_0: A2(_rtfeldman$elm_css$Css_Structure$MediaRule, _p32._0._0, _p32._0._1._1),
+												_1: {ctor: '[]'}
+											});
+										if (((_p33.ctor === '::') && (_p33._0.ctor === 'MediaRule')) && (_p33._1.ctor === '[]')) {
+											return {
+												ctor: '::',
+												_0: A2(
 													_rtfeldman$elm_css$Css_Structure$MediaRule,
-													_p31._0._0,
-													A2(_elm_lang$core$List_ops['::'], _p30._0._1._0, _p31._0._1))
-												]);
+													_p33._0._0,
+													{ctor: '::', _0: _p32._0._1._0, _1: _p33._0._1}),
+												_1: {ctor: '[]'}
+											};
 										} else {
-											return _p31;
+											return _p33;
 										}
 									}
 								} else {
 									break _v24_15;
 								}
 							case 'SupportsRule':
-								return _elm_lang$core$Native_List.fromArray(
-									[
-										A2(
+								return {
+									ctor: '::',
+									_0: A2(
 										_rtfeldman$elm_css$Css_Structure$SupportsRule,
-										_p30._0._0,
-										A2(_rtfeldman$elm_css$Css_Structure$extendLastSelector, selector, _p30._0._1))
-									]);
+										_p32._0._0,
+										A2(_rtfeldman$elm_css$Css_Structure$extendLastSelector, selector, _p32._0._1)),
+									_1: {ctor: '[]'}
+								};
 							case 'DocumentRule':
-								if (_p30._0._4._1.ctor === '[]') {
+								if (_p32._0._4._1.ctor === '[]') {
 									var newStyleBlock = A3(
 										_rtfeldman$elm_css$Css_Structure$StyleBlock,
-										A2(_rtfeldman$elm_css$Css_Structure$appendRepeatableSelector, selector, _p30._0._4._0),
-										_elm_lang$core$Native_List.fromArray(
-											[]),
-										_p30._0._4._2);
-									return _elm_lang$core$Native_List.fromArray(
-										[
-											A5(_rtfeldman$elm_css$Css_Structure$DocumentRule, _p30._0._0, _p30._0._1, _p30._0._2, _p30._0._3, newStyleBlock)
-										]);
+										A2(_rtfeldman$elm_css$Css_Structure$appendRepeatableSelector, selector, _p32._0._4._0),
+										{ctor: '[]'},
+										_p32._0._4._2);
+									return {
+										ctor: '::',
+										_0: A5(_rtfeldman$elm_css$Css_Structure$DocumentRule, _p32._0._0, _p32._0._1, _p32._0._2, _p32._0._3, newStyleBlock),
+										_1: {ctor: '[]'}
+									};
 								} else {
 									var newRest = A2(
 										_rtfeldman$elm_css$Css_Structure$mapLast,
 										_rtfeldman$elm_css$Css_Structure$appendRepeatableSelector(selector),
-										_p30._0._4._1);
-									var newStyleBlock = A3(_rtfeldman$elm_css$Css_Structure$StyleBlock, _p30._0._4._0, newRest, _p30._0._4._2);
-									return _elm_lang$core$Native_List.fromArray(
-										[
-											A5(_rtfeldman$elm_css$Css_Structure$DocumentRule, _p30._0._0, _p30._0._1, _p30._0._2, _p30._0._3, newStyleBlock)
-										]);
+										_p32._0._4._1);
+									var newStyleBlock = A3(_rtfeldman$elm_css$Css_Structure$StyleBlock, _p32._0._4._0, newRest, _p32._0._4._2);
+									return {
+										ctor: '::',
+										_0: A5(_rtfeldman$elm_css$Css_Structure$DocumentRule, _p32._0._0, _p32._0._1, _p32._0._2, _p32._0._3, newStyleBlock),
+										_1: {ctor: '[]'}
+									};
 								}
 							case 'PageRule':
 								return declarations;
@@ -9822,50 +10273,18 @@ webpackJsonp([1,0],[
 					}
 				}
 			} while(false);
-			return A2(
-				_elm_lang$core$List_ops['::'],
-				_p30._0,
-				A2(_rtfeldman$elm_css$Css_Structure$extendLastSelector, selector, _p30._1));
+			return {
+				ctor: '::',
+				_0: _p32._0,
+				_1: A2(_rtfeldman$elm_css$Css_Structure$extendLastSelector, selector, _p32._1)
+			};
 		});
-	var _rtfeldman$elm_css$Css_Structure$appendToLastSelector = F2(
+	var _rtfeldman$elm_css$Css_Structure$appendRepeatableToLastSelector = F2(
 		function (selector, styleBlock) {
-			var _p32 = styleBlock;
-			if (_p32._1.ctor === '[]') {
-				var _p33 = _p32._0;
-				return _elm_lang$core$Native_List.fromArray(
-					[
-						A3(
-						_rtfeldman$elm_css$Css_Structure$StyleBlock,
-						_p33,
-						_elm_lang$core$Native_List.fromArray(
-							[]),
-						_p32._2),
-						A3(
-						_rtfeldman$elm_css$Css_Structure$StyleBlock,
-						A2(_rtfeldman$elm_css$Css_Structure$appendRepeatableSelector, selector, _p33),
-						_elm_lang$core$Native_List.fromArray(
-							[]),
-						_elm_lang$core$Native_List.fromArray(
-							[]))
-					]);
-			} else {
-				var _p35 = _p32._1;
-				var _p34 = _p32._0;
-				var newRest = A2(
-					_rtfeldman$elm_css$Css_Structure$mapLast,
-					_rtfeldman$elm_css$Css_Structure$appendRepeatableSelector(selector),
-					_p35);
-				return _elm_lang$core$Native_List.fromArray(
-					[
-						A3(_rtfeldman$elm_css$Css_Structure$StyleBlock, _p34, _p35, _p32._2),
-						A3(
-						_rtfeldman$elm_css$Css_Structure$StyleBlock,
-						_p34,
-						newRest,
-						_elm_lang$core$Native_List.fromArray(
-							[]))
-					]);
-			}
+			return A2(
+				_rtfeldman$elm_css$Css_Structure$appendToLastSelector,
+				_rtfeldman$elm_css$Css_Structure$appendRepeatableSelector(selector),
+				styleBlock);
 		});
 	var _rtfeldman$elm_css$Css_Structure$PseudoClassSelector = function (a) {
 		return {ctor: 'PseudoClassSelector', _0: a};
@@ -9896,15 +10315,15 @@ webpackJsonp([1,0],[
 		while (true) {
 			var _p0 = mixins;
 			if (_p0.ctor === '[]') {
-				return _elm_lang$core$Native_List.fromArray(
-					[]);
+				return {ctor: '[]'};
 			} else {
 				switch (_p0._0.ctor) {
 					case 'AppendProperty':
-						return A2(
-							_elm_lang$core$List_ops['::'],
-							_rtfeldman$elm_css$Css_Preprocess$propertyToPair(_p0._0._0),
-							_rtfeldman$elm_css$Css_Preprocess$toPropertyPairs(_p0._1));
+						return {
+							ctor: '::',
+							_0: _rtfeldman$elm_css$Css_Preprocess$propertyToPair(_p0._0._0),
+							_1: _rtfeldman$elm_css$Css_Preprocess$toPropertyPairs(_p0._1)
+						};
 					case 'ApplyMixins':
 						return A2(
 							_elm_lang$core$Basics_ops['++'],
@@ -9930,8 +10349,11 @@ webpackJsonp([1,0],[
 					return A2(
 						_rtfeldman$elm_css$Css_Structure$MediaRule,
 						mediaQueries,
-						_elm_lang$core$Native_List.fromArray(
-							[_p3._0]));
+						{
+							ctor: '::',
+							_0: _p3._0,
+							_1: {ctor: '[]'}
+						});
 				case 'MediaRule':
 					return A2(
 						_rtfeldman$elm_css$Css_Structure$MediaRule,
@@ -9964,10 +10386,8 @@ webpackJsonp([1,0],[
 	var _rtfeldman$elm_css$Css_Preprocess$stylesheet = function (snippets) {
 		return {
 			charset: _elm_lang$core$Maybe$Nothing,
-			imports: _elm_lang$core$Native_List.fromArray(
-				[]),
-			namespaces: _elm_lang$core$Native_List.fromArray(
-				[]),
+			imports: {ctor: '[]'},
+			namespaces: {ctor: '[]'},
 			snippets: snippets
 		};
 	};
@@ -10034,15 +10454,17 @@ webpackJsonp([1,0],[
 				return mixins;
 			} else {
 				if (_p5._1.ctor === '[]') {
-					return _elm_lang$core$Native_List.fromArray(
-						[
-							A2(_rtfeldman$elm_css$Css_Preprocess$mapLastProperty, update, _p5._0)
-						]);
+					return {
+						ctor: '::',
+						_0: A2(_rtfeldman$elm_css$Css_Preprocess$mapLastProperty, update, _p5._0),
+						_1: {ctor: '[]'}
+					};
 				} else {
-					return A2(
-						_elm_lang$core$List_ops['::'],
-						_p5._0,
-						A2(_rtfeldman$elm_css$Css_Preprocess$mapAllLastProperty, update, _p5._1));
+					return {
+						ctor: '::',
+						_0: _p5._0,
+						_1: A2(_rtfeldman$elm_css$Css_Preprocess$mapAllLastProperty, update, _p5._1)
+					};
 				}
 			}
 		});
@@ -10150,10 +10572,11 @@ webpackJsonp([1,0],[
 				return A2(
 					_elm_lang$core$String$join,
 					'',
-					A2(
-						_elm_lang$core$List_ops['::'],
-						_p7._0._0,
-						A2(_elm_lang$core$List$map, _rtfeldman$elm_css$Css_Structure_Output$repeatableSimpleSelectorToString, _p7._1)));
+					{
+						ctor: '::',
+						_0: _p7._0._0,
+						_1: A2(_elm_lang$core$List$map, _rtfeldman$elm_css$Css_Structure_Output$repeatableSimpleSelectorToString, _p7._1)
+					});
 			case 'UniversalSelectorSequence':
 				var _p8 = _p7._0;
 				return _elm_lang$core$List$isEmpty(_p8) ? '*' : A2(
@@ -10164,10 +10587,11 @@ webpackJsonp([1,0],[
 				return A2(
 					_elm_lang$core$String$join,
 					'',
-					A2(
-						_elm_lang$core$List_ops['::'],
-						_p7._0,
-						A2(_elm_lang$core$List$map, _rtfeldman$elm_css$Css_Structure_Output$repeatableSimpleSelectorToString, _p7._1)));
+					{
+						ctor: '::',
+						_0: _p7._0,
+						_1: A2(_elm_lang$core$List$map, _rtfeldman$elm_css$Css_Structure_Output$repeatableSimpleSelectorToString, _p7._1)
+					});
 		}
 	};
 	var _rtfeldman$elm_css$Css_Structure_Output$selectorChainToString = function (_p9) {
@@ -10175,30 +10599,36 @@ webpackJsonp([1,0],[
 		return A2(
 			_elm_lang$core$String$join,
 			' ',
-			_elm_lang$core$Native_List.fromArray(
-				[
-					_rtfeldman$elm_css$Css_Structure_Output$combinatorToString(_p10._0),
-					_rtfeldman$elm_css$Css_Structure_Output$simpleSelectorSequenceToString(_p10._1)
-				]));
+			{
+				ctor: '::',
+				_0: _rtfeldman$elm_css$Css_Structure_Output$combinatorToString(_p10._0),
+				_1: {
+					ctor: '::',
+					_0: _rtfeldman$elm_css$Css_Structure_Output$simpleSelectorSequenceToString(_p10._1),
+					_1: {ctor: '[]'}
+				}
+			});
 	};
 	var _rtfeldman$elm_css$Css_Structure_Output$selectorToString = function (_p11) {
 		var _p12 = _p11;
 		var pseudoElementsString = A2(
 			_elm_lang$core$String$join,
 			'',
-			_elm_lang$core$Native_List.fromArray(
-				[
-					A2(
+			{
+				ctor: '::',
+				_0: A2(
 					_elm_lang$core$Maybe$withDefault,
 					'',
-					A2(_elm_lang$core$Maybe$map, _rtfeldman$elm_css$Css_Structure_Output$pseudoElementToString, _p12._2))
-				]));
+					A2(_elm_lang$core$Maybe$map, _rtfeldman$elm_css$Css_Structure_Output$pseudoElementToString, _p12._2)),
+				_1: {ctor: '[]'}
+			});
 		var segments = A2(
 			_elm_lang$core$Basics_ops['++'],
-			_elm_lang$core$Native_List.fromArray(
-				[
-					_rtfeldman$elm_css$Css_Structure_Output$simpleSelectorSequenceToString(_p12._0)
-				]),
+			{
+				ctor: '::',
+				_0: _rtfeldman$elm_css$Css_Structure_Output$simpleSelectorSequenceToString(_p12._0),
+				_1: {ctor: '[]'}
+			},
 			A2(_elm_lang$core$List$map, _rtfeldman$elm_css$Css_Structure_Output$selectorChainToString, _p12._1));
 		return A3(
 			_elm_lang$core$Basics$flip,
@@ -10213,8 +10643,7 @@ webpackJsonp([1,0],[
 				A2(
 					_elm_lang$core$List$filter,
 					function (_p13) {
-						return _elm_lang$core$Basics$not(
-							_elm_lang$core$String$isEmpty(_p13));
+						return !_elm_lang$core$String$isEmpty(_p13);
 					},
 					segments)));
 	};
@@ -10226,7 +10655,7 @@ webpackJsonp([1,0],[
 			A2(
 				_elm_lang$core$List$map,
 				_rtfeldman$elm_css$Css_Structure_Output$selectorToString,
-				A2(_elm_lang$core$List_ops['::'], _p15._0, _p15._1)));
+				{ctor: '::', _0: _p15._0, _1: _p15._1}));
 		return A2(
 			_elm_lang$core$Basics_ops['++'],
 			selectorStr,
@@ -10335,54 +10764,81 @@ webpackJsonp([1,0],[
 			A2(
 				_elm_lang$core$List$filter,
 				function (_p27) {
-					return _elm_lang$core$Basics$not(
-						_elm_lang$core$String$isEmpty(_p27));
+					return !_elm_lang$core$String$isEmpty(_p27);
 				},
-				_elm_lang$core$Native_List.fromArray(
-					[
-						_rtfeldman$elm_css$Css_Structure_Output$charsetToString(_p26.charset),
-						A2(
-						_elm_lang$core$String$join,
-						'\n',
-						A2(_elm_lang$core$List$map, _rtfeldman$elm_css$Css_Structure_Output$importToString, _p26.imports)),
-						A2(
-						_elm_lang$core$String$join,
-						'\n',
-						A2(_elm_lang$core$List$map, _rtfeldman$elm_css$Css_Structure_Output$namespaceToString, _p26.namespaces)),
-						A2(
-						_elm_lang$core$String$join,
-						'\n\n',
-						A2(_elm_lang$core$List$map, _rtfeldman$elm_css$Css_Structure_Output$prettyPrintDeclaration, _p26.declarations))
-					])));
+				{
+					ctor: '::',
+					_0: _rtfeldman$elm_css$Css_Structure_Output$charsetToString(_p26.charset),
+					_1: {
+						ctor: '::',
+						_0: A2(
+							_elm_lang$core$String$join,
+							'\n',
+							A2(_elm_lang$core$List$map, _rtfeldman$elm_css$Css_Structure_Output$importToString, _p26.imports)),
+						_1: {
+							ctor: '::',
+							_0: A2(
+								_elm_lang$core$String$join,
+								'\n',
+								A2(_elm_lang$core$List$map, _rtfeldman$elm_css$Css_Structure_Output$namespaceToString, _p26.namespaces)),
+							_1: {
+								ctor: '::',
+								_0: A2(
+									_elm_lang$core$String$join,
+									'\n\n',
+									A2(_elm_lang$core$List$map, _rtfeldman$elm_css$Css_Structure_Output$prettyPrintDeclaration, _p26.declarations)),
+								_1: {ctor: '[]'}
+							}
+						}
+					}
+				}));
 	};
 	
+	var _rtfeldman$elm_css$Css_Preprocess_Resolve$oneOf = function (maybes) {
+		oneOf:
+		while (true) {
+			var _p0 = maybes;
+			if (_p0.ctor === '[]') {
+				return _elm_lang$core$Maybe$Nothing;
+			} else {
+				var _p2 = _p0._0;
+				var _p1 = _p2;
+				if (_p1.ctor === 'Nothing') {
+					var _v2 = _p0._1;
+					maybes = _v2;
+					continue oneOf;
+				} else {
+					return _p2;
+				}
+			}
+		}
+	};
 	var _rtfeldman$elm_css$Css_Preprocess_Resolve$collectSelectors = function (declarations) {
 		collectSelectors:
 		while (true) {
-			var _p0 = declarations;
-			if (_p0.ctor === '[]') {
-				return _elm_lang$core$Native_List.fromArray(
-					[]);
+			var _p3 = declarations;
+			if (_p3.ctor === '[]') {
+				return {ctor: '[]'};
 			} else {
-				if (_p0._0.ctor === 'StyleBlockDeclaration') {
+				if (_p3._0.ctor === 'StyleBlockDeclaration') {
 					return A2(
 						_elm_lang$core$Basics_ops['++'],
-						A2(_elm_lang$core$List_ops['::'], _p0._0._0._0, _p0._0._0._1),
-						_rtfeldman$elm_css$Css_Preprocess_Resolve$collectSelectors(_p0._1));
+						{ctor: '::', _0: _p3._0._0._0, _1: _p3._0._0._1},
+						_rtfeldman$elm_css$Css_Preprocess_Resolve$collectSelectors(_p3._1));
 				} else {
-					var _v1 = _p0._1;
-					declarations = _v1;
+					var _v4 = _p3._1;
+					declarations = _v4;
 					continue collectSelectors;
 				}
 			}
 		}
 	};
-	var _rtfeldman$elm_css$Css_Preprocess_Resolve$extractWarning = function (_p1) {
-		var _p2 = _p1;
+	var _rtfeldman$elm_css$Css_Preprocess_Resolve$extractWarning = function (_p4) {
+		var _p5 = _p4;
 		return {
 			ctor: '_Tuple2',
-			_0: _p2.warnings,
-			_1: {key: _p2.key, value: _p2.value, important: _p2.important}
+			_0: _p5.warnings,
+			_1: {key: _p5.key, value: _p5.value, important: _p5.important}
 		};
 	};
 	var _rtfeldman$elm_css$Css_Preprocess_Resolve$extractWarnings = function (properties) {
@@ -10397,7 +10853,7 @@ webpackJsonp([1,0],[
 			_1: A2(
 				_elm_lang$core$List$map,
 				function (prop) {
-					return _elm_lang$core$Basics$snd(
+					return _elm_lang$core$Tuple$second(
 						_rtfeldman$elm_css$Css_Preprocess_Resolve$extractWarning(prop));
 				},
 				properties)
@@ -10405,154 +10861,181 @@ webpackJsonp([1,0],[
 	};
 	var _rtfeldman$elm_css$Css_Preprocess_Resolve$toDocumentRule = F5(
 		function (str1, str2, str3, str4, declaration) {
-			var _p3 = declaration;
-			if (_p3.ctor === 'StyleBlockDeclaration') {
-				return A5(_rtfeldman$elm_css$Css_Structure$DocumentRule, str1, str2, str3, str4, _p3._0);
+			var _p6 = declaration;
+			if (_p6.ctor === 'StyleBlockDeclaration') {
+				return A5(_rtfeldman$elm_css$Css_Structure$DocumentRule, str1, str2, str3, str4, _p6._0);
 			} else {
 				return declaration;
 			}
 		});
+	var _rtfeldman$elm_css$Css_Preprocess_Resolve$lastDeclaration = function (declarations) {
+		lastDeclaration:
+		while (true) {
+			var _p7 = declarations;
+			if (_p7.ctor === '[]') {
+				return _elm_lang$core$Maybe$Nothing;
+			} else {
+				if (_p7._1.ctor === '[]') {
+					return _elm_lang$core$Maybe$Just(
+						{
+							ctor: '::',
+							_0: _p7._0,
+							_1: {ctor: '[]'}
+						});
+				} else {
+					var _v8 = _p7._1;
+					declarations = _v8;
+					continue lastDeclaration;
+				}
+			}
+		}
+	};
 	var _rtfeldman$elm_css$Css_Preprocess_Resolve$concatDeclarationsAndWarnings = function (declarationsAndWarnings) {
-		var _p4 = declarationsAndWarnings;
-		if (_p4.ctor === '[]') {
+		var _p8 = declarationsAndWarnings;
+		if (_p8.ctor === '[]') {
 			return {
-				declarations: _elm_lang$core$Native_List.fromArray(
-					[]),
-				warnings: _elm_lang$core$Native_List.fromArray(
-					[])
+				declarations: {ctor: '[]'},
+				warnings: {ctor: '[]'}
 			};
 		} else {
-			var result = _rtfeldman$elm_css$Css_Preprocess_Resolve$concatDeclarationsAndWarnings(_p4._1);
+			var result = _rtfeldman$elm_css$Css_Preprocess_Resolve$concatDeclarationsAndWarnings(_p8._1);
 			return {
-				declarations: A2(_elm_lang$core$Basics_ops['++'], _p4._0.declarations, result.declarations),
-				warnings: A2(_elm_lang$core$Basics_ops['++'], _p4._0.warnings, result.warnings)
+				declarations: A2(_elm_lang$core$Basics_ops['++'], _p8._0.declarations, result.declarations),
+				warnings: A2(_elm_lang$core$Basics_ops['++'], _p8._0.warnings, result.warnings)
 			};
 		}
 	};
 	var _rtfeldman$elm_css$Css_Preprocess_Resolve$resolveFontFeatureValues = function (tuples) {
 		var expandTuples = function (tuplesToExpand) {
-			var _p5 = tuplesToExpand;
-			if (_p5.ctor === '[]') {
+			var _p9 = tuplesToExpand;
+			if (_p9.ctor === '[]') {
 				return {
 					ctor: '_Tuple2',
-					_0: _elm_lang$core$Native_List.fromArray(
-						[]),
-					_1: _elm_lang$core$Native_List.fromArray(
-						[])
+					_0: {ctor: '[]'},
+					_1: {ctor: '[]'}
 				};
 			} else {
-				var _p6 = expandTuples(_p5._1);
-				var nextWarnings = _p6._0;
-				var nextTuples = _p6._1;
-				var _p7 = _rtfeldman$elm_css$Css_Preprocess_Resolve$extractWarnings(_p5._0._1);
-				var warnings = _p7._0;
-				var properties = _p7._1;
+				var _p10 = expandTuples(_p9._1);
+				var nextWarnings = _p10._0;
+				var nextTuples = _p10._1;
+				var _p11 = _rtfeldman$elm_css$Css_Preprocess_Resolve$extractWarnings(_p9._0._1);
+				var warnings = _p11._0;
+				var properties = _p11._1;
 				return {
 					ctor: '_Tuple2',
 					_0: A2(_elm_lang$core$Basics_ops['++'], warnings, nextWarnings),
-					_1: A2(
-						_elm_lang$core$List_ops['::'],
-						{ctor: '_Tuple2', _0: _p5._0._0, _1: properties},
-						nextTuples)
+					_1: {
+						ctor: '::',
+						_0: {ctor: '_Tuple2', _0: _p9._0._0, _1: properties},
+						_1: nextTuples
+					}
 				};
 			}
 		};
-		var _p8 = expandTuples(tuples);
-		var warnings = _p8._0;
-		var newTuples = _p8._1;
+		var _p12 = expandTuples(tuples);
+		var warnings = _p12._0;
+		var newTuples = _p12._1;
 		return {
-			declarations: _elm_lang$core$Native_List.fromArray(
-				[
-					_rtfeldman$elm_css$Css_Structure$FontFeatureValues(newTuples)
-				]),
+			declarations: {
+				ctor: '::',
+				_0: _rtfeldman$elm_css$Css_Structure$FontFeatureValues(newTuples),
+				_1: {ctor: '[]'}
+			},
 			warnings: warnings
 		};
 	};
 	var _rtfeldman$elm_css$Css_Preprocess_Resolve$resolveCounterStyle = function (counterStyleProperties) {
-		var _p9 = _rtfeldman$elm_css$Css_Preprocess_Resolve$extractWarnings(counterStyleProperties);
-		var warnings = _p9._0;
-		var properties = _p9._1;
+		var _p13 = _rtfeldman$elm_css$Css_Preprocess_Resolve$extractWarnings(counterStyleProperties);
+		var warnings = _p13._0;
+		var properties = _p13._1;
 		return {
-			declarations: _elm_lang$core$Native_List.fromArray(
-				[
-					_rtfeldman$elm_css$Css_Structure$Viewport(properties)
-				]),
+			declarations: {
+				ctor: '::',
+				_0: _rtfeldman$elm_css$Css_Structure$Viewport(properties),
+				_1: {ctor: '[]'}
+			},
 			warnings: warnings
 		};
 	};
 	var _rtfeldman$elm_css$Css_Preprocess_Resolve$resolveViewport = function (viewportProperties) {
-		var _p10 = _rtfeldman$elm_css$Css_Preprocess_Resolve$extractWarnings(viewportProperties);
-		var warnings = _p10._0;
-		var properties = _p10._1;
+		var _p14 = _rtfeldman$elm_css$Css_Preprocess_Resolve$extractWarnings(viewportProperties);
+		var warnings = _p14._0;
+		var properties = _p14._1;
 		return {
-			declarations: _elm_lang$core$Native_List.fromArray(
-				[
-					_rtfeldman$elm_css$Css_Structure$Viewport(properties)
-				]),
+			declarations: {
+				ctor: '::',
+				_0: _rtfeldman$elm_css$Css_Structure$Viewport(properties),
+				_1: {ctor: '[]'}
+			},
 			warnings: warnings
 		};
 	};
 	var _rtfeldman$elm_css$Css_Preprocess_Resolve$resolveKeyframes = F2(
 		function (str, properties) {
 			return {
-				declarations: _elm_lang$core$Native_List.fromArray(
-					[
-						A2(_rtfeldman$elm_css$Css_Structure$Keyframes, str, properties)
-					]),
-				warnings: _elm_lang$core$Native_List.fromArray(
-					[])
+				declarations: {
+					ctor: '::',
+					_0: A2(_rtfeldman$elm_css$Css_Structure$Keyframes, str, properties),
+					_1: {ctor: '[]'}
+				},
+				warnings: {ctor: '[]'}
 			};
 		});
 	var _rtfeldman$elm_css$Css_Preprocess_Resolve$resolveFontFace = function (fontFaceProperties) {
-		var _p11 = _rtfeldman$elm_css$Css_Preprocess_Resolve$extractWarnings(fontFaceProperties);
-		var warnings = _p11._0;
-		var properties = _p11._1;
+		var _p15 = _rtfeldman$elm_css$Css_Preprocess_Resolve$extractWarnings(fontFaceProperties);
+		var warnings = _p15._0;
+		var properties = _p15._1;
 		return {
-			declarations: _elm_lang$core$Native_List.fromArray(
-				[
-					_rtfeldman$elm_css$Css_Structure$FontFace(properties)
-				]),
+			declarations: {
+				ctor: '::',
+				_0: _rtfeldman$elm_css$Css_Structure$FontFace(properties),
+				_1: {ctor: '[]'}
+			},
 			warnings: warnings
 		};
 	};
 	var _rtfeldman$elm_css$Css_Preprocess_Resolve$resolvePageRule = F2(
 		function (str, pageRuleProperties) {
-			var _p12 = _rtfeldman$elm_css$Css_Preprocess_Resolve$extractWarnings(pageRuleProperties);
-			var warnings = _p12._0;
-			var properties = _p12._1;
+			var _p16 = _rtfeldman$elm_css$Css_Preprocess_Resolve$extractWarnings(pageRuleProperties);
+			var warnings = _p16._0;
+			var properties = _p16._1;
 			return {
-				declarations: _elm_lang$core$Native_List.fromArray(
-					[
-						A2(_rtfeldman$elm_css$Css_Structure$PageRule, str, properties)
-					]),
+				declarations: {
+					ctor: '::',
+					_0: A2(_rtfeldman$elm_css$Css_Structure$PageRule, str, properties),
+					_1: {ctor: '[]'}
+				},
 				warnings: warnings
 			};
 		});
 	var _rtfeldman$elm_css$Css_Preprocess_Resolve$toMediaRule = F2(
 		function (mediaQueries, declaration) {
-			var _p13 = declaration;
-			switch (_p13.ctor) {
+			var _p17 = declaration;
+			switch (_p17.ctor) {
 				case 'StyleBlockDeclaration':
 					return A2(
 						_rtfeldman$elm_css$Css_Structure$MediaRule,
 						mediaQueries,
-						_elm_lang$core$Native_List.fromArray(
-							[_p13._0]));
+						{
+							ctor: '::',
+							_0: _p17._0,
+							_1: {ctor: '[]'}
+						});
 				case 'MediaRule':
 					return A2(
 						_rtfeldman$elm_css$Css_Structure$MediaRule,
-						A2(_elm_lang$core$Basics_ops['++'], mediaQueries, _p13._0),
-						_p13._1);
+						A2(_elm_lang$core$Basics_ops['++'], mediaQueries, _p17._0),
+						_p17._1);
 				case 'SupportsRule':
 					return A2(
 						_rtfeldman$elm_css$Css_Structure$SupportsRule,
-						_p13._0,
+						_p17._0,
 						A2(
 							_elm_lang$core$List$map,
 							_rtfeldman$elm_css$Css_Preprocess_Resolve$toMediaRule(mediaQueries),
-							_p13._1));
+							_p17._1));
 				case 'DocumentRule':
-					return A5(_rtfeldman$elm_css$Css_Structure$DocumentRule, _p13._0, _p13._1, _p13._2, _p13._3, _p13._4);
+					return A5(_rtfeldman$elm_css$Css_Structure$DocumentRule, _p17._0, _p17._1, _p17._2, _p17._3, _p17._4);
 				case 'PageRule':
 					return declaration;
 				case 'FontFace':
@@ -10570,9 +11053,9 @@ webpackJsonp([1,0],[
 	var _rtfeldman$elm_css$Css_Preprocess_Resolve$resolveMediaRule = F2(
 		function (mediaQueries, styleBlocks) {
 			var handleStyleBlock = function (styleBlock) {
-				var _p14 = _rtfeldman$elm_css$Css_Preprocess_Resolve$expandStyleBlock(styleBlock);
-				var declarations = _p14.declarations;
-				var warnings = _p14.warnings;
+				var _p18 = _rtfeldman$elm_css$Css_Preprocess_Resolve$expandStyleBlock(styleBlock);
+				var declarations = _p18.declarations;
+				var warnings = _p18.warnings;
 				return {
 					declarations: A2(
 						_elm_lang$core$List$map,
@@ -10597,42 +11080,41 @@ webpackJsonp([1,0],[
 					results)
 			};
 		});
-	var _rtfeldman$elm_css$Css_Preprocess_Resolve$expandStyleBlock = function (_p15) {
-		var _p16 = _p15;
+	var _rtfeldman$elm_css$Css_Preprocess_Resolve$expandStyleBlock = function (_p19) {
+		var _p20 = _p19;
 		return A2(
 			_rtfeldman$elm_css$Css_Preprocess_Resolve$applyMixins,
-			_p16._2,
-			_elm_lang$core$Native_List.fromArray(
-				[
-					_rtfeldman$elm_css$Css_Structure$StyleBlockDeclaration(
+			_p20._2,
+			{
+				ctor: '::',
+				_0: _rtfeldman$elm_css$Css_Structure$StyleBlockDeclaration(
 					A3(
 						_rtfeldman$elm_css$Css_Structure$StyleBlock,
-						_p16._0,
-						_p16._1,
-						_elm_lang$core$Native_List.fromArray(
-							[])))
-				]));
+						_p20._0,
+						_p20._1,
+						{ctor: '[]'})),
+				_1: {ctor: '[]'}
+			});
 	};
 	var _rtfeldman$elm_css$Css_Preprocess_Resolve$applyMixins = F2(
 		function (mixins, declarations) {
 			applyMixins:
 			while (true) {
-				var _p17 = mixins;
-				if (_p17.ctor === '[]') {
+				var _p21 = mixins;
+				if (_p21.ctor === '[]') {
 					return {
 						declarations: declarations,
-						warnings: _elm_lang$core$Native_List.fromArray(
-							[])
+						warnings: {ctor: '[]'}
 					};
 				} else {
-					switch (_p17._0.ctor) {
+					switch (_p21._0.ctor) {
 						case 'AppendProperty':
-							var _p18 = _rtfeldman$elm_css$Css_Preprocess_Resolve$extractWarning(_p17._0._0);
-							var warnings = _p18._0;
-							var property = _p18._1;
+							var _p22 = _rtfeldman$elm_css$Css_Preprocess_Resolve$extractWarning(_p21._0._0);
+							var warnings = _p22._0;
+							var property = _p22._1;
 							var result = A2(
 								_rtfeldman$elm_css$Css_Preprocess_Resolve$applyMixins,
-								_p17._1,
+								_p21._1,
 								A2(_rtfeldman$elm_css$Css_Structure$appendProperty, property, declarations));
 							return {
 								declarations: result.declarations,
@@ -10641,32 +11123,40 @@ webpackJsonp([1,0],[
 						case 'ExtendSelector':
 							return A4(
 								_rtfeldman$elm_css$Css_Preprocess_Resolve$applyNestedMixinsToLast,
-								_p17._0._1,
-								_p17._1,
-								_rtfeldman$elm_css$Css_Structure$appendToLastSelector(_p17._0._0),
+								_p21._0._1,
+								_p21._1,
+								_rtfeldman$elm_css$Css_Structure$appendRepeatableToLastSelector(_p21._0._0),
 								declarations);
 						case 'NestSnippet':
 							var chain = F2(
-								function (_p20, _p19) {
-									var _p21 = _p20;
-									var _p22 = _p19;
+								function (_p24, _p23) {
+									var _p25 = _p24;
+									var _p26 = _p23;
 									return A3(
 										_rtfeldman$elm_css$Css_Structure$Selector,
-										_p21._0,
+										_p25._0,
 										A2(
 											_elm_lang$core$Basics_ops['++'],
-											_p21._1,
-											A2(
-												_elm_lang$core$List_ops['::'],
-												{ctor: '_Tuple2', _0: _p17._0._0, _1: _p22._0},
-												_p22._1)),
-										_elm_lang$core$Maybe$oneOf(
-											_elm_lang$core$Native_List.fromArray(
-												[_p22._2, _p21._2])));
+											_p25._1,
+											{
+												ctor: '::',
+												_0: {ctor: '_Tuple2', _0: _p21._0._0, _1: _p26._0},
+												_1: _p26._1
+											}),
+										_rtfeldman$elm_css$Css_Preprocess_Resolve$oneOf(
+											{
+												ctor: '::',
+												_0: _p26._2,
+												_1: {
+													ctor: '::',
+													_0: _p25._2,
+													_1: {ctor: '[]'}
+												}
+											}));
 								});
 							var expandDeclaration = function (declaration) {
-								var _p23 = declaration;
-								switch (_p23.ctor) {
+								var _p27 = declaration;
+								switch (_p27.ctor) {
 									case 'StyleBlockDeclaration':
 										var newSelectors = A2(
 											_elm_lang$core$List$concatMap,
@@ -10674,50 +11164,50 @@ webpackJsonp([1,0],[
 												return A2(
 													_elm_lang$core$List$map,
 													chain(originalSelector),
-													A2(_elm_lang$core$List_ops['::'], _p23._0._0, _p23._0._1));
+													{ctor: '::', _0: _p27._0._0, _1: _p27._0._1});
 											},
 											_rtfeldman$elm_css$Css_Preprocess_Resolve$collectSelectors(declarations));
 										var newDeclarations = function () {
-											var _p24 = newSelectors;
-											if (_p24.ctor === '[]') {
-												return _elm_lang$core$Native_List.fromArray(
-													[]);
+											var _p28 = newSelectors;
+											if (_p28.ctor === '[]') {
+												return {ctor: '[]'};
 											} else {
-												return _elm_lang$core$Native_List.fromArray(
-													[
-														_rtfeldman$elm_css$Css_Structure$StyleBlockDeclaration(
+												return {
+													ctor: '::',
+													_0: _rtfeldman$elm_css$Css_Structure$StyleBlockDeclaration(
 														A3(
 															_rtfeldman$elm_css$Css_Structure$StyleBlock,
-															_p24._0,
-															_p24._1,
-															_elm_lang$core$Native_List.fromArray(
-																[])))
-													]);
+															_p28._0,
+															_p28._1,
+															{ctor: '[]'})),
+													_1: {ctor: '[]'}
+												};
 											}
 										}();
 										return _rtfeldman$elm_css$Css_Preprocess_Resolve$concatDeclarationsAndWarnings(
-											_elm_lang$core$Native_List.fromArray(
-												[
-													A2(_rtfeldman$elm_css$Css_Preprocess_Resolve$applyMixins, _p23._0._2, newDeclarations)
-												]));
+											{
+												ctor: '::',
+												_0: A2(_rtfeldman$elm_css$Css_Preprocess_Resolve$applyMixins, _p27._0._2, newDeclarations),
+												_1: {ctor: '[]'}
+											});
 									case 'MediaRule':
-										return A2(_rtfeldman$elm_css$Css_Preprocess_Resolve$resolveMediaRule, _p23._0, _p23._1);
+										return A2(_rtfeldman$elm_css$Css_Preprocess_Resolve$resolveMediaRule, _p27._0, _p27._1);
 									case 'SupportsRule':
-										return A2(_rtfeldman$elm_css$Css_Preprocess_Resolve$resolveSupportsRule, _p23._0, _p23._1);
+										return A2(_rtfeldman$elm_css$Css_Preprocess_Resolve$resolveSupportsRule, _p27._0, _p27._1);
 									case 'DocumentRule':
-										return A5(_rtfeldman$elm_css$Css_Preprocess_Resolve$resolveDocumentRule, _p23._0, _p23._1, _p23._2, _p23._3, _p23._4);
+										return A5(_rtfeldman$elm_css$Css_Preprocess_Resolve$resolveDocumentRule, _p27._0, _p27._1, _p27._2, _p27._3, _p27._4);
 									case 'PageRule':
-										return A2(_rtfeldman$elm_css$Css_Preprocess_Resolve$resolvePageRule, _p23._0, _p23._1);
+										return A2(_rtfeldman$elm_css$Css_Preprocess_Resolve$resolvePageRule, _p27._0, _p27._1);
 									case 'FontFace':
-										return _rtfeldman$elm_css$Css_Preprocess_Resolve$resolveFontFace(_p23._0);
+										return _rtfeldman$elm_css$Css_Preprocess_Resolve$resolveFontFace(_p27._0);
 									case 'Keyframes':
-										return A2(_rtfeldman$elm_css$Css_Preprocess_Resolve$resolveKeyframes, _p23._0, _p23._1);
+										return A2(_rtfeldman$elm_css$Css_Preprocess_Resolve$resolveKeyframes, _p27._0, _p27._1);
 									case 'Viewport':
-										return _rtfeldman$elm_css$Css_Preprocess_Resolve$resolveViewport(_p23._0);
+										return _rtfeldman$elm_css$Css_Preprocess_Resolve$resolveViewport(_p27._0);
 									case 'CounterStyle':
-										return _rtfeldman$elm_css$Css_Preprocess_Resolve$resolveCounterStyle(_p23._0);
+										return _rtfeldman$elm_css$Css_Preprocess_Resolve$resolveCounterStyle(_p27._0);
 									default:
-										return _rtfeldman$elm_css$Css_Preprocess_Resolve$resolveFontFeatureValues(_p23._0);
+										return _rtfeldman$elm_css$Css_Preprocess_Resolve$resolveFontFeatureValues(_p27._0);
 								}
 							};
 							return _rtfeldman$elm_css$Css_Preprocess_Resolve$concatDeclarationsAndWarnings(
@@ -10726,56 +11216,61 @@ webpackJsonp([1,0],[
 										function (x, y) {
 											return A2(_elm_lang$core$Basics_ops['++'], x, y);
 										}),
-									_elm_lang$core$Native_List.fromArray(
-										[
-											A2(_rtfeldman$elm_css$Css_Preprocess_Resolve$applyMixins, _p17._1, declarations)
-										]),
+									{
+										ctor: '::',
+										_0: A2(_rtfeldman$elm_css$Css_Preprocess_Resolve$applyMixins, _p21._1, declarations),
+										_1: {ctor: '[]'}
+									},
 									A2(
 										_elm_lang$core$List$map,
 										expandDeclaration,
-										A2(_elm_lang$core$List$concatMap, _rtfeldman$elm_css$Css_Preprocess$unwrapSnippet, _p17._0._1))));
+										A2(_elm_lang$core$List$concatMap, _rtfeldman$elm_css$Css_Preprocess$unwrapSnippet, _p21._0._1))));
 						case 'WithPseudoElement':
 							return A4(
 								_rtfeldman$elm_css$Css_Preprocess_Resolve$applyNestedMixinsToLast,
-								_p17._0._1,
-								_p17._1,
-								_rtfeldman$elm_css$Css_Structure$appendPseudoElementToLastSelector(_p17._0._0),
+								_p21._0._1,
+								_p21._1,
+								_rtfeldman$elm_css$Css_Structure$appendPseudoElementToLastSelector(_p21._0._0),
 								declarations);
 						case 'WithMedia':
 							var newDeclarations = function () {
-								var _p25 = _rtfeldman$elm_css$Css_Preprocess_Resolve$collectSelectors(declarations);
-								if (_p25.ctor === '[]') {
-									return _elm_lang$core$Native_List.fromArray(
-										[]);
+								var _p29 = _rtfeldman$elm_css$Css_Preprocess_Resolve$collectSelectors(declarations);
+								if (_p29.ctor === '[]') {
+									return {ctor: '[]'};
 								} else {
-									return _elm_lang$core$Native_List.fromArray(
-										[
-											A2(
+									return {
+										ctor: '::',
+										_0: A2(
 											_rtfeldman$elm_css$Css_Structure$MediaRule,
-											_p17._0._0,
-											_elm_lang$core$Native_List.fromArray(
-												[
-													A3(
+											_p21._0._0,
+											{
+												ctor: '::',
+												_0: A3(
 													_rtfeldman$elm_css$Css_Structure$StyleBlock,
-													_p25._0,
-													_p25._1,
-													_elm_lang$core$Native_List.fromArray(
-														[]))
-												]))
-										]);
+													_p29._0,
+													_p29._1,
+													{ctor: '[]'}),
+												_1: {ctor: '[]'}
+											}),
+										_1: {ctor: '[]'}
+									};
 								}
 							}();
 							return _rtfeldman$elm_css$Css_Preprocess_Resolve$concatDeclarationsAndWarnings(
-								_elm_lang$core$Native_List.fromArray(
-									[
-										A2(_rtfeldman$elm_css$Css_Preprocess_Resolve$applyMixins, _p17._1, declarations),
-										A2(_rtfeldman$elm_css$Css_Preprocess_Resolve$applyMixins, _p17._0._1, newDeclarations)
-									]));
+								{
+									ctor: '::',
+									_0: A2(_rtfeldman$elm_css$Css_Preprocess_Resolve$applyMixins, _p21._1, declarations),
+									_1: {
+										ctor: '::',
+										_0: A2(_rtfeldman$elm_css$Css_Preprocess_Resolve$applyMixins, _p21._0._1, newDeclarations),
+										_1: {ctor: '[]'}
+									}
+								});
 						default:
-							var _v14 = A2(_elm_lang$core$Basics_ops['++'], _p17._0._0, _p17._1),
-								_v15 = declarations;
-							mixins = _v14;
-							declarations = _v15;
+							var _v19 = A2(_elm_lang$core$Basics_ops['++'], _p21._0._0, _p21._1),
+								_v20 = declarations;
+							mixins = _v19;
+							declarations = _v20;
 							continue applyMixins;
 					}
 				}
@@ -10783,6 +11278,44 @@ webpackJsonp([1,0],[
 		});
 	var _rtfeldman$elm_css$Css_Preprocess_Resolve$applyNestedMixinsToLast = F4(
 		function (nestedMixins, rest, f, declarations) {
+			var withoutParent = function (decls) {
+				return A2(
+					_elm_lang$core$Maybe$withDefault,
+					{ctor: '[]'},
+					_elm_lang$core$List$tail(decls));
+			};
+			var nextResult = A2(
+				_rtfeldman$elm_css$Css_Preprocess_Resolve$applyMixins,
+				rest,
+				A2(
+					_elm_lang$core$Maybe$withDefault,
+					{ctor: '[]'},
+					_rtfeldman$elm_css$Css_Preprocess_Resolve$lastDeclaration(declarations)));
+			var newDeclarations = function () {
+				var _p30 = {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$List$head(nextResult.declarations),
+					_1: _elm_lang$core$List$head(
+						_elm_lang$core$List$reverse(declarations))
+				};
+				if (((_p30.ctor === '_Tuple2') && (_p30._0.ctor === 'Just')) && (_p30._1.ctor === 'Just')) {
+					var _p32 = _p30._1._0;
+					var _p31 = _p30._0._0;
+					return A2(
+						_elm_lang$core$Basics_ops['++'],
+						A2(
+							_elm_lang$core$List$take,
+							_elm_lang$core$List$length(declarations) - 1,
+							declarations),
+						{
+							ctor: '::',
+							_0: (!_elm_lang$core$Native_Utils.eq(_p32, _p31)) ? _p31 : _p32,
+							_1: {ctor: '[]'}
+						});
+				} else {
+					return declarations;
+				}
+			}();
 			var handleInitial = function (declarationsAndWarnings) {
 				var result = A2(_rtfeldman$elm_css$Css_Preprocess_Resolve$applyMixins, nestedMixins, declarationsAndWarnings.declarations);
 				return {
@@ -10790,32 +11323,51 @@ webpackJsonp([1,0],[
 					declarations: result.declarations
 				};
 			};
-			var initialResult = _rtfeldman$elm_css$Css_Preprocess_Resolve$concatDeclarationsAndWarnings(
-				A2(
-					_rtfeldman$elm_css$Css_Structure$mapLast,
-					handleInitial,
+			var insertMixinsToNestedDecl = function (lastDecl) {
+				return _rtfeldman$elm_css$Css_Preprocess_Resolve$concatDeclarationsAndWarnings(
 					A2(
-						_elm_lang$core$List$map,
-						function (declaration) {
-							return {
-								declarations: _elm_lang$core$Native_List.fromArray(
-									[declaration]),
-								warnings: _elm_lang$core$Native_List.fromArray(
-									[])
-							};
-						},
-						A2(_rtfeldman$elm_css$Css_Structure$concatMapLastStyleBlock, f, declarations))));
-			var nextResult = A2(_rtfeldman$elm_css$Css_Preprocess_Resolve$applyMixins, rest, initialResult.declarations);
+						_rtfeldman$elm_css$Css_Structure$mapLast,
+						handleInitial,
+						A2(
+							_elm_lang$core$List$map,
+							function (declaration) {
+								return {
+									declarations: {
+										ctor: '::',
+										_0: declaration,
+										_1: {ctor: '[]'}
+									},
+									warnings: {ctor: '[]'}
+								};
+							},
+							A2(_rtfeldman$elm_css$Css_Structure$concatMapLastStyleBlock, f, lastDecl))));
+			};
+			var initialResult = A2(
+				_elm_lang$core$Maybe$withDefault,
+				{
+					warnings: {ctor: '[]'},
+					declarations: {ctor: '[]'}
+				},
+				A2(
+					_elm_lang$core$Maybe$map,
+					insertMixinsToNestedDecl,
+					_rtfeldman$elm_css$Css_Preprocess_Resolve$lastDeclaration(declarations)));
 			return {
 				warnings: A2(_elm_lang$core$Basics_ops['++'], initialResult.warnings, nextResult.warnings),
-				declarations: nextResult.declarations
+				declarations: A2(
+					_elm_lang$core$Basics_ops['++'],
+					newDeclarations,
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						withoutParent(initialResult.declarations),
+						withoutParent(nextResult.declarations)))
 			};
 		});
 	var _rtfeldman$elm_css$Css_Preprocess_Resolve$resolveDocumentRule = F5(
 		function (str1, str2, str3, str4, styleBlock) {
-			var _p26 = _rtfeldman$elm_css$Css_Preprocess_Resolve$expandStyleBlock(styleBlock);
-			var declarations = _p26.declarations;
-			var warnings = _p26.warnings;
+			var _p33 = _rtfeldman$elm_css$Css_Preprocess_Resolve$expandStyleBlock(styleBlock);
+			var declarations = _p33.declarations;
+			var warnings = _p33.warnings;
 			return {
 				declarations: A2(
 					_elm_lang$core$List$map,
@@ -10826,32 +11378,31 @@ webpackJsonp([1,0],[
 		});
 	var _rtfeldman$elm_css$Css_Preprocess_Resolve$resolveSupportsRule = F2(
 		function (str, snippets) {
-			var _p27 = _rtfeldman$elm_css$Css_Preprocess_Resolve$extract(
+			var _p34 = _rtfeldman$elm_css$Css_Preprocess_Resolve$extract(
 				A2(_elm_lang$core$List$concatMap, _rtfeldman$elm_css$Css_Preprocess$unwrapSnippet, snippets));
-			var declarations = _p27.declarations;
-			var warnings = _p27.warnings;
+			var declarations = _p34.declarations;
+			var warnings = _p34.warnings;
 			return {
-				declarations: _elm_lang$core$Native_List.fromArray(
-					[
-						A2(_rtfeldman$elm_css$Css_Structure$SupportsRule, str, declarations)
-					]),
+				declarations: {
+					ctor: '::',
+					_0: A2(_rtfeldman$elm_css$Css_Structure$SupportsRule, str, declarations),
+					_1: {ctor: '[]'}
+				},
 				warnings: warnings
 			};
 		});
 	var _rtfeldman$elm_css$Css_Preprocess_Resolve$extract = function (snippetDeclarations) {
-		var _p28 = snippetDeclarations;
-		if (_p28.ctor === '[]') {
+		var _p35 = snippetDeclarations;
+		if (_p35.ctor === '[]') {
 			return {
-				declarations: _elm_lang$core$Native_List.fromArray(
-					[]),
-				warnings: _elm_lang$core$Native_List.fromArray(
-					[])
+				declarations: {ctor: '[]'},
+				warnings: {ctor: '[]'}
 			};
 		} else {
-			var _p29 = _rtfeldman$elm_css$Css_Preprocess_Resolve$toDeclarations(_p28._0);
-			var declarations = _p29.declarations;
-			var warnings = _p29.warnings;
-			var nextResult = _rtfeldman$elm_css$Css_Preprocess_Resolve$extract(_p28._1);
+			var _p36 = _rtfeldman$elm_css$Css_Preprocess_Resolve$toDeclarations(_p35._0);
+			var declarations = _p36.declarations;
+			var warnings = _p36.warnings;
+			var nextResult = _rtfeldman$elm_css$Css_Preprocess_Resolve$extract(_p35._1);
 			return {
 				declarations: A2(_elm_lang$core$Basics_ops['++'], declarations, nextResult.declarations),
 				warnings: A2(_elm_lang$core$Basics_ops['++'], warnings, nextResult.warnings)
@@ -10859,50 +11410,70 @@ webpackJsonp([1,0],[
 		}
 	};
 	var _rtfeldman$elm_css$Css_Preprocess_Resolve$toDeclarations = function (snippetDeclaration) {
-		var _p30 = snippetDeclaration;
-		switch (_p30.ctor) {
+		var _p37 = snippetDeclaration;
+		switch (_p37.ctor) {
 			case 'StyleBlockDeclaration':
-				return _rtfeldman$elm_css$Css_Preprocess_Resolve$expandStyleBlock(_p30._0);
+				return _rtfeldman$elm_css$Css_Preprocess_Resolve$expandStyleBlock(_p37._0);
 			case 'MediaRule':
-				return A2(_rtfeldman$elm_css$Css_Preprocess_Resolve$resolveMediaRule, _p30._0, _p30._1);
+				return A2(_rtfeldman$elm_css$Css_Preprocess_Resolve$resolveMediaRule, _p37._0, _p37._1);
 			case 'SupportsRule':
-				return A2(_rtfeldman$elm_css$Css_Preprocess_Resolve$resolveSupportsRule, _p30._0, _p30._1);
+				return A2(_rtfeldman$elm_css$Css_Preprocess_Resolve$resolveSupportsRule, _p37._0, _p37._1);
 			case 'DocumentRule':
-				return A5(_rtfeldman$elm_css$Css_Preprocess_Resolve$resolveDocumentRule, _p30._0, _p30._1, _p30._2, _p30._3, _p30._4);
+				return A5(_rtfeldman$elm_css$Css_Preprocess_Resolve$resolveDocumentRule, _p37._0, _p37._1, _p37._2, _p37._3, _p37._4);
 			case 'PageRule':
-				return A2(_rtfeldman$elm_css$Css_Preprocess_Resolve$resolvePageRule, _p30._0, _p30._1);
+				return A2(_rtfeldman$elm_css$Css_Preprocess_Resolve$resolvePageRule, _p37._0, _p37._1);
 			case 'FontFace':
-				return _rtfeldman$elm_css$Css_Preprocess_Resolve$resolveFontFace(_p30._0);
+				return _rtfeldman$elm_css$Css_Preprocess_Resolve$resolveFontFace(_p37._0);
 			case 'Keyframes':
-				return A2(_rtfeldman$elm_css$Css_Preprocess_Resolve$resolveKeyframes, _p30._0, _p30._1);
+				return A2(_rtfeldman$elm_css$Css_Preprocess_Resolve$resolveKeyframes, _p37._0, _p37._1);
 			case 'Viewport':
-				return _rtfeldman$elm_css$Css_Preprocess_Resolve$resolveViewport(_p30._0);
+				return _rtfeldman$elm_css$Css_Preprocess_Resolve$resolveViewport(_p37._0);
 			case 'CounterStyle':
-				return _rtfeldman$elm_css$Css_Preprocess_Resolve$resolveCounterStyle(_p30._0);
+				return _rtfeldman$elm_css$Css_Preprocess_Resolve$resolveCounterStyle(_p37._0);
 			default:
-				return _rtfeldman$elm_css$Css_Preprocess_Resolve$resolveFontFeatureValues(_p30._0);
+				return _rtfeldman$elm_css$Css_Preprocess_Resolve$resolveFontFeatureValues(_p37._0);
 		}
 	};
-	var _rtfeldman$elm_css$Css_Preprocess_Resolve$toStructure = function (_p31) {
-		var _p32 = _p31;
-		var _p33 = _rtfeldman$elm_css$Css_Preprocess_Resolve$extract(
-			A2(_elm_lang$core$List$concatMap, _rtfeldman$elm_css$Css_Preprocess$unwrapSnippet, _p32.snippets));
-		var warnings = _p33.warnings;
-		var declarations = _p33.declarations;
+	var _rtfeldman$elm_css$Css_Preprocess_Resolve$toStructure = function (_p38) {
+		var _p39 = _p38;
+		var _p40 = _rtfeldman$elm_css$Css_Preprocess_Resolve$extract(
+			A2(_elm_lang$core$List$concatMap, _rtfeldman$elm_css$Css_Preprocess$unwrapSnippet, _p39.snippets));
+		var warnings = _p40.warnings;
+		var declarations = _p40.declarations;
 		return {
 			ctor: '_Tuple2',
-			_0: {charset: _p32.charset, imports: _p32.imports, namespaces: _p32.namespaces, declarations: declarations},
+			_0: {charset: _p39.charset, imports: _p39.imports, namespaces: _p39.namespaces, declarations: declarations},
 			_1: warnings
 		};
 	};
-	var _rtfeldman$elm_css$Css_Preprocess_Resolve$compile = function (sheet) {
-		var _p34 = _rtfeldman$elm_css$Css_Preprocess_Resolve$toStructure(sheet);
-		var structureStylesheet = _p34._0;
-		var warnings = _p34._1;
+	var _rtfeldman$elm_css$Css_Preprocess_Resolve$compile1 = function (sheet) {
+		var _p41 = _rtfeldman$elm_css$Css_Preprocess_Resolve$toStructure(sheet);
+		var structureStylesheet = _p41._0;
+		var warnings = _p41._1;
 		return {
 			warnings: warnings,
 			css: _rtfeldman$elm_css$Css_Structure_Output$prettyPrint(
 				_rtfeldman$elm_css$Css_Structure$dropEmpty(structureStylesheet))
+		};
+	};
+	var _rtfeldman$elm_css$Css_Preprocess_Resolve$compile = function (styles) {
+		var results = A2(_elm_lang$core$List$map, _rtfeldman$elm_css$Css_Preprocess_Resolve$compile1, styles);
+		return {
+			warnings: A2(
+				_elm_lang$core$List$concatMap,
+				function (_) {
+					return _.warnings;
+				},
+				results),
+			css: A2(
+				_elm_lang$core$String$join,
+				'\n\n',
+				A2(
+					_elm_lang$core$List$map,
+					function (_) {
+						return _.css;
+					},
+					results))
 		};
 	};
 	var _rtfeldman$elm_css$Css_Preprocess_Resolve$DeclarationsAndWarnings = F2(
@@ -10916,13 +11487,12 @@ webpackJsonp([1,0],[
 		while (true) {
 			var _p0 = declarations;
 			if (_p0.ctor === '[]') {
-				return _elm_lang$core$Native_List.fromArray(
-					[]);
+				return {ctor: '[]'};
 			} else {
 				if (_p0._0.ctor === 'StyleBlockDeclaration') {
 					return A2(
 						_elm_lang$core$Basics_ops['++'],
-						A2(_elm_lang$core$List_ops['::'], _p0._0._0._0, _p0._0._0._1),
+						{ctor: '::', _0: _p0._0._0._0, _1: _p0._0._0._1},
 						_rtfeldman$elm_css$Css$collectSelectors(_p0._1));
 				} else {
 					var _v1 = _p0._1;
@@ -10991,15 +11561,15 @@ webpackJsonp([1,0],[
 				var _p1 = selectors;
 				if (_p1.ctor === '[]') {
 					return _rtfeldman$elm_css$Css_Preprocess$Snippet(
-						_elm_lang$core$Native_List.fromArray(
-							[]));
+						{ctor: '[]'});
 				} else {
 					return _rtfeldman$elm_css$Css_Preprocess$Snippet(
-						_elm_lang$core$Native_List.fromArray(
-							[
-								_rtfeldman$elm_css$Css_Preprocess$StyleBlockDeclaration(
-								A3(_rtfeldman$elm_css$Css_Preprocess$StyleBlock, _p1._0, _p1._1, mixins))
-							]));
+						{
+							ctor: '::',
+							_0: _rtfeldman$elm_css$Css_Preprocess$StyleBlockDeclaration(
+								A3(_rtfeldman$elm_css$Css_Preprocess$StyleBlock, _p1._0, _p1._1, mixins)),
+							_1: {ctor: '[]'}
+						});
 				}
 			};
 			return selectorsToSnippet(
@@ -11013,8 +11583,7 @@ webpackJsonp([1,0],[
 								function (x, y) {
 									return y(x);
 								})(
-								_elm_lang$core$Native_List.fromArray(
-									[])),
+								{ctor: '[]'}),
 							snippetCreators))));
 		});
 	var _rtfeldman$elm_css$Css$generalSiblings = _rtfeldman$elm_css$Css_Preprocess$NestSnippet(_rtfeldman$elm_css$Css_Structure$GeneralSibling);
@@ -11161,27 +11730,25 @@ webpackJsonp([1,0],[
 				{key: key, value: value, important: false, warnings: warnings});
 		});
 	var _rtfeldman$elm_css$Css$property = _rtfeldman$elm_css$Css$propertyWithWarnings(
-		_elm_lang$core$Native_List.fromArray(
-			[]));
+		{ctor: '[]'});
 	var _rtfeldman$elm_css$Css$makeSnippet = F2(
 		function (mixins, sequence) {
 			var selector = A3(
 				_rtfeldman$elm_css$Css_Structure$Selector,
 				sequence,
-				_elm_lang$core$Native_List.fromArray(
-					[]),
+				{ctor: '[]'},
 				_elm_lang$core$Maybe$Nothing);
 			return _rtfeldman$elm_css$Css_Preprocess$Snippet(
-				_elm_lang$core$Native_List.fromArray(
-					[
-						_rtfeldman$elm_css$Css_Preprocess$StyleBlockDeclaration(
+				{
+					ctor: '::',
+					_0: _rtfeldman$elm_css$Css_Preprocess$StyleBlockDeclaration(
 						A3(
 							_rtfeldman$elm_css$Css_Preprocess$StyleBlock,
 							selector,
-							_elm_lang$core$Native_List.fromArray(
-								[]),
-							mixins))
-					]));
+							{ctor: '[]'},
+							mixins)),
+					_1: {ctor: '[]'}
+				});
 		});
 	var _rtfeldman$elm_css$Css_ops = _rtfeldman$elm_css$Css_ops || {};
 	_rtfeldman$elm_css$Css_ops['.'] = F2(
@@ -11190,11 +11757,12 @@ webpackJsonp([1,0],[
 				_rtfeldman$elm_css$Css$makeSnippet,
 				mixins,
 				_rtfeldman$elm_css$Css_Structure$UniversalSelectorSequence(
-					_elm_lang$core$Native_List.fromArray(
-						[
-							_rtfeldman$elm_css$Css_Structure$ClassSelector(
-							A2(_rtfeldman$elm_css_util$Css_Helpers$identifierToString, '', $class))
-						])));
+					{
+						ctor: '::',
+						_0: _rtfeldman$elm_css$Css_Structure$ClassSelector(
+							A2(_rtfeldman$elm_css_util$Css_Helpers$identifierToString, '', $class)),
+						_1: {ctor: '[]'}
+					}));
 		});
 	var _rtfeldman$elm_css$Css$selector = F2(
 		function (selectorStr, mixins) {
@@ -11204,16 +11772,14 @@ webpackJsonp([1,0],[
 				A2(
 					_rtfeldman$elm_css$Css_Structure$CustomSelector,
 					selectorStr,
-					_elm_lang$core$Native_List.fromArray(
-						[])));
+					{ctor: '[]'}));
 		});
 	var _rtfeldman$elm_css$Css$everything = function (mixins) {
 		return A2(
 			_rtfeldman$elm_css$Css$makeSnippet,
 			mixins,
 			_rtfeldman$elm_css$Css_Structure$UniversalSelectorSequence(
-				_elm_lang$core$Native_List.fromArray(
-					[])));
+				{ctor: '[]'}));
 	};
 	var _rtfeldman$elm_css$Css_ops = _rtfeldman$elm_css$Css_ops || {};
 	_rtfeldman$elm_css$Css_ops['#'] = F2(
@@ -11222,11 +11788,12 @@ webpackJsonp([1,0],[
 				_rtfeldman$elm_css$Css$makeSnippet,
 				mixins,
 				_rtfeldman$elm_css$Css_Structure$UniversalSelectorSequence(
-					_elm_lang$core$Native_List.fromArray(
-						[
-							_rtfeldman$elm_css$Css_Structure$IdSelector(
-							A2(_rtfeldman$elm_css_util$Css_Helpers$identifierToString, '', id))
-						])));
+					{
+						ctor: '::',
+						_0: _rtfeldman$elm_css$Css_Structure$IdSelector(
+							A2(_rtfeldman$elm_css_util$Css_Helpers$identifierToString, '', id)),
+						_1: {ctor: '[]'}
+					}));
 		});
 	var _rtfeldman$elm_css$Css$mixin = _rtfeldman$elm_css$Css_Preprocess$ApplyMixins;
 	var _rtfeldman$elm_css$Css$stylesheet = _rtfeldman$elm_css$Css_Preprocess$stylesheet;
@@ -11242,8 +11809,11 @@ webpackJsonp([1,0],[
 	};
 	var _rtfeldman$elm_css$Css$animationName = function (identifier) {
 		return _rtfeldman$elm_css$Css$animationNames(
-			_elm_lang$core$Native_List.fromArray(
-				[identifier]));
+			{
+				ctor: '::',
+				_0: identifier,
+				_1: {ctor: '[]'}
+			});
 	};
 	var _rtfeldman$elm_css$Css$fontWeight = function (_p3) {
 		var _p4 = _p3;
@@ -11260,17 +11830,17 @@ webpackJsonp([1,0],[
 						function (x, y) {
 							return x * y;
 						})(100),
-					_elm_lang$core$Native_List.range(1, 9)));
+					A2(_elm_lang$core$List$range, 1, 9)));
 		};
 		var warnings = validWeight(
-			_rtfeldman$elm_css$Css$stringToInt(_p5)) ? _elm_lang$core$Native_List.fromArray(
-			[]) : _elm_lang$core$Native_List.fromArray(
-			[
-				A2(
+			_rtfeldman$elm_css$Css$stringToInt(_p5)) ? {ctor: '[]'} : {
+			ctor: '::',
+			_0: A2(
 				_elm_lang$core$Basics_ops['++'],
 				'fontWeight ',
-				A2(_elm_lang$core$Basics_ops['++'], _p5, ' is invalid. Valid weights are: 100, 200, 300, 400, 500, 600, 700, 800, 900. Please see https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight#Values'))
-			]);
+				A2(_elm_lang$core$Basics_ops['++'], _p5, ' is invalid. Valid weights are: 100, 200, 300, 400, 500, 600, 700, 800, 900. Please see https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight#Values')),
+			_1: {ctor: '[]'}
+		};
 		return A3(_rtfeldman$elm_css$Css$propertyWithWarnings, warnings, 'font-weight', _p5);
 	};
 	var _rtfeldman$elm_css$Css$fontFeatureSettingsList = function (featureTagValues) {
@@ -11313,8 +11883,7 @@ webpackJsonp([1,0],[
 				while (true) {
 					var _p8 = declarations;
 					if (_p8.ctor === '[]') {
-						return _elm_lang$core$Native_List.fromArray(
-							[]);
+						return {ctor: '[]'};
 					} else {
 						switch (_p8._0.ctor) {
 							case 'StyleBlockDeclaration':
@@ -11322,18 +11891,20 @@ webpackJsonp([1,0],[
 								declarations = _v7;
 								continue nestedMediaRules;
 							case 'MediaRule':
-								return A2(
-									_elm_lang$core$List_ops['::'],
-									A2(
+								return {
+									ctor: '::',
+									_0: A2(
 										_rtfeldman$elm_css$Css_Preprocess$MediaRule,
 										A2(_elm_lang$core$Basics_ops['++'], mediaQueries, _p8._0._0),
 										_p8._0._1),
-									nestedMediaRules(_p8._1));
+									_1: nestedMediaRules(_p8._1)
+								};
 							default:
-								return A2(
-									_elm_lang$core$List_ops['::'],
-									_p8._0,
-									nestedMediaRules(_p8._1));
+								return {
+									ctor: '::',
+									_0: _p8._0,
+									_1: nestedMediaRules(_p8._1)
+								};
 						}
 					}
 				}
@@ -11343,14 +11914,14 @@ webpackJsonp([1,0],[
 				while (true) {
 					var _p9 = declarations;
 					if (_p9.ctor === '[]') {
-						return _elm_lang$core$Native_List.fromArray(
-							[]);
+						return {ctor: '[]'};
 					} else {
 						if (_p9._0.ctor === 'StyleBlockDeclaration') {
-							return A2(
-								_elm_lang$core$List_ops['::'],
-								_p9._0._0,
-								extractStyleBlocks(_p9._1));
+							return {
+								ctor: '::',
+								_0: _p9._0._0,
+								_1: extractStyleBlocks(_p9._1)
+							};
 						} else {
 							var _v9 = _p9._1;
 							declarations = _v9;
@@ -11365,19 +11936,21 @@ webpackJsonp([1,0],[
 				mediaQueries,
 				extractStyleBlocks(snippetDeclarations));
 			return _rtfeldman$elm_css$Css_Preprocess$Snippet(
-				A2(
-					_elm_lang$core$List_ops['::'],
-					mediaRuleFromStyleBlocks,
-					nestedMediaRules(snippetDeclarations)));
+				{
+					ctor: '::',
+					_0: mediaRuleFromStyleBlocks,
+					_1: nestedMediaRules(snippetDeclarations)
+				});
 		});
 	var _rtfeldman$elm_css$Css$mediaQuery = F2(
 		function (queryString, snippets) {
 			return A2(
 				_rtfeldman$elm_css$Css$media,
-				_elm_lang$core$Native_List.fromArray(
-					[
-						_rtfeldman$elm_css$Css_Structure$MediaQuery(queryString)
-					]),
+				{
+					ctor: '::',
+					_0: _rtfeldman$elm_css$Css_Structure$MediaQuery(queryString),
+					_1: {ctor: '[]'}
+				},
 				snippets);
 		});
 	var _rtfeldman$elm_css$Css$color = function (c) {
@@ -11386,13 +11959,31 @@ webpackJsonp([1,0],[
 	var _rtfeldman$elm_css$Css$backgroundColor = function (c) {
 		return A3(_rtfeldman$elm_css$Css$propertyWithWarnings, c.warnings, 'background-color', c.value);
 	};
+	var _rtfeldman$elm_css$Css$outlineColor = function (c) {
+		return A3(_rtfeldman$elm_css$Css$propertyWithWarnings, c.warnings, 'outline-color', c.value);
+	};
 	var _rtfeldman$elm_css$Css$borderColor4 = F4(
 		function (c1, c2, c3, c4) {
 			var value = A2(
 				_elm_lang$core$String$join,
 				' ',
-				_elm_lang$core$Native_List.fromArray(
-					[c1.value, c2.value, c3.value, c4.value]));
+				{
+					ctor: '::',
+					_0: c1.value,
+					_1: {
+						ctor: '::',
+						_0: c2.value,
+						_1: {
+							ctor: '::',
+							_0: c3.value,
+							_1: {
+								ctor: '::',
+								_0: c4.value,
+								_1: {ctor: '[]'}
+							}
+						}
+					}
+				});
 			var warnings = A2(
 				_elm_lang$core$Basics_ops['++'],
 				c1.warnings,
@@ -11407,8 +11998,19 @@ webpackJsonp([1,0],[
 			var value = A2(
 				_elm_lang$core$String$join,
 				' ',
-				_elm_lang$core$Native_List.fromArray(
-					[c1.value, c2.value, c3.value]));
+				{
+					ctor: '::',
+					_0: c1.value,
+					_1: {
+						ctor: '::',
+						_0: c2.value,
+						_1: {
+							ctor: '::',
+							_0: c3.value,
+							_1: {ctor: '[]'}
+						}
+					}
+				});
 			var warnings = A2(
 				_elm_lang$core$Basics_ops['++'],
 				c1.warnings,
@@ -11420,8 +12022,15 @@ webpackJsonp([1,0],[
 			var value = A2(
 				_elm_lang$core$String$join,
 				' ',
-				_elm_lang$core$Native_List.fromArray(
-					[c1.value, c2.value]));
+				{
+					ctor: '::',
+					_0: c1.value,
+					_1: {
+						ctor: '::',
+						_0: c2.value,
+						_1: {ctor: '[]'}
+					}
+				});
 			var warnings = A2(_elm_lang$core$Basics_ops['++'], c1.warnings, c2.warnings);
 			return A3(_rtfeldman$elm_css$Css$propertyWithWarnings, warnings, 'border-color', value);
 		});
@@ -11455,9 +12064,43 @@ webpackJsonp([1,0],[
 	var _rtfeldman$elm_css$Css$featureOff = 0;
 	var _rtfeldman$elm_css$Css$featureOn = 1;
 	var _rtfeldman$elm_css$Css$displayFlex = A2(_rtfeldman$elm_css$Css$property, 'display', 'flex');
+	var _rtfeldman$elm_css$Css$textEmphasisColor = function (c) {
+		return A3(_rtfeldman$elm_css$Css$propertyWithWarnings, c.warnings, 'text-emphasis-color', c.value);
+	};
 	var _rtfeldman$elm_css$Css$textDecorationColor = function (c) {
 		return A3(_rtfeldman$elm_css$Css$propertyWithWarnings, c.warnings, 'text-decoration-color', c.value);
 	};
+	var _rtfeldman$elm_css$Css$prop5 = F6(
+		function (key, argA, argB, argC, argD, argE) {
+			return A2(
+				_rtfeldman$elm_css$Css$property,
+				key,
+				A2(
+					_elm_lang$core$String$join,
+					' ',
+					{
+						ctor: '::',
+						_0: argA.value,
+						_1: {
+							ctor: '::',
+							_0: argB.value,
+							_1: {
+								ctor: '::',
+								_0: argC.value,
+								_1: {
+									ctor: '::',
+									_0: argD.value,
+									_1: {
+										ctor: '::',
+										_0: argE.value,
+										_1: {ctor: '[]'}
+									}
+								}
+							}
+						}
+					}));
+		});
+	var _rtfeldman$elm_css$Css$boxShadow5 = _rtfeldman$elm_css$Css$prop5('box-shadow');
 	var _rtfeldman$elm_css$Css$prop4 = F5(
 		function (key, argA, argB, argC, argD) {
 			return A2(
@@ -11466,10 +12109,26 @@ webpackJsonp([1,0],[
 				A2(
 					_elm_lang$core$String$join,
 					' ',
-					_elm_lang$core$Native_List.fromArray(
-						[argA.value, argB.value, argC.value, argD.value])));
+					{
+						ctor: '::',
+						_0: argA.value,
+						_1: {
+							ctor: '::',
+							_0: argB.value,
+							_1: {
+								ctor: '::',
+								_0: argC.value,
+								_1: {
+									ctor: '::',
+									_0: argD.value,
+									_1: {ctor: '[]'}
+								}
+							}
+						}
+					}));
 		});
 	var _rtfeldman$elm_css$Css$textShadow4 = _rtfeldman$elm_css$Css$prop4('text-shadow');
+	var _rtfeldman$elm_css$Css$boxShadow4 = _rtfeldman$elm_css$Css$prop4('box-shadow');
 	var _rtfeldman$elm_css$Css$padding4 = _rtfeldman$elm_css$Css$prop4('padding');
 	var _rtfeldman$elm_css$Css$margin4 = _rtfeldman$elm_css$Css$prop4('margin');
 	var _rtfeldman$elm_css$Css$borderImageOutset4 = _rtfeldman$elm_css$Css$prop4('border-image-outset');
@@ -11483,10 +12142,22 @@ webpackJsonp([1,0],[
 				A2(
 					_elm_lang$core$String$join,
 					' ',
-					_elm_lang$core$Native_List.fromArray(
-						[argA.value, argB.value, argC.value])));
+					{
+						ctor: '::',
+						_0: argA.value,
+						_1: {
+							ctor: '::',
+							_0: argB.value,
+							_1: {
+								ctor: '::',
+								_0: argC.value,
+								_1: {ctor: '[]'}
+							}
+						}
+					}));
 		});
 	var _rtfeldman$elm_css$Css$textShadow3 = _rtfeldman$elm_css$Css$prop3('text-shadow');
+	var _rtfeldman$elm_css$Css$boxShadow3 = _rtfeldman$elm_css$Css$prop3('box-shadow');
 	var _rtfeldman$elm_css$Css$textIndent3 = _rtfeldman$elm_css$Css$prop3('text-indent');
 	var _rtfeldman$elm_css$Css$padding3 = _rtfeldman$elm_css$Css$prop3('padding');
 	var _rtfeldman$elm_css$Css$margin3 = _rtfeldman$elm_css$Css$prop3('margin');
@@ -11502,6 +12173,7 @@ webpackJsonp([1,0],[
 	var _rtfeldman$elm_css$Css$borderImageOutset3 = _rtfeldman$elm_css$Css$prop3('border-image-outset');
 	var _rtfeldman$elm_css$Css$borderImageWidth3 = _rtfeldman$elm_css$Css$prop3('border-image-width');
 	var _rtfeldman$elm_css$Css$borderRadius3 = _rtfeldman$elm_css$Css$prop3('border-radius');
+	var _rtfeldman$elm_css$Css$outline3 = _rtfeldman$elm_css$Css$prop3('outline');
 	var _rtfeldman$elm_css$Css$fontVariant3 = _rtfeldman$elm_css$Css$prop3('font-variant');
 	var _rtfeldman$elm_css$Css$fontVariantNumeric3 = _rtfeldman$elm_css$Css$prop3('font-variant-numeric');
 	var _rtfeldman$elm_css$Css$textDecoration3 = _rtfeldman$elm_css$Css$prop3('text-decoration');
@@ -11519,10 +12191,18 @@ webpackJsonp([1,0],[
 				A2(
 					_elm_lang$core$String$join,
 					' ',
-					_elm_lang$core$Native_List.fromArray(
-						[argA.value, argB.value])));
+					{
+						ctor: '::',
+						_0: argA.value,
+						_1: {
+							ctor: '::',
+							_0: argB.value,
+							_1: {ctor: '[]'}
+						}
+					}));
 		});
 	var _rtfeldman$elm_css$Css$textShadow2 = _rtfeldman$elm_css$Css$prop2('text-shadow');
+	var _rtfeldman$elm_css$Css$boxShadow2 = _rtfeldman$elm_css$Css$prop2('box-shadow');
 	var _rtfeldman$elm_css$Css$textIndent2 = _rtfeldman$elm_css$Css$prop2('text-indent');
 	var _rtfeldman$elm_css$Css$padding2 = _rtfeldman$elm_css$Css$prop2('padding');
 	var _rtfeldman$elm_css$Css$margin2 = _rtfeldman$elm_css$Css$prop2('margin');
@@ -11544,6 +12224,9 @@ webpackJsonp([1,0],[
 	var _rtfeldman$elm_css$Css$borderTopRightRadius2 = _rtfeldman$elm_css$Css$prop2('border-top-right-radius');
 	var _rtfeldman$elm_css$Css$borderRadius2 = _rtfeldman$elm_css$Css$prop2('border-radius');
 	var _rtfeldman$elm_css$Css$borderSpacing2 = _rtfeldman$elm_css$Css$prop2('border-spacing');
+	var _rtfeldman$elm_css$Css$backgroundRepeat2 = _rtfeldman$elm_css$Css$prop2('background-repeat');
+	var _rtfeldman$elm_css$Css$backgroundPosition2 = _rtfeldman$elm_css$Css$prop2('background-position');
+	var _rtfeldman$elm_css$Css$backgroundSize2 = _rtfeldman$elm_css$Css$prop2('background-size');
 	var _rtfeldman$elm_css$Css$fontVariant2 = _rtfeldman$elm_css$Css$prop2('font-variant');
 	var _rtfeldman$elm_css$Css$fontVariantNumeric2 = _rtfeldman$elm_css$Css$prop2('font-variant-numeric');
 	var _rtfeldman$elm_css$Css$textDecoration2 = _rtfeldman$elm_css$Css$prop2('text-decoration');
@@ -11558,8 +12241,10 @@ webpackJsonp([1,0],[
 			return A2(_rtfeldman$elm_css$Css$property, key, arg.value);
 		});
 	var _rtfeldman$elm_css$Css$textRendering = _rtfeldman$elm_css$Css$prop1('text-rendering');
+	var _rtfeldman$elm_css$Css$textOrientation = _rtfeldman$elm_css$Css$prop1('text-orientation');
 	var _rtfeldman$elm_css$Css$textOverflow = _rtfeldman$elm_css$Css$prop1('text-overflow');
 	var _rtfeldman$elm_css$Css$textShadow = _rtfeldman$elm_css$Css$prop1('text-shadow');
+	var _rtfeldman$elm_css$Css$boxShadow = _rtfeldman$elm_css$Css$prop1('box-shadow');
 	var _rtfeldman$elm_css$Css$textIndent = _rtfeldman$elm_css$Css$prop1('text-indent');
 	var _rtfeldman$elm_css$Css$textTransform = _rtfeldman$elm_css$Css$prop1('text-transform');
 	var _rtfeldman$elm_css$Css$display = _rtfeldman$elm_css$Css$prop1('display');
@@ -11612,6 +12297,7 @@ webpackJsonp([1,0],[
 	var _rtfeldman$elm_css$Css$borderRightStyle = _rtfeldman$elm_css$Css$prop1('border-right-style');
 	var _rtfeldman$elm_css$Css$borderTopStyle = _rtfeldman$elm_css$Css$prop1('border-top-style');
 	var _rtfeldman$elm_css$Css$borderStyle = _rtfeldman$elm_css$Css$prop1('border-style');
+	var _rtfeldman$elm_css$Css$borderCollapse = _rtfeldman$elm_css$Css$prop1('border-collapse');
 	var _rtfeldman$elm_css$Css$borderBottomWidth = _rtfeldman$elm_css$Css$prop1('border-bottom-width');
 	var _rtfeldman$elm_css$Css$borderInlineEndWidth = _rtfeldman$elm_css$Css$prop1('border-inline-end-width');
 	var _rtfeldman$elm_css$Css$borderLeftWidth = _rtfeldman$elm_css$Css$prop1('border-left-width');
@@ -11623,10 +12309,20 @@ webpackJsonp([1,0],[
 	var _rtfeldman$elm_css$Css$borderTopRightRadius = _rtfeldman$elm_css$Css$prop1('border-top-right-radius');
 	var _rtfeldman$elm_css$Css$borderRadius = _rtfeldman$elm_css$Css$prop1('border-radius');
 	var _rtfeldman$elm_css$Css$borderSpacing = _rtfeldman$elm_css$Css$prop1('border-spacing');
+	var _rtfeldman$elm_css$Css$outline = _rtfeldman$elm_css$Css$prop1('outline');
+	var _rtfeldman$elm_css$Css$outlineWidth = _rtfeldman$elm_css$Css$prop1('outline-width');
+	var _rtfeldman$elm_css$Css$outlineStyle = _rtfeldman$elm_css$Css$prop1('outline-style');
+	var _rtfeldman$elm_css$Css$outlineOffset = _rtfeldman$elm_css$Css$prop1('outline-offset');
 	var _rtfeldman$elm_css$Css$overflow = _rtfeldman$elm_css$Css$prop1('overflow');
 	var _rtfeldman$elm_css$Css$overflowX = _rtfeldman$elm_css$Css$prop1('overflow-x');
 	var _rtfeldman$elm_css$Css$overflowY = _rtfeldman$elm_css$Css$prop1('overflow-y');
 	var _rtfeldman$elm_css$Css$whiteSpace = _rtfeldman$elm_css$Css$prop1('white-space');
+	var _rtfeldman$elm_css$Css$backgroundRepeat = _rtfeldman$elm_css$Css$prop1('background-repeat');
+	var _rtfeldman$elm_css$Css$backgroundAttachment = _rtfeldman$elm_css$Css$prop1('background-attachment');
+	var _rtfeldman$elm_css$Css$backgroundClip = _rtfeldman$elm_css$Css$prop1('background-clip');
+	var _rtfeldman$elm_css$Css$backgroundOrigin = _rtfeldman$elm_css$Css$prop1('background-origin');
+	var _rtfeldman$elm_css$Css$backgroundImage = _rtfeldman$elm_css$Css$prop1('background-image');
+	var _rtfeldman$elm_css$Css$backgroundSize = _rtfeldman$elm_css$Css$prop1('background-size');
 	var _rtfeldman$elm_css$Css$lineHeight = _rtfeldman$elm_css$Css$prop1('line-height');
 	var _rtfeldman$elm_css$Css$letterSpacing = _rtfeldman$elm_css$Css$prop1('letter-spacing');
 	var _rtfeldman$elm_css$Css$fontFamily = _rtfeldman$elm_css$Css$prop1('font-family');
@@ -11648,6 +12344,7 @@ webpackJsonp([1,0],[
 			'font-variant-numeric',
 			_rtfeldman$elm_css$Css$valuesOrNone(_p13));
 	};
+	var _rtfeldman$elm_css$Css$cursor = _rtfeldman$elm_css$Css$prop1('cursor');
 	var _rtfeldman$elm_css$Css$textDecoration = _rtfeldman$elm_css$Css$prop1('text-decoration');
 	var _rtfeldman$elm_css$Css$textDecorations = function (_p14) {
 		return A2(
@@ -11684,6 +12381,11 @@ webpackJsonp([1,0],[
 	var _rtfeldman$elm_css$Css$flex3 = _rtfeldman$elm_css$Css$prop3('flex');
 	var _rtfeldman$elm_css$Css$flex2 = _rtfeldman$elm_css$Css$prop2('flex');
 	var _rtfeldman$elm_css$Css$flex = _rtfeldman$elm_css$Css$prop1('flex');
+	var _rtfeldman$elm_css$Css$listStyle3 = _rtfeldman$elm_css$Css$prop3('list-style');
+	var _rtfeldman$elm_css$Css$listStyle2 = _rtfeldman$elm_css$Css$prop2('list-style');
+	var _rtfeldman$elm_css$Css$listStyle = _rtfeldman$elm_css$Css$prop1('list-style');
+	var _rtfeldman$elm_css$Css$listStyleType = _rtfeldman$elm_css$Css$prop1('list-style-type');
+	var _rtfeldman$elm_css$Css$listStylePosition = _rtfeldman$elm_css$Css$prop1('list-style-position');
 	var _rtfeldman$elm_css$Css$transformStyle = _rtfeldman$elm_css$Css$prop1('transform-style');
 	var _rtfeldman$elm_css$Css$boxSizing = _rtfeldman$elm_css$Css$prop1('box-sizing');
 	var _rtfeldman$elm_css$Css$transformBox = _rtfeldman$elm_css$Css$prop1('transform-box');
@@ -11695,8 +12397,11 @@ webpackJsonp([1,0],[
 	};
 	var _rtfeldman$elm_css$Css$transform = function (only) {
 		return _rtfeldman$elm_css$Css$transforms(
-			_elm_lang$core$Native_List.fromArray(
-				[only]));
+			{
+				ctor: '::',
+				_0: only,
+				_1: {ctor: '[]'}
+			});
 	};
 	var _rtfeldman$elm_css$Css$true = _rtfeldman$elm_css$Css$prop1('true');
 	var _rtfeldman$elm_css$Css$matchParent = _rtfeldman$elm_css$Css$prop1('match-parent');
@@ -11705,6 +12410,20 @@ webpackJsonp([1,0],[
 	var _rtfeldman$elm_css$Css$justifyAll = _rtfeldman$elm_css$Css$prop1('justify-all');
 	var _rtfeldman$elm_css$Css$textJustify = _rtfeldman$elm_css$Css$prop1('text-justify');
 	var _rtfeldman$elm_css$Css$center = _rtfeldman$elm_css$Css$prop1('center');
+	var _rtfeldman$elm_css$Css$luminosity = _rtfeldman$elm_css$Css$prop1('luminosity');
+	var _rtfeldman$elm_css$Css$saturation = _rtfeldman$elm_css$Css$prop1('saturation');
+	var _rtfeldman$elm_css$Css$hue = _rtfeldman$elm_css$Css$prop1('hue');
+	var _rtfeldman$elm_css$Css$exclusion = _rtfeldman$elm_css$Css$prop1('exclusion');
+	var _rtfeldman$elm_css$Css$difference = _rtfeldman$elm_css$Css$prop1('difference');
+	var _rtfeldman$elm_css$Css$softLight = _rtfeldman$elm_css$Css$prop1('soft-light');
+	var _rtfeldman$elm_css$Css$hardLight = _rtfeldman$elm_css$Css$prop1('hard-light');
+	var _rtfeldman$elm_css$Css$colorBurn = _rtfeldman$elm_css$Css$prop1('color-burn');
+	var _rtfeldman$elm_css$Css$colorDodge = _rtfeldman$elm_css$Css$prop1('color-dodge');
+	var _rtfeldman$elm_css$Css$lighten = _rtfeldman$elm_css$Css$prop1('lighten');
+	var _rtfeldman$elm_css$Css$darken = _rtfeldman$elm_css$Css$prop1('darken');
+	var _rtfeldman$elm_css$Css$overlay = _rtfeldman$elm_css$Css$prop1('overlay');
+	var _rtfeldman$elm_css$Css$screenBlendMode = _rtfeldman$elm_css$Css$prop1('screen');
+	var _rtfeldman$elm_css$Css$multiply = _rtfeldman$elm_css$Css$prop1('multiply');
 	var _rtfeldman$elm_css$Css$important = _rtfeldman$elm_css$Css_Preprocess$mapLastProperty(
 		function (property) {
 			return _elm_lang$core$Native_Utils.update(
@@ -11720,15 +12439,18 @@ webpackJsonp([1,0],[
 				A2(
 					_elm_lang$core$List$filter,
 					function (_p17) {
-						return _elm_lang$core$Basics$not(
-							_elm_lang$core$String$isEmpty(_p17));
+						return !_elm_lang$core$String$isEmpty(_p17);
 					},
-					_elm_lang$core$Native_List.fromArray(
-						[
-							_elm_lang$core$Basics$toString(
+					{
+						ctor: '::',
+						_0: _elm_lang$core$Basics$toString(
 							A2(operation, first.numericValue, second.numericValue)),
-							first.unitLabel
-						])));
+						_1: {
+							ctor: '::',
+							_0: first.unitLabel,
+							_1: {ctor: '[]'}
+						}
+					}));
 			return _elm_lang$core$Native_Utils.update(
 				first,
 				{value: value});
@@ -11768,9 +12490,9 @@ webpackJsonp([1,0],[
 					case 'ExtendSelector':
 						return A3(
 							_rtfeldman$elm_css$Css$propertyWithWarnings,
-							_elm_lang$core$Native_List.fromArray(
-								[
-									A2(
+							{
+								ctor: '::',
+								_0: A2(
 									_elm_lang$core$Basics_ops['++'],
 									'Cannot apply ',
 									A2(
@@ -11779,16 +12501,17 @@ webpackJsonp([1,0],[
 										A2(
 											_elm_lang$core$Basics_ops['++'],
 											' with inapplicable mixin for selector ',
-											_elm_lang$core$Basics$toString(_p18._0))))
-								]),
+											_elm_lang$core$Basics$toString(_p18._0)))),
+								_1: {ctor: '[]'}
+							},
 							desiredKey,
 							'');
 					case 'NestSnippet':
 						return A3(
 							_rtfeldman$elm_css$Css$propertyWithWarnings,
-							_elm_lang$core$Native_List.fromArray(
-								[
-									A2(
+							{
+								ctor: '::',
+								_0: A2(
 									_elm_lang$core$Basics_ops['++'],
 									'Cannot apply ',
 									A2(
@@ -11797,16 +12520,17 @@ webpackJsonp([1,0],[
 										A2(
 											_elm_lang$core$Basics_ops['++'],
 											' with inapplicable mixin for combinator ',
-											_elm_lang$core$Basics$toString(_p18._0))))
-								]),
+											_elm_lang$core$Basics$toString(_p18._0)))),
+								_1: {ctor: '[]'}
+							},
 							desiredKey,
 							'');
 					case 'WithPseudoElement':
 						return A3(
 							_rtfeldman$elm_css$Css$propertyWithWarnings,
-							_elm_lang$core$Native_List.fromArray(
-								[
-									A2(
+							{
+								ctor: '::',
+								_0: A2(
 									_elm_lang$core$Basics_ops['++'],
 									'Cannot apply ',
 									A2(
@@ -11815,16 +12539,17 @@ webpackJsonp([1,0],[
 										A2(
 											_elm_lang$core$Basics_ops['++'],
 											' with inapplicable mixin for pseudo-element setter ',
-											_elm_lang$core$Basics$toString(_p18._0))))
-								]),
+											_elm_lang$core$Basics$toString(_p18._0)))),
+								_1: {ctor: '[]'}
+							},
 							desiredKey,
 							'');
 					case 'WithMedia':
 						return A3(
 							_rtfeldman$elm_css$Css$propertyWithWarnings,
-							_elm_lang$core$Native_List.fromArray(
-								[
-									A2(
+							{
+								ctor: '::',
+								_0: A2(
 									_elm_lang$core$Basics_ops['++'],
 									'Cannot apply ',
 									A2(
@@ -11833,21 +12558,23 @@ webpackJsonp([1,0],[
 										A2(
 											_elm_lang$core$Basics_ops['++'],
 											' with inapplicable mixin for media query ',
-											_elm_lang$core$Basics$toString(_p18._0))))
-								]),
+											_elm_lang$core$Basics$toString(_p18._0)))),
+								_1: {ctor: '[]'}
+							},
 							desiredKey,
 							'');
 					default:
 						if (_p18._0.ctor === '[]') {
 							return A3(
 								_rtfeldman$elm_css$Css$propertyWithWarnings,
-								_elm_lang$core$Native_List.fromArray(
-									[
-										A2(
+								{
+									ctor: '::',
+									_0: A2(
 										_elm_lang$core$Basics_ops['++'],
 										'Cannot apply ',
-										A2(_elm_lang$core$Basics_ops['++'], functionName, ' with empty mixin. '))
-									]),
+										A2(_elm_lang$core$Basics_ops['++'], functionName, ' with empty mixin. ')),
+									_1: {ctor: '[]'}
+								},
 								desiredKey,
 								'');
 						} else {
@@ -11889,10 +12616,6 @@ webpackJsonp([1,0],[
 	var _rtfeldman$elm_css$Css$projection = _rtfeldman$elm_css$Css_Structure$MediaQuery('projection');
 	var _rtfeldman$elm_css$Css$print = _rtfeldman$elm_css$Css_Structure$MediaQuery('print');
 	var _rtfeldman$elm_css$Css$screen = _rtfeldman$elm_css$Css_Structure$MediaQuery('screen');
-	var _rtfeldman$elm_css$Css$NumberedWeight = F2(
-		function (a, b) {
-			return {value: a, fontWeight: b};
-		});
 	var _rtfeldman$elm_css$Css$ExplicitLength = function (a) {
 		return function (b) {
 			return function (c) {
@@ -11907,7 +12630,9 @@ webpackJsonp([1,0],[
 												return function (l) {
 													return function (m) {
 														return function (n) {
-															return {value: a, numericValue: b, units: c, unitLabel: d, length: e, lengthOrAuto: f, lengthOrNumber: g, lengthOrNone: h, lengthOrMinMaxDimension: i, lengthOrNoneOrMinMaxDimension: j, textIndent: k, flexBasis: l, lengthOrNumberOrAutoOrNoneOrContent: m, fontSize: n};
+															return function (o) {
+																return {value: a, numericValue: b, units: c, unitLabel: d, length: e, lengthOrAuto: f, lengthOrNumber: g, lengthOrNone: h, lengthOrMinMaxDimension: i, lengthOrNoneOrMinMaxDimension: j, textIndent: k, flexBasis: l, lengthOrNumberOrAutoOrNoneOrContent: m, fontSize: n, lengthOrAutoOrCoverOrContain: o};
+															};
 														};
 													};
 												};
@@ -11954,7 +12679,37 @@ webpackJsonp([1,0],[
 																													return function (_3) {
 																														return function (_4) {
 																															return function (_5) {
-																																return {value: a, all: b, alignItems: c, boxSizing: d, display: e, flexBasis: f, flexWrap: g, flexDirection: h, flexDirectionOrWrap: i, none: j, number: k, overflow: l, textDecorationLine: m, textRendering: n, textIndent: o, textDecorationStyle: p, length: q, lengthOrAuto: r, lengthOrNone: s, lengthOrNumber: t, lengthOrMinMaxDimension: u, lengthOrNoneOrMinMaxDimension: v, lengthOrNumberOrAutoOrNoneOrContent: w, fontFamily: x, fontSize: y, fontStyle: z, fontWeight: _1, fontVariant: _2, units: _3, numericValue: _4, unitLabel: _5};
+																																return function (_6) {
+																																	return function (_7) {
+																																		return function (_8) {
+																																			return function (_9) {
+																																				return function (_10) {
+																																					return function (_11) {
+																																						return function (_12) {
+																																							return function (_13) {
+																																								return function (_14) {
+																																									return function (_15) {
+																																										return function (_16) {
+																																											return function (_17) {
+																																												return function (_18) {
+																																													return function (_19) {
+																																														return function (_20) {
+																																															return {value: a, all: b, alignItems: c, borderStyle: d, boxSizing: e, color: f, cursor: g, display: h, flexBasis: i, flexWrap: j, flexDirection: k, flexDirectionOrWrap: l, none: m, number: n, outline: o, overflow: p, textDecorationLine: q, textRendering: r, textIndent: s, textDecorationStyle: t, length: u, lengthOrAuto: v, lengthOrNone: w, lengthOrNumber: x, lengthOrMinMaxDimension: y, lengthOrNoneOrMinMaxDimension: z, lengthOrNumberOrAutoOrNoneOrContent: _1, listStyleType: _2, listStylePosition: _3, listStyleTypeOrPositionOrImage: _4, fontFamily: _5, fontSize: _6, fontStyle: _7, fontWeight: _8, fontVariant: _9, units: _10, numericValue: _11, unitLabel: _12, warnings: _13, backgroundRepeat: _14, backgroundRepeatShorthand: _15, backgroundAttachment: _16, backgroundBlendMode: _17, backgroundOrigin: _18, backgroundImage: _19, lengthOrAutoOrCoverOrContain: _20};
+																																														};
+																																													};
+																																												};
+																																											};
+																																										};
+																																									};
+																																								};
+																																							};
+																																						};
+																																					};
+																																				};
+																																			};
+																																		};
+																																	};
+																																};
 																															};
 																														};
 																													};
@@ -11990,23 +12745,41 @@ webpackJsonp([1,0],[
 	var _rtfeldman$elm_css$Css$transparent = {
 		value: 'transparent',
 		color: _rtfeldman$elm_css$Css$Compatible,
-		warnings: _elm_lang$core$Native_List.fromArray(
-			[])
+		warnings: {ctor: '[]'}
+	};
+	var _rtfeldman$elm_css$Css$colorValueForOverloadedProperty = _rtfeldman$elm_css$Css$transparent;
+	var _rtfeldman$elm_css$Css$backgroundBlendMode = function (fn) {
+		return A3(
+			_rtfeldman$elm_css$Css$getOverloadedProperty,
+			'backgroundBlendMode',
+			'background-blend-mode',
+			fn(_rtfeldman$elm_css$Css$colorValueForOverloadedProperty));
 	};
 	var _rtfeldman$elm_css$Css$currentColor = {
 		value: 'currentColor',
 		color: _rtfeldman$elm_css$Css$Compatible,
-		warnings: _elm_lang$core$Native_List.fromArray(
-			[])
+		warnings: {ctor: '[]'}
 	};
 	var _rtfeldman$elm_css$Css$visible = {value: 'visible', overflow: _rtfeldman$elm_css$Css$Compatible};
-	var _rtfeldman$elm_css$Css$scroll = {value: 'scroll', overflow: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$scroll = {value: 'scroll', overflow: _rtfeldman$elm_css$Css$Compatible, backgroundAttachment: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$paddingBox = {value: 'padding-box', backgroundClip: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$url = function (urlValue) {
+		return {
+			value: A2(
+				_elm_lang$core$Basics_ops['++'],
+				'url(',
+				A2(_elm_lang$core$Basics_ops['++'], urlValue, ')')),
+			backgroundImage: _rtfeldman$elm_css$Css$Compatible
+		};
+	};
+	var _rtfeldman$elm_css$Css$cover = {value: 'cover', lengthOrAutoOrCoverOrContain: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$contain = {value: 'contain', lengthOrAutoOrCoverOrContain: _rtfeldman$elm_css$Css$Compatible};
 	var _rtfeldman$elm_css$Css$hidden = {value: 'hidden', overflow: _rtfeldman$elm_css$Css$Compatible, borderStyle: _rtfeldman$elm_css$Css$Compatible};
 	var _rtfeldman$elm_css$Css$rgb = F3(
 		function (red, green, blue) {
-			var warnings = ((_elm_lang$core$Native_Utils.cmp(red, 0) < 0) || ((_elm_lang$core$Native_Utils.cmp(red, 255) > 0) || ((_elm_lang$core$Native_Utils.cmp(green, 0) < 0) || ((_elm_lang$core$Native_Utils.cmp(green, 255) > 0) || ((_elm_lang$core$Native_Utils.cmp(blue, 0) < 0) || (_elm_lang$core$Native_Utils.cmp(blue, 255) > 0)))))) ? _elm_lang$core$Native_List.fromArray(
-				[
-					A2(
+			var warnings = ((_elm_lang$core$Native_Utils.cmp(red, 0) < 0) || ((_elm_lang$core$Native_Utils.cmp(red, 255) > 0) || ((_elm_lang$core$Native_Utils.cmp(green, 0) < 0) || ((_elm_lang$core$Native_Utils.cmp(green, 255) > 0) || ((_elm_lang$core$Native_Utils.cmp(blue, 0) < 0) || (_elm_lang$core$Native_Utils.cmp(blue, 255) > 0)))))) ? {
+				ctor: '::',
+				_0: A2(
 					_elm_lang$core$Basics_ops['++'],
 					'RGB color values must be between 0 and 255. rgb(',
 					A2(
@@ -12024,9 +12797,9 @@ webpackJsonp([1,0],[
 									A2(
 										_elm_lang$core$Basics_ops['++'],
 										_elm_lang$core$Basics$toString(blue),
-										') is not valid.'))))))
-				]) : _elm_lang$core$Native_List.fromArray(
-				[]);
+										') is not valid.')))))),
+				_1: {ctor: '[]'}
+			} : {ctor: '[]'};
 			return {
 				value: A2(
 					_rtfeldman$elm_css$Css$cssFunction,
@@ -12034,8 +12807,19 @@ webpackJsonp([1,0],[
 					A2(
 						_elm_lang$core$List$map,
 						_rtfeldman$elm_css$Css$numberToString,
-						_elm_lang$core$Native_List.fromArray(
-							[red, green, blue]))),
+						{
+							ctor: '::',
+							_0: red,
+							_1: {
+								ctor: '::',
+								_0: green,
+								_1: {
+									ctor: '::',
+									_0: blue,
+									_1: {ctor: '[]'}
+								}
+							}
+						})),
 				color: _rtfeldman$elm_css$Css$Compatible,
 				warnings: warnings,
 				red: red,
@@ -12046,9 +12830,9 @@ webpackJsonp([1,0],[
 		});
 	var _rtfeldman$elm_css$Css$rgba = F4(
 		function (red, green, blue, alpha) {
-			var warnings = ((_elm_lang$core$Native_Utils.cmp(red, 0) < 0) || ((_elm_lang$core$Native_Utils.cmp(red, 255) > 0) || ((_elm_lang$core$Native_Utils.cmp(green, 0) < 0) || ((_elm_lang$core$Native_Utils.cmp(green, 255) > 0) || ((_elm_lang$core$Native_Utils.cmp(blue, 0) < 0) || ((_elm_lang$core$Native_Utils.cmp(blue, 255) > 0) || ((_elm_lang$core$Native_Utils.cmp(alpha, 0) < 0) || (_elm_lang$core$Native_Utils.cmp(alpha, 1) > 0)))))))) ? _elm_lang$core$Native_List.fromArray(
-				[
-					A2(
+			var warnings = ((_elm_lang$core$Native_Utils.cmp(red, 0) < 0) || ((_elm_lang$core$Native_Utils.cmp(red, 255) > 0) || ((_elm_lang$core$Native_Utils.cmp(green, 0) < 0) || ((_elm_lang$core$Native_Utils.cmp(green, 255) > 0) || ((_elm_lang$core$Native_Utils.cmp(blue, 0) < 0) || ((_elm_lang$core$Native_Utils.cmp(blue, 255) > 0) || ((_elm_lang$core$Native_Utils.cmp(alpha, 0) < 0) || (_elm_lang$core$Native_Utils.cmp(alpha, 1) > 0)))))))) ? {
+				ctor: '::',
+				_0: A2(
 					_elm_lang$core$Basics_ops['++'],
 					'RGB color values must be between 0 and 255, and the alpha in RGBA must be between 0 and 1. rgba(',
 					A2(
@@ -12072,24 +12856,42 @@ webpackJsonp([1,0],[
 											A2(
 												_elm_lang$core$Basics_ops['++'],
 												_elm_lang$core$Basics$toString(alpha),
-												') is not valid.'))))))))
-				]) : _elm_lang$core$Native_List.fromArray(
-				[]);
+												') is not valid.')))))))),
+				_1: {ctor: '[]'}
+			} : {ctor: '[]'};
 			return {
 				value: A2(
 					_rtfeldman$elm_css$Css$cssFunction,
 					'rgba',
 					A2(
-						_elm_lang$core$List$map,
-						_rtfeldman$elm_css$Css$numberToString,
-						_elm_lang$core$Native_List.fromArray(
-							[red, green, blue, alpha]))),
+						_elm_lang$core$Basics_ops['++'],
+						A2(
+							_elm_lang$core$List$map,
+							_rtfeldman$elm_css$Css$numberToString,
+							{
+								ctor: '::',
+								_0: red,
+								_1: {
+									ctor: '::',
+									_0: green,
+									_1: {
+										ctor: '::',
+										_0: blue,
+										_1: {ctor: '[]'}
+									}
+								}
+							}),
+						{
+							ctor: '::',
+							_0: _rtfeldman$elm_css$Css$numberToString(alpha),
+							_1: {ctor: '[]'}
+						})),
 				color: _rtfeldman$elm_css$Css$Compatible,
 				warnings: warnings,
 				red: red,
 				green: green,
 				blue: blue,
-				alpha: 1
+				alpha: alpha
 			};
 		});
 	var _rtfeldman$elm_css$Css$hex = function (str) {
@@ -12099,15 +12901,30 @@ webpackJsonp([1,0],[
 		var warnings = A2(
 			_elm_lang$core$Regex$contains,
 			_elm_lang$core$Regex$regex('^#([a-fA-F0-9]{8}|[a-fA-F0-9]{6}|[a-fA-F0-9]{4}|[a-fA-F0-9]{3})$'),
-			value) ? _elm_lang$core$Native_List.fromArray(
-			[]) : _elm_lang$core$Native_List.fromArray(
-			[
-				A2(
+			value) ? {ctor: '[]'} : {
+			ctor: '::',
+			_0: A2(
 				_elm_lang$core$String$join,
 				' ',
-				_elm_lang$core$Native_List.fromArray(
-					['The syntax of a hex-color is a token whose value consists of 3, 4, 6, or 8 hexadecimal digits.', value, 'is not valid.', 'Please see: https://drafts.csswg.org/css-color/#hex-notation']))
-			]);
+				{
+					ctor: '::',
+					_0: 'The syntax of a hex-color is a token whose value consists of 3, 4, 6, or 8 hexadecimal digits.',
+					_1: {
+						ctor: '::',
+						_0: value,
+						_1: {
+							ctor: '::',
+							_0: 'is not valid.',
+							_1: {
+								ctor: '::',
+								_0: 'Please see: https://drafts.csswg.org/css-color/#hex-notation',
+								_1: {ctor: '[]'}
+							}
+						}
+					}
+				}),
+			_1: {ctor: '[]'}
+		};
 		return {value: value, color: _rtfeldman$elm_css$Css$Compatible, red: 0, green: 0, blue: 0, alpha: 1, warnings: warnings};
 	};
 	var _rtfeldman$elm_css$Css$hslaToRgba = F6(
@@ -12119,41 +12936,58 @@ webpackJsonp([1,0],[
 		});
 	var _rtfeldman$elm_css$Css$hsl = F3(
 		function (hue, saturation, lightness) {
-			var valuesList = _elm_lang$core$Native_List.fromArray(
-				[
-					_rtfeldman$elm_css$Css$numberToString(hue),
-					_rtfeldman$elm_css$Css$numericalPercentageToString(saturation),
-					_rtfeldman$elm_css$Css$numericalPercentageToString(lightness)
-				]);
+			var valuesList = {
+				ctor: '::',
+				_0: _rtfeldman$elm_css$Css$numberToString(hue),
+				_1: {
+					ctor: '::',
+					_0: _rtfeldman$elm_css$Css$numericalPercentageToString(saturation),
+					_1: {
+						ctor: '::',
+						_0: _rtfeldman$elm_css$Css$numericalPercentageToString(lightness),
+						_1: {ctor: '[]'}
+					}
+				}
+			};
 			var value = A2(_rtfeldman$elm_css$Css$cssFunction, 'hsl', valuesList);
-			var warnings = ((_elm_lang$core$Native_Utils.cmp(hue, 360) > 0) || ((_elm_lang$core$Native_Utils.cmp(hue, 0) < 0) || ((_elm_lang$core$Native_Utils.cmp(saturation, 1) > 0) || ((_elm_lang$core$Native_Utils.cmp(saturation, 0) < 0) || ((_elm_lang$core$Native_Utils.cmp(lightness, 1) > 0) || (_elm_lang$core$Native_Utils.cmp(lightness, 0) < 0)))))) ? _elm_lang$core$Native_List.fromArray(
-				[
-					A2(
+			var warnings = ((_elm_lang$core$Native_Utils.cmp(hue, 360) > 0) || ((_elm_lang$core$Native_Utils.cmp(hue, 0) < 0) || ((_elm_lang$core$Native_Utils.cmp(saturation, 1) > 0) || ((_elm_lang$core$Native_Utils.cmp(saturation, 0) < 0) || ((_elm_lang$core$Native_Utils.cmp(lightness, 1) > 0) || (_elm_lang$core$Native_Utils.cmp(lightness, 0) < 0)))))) ? {
+				ctor: '::',
+				_0: A2(
 					_elm_lang$core$Basics_ops['++'],
 					'HSL color values must have an H value between 0 and 360 (as in degrees) and S and L values between 0 and 1. ',
-					A2(_elm_lang$core$Basics_ops['++'], value, ' is not valid.'))
-				]) : _elm_lang$core$Native_List.fromArray(
-				[]);
+					A2(_elm_lang$core$Basics_ops['++'], value, ' is not valid.')),
+				_1: {ctor: '[]'}
+			} : {ctor: '[]'};
 			return A6(_rtfeldman$elm_css$Css$hslaToRgba, value, warnings, hue, saturation, lightness, 1);
 		});
 	var _rtfeldman$elm_css$Css$hsla = F4(
 		function (hue, saturation, lightness, alpha) {
-			var valuesList = _elm_lang$core$Native_List.fromArray(
-				[
-					_rtfeldman$elm_css$Css$numberToString(hue),
-					_rtfeldman$elm_css$Css$numericalPercentageToString(saturation),
-					_rtfeldman$elm_css$Css$numericalPercentageToString(lightness),
-					_rtfeldman$elm_css$Css$numberToString(alpha)
-				]);
+			var valuesList = {
+				ctor: '::',
+				_0: _rtfeldman$elm_css$Css$numberToString(hue),
+				_1: {
+					ctor: '::',
+					_0: _rtfeldman$elm_css$Css$numericalPercentageToString(saturation),
+					_1: {
+						ctor: '::',
+						_0: _rtfeldman$elm_css$Css$numericalPercentageToString(lightness),
+						_1: {
+							ctor: '::',
+							_0: _rtfeldman$elm_css$Css$numberToString(alpha),
+							_1: {ctor: '[]'}
+						}
+					}
+				}
+			};
 			var value = A2(_rtfeldman$elm_css$Css$cssFunction, 'hsla', valuesList);
-			var warnings = ((_elm_lang$core$Native_Utils.cmp(hue, 360) > 0) || ((_elm_lang$core$Native_Utils.cmp(hue, 0) < 0) || ((_elm_lang$core$Native_Utils.cmp(saturation, 1) > 0) || ((_elm_lang$core$Native_Utils.cmp(saturation, 0) < 0) || ((_elm_lang$core$Native_Utils.cmp(lightness, 1) > 0) || ((_elm_lang$core$Native_Utils.cmp(lightness, 0) < 0) || ((_elm_lang$core$Native_Utils.cmp(alpha, 1) > 0) || (_elm_lang$core$Native_Utils.cmp(alpha, 0) < 0)))))))) ? _elm_lang$core$Native_List.fromArray(
-				[
-					A2(
+			var warnings = ((_elm_lang$core$Native_Utils.cmp(hue, 360) > 0) || ((_elm_lang$core$Native_Utils.cmp(hue, 0) < 0) || ((_elm_lang$core$Native_Utils.cmp(saturation, 1) > 0) || ((_elm_lang$core$Native_Utils.cmp(saturation, 0) < 0) || ((_elm_lang$core$Native_Utils.cmp(lightness, 1) > 0) || ((_elm_lang$core$Native_Utils.cmp(lightness, 0) < 0) || ((_elm_lang$core$Native_Utils.cmp(alpha, 1) > 0) || (_elm_lang$core$Native_Utils.cmp(alpha, 0) < 0)))))))) ? {
+				ctor: '::',
+				_0: A2(
 					_elm_lang$core$Basics_ops['++'],
 					'HSLA color values must have an H value between 0 and 360 (as in degrees) and S, L, and A values between 0 and 1. ',
-					A2(_elm_lang$core$Basics_ops['++'], value, ' is not valid.'))
-				]) : _elm_lang$core$Native_List.fromArray(
-				[]);
+					A2(_elm_lang$core$Basics_ops['++'], value, ' is not valid.')),
+				_1: {ctor: '[]'}
+			} : {ctor: '[]'};
 			return A6(_rtfeldman$elm_css$Css$hslaToRgba, value, warnings, hue, saturation, lightness, alpha);
 		});
 	var _rtfeldman$elm_css$Css$optimizeSpeed = {value: 'optimizeSpeed', textRendering: _rtfeldman$elm_css$Css$Compatible};
@@ -12161,6 +12995,9 @@ webpackJsonp([1,0],[
 	var _rtfeldman$elm_css$Css$geometricPrecision = {value: 'geometricPrecision', textRendering: _rtfeldman$elm_css$Css$Compatible};
 	var _rtfeldman$elm_css$Css$hanging = {value: 'hanging', textIndent: _rtfeldman$elm_css$Css$Compatible};
 	var _rtfeldman$elm_css$Css$eachLine = {value: 'each-line', textIndent: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$mixed = {value: 'mixed', textOrientation: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$upright = {value: 'upright', textOrientation: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$sideways = {value: 'sideways', textOrientation: _rtfeldman$elm_css$Css$Compatible};
 	var _rtfeldman$elm_css$Css$capitalize = {value: 'capitalize', textTransform: _rtfeldman$elm_css$Css$Compatible};
 	var _rtfeldman$elm_css$Css$uppercase = {value: 'uppercase', textTransform: _rtfeldman$elm_css$Css$Compatible};
 	var _rtfeldman$elm_css$Css$lowercase = {value: 'lowercase', textTransform: _rtfeldman$elm_css$Css$Compatible};
@@ -12176,6 +13013,8 @@ webpackJsonp([1,0],[
 	var _rtfeldman$elm_css$Css$ridge = {value: 'ridge', borderStyle: _rtfeldman$elm_css$Css$Compatible};
 	var _rtfeldman$elm_css$Css$inset = {value: 'inset', borderStyle: _rtfeldman$elm_css$Css$Compatible};
 	var _rtfeldman$elm_css$Css$outset = {value: 'outset', borderStyle: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$separate = {value: 'separate', borderCollapse: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$collapse = {value: 'collapse', borderCollapse: _rtfeldman$elm_css$Css$Compatible};
 	var _rtfeldman$elm_css$Css$lengthConverter = F3(
 		function (units, unitLabel, num) {
 			return {
@@ -12195,7 +13034,8 @@ webpackJsonp([1,0],[
 				textIndent: _rtfeldman$elm_css$Css$Compatible,
 				flexBasis: _rtfeldman$elm_css$Css$Compatible,
 				lengthOrNumberOrAutoOrNoneOrContent: _rtfeldman$elm_css$Css$Compatible,
-				fontSize: _rtfeldman$elm_css$Css$Compatible
+				fontSize: _rtfeldman$elm_css$Css$Compatible,
+				lengthOrAutoOrCoverOrContain: _rtfeldman$elm_css$Css$Compatible
 			};
 		});
 	var _rtfeldman$elm_css$Css$angleConverter = F2(
@@ -12221,8 +13061,31 @@ webpackJsonp([1,0],[
 					A2(
 						_elm_lang$core$List$map,
 						_rtfeldman$elm_css$Css$numberToString,
-						_elm_lang$core$Native_List.fromArray(
-							[a, b, c, d, tx, ty]))),
+						{
+							ctor: '::',
+							_0: a,
+							_1: {
+								ctor: '::',
+								_0: b,
+								_1: {
+									ctor: '::',
+									_0: c,
+									_1: {
+										ctor: '::',
+										_0: d,
+										_1: {
+											ctor: '::',
+											_0: tx,
+											_1: {
+												ctor: '::',
+												_0: ty,
+												_1: {ctor: '[]'}
+											}
+										}
+									}
+								}
+							}
+						})),
 				transform: _rtfeldman$elm_css$Css$Compatible
 			};
 		});
@@ -12249,8 +13112,71 @@ webpackJsonp([1,0],[
 																			A2(
 																				_elm_lang$core$List$map,
 																				_rtfeldman$elm_css$Css$numberToString,
-																				_elm_lang$core$Native_List.fromArray(
-																					[a1, a2, a3, a4, b1, b2, b3, b4, c1, c2, c3, c4, d1, d2, d3, d4]))),
+																				{
+																					ctor: '::',
+																					_0: a1,
+																					_1: {
+																						ctor: '::',
+																						_0: a2,
+																						_1: {
+																							ctor: '::',
+																							_0: a3,
+																							_1: {
+																								ctor: '::',
+																								_0: a4,
+																								_1: {
+																									ctor: '::',
+																									_0: b1,
+																									_1: {
+																										ctor: '::',
+																										_0: b2,
+																										_1: {
+																											ctor: '::',
+																											_0: b3,
+																											_1: {
+																												ctor: '::',
+																												_0: b4,
+																												_1: {
+																													ctor: '::',
+																													_0: c1,
+																													_1: {
+																														ctor: '::',
+																														_0: c2,
+																														_1: {
+																															ctor: '::',
+																															_0: c3,
+																															_1: {
+																																ctor: '::',
+																																_0: c4,
+																																_1: {
+																																	ctor: '::',
+																																	_0: d1,
+																																	_1: {
+																																		ctor: '::',
+																																		_0: d2,
+																																		_1: {
+																																			ctor: '::',
+																																			_0: d3,
+																																			_1: {
+																																				ctor: '::',
+																																				_0: d4,
+																																				_1: {ctor: '[]'}
+																																			}
+																																		}
+																																	}
+																																}
+																															}
+																														}
+																													}
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				})),
 																		transform: _rtfeldman$elm_css$Css$Compatible
 																	};
 																};
@@ -12274,10 +13200,11 @@ webpackJsonp([1,0],[
 			value: A2(
 				_rtfeldman$elm_css$Css$cssFunction,
 				'perspective',
-				_elm_lang$core$Native_List.fromArray(
-					[
-						_rtfeldman$elm_css$Css$numberToString(l)
-					])),
+				{
+					ctor: '::',
+					_0: _rtfeldman$elm_css$Css$numberToString(l),
+					_1: {ctor: '[]'}
+				}),
 			transform: _rtfeldman$elm_css$Css$Compatible
 		};
 	};
@@ -12287,8 +13214,11 @@ webpackJsonp([1,0],[
 			value: A2(
 				_rtfeldman$elm_css$Css$cssFunction,
 				'rotate',
-				_elm_lang$core$Native_List.fromArray(
-					[_p20.value])),
+				{
+					ctor: '::',
+					_0: _p20.value,
+					_1: {ctor: '[]'}
+				}),
 			transform: _rtfeldman$elm_css$Css$Compatible
 		};
 	};
@@ -12298,8 +13228,11 @@ webpackJsonp([1,0],[
 			value: A2(
 				_rtfeldman$elm_css$Css$cssFunction,
 				'rotateX',
-				_elm_lang$core$Native_List.fromArray(
-					[_p22.value])),
+				{
+					ctor: '::',
+					_0: _p22.value,
+					_1: {ctor: '[]'}
+				}),
 			transform: _rtfeldman$elm_css$Css$Compatible
 		};
 	};
@@ -12309,8 +13242,11 @@ webpackJsonp([1,0],[
 			value: A2(
 				_rtfeldman$elm_css$Css$cssFunction,
 				'rotateY',
-				_elm_lang$core$Native_List.fromArray(
-					[_p24.value])),
+				{
+					ctor: '::',
+					_0: _p24.value,
+					_1: {ctor: '[]'}
+				}),
 			transform: _rtfeldman$elm_css$Css$Compatible
 		};
 	};
@@ -12320,8 +13256,11 @@ webpackJsonp([1,0],[
 			value: A2(
 				_rtfeldman$elm_css$Css$cssFunction,
 				'rotateZ',
-				_elm_lang$core$Native_List.fromArray(
-					[_p26.value])),
+				{
+					ctor: '::',
+					_0: _p26.value,
+					_1: {ctor: '[]'}
+				}),
 			transform: _rtfeldman$elm_css$Css$Compatible
 		};
 	};
@@ -12331,8 +13270,19 @@ webpackJsonp([1,0],[
 			var coordsAsStrings = A2(
 				_elm_lang$core$List$map,
 				_rtfeldman$elm_css$Css$numberToString,
-				_elm_lang$core$Native_List.fromArray(
-					[x, y, z]));
+				{
+					ctor: '::',
+					_0: x,
+					_1: {
+						ctor: '::',
+						_0: y,
+						_1: {
+							ctor: '::',
+							_0: z,
+							_1: {ctor: '[]'}
+						}
+					}
+				});
 			return {
 				value: A2(
 					_rtfeldman$elm_css$Css$cssFunction,
@@ -12340,8 +13290,11 @@ webpackJsonp([1,0],[
 					A2(
 						_elm_lang$core$Basics_ops['++'],
 						coordsAsStrings,
-						_elm_lang$core$Native_List.fromArray(
-							[_p28.value]))),
+						{
+							ctor: '::',
+							_0: _p28.value,
+							_1: {ctor: '[]'}
+						})),
 				transform: _rtfeldman$elm_css$Css$Compatible
 			};
 		});
@@ -12350,10 +13303,11 @@ webpackJsonp([1,0],[
 			value: A2(
 				_rtfeldman$elm_css$Css$cssFunction,
 				'scale',
-				_elm_lang$core$Native_List.fromArray(
-					[
-						_rtfeldman$elm_css$Css$numberToString(x)
-					])),
+				{
+					ctor: '::',
+					_0: _rtfeldman$elm_css$Css$numberToString(x),
+					_1: {ctor: '[]'}
+				}),
 			transform: _rtfeldman$elm_css$Css$Compatible
 		};
 	};
@@ -12366,8 +13320,15 @@ webpackJsonp([1,0],[
 					A2(
 						_elm_lang$core$List$map,
 						_rtfeldman$elm_css$Css$numberToString,
-						_elm_lang$core$Native_List.fromArray(
-							[x, y]))),
+						{
+							ctor: '::',
+							_0: x,
+							_1: {
+								ctor: '::',
+								_0: y,
+								_1: {ctor: '[]'}
+							}
+						})),
 				transform: _rtfeldman$elm_css$Css$Compatible
 			};
 		});
@@ -12376,10 +13337,11 @@ webpackJsonp([1,0],[
 			value: A2(
 				_rtfeldman$elm_css$Css$cssFunction,
 				'scaleX',
-				_elm_lang$core$Native_List.fromArray(
-					[
-						_rtfeldman$elm_css$Css$numberToString(x)
-					])),
+				{
+					ctor: '::',
+					_0: _rtfeldman$elm_css$Css$numberToString(x),
+					_1: {ctor: '[]'}
+				}),
 			transform: _rtfeldman$elm_css$Css$Compatible
 		};
 	};
@@ -12388,10 +13350,11 @@ webpackJsonp([1,0],[
 			value: A2(
 				_rtfeldman$elm_css$Css$cssFunction,
 				'scaleY',
-				_elm_lang$core$Native_List.fromArray(
-					[
-						_rtfeldman$elm_css$Css$numberToString(y)
-					])),
+				{
+					ctor: '::',
+					_0: _rtfeldman$elm_css$Css$numberToString(y),
+					_1: {ctor: '[]'}
+				}),
 			transform: _rtfeldman$elm_css$Css$Compatible
 		};
 	};
@@ -12404,8 +13367,19 @@ webpackJsonp([1,0],[
 					A2(
 						_elm_lang$core$List$map,
 						_rtfeldman$elm_css$Css$numberToString,
-						_elm_lang$core$Native_List.fromArray(
-							[x, y, z]))),
+						{
+							ctor: '::',
+							_0: x,
+							_1: {
+								ctor: '::',
+								_0: y,
+								_1: {
+									ctor: '::',
+									_0: z,
+									_1: {ctor: '[]'}
+								}
+							}
+						})),
 				transform: _rtfeldman$elm_css$Css$Compatible
 			};
 		});
@@ -12415,8 +13389,11 @@ webpackJsonp([1,0],[
 			value: A2(
 				_rtfeldman$elm_css$Css$cssFunction,
 				'skew',
-				_elm_lang$core$Native_List.fromArray(
-					[_p30.value])),
+				{
+					ctor: '::',
+					_0: _p30.value,
+					_1: {ctor: '[]'}
+				}),
 			transform: _rtfeldman$elm_css$Css$Compatible
 		};
 	};
@@ -12426,8 +13403,15 @@ webpackJsonp([1,0],[
 				value: A2(
 					_rtfeldman$elm_css$Css$cssFunction,
 					'skew',
-					_elm_lang$core$Native_List.fromArray(
-						[ax.value, ay.value])),
+					{
+						ctor: '::',
+						_0: ax.value,
+						_1: {
+							ctor: '::',
+							_0: ay.value,
+							_1: {ctor: '[]'}
+						}
+					}),
 				transform: _rtfeldman$elm_css$Css$Compatible
 			};
 		});
@@ -12437,8 +13421,11 @@ webpackJsonp([1,0],[
 			value: A2(
 				_rtfeldman$elm_css$Css$cssFunction,
 				'skewX',
-				_elm_lang$core$Native_List.fromArray(
-					[_p32.value])),
+				{
+					ctor: '::',
+					_0: _p32.value,
+					_1: {ctor: '[]'}
+				}),
 			transform: _rtfeldman$elm_css$Css$Compatible
 		};
 	};
@@ -12448,8 +13435,11 @@ webpackJsonp([1,0],[
 			value: A2(
 				_rtfeldman$elm_css$Css$cssFunction,
 				'skewY',
-				_elm_lang$core$Native_List.fromArray(
-					[_p34.value])),
+				{
+					ctor: '::',
+					_0: _p34.value,
+					_1: {ctor: '[]'}
+				}),
 			transform: _rtfeldman$elm_css$Css$Compatible
 		};
 	};
@@ -12459,8 +13449,11 @@ webpackJsonp([1,0],[
 			value: A2(
 				_rtfeldman$elm_css$Css$cssFunction,
 				'translate',
-				_elm_lang$core$Native_List.fromArray(
-					[_p36.value])),
+				{
+					ctor: '::',
+					_0: _p36.value,
+					_1: {ctor: '[]'}
+				}),
 			transform: _rtfeldman$elm_css$Css$Compatible
 		};
 	};
@@ -12470,8 +13463,15 @@ webpackJsonp([1,0],[
 				value: A2(
 					_rtfeldman$elm_css$Css$cssFunction,
 					'translate',
-					_elm_lang$core$Native_List.fromArray(
-						[tx.value, ty.value])),
+					{
+						ctor: '::',
+						_0: tx.value,
+						_1: {
+							ctor: '::',
+							_0: ty.value,
+							_1: {ctor: '[]'}
+						}
+					}),
 				transform: _rtfeldman$elm_css$Css$Compatible
 			};
 		});
@@ -12481,8 +13481,11 @@ webpackJsonp([1,0],[
 			value: A2(
 				_rtfeldman$elm_css$Css$cssFunction,
 				'translateX',
-				_elm_lang$core$Native_List.fromArray(
-					[_p38.value])),
+				{
+					ctor: '::',
+					_0: _p38.value,
+					_1: {ctor: '[]'}
+				}),
 			transform: _rtfeldman$elm_css$Css$Compatible
 		};
 	};
@@ -12492,8 +13495,11 @@ webpackJsonp([1,0],[
 			value: A2(
 				_rtfeldman$elm_css$Css$cssFunction,
 				'translateY',
-				_elm_lang$core$Native_List.fromArray(
-					[_p40.value])),
+				{
+					ctor: '::',
+					_0: _p40.value,
+					_1: {ctor: '[]'}
+				}),
 			transform: _rtfeldman$elm_css$Css$Compatible
 		};
 	};
@@ -12503,8 +13509,11 @@ webpackJsonp([1,0],[
 			value: A2(
 				_rtfeldman$elm_css$Css$cssFunction,
 				'translateZ',
-				_elm_lang$core$Native_List.fromArray(
-					[_p42.value])),
+				{
+					ctor: '::',
+					_0: _p42.value,
+					_1: {ctor: '[]'}
+				}),
 			transform: _rtfeldman$elm_css$Css$Compatible
 		};
 	};
@@ -12514,17 +13523,60 @@ webpackJsonp([1,0],[
 				value: A2(
 					_rtfeldman$elm_css$Css$cssFunction,
 					'translate3d',
-					_elm_lang$core$Native_List.fromArray(
-						[tx.value, ty.value, tz.value])),
+					{
+						ctor: '::',
+						_0: tx.value,
+						_1: {
+							ctor: '::',
+							_0: ty.value,
+							_1: {
+								ctor: '::',
+								_0: tz.value,
+								_1: {ctor: '[]'}
+							}
+						}
+					}),
 				transform: _rtfeldman$elm_css$Css$Compatible
 			};
 		});
 	var _rtfeldman$elm_css$Css$fillBox = {value: 'fill-box', transformBox: _rtfeldman$elm_css$Css$Compatible};
-	var _rtfeldman$elm_css$Css$contentBox = {value: 'content-box', boxSizing: _rtfeldman$elm_css$Css$Compatible};
-	var _rtfeldman$elm_css$Css$borderBox = {value: 'border-box', boxSizing: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$contentBox = {value: 'content-box', boxSizing: _rtfeldman$elm_css$Css$Compatible, backgroundClip: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$borderBox = {value: 'border-box', boxSizing: _rtfeldman$elm_css$Css$Compatible, backgroundClip: _rtfeldman$elm_css$Css$Compatible};
 	var _rtfeldman$elm_css$Css$viewBox = {value: 'view-box', transformBox: _rtfeldman$elm_css$Css$Compatible};
 	var _rtfeldman$elm_css$Css$preserve3d = {value: 'preserve-3d', transformStyle: _rtfeldman$elm_css$Css$Compatible};
 	var _rtfeldman$elm_css$Css$flat = {value: 'flat', transformStyle: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$inside = {value: 'inside', listStylePosition: _rtfeldman$elm_css$Css$Compatible, listStyleTypeOrPositionOrImage: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$outside = {value: 'outside', listStylePosition: _rtfeldman$elm_css$Css$Compatible, listStyleTypeOrPositionOrImage: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$disc = {value: 'disc', listStyleType: _rtfeldman$elm_css$Css$Compatible, listStyleTypeOrPositionOrImage: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$circle = {value: 'circle', listStyleType: _rtfeldman$elm_css$Css$Compatible, listStyleTypeOrPositionOrImage: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$square = {value: 'square', listStyleType: _rtfeldman$elm_css$Css$Compatible, listStyleTypeOrPositionOrImage: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$decimal = {value: 'decimal', listStyleType: _rtfeldman$elm_css$Css$Compatible, listStyleTypeOrPositionOrImage: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$decimalLeadingZero = {value: 'decimal-leading-zero', listStyleType: _rtfeldman$elm_css$Css$Compatible, listStyleTypeOrPositionOrImage: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$lowerRoman = {value: 'lower-roman', listStyleType: _rtfeldman$elm_css$Css$Compatible, listStyleTypeOrPositionOrImage: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$upperRoman = {value: 'upper-roman', listStyleType: _rtfeldman$elm_css$Css$Compatible, listStyleTypeOrPositionOrImage: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$lowerGreek = {value: 'lower-greek', listStyleType: _rtfeldman$elm_css$Css$Compatible, listStyleTypeOrPositionOrImage: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$upperGreek = {value: 'upper-greek', listStyleType: _rtfeldman$elm_css$Css$Compatible, listStyleTypeOrPositionOrImage: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$lowerAlpha = {value: 'lower-alpha', listStyleType: _rtfeldman$elm_css$Css$Compatible, listStyleTypeOrPositionOrImage: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$upperAlpha = {value: 'upper-alpha', listStyleType: _rtfeldman$elm_css$Css$Compatible, listStyleTypeOrPositionOrImage: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$lowerLatin = {value: 'lower-latin', listStyleType: _rtfeldman$elm_css$Css$Compatible, listStyleTypeOrPositionOrImage: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$upperLatin = {value: 'upper-latin', listStyleType: _rtfeldman$elm_css$Css$Compatible, listStyleTypeOrPositionOrImage: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$arabicIndic = {value: 'arabic-indic', listStyleType: _rtfeldman$elm_css$Css$Compatible, listStyleTypeOrPositionOrImage: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$armenian = {value: 'armenian', listStyleType: _rtfeldman$elm_css$Css$Compatible, listStyleTypeOrPositionOrImage: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$bengali = {value: 'bengali', listStyleType: _rtfeldman$elm_css$Css$Compatible, listStyleTypeOrPositionOrImage: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$cjkEarthlyBranch = {value: 'cjk-earthly-branch', listStyleType: _rtfeldman$elm_css$Css$Compatible, listStyleTypeOrPositionOrImage: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$cjkHeavenlyStem = {value: 'cjk-heavenly-stem', listStyleType: _rtfeldman$elm_css$Css$Compatible, listStyleTypeOrPositionOrImage: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$devanagari = {value: 'devanagari', listStyleType: _rtfeldman$elm_css$Css$Compatible, listStyleTypeOrPositionOrImage: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$georgian = {value: 'georgian', listStyleType: _rtfeldman$elm_css$Css$Compatible, listStyleTypeOrPositionOrImage: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$gujarati = {value: 'gujarati', listStyleType: _rtfeldman$elm_css$Css$Compatible, listStyleTypeOrPositionOrImage: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$gurmukhi = {value: 'gurmukhi', listStyleType: _rtfeldman$elm_css$Css$Compatible, listStyleTypeOrPositionOrImage: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$kannada = {value: 'kannada', listStyleType: _rtfeldman$elm_css$Css$Compatible, listStyleTypeOrPositionOrImage: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$khmer = {value: 'khmer', listStyleType: _rtfeldman$elm_css$Css$Compatible, listStyleTypeOrPositionOrImage: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$lao = {value: 'lao', listStyleType: _rtfeldman$elm_css$Css$Compatible, listStyleTypeOrPositionOrImage: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$malayalam = {value: 'malayalam', listStyleType: _rtfeldman$elm_css$Css$Compatible, listStyleTypeOrPositionOrImage: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$myanmar = {value: 'myanmar', listStyleType: _rtfeldman$elm_css$Css$Compatible, listStyleTypeOrPositionOrImage: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$oriya = {value: 'oriya', listStyleType: _rtfeldman$elm_css$Css$Compatible, listStyleTypeOrPositionOrImage: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$telugu = {value: 'telugu', listStyleType: _rtfeldman$elm_css$Css$Compatible, listStyleTypeOrPositionOrImage: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$thai = {value: 'thai', listStyleType: _rtfeldman$elm_css$Css$Compatible, listStyleTypeOrPositionOrImage: _rtfeldman$elm_css$Css$Compatible};
 	var _rtfeldman$elm_css$Css$content = {value: 'content', flexBasis: _rtfeldman$elm_css$Css$Compatible, lengthOrNumberOrAutoOrNoneOrContent: _rtfeldman$elm_css$Css$Compatible};
 	var _rtfeldman$elm_css$Css$wrap = {value: 'wrap', flexWrap: _rtfeldman$elm_css$Css$Compatible, flexDirectionOrWrap: _rtfeldman$elm_css$Css$Compatible};
 	var _rtfeldman$elm_css$Css$wrapReverse = _elm_lang$core$Native_Utils.update(
@@ -12543,11 +13595,23 @@ webpackJsonp([1,0],[
 	var _rtfeldman$elm_css$Css$underline = {value: 'underline', textDecorationLine: _rtfeldman$elm_css$Css$Compatible};
 	var _rtfeldman$elm_css$Css$overline = {value: 'overline', textDecorationLine: _rtfeldman$elm_css$Css$Compatible};
 	var _rtfeldman$elm_css$Css$lineThrough = {value: 'line-through', textDecorationLine: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$repeatX = {value: 'repeat-x', backgroundRepeatShorthand: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$repeatY = {value: 'repeat-y', backgroundRepeatShorthand: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$repeat = {value: 'repeat', backgroundRepeat: _rtfeldman$elm_css$Css$Compatible, backgroundRepeatShorthand: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$space = {value: 'space', backgroundRepeat: _rtfeldman$elm_css$Css$Compatible, backgroundRepeatShorthand: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$round = {value: 'round', backgroundRepeat: _rtfeldman$elm_css$Css$Compatible, backgroundRepeatShorthand: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$noRepeat = {value: 'no-repeat', backgroundRepeat: _rtfeldman$elm_css$Css$Compatible, backgroundRepeatShorthand: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$local = {value: 'local', backgroundAttachment: _rtfeldman$elm_css$Css$Compatible};
 	var _rtfeldman$elm_css$Css$block = {value: 'block', display: _rtfeldman$elm_css$Css$Compatible};
 	var _rtfeldman$elm_css$Css$inlineBlock = {value: 'inline-block', display: _rtfeldman$elm_css$Css$Compatible};
 	var _rtfeldman$elm_css$Css$inline = {value: 'inline', display: _rtfeldman$elm_css$Css$Compatible};
-	var _rtfeldman$elm_css$Css$none = {value: 'none', none: _rtfeldman$elm_css$Css$Compatible, lengthOrNone: _rtfeldman$elm_css$Css$Compatible, lengthOrNoneOrMinMaxDimension: _rtfeldman$elm_css$Css$Compatible, lengthOrNumberOrAutoOrNoneOrContent: _rtfeldman$elm_css$Css$Compatible, textDecorationLine: _rtfeldman$elm_css$Css$Compatible, display: _rtfeldman$elm_css$Css$Compatible, transform: _rtfeldman$elm_css$Css$Compatible, borderStyle: _rtfeldman$elm_css$Css$Compatible};
-	var _rtfeldman$elm_css$Css$auto = {value: 'auto', flexBasis: _rtfeldman$elm_css$Css$Compatible, overflow: _rtfeldman$elm_css$Css$Compatible, textRendering: _rtfeldman$elm_css$Css$Compatible, lengthOrAuto: _rtfeldman$elm_css$Css$Compatible, lengthOrNumberOrAutoOrNoneOrContent: _rtfeldman$elm_css$Css$Compatible, alignItemsOrAuto: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$table = {value: 'table', display: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$tableRow = {value: 'table-row', display: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$tableCell = {value: 'table-cell', display: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$listItem = {value: 'list-item', display: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$inlineListItem = {value: 'inline-list-item', display: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$none = {value: 'none', cursor: _rtfeldman$elm_css$Css$Compatible, none: _rtfeldman$elm_css$Css$Compatible, lengthOrNone: _rtfeldman$elm_css$Css$Compatible, lengthOrNoneOrMinMaxDimension: _rtfeldman$elm_css$Css$Compatible, lengthOrNumberOrAutoOrNoneOrContent: _rtfeldman$elm_css$Css$Compatible, textDecorationLine: _rtfeldman$elm_css$Css$Compatible, listStyleType: _rtfeldman$elm_css$Css$Compatible, listStyleTypeOrPositionOrImage: _rtfeldman$elm_css$Css$Compatible, display: _rtfeldman$elm_css$Css$Compatible, outline: _rtfeldman$elm_css$Css$Compatible, transform: _rtfeldman$elm_css$Css$Compatible, borderStyle: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$auto = {value: 'auto', cursor: _rtfeldman$elm_css$Css$Compatible, flexBasis: _rtfeldman$elm_css$Css$Compatible, overflow: _rtfeldman$elm_css$Css$Compatible, textRendering: _rtfeldman$elm_css$Css$Compatible, lengthOrAuto: _rtfeldman$elm_css$Css$Compatible, lengthOrNumberOrAutoOrNoneOrContent: _rtfeldman$elm_css$Css$Compatible, alignItemsOrAuto: _rtfeldman$elm_css$Css$Compatible, lengthOrAutoOrCoverOrContain: _rtfeldman$elm_css$Css$Compatible};
 	var _rtfeldman$elm_css$Css$noWrap = {value: 'nowrap', whiteSpace: _rtfeldman$elm_css$Css$Compatible, flexWrap: _rtfeldman$elm_css$Css$Compatible, flexDirectionOrWrap: _rtfeldman$elm_css$Css$Compatible};
 	var _rtfeldman$elm_css$Css$fillAvailable = {value: 'fill-available', minMaxDimension: _rtfeldman$elm_css$Css$Compatible, lengthOrMinMaxDimension: _rtfeldman$elm_css$Css$Compatible, lengthOrNoneOrMinMaxDimension: _rtfeldman$elm_css$Css$Compatible};
 	var _rtfeldman$elm_css$Css$maxContent = _elm_lang$core$Native_Utils.update(
@@ -12560,7 +13624,7 @@ webpackJsonp([1,0],[
 		_rtfeldman$elm_css$Css$fillAvailable,
 		{value: 'fit-content'});
 	var _rtfeldman$elm_css$Css$static = {value: 'static', position: _rtfeldman$elm_css$Css$Compatible};
-	var _rtfeldman$elm_css$Css$fixed = {value: 'fixed', position: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$fixed = {value: 'fixed', position: _rtfeldman$elm_css$Css$Compatible, backgroundAttachment: _rtfeldman$elm_css$Css$Compatible};
 	var _rtfeldman$elm_css$Css$sticky = {value: 'sticky', position: _rtfeldman$elm_css$Css$Compatible};
 	var _rtfeldman$elm_css$Css$relative = {value: 'relative', position: _rtfeldman$elm_css$Css$Compatible};
 	var _rtfeldman$elm_css$Css$absolute = {value: 'absolute', position: _rtfeldman$elm_css$Css$Compatible};
@@ -12580,16 +13644,16 @@ webpackJsonp([1,0],[
 	var _rtfeldman$elm_css$Css$larger = {value: 'larger', fontSize: _rtfeldman$elm_css$Css$Compatible};
 	var _rtfeldman$elm_css$Css$normal = {
 		value: 'normal',
-		warnings: _elm_lang$core$Native_List.fromArray(
-			[]),
+		warnings: {ctor: '[]'},
 		fontStyle: _rtfeldman$elm_css$Css$Compatible,
+		fontWeight: _rtfeldman$elm_css$Css$Compatible,
 		featureTagValue: _rtfeldman$elm_css$Css$Compatible
 	};
 	var _rtfeldman$elm_css$Css$italic = {value: 'italic', fontStyle: _rtfeldman$elm_css$Css$Compatible};
 	var _rtfeldman$elm_css$Css$oblique = {value: 'oblique', fontStyle: _rtfeldman$elm_css$Css$Compatible};
-	var _rtfeldman$elm_css$Css$bold = {value: 'bold', lengthOrNumberOrAutoOrNoneOrContent: _rtfeldman$elm_css$Css$Compatible};
-	var _rtfeldman$elm_css$Css$lighter = {value: 'lighter', lengthOrNumberOrAutoOrNoneOrContent: _rtfeldman$elm_css$Css$Compatible};
-	var _rtfeldman$elm_css$Css$bolder = {value: 'bolder', lengthOrNumberOrAutoOrNoneOrContent: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$bold = {value: 'bold', fontWeight: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$lighter = {value: 'lighter', fontWeight: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$bolder = {value: 'bolder', fontWeight: _rtfeldman$elm_css$Css$Compatible};
 	var _rtfeldman$elm_css$Css$smallCaps = {value: 'small-caps', fontVariant: _rtfeldman$elm_css$Css$Compatible, fontVariantCaps: _rtfeldman$elm_css$Css$Compatible};
 	var _rtfeldman$elm_css$Css$allSmallCaps = {value: 'all-small-caps', fontVariant: _rtfeldman$elm_css$Css$Compatible, fontVariantCaps: _rtfeldman$elm_css$Css$Compatible};
 	var _rtfeldman$elm_css$Css$petiteCaps = {value: 'petite-caps', fontVariant: _rtfeldman$elm_css$Css$Compatible, fontVariantCaps: _rtfeldman$elm_css$Css$Compatible};
@@ -12614,9 +13678,9 @@ webpackJsonp([1,0],[
 	var _rtfeldman$elm_css$Css$slashedZero = {value: 'slashed-zero', fontVariant: _rtfeldman$elm_css$Css$Compatible, fontVariantNumeric: _rtfeldman$elm_css$Css$Compatible};
 	var _rtfeldman$elm_css$Css$featureTag2 = F2(
 		function (tag, value) {
-			var potentialWarnings = _elm_lang$core$Native_List.fromArray(
-				[
-					{
+			var potentialWarnings = {
+				ctor: '::',
+				_0: {
 					ctor: '_Tuple2',
 					_0: !_elm_lang$core$Native_Utils.eq(
 						_elm_lang$core$String$length(tag),
@@ -12626,22 +13690,26 @@ webpackJsonp([1,0],[
 						'Feature tags must be exactly 4 characters long. ',
 						A2(_elm_lang$core$Basics_ops['++'], tag, ' is invalid.'))
 				},
-					{
-					ctor: '_Tuple2',
-					_0: _elm_lang$core$Native_Utils.cmp(value, 0) < 0,
-					_1: A2(
-						_elm_lang$core$Basics_ops['++'],
-						'Feature values cannot be negative. ',
-						A2(
+				_1: {
+					ctor: '::',
+					_0: {
+						ctor: '_Tuple2',
+						_0: _elm_lang$core$Native_Utils.cmp(value, 0) < 0,
+						_1: A2(
 							_elm_lang$core$Basics_ops['++'],
-							_elm_lang$core$Basics$toString(value),
-							' is invalid.'))
+							'Feature values cannot be negative. ',
+							A2(
+								_elm_lang$core$Basics_ops['++'],
+								_elm_lang$core$Basics$toString(value),
+								' is invalid.'))
+					},
+					_1: {ctor: '[]'}
 				}
-				]);
+			};
 			var warnings = A2(
 				_elm_lang$core$List$map,
-				_elm_lang$core$Basics$snd,
-				A2(_elm_lang$core$List$filter, _elm_lang$core$Basics$fst, potentialWarnings));
+				_elm_lang$core$Tuple$second,
+				A2(_elm_lang$core$List$filter, _elm_lang$core$Tuple$first, potentialWarnings));
 			return {
 				value: A2(
 					_elm_lang$core$Basics_ops['++'],
@@ -12657,6 +13725,40 @@ webpackJsonp([1,0],[
 	var _rtfeldman$elm_css$Css$featureTag = function (tag) {
 		return A2(_rtfeldman$elm_css$Css$featureTag2, tag, 1);
 	};
+	var _rtfeldman$elm_css$Css$default = {value: 'default', cursor: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$crosshair = {value: 'crosshair', cursor: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$contextMenu = {value: 'context-menu', cursor: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$help = {value: 'help', cursor: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$pointer = {value: 'pointer', cursor: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$progress = {value: 'progress', cursor: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$wait = {value: 'wait', cursor: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$cell = {value: 'cell', cursor: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$text = {value: 'text', cursor: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$verticalText = {value: 'vertical-text', cursor: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$cursorAlias = {value: 'alias', cursor: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$copy = {value: 'copy', cursor: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$move = {value: 'move', cursor: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$noDrop = {value: 'no-drop', cursor: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$notAllowed = {value: 'not-allowed', cursor: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$eResize = {value: 'e-resize', cursor: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$nResize = {value: 'n-resize', cursor: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$neResize = {value: 'ne-resize', cursor: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$nwResize = {value: 'nw-resize', cursor: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$sResize = {value: 's-resize', cursor: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$seResize = {value: 'se-resize', cursor: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$swResize = {value: 'sw-resize', cursor: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$wResize = {value: 'w-resize', cursor: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$ewResize = {value: 'ew-resize', cursor: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$nsResize = {value: 'ns-resize', cursor: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$neswResize = {value: 'nesw-resize', cursor: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$nwseResize = {value: 'nwse-resize', cursor: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$colResize = {value: 'col-resize', cursor: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$rowResize = {value: 'row-resize', cursor: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$allScroll = {value: 'all-scroll', cursor: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$zoomIn = {value: 'zoom-in', cursor: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$zoomOut = {value: 'zoom-out', cursor: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$grab = {value: 'grab', cursor: _rtfeldman$elm_css$Css$Compatible};
+	var _rtfeldman$elm_css$Css$grabbing = {value: 'grabbing', cursor: _rtfeldman$elm_css$Css$Compatible};
 	var _rtfeldman$elm_css$Css$PseudoClass = F2(
 		function (a, b) {
 			return {ctor: 'PseudoClass', _0: a, _1: b};
@@ -12696,12 +13798,13 @@ webpackJsonp([1,0],[
 	var _rtfeldman$elm_css$Css$PcUnits = {ctor: 'PcUnits'};
 	var _rtfeldman$elm_css$Css$pc = A2(_rtfeldman$elm_css$Css$lengthConverter, _rtfeldman$elm_css$Css$PcUnits, 'pc');
 	var _rtfeldman$elm_css$Css$UnitlessInteger = {ctor: 'UnitlessInteger'};
-	var _rtfeldman$elm_css$Css$zero = {value: '0', length: _rtfeldman$elm_css$Css$Compatible, lengthOrNumber: _rtfeldman$elm_css$Css$Compatible, lengthOrNone: _rtfeldman$elm_css$Css$Compatible, lengthOrAuto: _rtfeldman$elm_css$Css$Compatible, lengthOrMinMaxDimension: _rtfeldman$elm_css$Css$Compatible, lengthOrNoneOrMinMaxDimension: _rtfeldman$elm_css$Css$Compatible, number: _rtfeldman$elm_css$Css$Compatible, units: _rtfeldman$elm_css$Css$UnitlessInteger, unitLabel: '', numericValue: 0};
+	var _rtfeldman$elm_css$Css$zero = {value: '0', length: _rtfeldman$elm_css$Css$Compatible, lengthOrNumber: _rtfeldman$elm_css$Css$Compatible, lengthOrNone: _rtfeldman$elm_css$Css$Compatible, lengthOrAuto: _rtfeldman$elm_css$Css$Compatible, lengthOrMinMaxDimension: _rtfeldman$elm_css$Css$Compatible, lengthOrNoneOrMinMaxDimension: _rtfeldman$elm_css$Css$Compatible, number: _rtfeldman$elm_css$Css$Compatible, outline: _rtfeldman$elm_css$Css$Compatible, units: _rtfeldman$elm_css$Css$UnitlessInteger, unitLabel: '', numericValue: 0, lengthOrAutoOrCoverOrContain: _rtfeldman$elm_css$Css$Compatible};
 	var _rtfeldman$elm_css$Css$int = function (val) {
 		return {
 			value: _rtfeldman$elm_css$Css$numberToString(val),
 			lengthOrNumber: _rtfeldman$elm_css$Css$Compatible,
 			number: _rtfeldman$elm_css$Css$Compatible,
+			fontWeight: _rtfeldman$elm_css$Css$Compatible,
 			lengthOrNumberOrAutoOrNoneOrContent: _rtfeldman$elm_css$Css$Compatible,
 			numericValue: _elm_lang$core$Basics$toFloat(val),
 			unitLabel: '',
@@ -12709,7 +13812,7 @@ webpackJsonp([1,0],[
 		};
 	};
 	var _rtfeldman$elm_css$Css$UnitlessFloat = {ctor: 'UnitlessFloat'};
-	var _rtfeldman$elm_css$Css$float = function (val) {
+	var _rtfeldman$elm_css$Css$num = function (val) {
 		return {
 			value: _rtfeldman$elm_css$Css$numberToString(val),
 			lengthOrNumber: _rtfeldman$elm_css$Css$Compatible,
@@ -12721,7 +13824,54 @@ webpackJsonp([1,0],[
 		};
 	};
 	var _rtfeldman$elm_css$Css$IncompatibleUnits = {ctor: 'IncompatibleUnits'};
-	var _rtfeldman$elm_css$Css$initial = {value: 'initial', overflow: _rtfeldman$elm_css$Css$Compatible, none: _rtfeldman$elm_css$Css$Compatible, number: _rtfeldman$elm_css$Css$Compatible, textDecorationLine: _rtfeldman$elm_css$Css$Compatible, textRendering: _rtfeldman$elm_css$Css$Compatible, textIndent: _rtfeldman$elm_css$Css$Compatible, textDecorationStyle: _rtfeldman$elm_css$Css$Compatible, boxSizing: _rtfeldman$elm_css$Css$Compatible, display: _rtfeldman$elm_css$Css$Compatible, all: _rtfeldman$elm_css$Css$Compatible, alignItems: _rtfeldman$elm_css$Css$Compatible, length: _rtfeldman$elm_css$Css$Compatible, lengthOrAuto: _rtfeldman$elm_css$Css$Compatible, lengthOrNone: _rtfeldman$elm_css$Css$Compatible, lengthOrNumber: _rtfeldman$elm_css$Css$Compatible, lengthOrMinMaxDimension: _rtfeldman$elm_css$Css$Compatible, lengthOrNoneOrMinMaxDimension: _rtfeldman$elm_css$Css$Compatible, flexBasis: _rtfeldman$elm_css$Css$Compatible, flexWrap: _rtfeldman$elm_css$Css$Compatible, flexDirection: _rtfeldman$elm_css$Css$Compatible, flexDirectionOrWrap: _rtfeldman$elm_css$Css$Compatible, lengthOrNumberOrAutoOrNoneOrContent: _rtfeldman$elm_css$Css$Compatible, fontFamily: _rtfeldman$elm_css$Css$Compatible, fontSize: _rtfeldman$elm_css$Css$Compatible, fontStyle: _rtfeldman$elm_css$Css$Compatible, fontWeight: _rtfeldman$elm_css$Css$Compatible, fontVariant: _rtfeldman$elm_css$Css$Compatible, units: _rtfeldman$elm_css$Css$IncompatibleUnits, numericValue: 0, unitLabel: ''};
+	var _rtfeldman$elm_css$Css$initial = {
+		value: 'initial',
+		overflow: _rtfeldman$elm_css$Css$Compatible,
+		none: _rtfeldman$elm_css$Css$Compatible,
+		number: _rtfeldman$elm_css$Css$Compatible,
+		textDecorationLine: _rtfeldman$elm_css$Css$Compatible,
+		textRendering: _rtfeldman$elm_css$Css$Compatible,
+		textIndent: _rtfeldman$elm_css$Css$Compatible,
+		textDecorationStyle: _rtfeldman$elm_css$Css$Compatible,
+		borderStyle: _rtfeldman$elm_css$Css$Compatible,
+		boxSizing: _rtfeldman$elm_css$Css$Compatible,
+		color: _rtfeldman$elm_css$Css$Compatible,
+		cursor: _rtfeldman$elm_css$Css$Compatible,
+		display: _rtfeldman$elm_css$Css$Compatible,
+		all: _rtfeldman$elm_css$Css$Compatible,
+		alignItems: _rtfeldman$elm_css$Css$Compatible,
+		length: _rtfeldman$elm_css$Css$Compatible,
+		lengthOrAuto: _rtfeldman$elm_css$Css$Compatible,
+		lengthOrNone: _rtfeldman$elm_css$Css$Compatible,
+		lengthOrNumber: _rtfeldman$elm_css$Css$Compatible,
+		lengthOrMinMaxDimension: _rtfeldman$elm_css$Css$Compatible,
+		lengthOrNoneOrMinMaxDimension: _rtfeldman$elm_css$Css$Compatible,
+		listStyleType: _rtfeldman$elm_css$Css$Compatible,
+		listStylePosition: _rtfeldman$elm_css$Css$Compatible,
+		listStyleTypeOrPositionOrImage: _rtfeldman$elm_css$Css$Compatible,
+		flexBasis: _rtfeldman$elm_css$Css$Compatible,
+		flexWrap: _rtfeldman$elm_css$Css$Compatible,
+		flexDirection: _rtfeldman$elm_css$Css$Compatible,
+		flexDirectionOrWrap: _rtfeldman$elm_css$Css$Compatible,
+		lengthOrNumberOrAutoOrNoneOrContent: _rtfeldman$elm_css$Css$Compatible,
+		fontFamily: _rtfeldman$elm_css$Css$Compatible,
+		fontSize: _rtfeldman$elm_css$Css$Compatible,
+		fontStyle: _rtfeldman$elm_css$Css$Compatible,
+		fontWeight: _rtfeldman$elm_css$Css$Compatible,
+		fontVariant: _rtfeldman$elm_css$Css$Compatible,
+		outline: _rtfeldman$elm_css$Css$Compatible,
+		units: _rtfeldman$elm_css$Css$IncompatibleUnits,
+		numericValue: 0,
+		unitLabel: '',
+		warnings: {ctor: '[]'},
+		backgroundRepeat: _rtfeldman$elm_css$Css$Compatible,
+		backgroundRepeatShorthand: _rtfeldman$elm_css$Css$Compatible,
+		backgroundAttachment: _rtfeldman$elm_css$Css$Compatible,
+		backgroundBlendMode: _rtfeldman$elm_css$Css$Compatible,
+		backgroundOrigin: _rtfeldman$elm_css$Css$Compatible,
+		backgroundImage: _rtfeldman$elm_css$Css$Compatible,
+		lengthOrAutoOrCoverOrContain: _rtfeldman$elm_css$Css$Compatible
+	};
 	var _rtfeldman$elm_css$Css$unset = _elm_lang$core$Native_Utils.update(
 		_rtfeldman$elm_css$Css$initial,
 		{value: 'unset'});
@@ -12743,6 +13893,13 @@ webpackJsonp([1,0],[
 			'align-self',
 			fn(_rtfeldman$elm_css$Css$lengthForOverloadedProperty));
 	};
+	var _rtfeldman$elm_css$Css$float = function (fn) {
+		return A3(
+			_rtfeldman$elm_css$Css$getOverloadedProperty,
+			'float',
+			'float',
+			fn(_rtfeldman$elm_css$Css$lengthForOverloadedProperty));
+	};
 	var _rtfeldman$elm_css$Css$textAlignLast = function (fn) {
 		return A3(
 			_rtfeldman$elm_css$Css$getOverloadedProperty,
@@ -12762,6 +13919,13 @@ webpackJsonp([1,0],[
 			_rtfeldman$elm_css$Css$getOverloadedProperty,
 			'verticalAlign',
 			'vertical-align',
+			fn(_rtfeldman$elm_css$Css$lengthForOverloadedProperty));
+	};
+	var _rtfeldman$elm_css$Css$backgroundPosition = function (fn) {
+		return A3(
+			_rtfeldman$elm_css$Css$getOverloadedProperty,
+			'backgroundPosition',
+			'background-position',
 			fn(_rtfeldman$elm_css$Css$lengthForOverloadedProperty));
 	};
 	var _rtfeldman$elm_css$Css$Rtl = {ctor: 'Rtl'};
@@ -12921,10 +14085,11 @@ webpackJsonp([1,0],[
 						_rtfeldman$elm_css$Css_Preprocess$SupportsRule,
 						_p10._0,
 						function (declarations) {
-							return _elm_lang$core$Native_List.fromArray(
-								[
-									_rtfeldman$elm_css$Css_Preprocess$Snippet(declarations)
-								]);
+							return {
+								ctor: '::',
+								_0: _rtfeldman$elm_css$Css_Preprocess$Snippet(declarations),
+								_1: {ctor: '[]'}
+							};
 						}(
 							A2(
 								_elm_lang$core$List$map,
@@ -12983,41 +14148,50 @@ webpackJsonp([1,0],[
 		return A3(
 			_elm_lang$html$Html$node,
 			'link',
-			_elm_lang$core$Native_List.fromArray(
-				[
-					A2(
+			{
+				ctor: '::',
+				_0: A2(
 					_elm_lang$html$Html_Attributes$property,
 					'rel',
 					_elm_lang$core$Json_Encode$string('stylesheet')),
-					A2(
-					_elm_lang$html$Html_Attributes$property,
-					'type',
-					_elm_lang$core$Json_Encode$string('text/css')),
-					A2(
-					_elm_lang$html$Html_Attributes$property,
-					'href',
-					_elm_lang$core$Json_Encode$string(url))
-				]),
-			_elm_lang$core$Native_List.fromArray(
-				[]));
+				_1: {
+					ctor: '::',
+					_0: A2(
+						_elm_lang$html$Html_Attributes$property,
+						'type',
+						_elm_lang$core$Json_Encode$string('text/css')),
+					_1: {
+						ctor: '::',
+						_0: A2(
+							_elm_lang$html$Html_Attributes$property,
+							'href',
+							_elm_lang$core$Json_Encode$string(url)),
+						_1: {ctor: '[]'}
+					}
+				}
+			},
+			{ctor: '[]'});
 	};
 	var _rtfeldman$elm_css_helpers$Html_CssHelpers$style = function (text) {
 		return A3(
 			_elm_lang$html$Html$node,
 			'style',
-			_elm_lang$core$Native_List.fromArray(
-				[
-					A2(
+			{
+				ctor: '::',
+				_0: A2(
 					_elm_lang$html$Html_Attributes$property,
 					'textContent',
 					_elm_lang$core$Json_Encode$string(text)),
-					A2(
-					_elm_lang$html$Html_Attributes$property,
-					'type',
-					_elm_lang$core$Json_Encode$string('text/css'))
-				]),
-			_elm_lang$core$Native_List.fromArray(
-				[]));
+				_1: {
+					ctor: '::',
+					_0: A2(
+						_elm_lang$html$Html_Attributes$property,
+						'type',
+						_elm_lang$core$Json_Encode$string('text/css')),
+					_1: {ctor: '[]'}
+				}
+			},
+			{ctor: '[]'});
 	};
 	var _rtfeldman$elm_css_helpers$Html_CssHelpers$namespacedClass = F2(
 		function (name, list) {
@@ -13035,8 +14209,8 @@ webpackJsonp([1,0],[
 		return _rtfeldman$elm_css_helpers$Html_CssHelpers$class(
 			A2(
 				_elm_lang$core$List$map,
-				_elm_lang$core$Basics$fst,
-				A2(_elm_lang$core$List$filter, _elm_lang$core$Basics$snd, list)));
+				_elm_lang$core$Tuple$first,
+				A2(_elm_lang$core$List$filter, _elm_lang$core$Tuple$second, list)));
 	};
 	var _rtfeldman$elm_css_helpers$Html_CssHelpers$namespacedClassList = F2(
 		function (name, list) {
@@ -13045,8 +14219,8 @@ webpackJsonp([1,0],[
 				name,
 				A2(
 					_elm_lang$core$List$map,
-					_elm_lang$core$Basics$fst,
-					A2(_elm_lang$core$List$filter, _elm_lang$core$Basics$snd, list)));
+					_elm_lang$core$Tuple$first,
+					A2(_elm_lang$core$List$filter, _elm_lang$core$Tuple$second, list)));
 		});
 	var _rtfeldman$elm_css_helpers$Html_CssHelpers$helpers = {
 		$class: _rtfeldman$elm_css_helpers$Html_CssHelpers$class,
@@ -13086,22 +14260,27 @@ webpackJsonp([1,0],[
 		return _rtfeldman$elm_css$Css$stylesheet(
 			A2(_rtfeldman$elm_css$Css_Namespace$namespace, _benansell$elm_webpack_seed$LogoAnimationCss$logoAnimationNamespace.name, _p0));
 	}(
-		_elm_lang$core$Native_List.fromArray(
-			[
-				A2(
+		{
+			ctor: '::',
+			_0: A2(
 				F2(
 					function (x, y) {
 						return A2(_rtfeldman$elm_css$Css_ops['.'], x, y);
 					}),
 				_benansell$elm_webpack_seed$LogoAnimationCss$Container,
-				_elm_lang$core$Native_List.fromArray(
-					[
-						_rtfeldman$elm_css$Css$padding(
+				{
+					ctor: '::',
+					_0: _rtfeldman$elm_css$Css$padding(
 						_rtfeldman$elm_css$Css$pct(2)),
-						_rtfeldman$elm_css$Css$width(
-						_rtfeldman$elm_css$Css$pct(96))
-					]))
-			]));
+					_1: {
+						ctor: '::',
+						_0: _rtfeldman$elm_css$Css$width(
+							_rtfeldman$elm_css$Css$pct(96)),
+						_1: {ctor: '[]'}
+					}
+				}),
+			_1: {ctor: '[]'}
+		});
 	
 	var _elm_community$easing_functions$Ease$reverse = F2(
 		function (easing, time) {
@@ -13123,10 +14302,10 @@ webpackJsonp([1,0],[
 		if (_elm_lang$core$Native_Utils.eq(time, 0.0)) {
 			return 0.0;
 		} else {
-			var t$ = time - 1;
+			var t = time - 1;
 			var p = 0.3;
 			var s = 7.5e-2;
-			return 0 - (Math.pow(2, 10 * t$) * _elm_lang$core$Basics$sin(((t$ - s) * (2 * _elm_lang$core$Basics$pi)) / p));
+			return 0 - (Math.pow(2, 10 * t) * _elm_lang$core$Basics$sin(((t - s) * (2 * _elm_lang$core$Basics$pi)) / p));
 		}
 	};
 	var _elm_community$easing_functions$Ease$outElastic = _elm_community$easing_functions$Ease$flip(_elm_community$easing_functions$Ease$inElastic);
@@ -13214,8 +14393,7 @@ webpackJsonp([1,0],[
 							_p5,
 							A2(
 								_elm_lang$core$Maybe$withDefault,
-								_elm_lang$core$Native_List.fromArray(
-									[]),
+								{ctor: '[]'},
 								_elm_lang$core$List$tail(_p5)));
 						ps = _v3;
 						continue casteljau;
@@ -13223,13 +14401,23 @@ webpackJsonp([1,0],[
 				}
 			};
 			return casteljau(
-				_elm_lang$core$Native_List.fromArray(
-					[
-						{ctor: '_Tuple2', _0: 0, _1: 0},
-						{ctor: '_Tuple2', _0: x1, _1: y1},
-						{ctor: '_Tuple2', _0: x2, _1: y2},
-						{ctor: '_Tuple2', _0: 1, _1: 1}
-					]));
+				{
+					ctor: '::',
+					_0: {ctor: '_Tuple2', _0: 0, _1: 0},
+					_1: {
+						ctor: '::',
+						_0: {ctor: '_Tuple2', _0: x1, _1: y1},
+						_1: {
+							ctor: '::',
+							_0: {ctor: '_Tuple2', _0: x2, _1: y2},
+							_1: {
+								ctor: '::',
+								_0: {ctor: '_Tuple2', _0: 1, _1: 1},
+								_1: {ctor: '[]'}
+							}
+						}
+					}
+				});
 		});
 	var _elm_community$easing_functions$Ease$linear = _elm_lang$core$Basics$identity;
 	
@@ -13328,15 +14516,17 @@ webpackJsonp([1,0],[
 			var previousStep = _elm_lang$core$List$head(steps);
 			var _p4 = previousStep;
 			if (_p4.ctor === 'Nothing') {
-				return _elm_lang$core$Native_List.fromArray(
-					[
-						A3(_benansell$elm_webpack_seed$ShapePath$createStep, 0, duration, transforms)
-					]);
+				return {
+					ctor: '::',
+					_0: A3(_benansell$elm_webpack_seed$ShapePath$createStep, 0, duration, transforms),
+					_1: {ctor: '[]'}
+				};
 			} else {
-				return A2(
-					_elm_lang$core$List_ops['::'],
-					A3(_benansell$elm_webpack_seed$ShapePath$createStep, _p4._0.end, duration, transforms),
-					steps);
+				return {
+					ctor: '::',
+					_0: A3(_benansell$elm_webpack_seed$ShapePath$createStep, _p4._0.end, duration, transforms),
+					_1: steps
+				};
 			}
 		});
 	var _benansell$elm_webpack_seed$ShapePath$createPath = F2(
@@ -13352,27 +14542,29 @@ webpackJsonp([1,0],[
 				_benansell$elm_webpack_seed$ShapePath$createStep,
 				start,
 				duration,
-				_elm_lang$core$Native_List.fromArray(
-					[
-						function (_p5) {
+				{
+					ctor: '::',
+					_0: function (_p5) {
 						return A2(
 							_benansell$elm_geometric_transformation$Transformer2D$rotate,
 							_benansell$elm_geometric_transformation$Transformer2D$Clockwise,
 							A2(_elm_lang$core$Basics$always, angle, _p5));
-					}
-					])) : A3(
+					},
+					_1: {ctor: '[]'}
+				}) : A3(
 				_benansell$elm_webpack_seed$ShapePath$createStep,
 				start,
 				duration,
-				_elm_lang$core$Native_List.fromArray(
-					[
-						function (_p6) {
+				{
+					ctor: '::',
+					_0: function (_p6) {
 						return A2(
 							_benansell$elm_geometric_transformation$Transformer2D$rotate,
 							_benansell$elm_geometric_transformation$Transformer2D$AntiClockwise,
 							A2(_elm_lang$core$Basics$always, angle, _p6));
-					}
-					]));
+					},
+					_1: {ctor: '[]'}
+				});
 		});
 	var _benansell$elm_webpack_seed$ShapePath$wobble = function () {
 		var duration = 1.0e-2;
@@ -13389,7 +14581,7 @@ webpackJsonp([1,0],[
 						angle,
 						_elm_lang$core$Basics$toFloat(i) / 100);
 				},
-				_elm_lang$core$Native_List.range(0, 100)));
+				A2(_elm_lang$core$List$range, 0, 100)));
 	}();
 	var _benansell$elm_webpack_seed$ShapePath$shrink = function () {
 		var scale = A3(
@@ -13403,45 +14595,48 @@ webpackJsonp([1,0],[
 			A3(
 				_benansell$elm_webpack_seed$ShapePath$pushStep,
 				0.25,
-				_elm_lang$core$Native_List.fromArray(
-					[
-						function (_p7) {
+				{
+					ctor: '::',
+					_0: function (_p7) {
 						return _benansell$elm_geometric_transformation$Transformer2D$scaleUniform(
 							scale.easeOut(_p7));
-					}
-					]),
+					},
+					_1: {ctor: '[]'}
+				},
 				A3(
 					_benansell$elm_webpack_seed$ShapePath$pushStep,
 					0.25,
-					_elm_lang$core$Native_List.fromArray(
-						[
-							function (_p8) {
+					{
+						ctor: '::',
+						_0: function (_p8) {
 							return _benansell$elm_geometric_transformation$Transformer2D$scaleUniform(
 								scale.easeIn(_p8));
-						}
-						]),
+						},
+						_1: {ctor: '[]'}
+					},
 					A3(
 						_benansell$elm_webpack_seed$ShapePath$pushStep,
 						0.25,
-						_elm_lang$core$Native_List.fromArray(
-							[
-								function (_p9) {
+						{
+							ctor: '::',
+							_0: function (_p9) {
 								return _benansell$elm_geometric_transformation$Transformer2D$scaleUniform(
 									scale.easeOut(_p9));
-							}
-							]),
+							},
+							_1: {ctor: '[]'}
+						},
 						A3(
 							_benansell$elm_webpack_seed$ShapePath$pushStep,
 							0.25,
-							_elm_lang$core$Native_List.fromArray(
-								[
-									function (_p10) {
+							{
+								ctor: '::',
+								_0: function (_p10) {
 									return _benansell$elm_geometric_transformation$Transformer2D$scaleUniform(
 										scale.easeIn(_p10));
-								}
-								]),
-							_elm_lang$core$Native_List.fromArray(
-								[]))))));
+								},
+								_1: {ctor: '[]'}
+							},
+							{ctor: '[]'})))));
 	}();
 	var _benansell$elm_webpack_seed$ShapePath$shear = function () {
 		var shear = A3(
@@ -13464,63 +14659,72 @@ webpackJsonp([1,0],[
 			A3(
 				_benansell$elm_webpack_seed$ShapePath$pushStep,
 				0.25,
-				_elm_lang$core$Native_List.fromArray(
-					[
-						function (_p11) {
+				{
+					ctor: '::',
+					_0: function (_p11) {
 						return _benansell$elm_geometric_transformation$Transformer2D$translate(
 							offset.easeOut(_p11));
-					}
-					]),
+					},
+					_1: {ctor: '[]'}
+				},
 				A3(
 					_benansell$elm_webpack_seed$ShapePath$pushStep,
 					0.25,
-					_elm_lang$core$Native_List.fromArray(
-						[
-							function (_p12) {
+					{
+						ctor: '::',
+						_0: function (_p12) {
 							return A2(
 								_benansell$elm_geometric_transformation$Transformer2D$shear,
 								_benansell$elm_geometric_transformation$Transformer2D$Horizontal,
 								shear.easeOut(_p12));
 						},
-							function (_p13) {
-							return _benansell$elm_geometric_transformation$Transformer2D$translate(
-								A2(
-									_elm_lang$core$Basics$always,
-									{ctor: '_Tuple2', _0: maxOffset, _1: maxOffset},
-									_p13));
+						_1: {
+							ctor: '::',
+							_0: function (_p13) {
+								return _benansell$elm_geometric_transformation$Transformer2D$translate(
+									A2(
+										_elm_lang$core$Basics$always,
+										{ctor: '_Tuple2', _0: maxOffset, _1: maxOffset},
+										_p13));
+							},
+							_1: {ctor: '[]'}
 						}
-						]),
+					},
 					A3(
 						_benansell$elm_webpack_seed$ShapePath$pushStep,
 						0.25,
-						_elm_lang$core$Native_List.fromArray(
-							[
-								function (_p14) {
+						{
+							ctor: '::',
+							_0: function (_p14) {
 								return A2(
 									_benansell$elm_geometric_transformation$Transformer2D$shear,
 									_benansell$elm_geometric_transformation$Transformer2D$Horizontal,
 									shear.easeIn(_p14));
 							},
-								function (_p15) {
-								return _benansell$elm_geometric_transformation$Transformer2D$translate(
-									A2(
-										_elm_lang$core$Basics$always,
-										{ctor: '_Tuple2', _0: maxOffset, _1: maxOffset},
-										_p15));
+							_1: {
+								ctor: '::',
+								_0: function (_p15) {
+									return _benansell$elm_geometric_transformation$Transformer2D$translate(
+										A2(
+											_elm_lang$core$Basics$always,
+											{ctor: '_Tuple2', _0: maxOffset, _1: maxOffset},
+											_p15));
+								},
+								_1: {ctor: '[]'}
 							}
-							]),
+						},
 						A3(
 							_benansell$elm_webpack_seed$ShapePath$pushStep,
 							0.25,
-							_elm_lang$core$Native_List.fromArray(
-								[
-									function (_p16) {
+							{
+								ctor: '::',
+								_0: function (_p16) {
 									return _benansell$elm_geometric_transformation$Transformer2D$translate(
 										offset.easeIn(_p16));
-								}
-								]),
-							_elm_lang$core$Native_List.fromArray(
-								[]))))));
+								},
+								_1: {ctor: '[]'}
+							},
+							{ctor: '[]'})))));
 	}();
 	var _benansell$elm_webpack_seed$ShapePath$rotate = function () {
 		var angle = A3(
@@ -13549,56 +14753,70 @@ webpackJsonp([1,0],[
 			A3(
 				_benansell$elm_webpack_seed$ShapePath$pushStep,
 				0.75,
-				_elm_lang$core$Native_List.fromArray(
-					[
-						function (_p17) {
+				{
+					ctor: '::',
+					_0: function (_p17) {
 						return _benansell$elm_geometric_transformation$Transformer2D$scaleUniform(
 							scale.easeOut(_p17));
 					},
-						function (_p18) {
-						return _benansell$elm_geometric_transformation$Transformer2D$translate(
-							offset.easeOut(_p18));
+					_1: {
+						ctor: '::',
+						_0: function (_p18) {
+							return _benansell$elm_geometric_transformation$Transformer2D$translate(
+								offset.easeOut(_p18));
+						},
+						_1: {ctor: '[]'}
 					}
-					]),
+				},
 				A3(
 					_benansell$elm_webpack_seed$ShapePath$pushStep,
 					0.5,
-					_elm_lang$core$Native_List.fromArray(
-						[
-							function (_p19) {
+					{
+						ctor: '::',
+						_0: function (_p19) {
 							return _benansell$elm_geometric_transformation$Transformer2D$scaleUniform(
 								A2(_elm_lang$core$Basics$always, maxScale, _p19));
 						},
-							function (_p20) {
-							return A2(
-								_benansell$elm_geometric_transformation$Transformer2D$rotate,
-								_benansell$elm_geometric_transformation$Transformer2D$AntiClockwise,
-								angle.easeOut(_p20));
-						},
-							function (_p21) {
-							return _benansell$elm_geometric_transformation$Transformer2D$translate(
-								A2(
-									_elm_lang$core$Basics$always,
-									{ctor: '_Tuple2', _0: maxOffset, _1: 0 - maxOffset},
-									_p21));
+						_1: {
+							ctor: '::',
+							_0: function (_p20) {
+								return A2(
+									_benansell$elm_geometric_transformation$Transformer2D$rotate,
+									_benansell$elm_geometric_transformation$Transformer2D$AntiClockwise,
+									angle.easeOut(_p20));
+							},
+							_1: {
+								ctor: '::',
+								_0: function (_p21) {
+									return _benansell$elm_geometric_transformation$Transformer2D$translate(
+										A2(
+											_elm_lang$core$Basics$always,
+											{ctor: '_Tuple2', _0: maxOffset, _1: 0 - maxOffset},
+											_p21));
+								},
+								_1: {ctor: '[]'}
+							}
 						}
-						]),
+					},
 					A3(
 						_benansell$elm_webpack_seed$ShapePath$pushStep,
 						0.25,
-						_elm_lang$core$Native_List.fromArray(
-							[
-								function (_p22) {
+						{
+							ctor: '::',
+							_0: function (_p22) {
 								return _benansell$elm_geometric_transformation$Transformer2D$scaleUniform(
 									scale.easeIn(_p22));
 							},
-								function (_p23) {
-								return _benansell$elm_geometric_transformation$Transformer2D$translate(
-									offset.easeIn(_p23));
+							_1: {
+								ctor: '::',
+								_0: function (_p23) {
+									return _benansell$elm_geometric_transformation$Transformer2D$translate(
+										offset.easeIn(_p23));
+								},
+								_1: {ctor: '[]'}
 							}
-							]),
-						_elm_lang$core$Native_List.fromArray(
-							[])))));
+						},
+						{ctor: '[]'}))));
 	}();
 	var _benansell$elm_webpack_seed$ShapePath$moveRight = function () {
 		var scale = A3(
@@ -13620,33 +14838,40 @@ webpackJsonp([1,0],[
 			A3(
 				_benansell$elm_webpack_seed$ShapePath$pushStep,
 				0.5,
-				_elm_lang$core$Native_List.fromArray(
-					[
-						function (_p24) {
+				{
+					ctor: '::',
+					_0: function (_p24) {
 						return _benansell$elm_geometric_transformation$Transformer2D$scaleUniform(
 							scale.easeOut(_p24));
 					},
-						function (_p25) {
-						return _benansell$elm_geometric_transformation$Transformer2D$translate(
-							offset.easeOut(_p25));
+					_1: {
+						ctor: '::',
+						_0: function (_p25) {
+							return _benansell$elm_geometric_transformation$Transformer2D$translate(
+								offset.easeOut(_p25));
+						},
+						_1: {ctor: '[]'}
 					}
-					]),
+				},
 				A3(
 					_benansell$elm_webpack_seed$ShapePath$pushStep,
 					0.5,
-					_elm_lang$core$Native_List.fromArray(
-						[
-							function (_p26) {
+					{
+						ctor: '::',
+						_0: function (_p26) {
 							return _benansell$elm_geometric_transformation$Transformer2D$scaleUniform(
 								scale.easeIn(_p26));
 						},
-							function (_p27) {
-							return _benansell$elm_geometric_transformation$Transformer2D$translate(
-								offset.easeIn(_p27));
+						_1: {
+							ctor: '::',
+							_0: function (_p27) {
+								return _benansell$elm_geometric_transformation$Transformer2D$translate(
+									offset.easeIn(_p27));
+							},
+							_1: {ctor: '[]'}
 						}
-						]),
-					_elm_lang$core$Native_List.fromArray(
-						[]))));
+					},
+					{ctor: '[]'})));
 	}();
 	var _benansell$elm_webpack_seed$ShapePath$moveDown = function () {
 		var offset = A3(
@@ -13663,25 +14888,26 @@ webpackJsonp([1,0],[
 			A3(
 				_benansell$elm_webpack_seed$ShapePath$pushStep,
 				0.5,
-				_elm_lang$core$Native_List.fromArray(
-					[
-						function (_p28) {
+				{
+					ctor: '::',
+					_0: function (_p28) {
 						return _benansell$elm_geometric_transformation$Transformer2D$translate(
 							offset.easeOut(_p28));
-					}
-					]),
+					},
+					_1: {ctor: '[]'}
+				},
 				A3(
 					_benansell$elm_webpack_seed$ShapePath$pushStep,
 					0.5,
-					_elm_lang$core$Native_List.fromArray(
-						[
-							function (_p29) {
+					{
+						ctor: '::',
+						_0: function (_p29) {
 							return _benansell$elm_geometric_transformation$Transformer2D$translate(
 								offset.easeIn(_p29));
-						}
-						]),
-					_elm_lang$core$Native_List.fromArray(
-						[]))));
+						},
+						_1: {ctor: '[]'}
+					},
+					{ctor: '[]'})));
 	}();
 	var _benansell$elm_webpack_seed$ShapePath$hinge = function () {
 		var maxScale = 0.7;
@@ -13711,69 +14937,84 @@ webpackJsonp([1,0],[
 			A3(
 				_benansell$elm_webpack_seed$ShapePath$pushStep,
 				0.25,
-				_elm_lang$core$Native_List.fromArray(
-					[
-						function (_p30) {
+				{
+					ctor: '::',
+					_0: function (_p30) {
 						return _benansell$elm_geometric_transformation$Transformer2D$scaleUniform(
 							scale.easeOut(_p30));
 					},
-						function (_p31) {
-						return A2(
-							_benansell$elm_geometric_transformation$Transformer2D$rotate,
-							_benansell$elm_geometric_transformation$Transformer2D$Clockwise,
-							angleOne.easeOut(_p31));
-					}
-					]),
-				A3(
-					_benansell$elm_webpack_seed$ShapePath$pushStep,
-					0.25,
-					_elm_lang$core$Native_List.fromArray(
-						[
-							function (_p32) {
-							return _benansell$elm_geometric_transformation$Transformer2D$scaleUniform(
-								A2(_elm_lang$core$Basics$always, maxScale, _p32));
-						},
-							function (_p33) {
+					_1: {
+						ctor: '::',
+						_0: function (_p31) {
 							return A2(
 								_benansell$elm_geometric_transformation$Transformer2D$rotate,
 								_benansell$elm_geometric_transformation$Transformer2D$Clockwise,
-								angleTwo.easeOut(_p33));
-						}
-						]),
-					A3(
-						_benansell$elm_webpack_seed$ShapePath$pushStep,
-						0.25,
-						_elm_lang$core$Native_List.fromArray(
-							[
-								function (_p34) {
-								return _benansell$elm_geometric_transformation$Transformer2D$scaleUniform(
-									A2(_elm_lang$core$Basics$always, maxScale, _p34));
-							},
-								function (_p35) {
+								angleOne.easeOut(_p31));
+						},
+						_1: {ctor: '[]'}
+					}
+				},
+				A3(
+					_benansell$elm_webpack_seed$ShapePath$pushStep,
+					0.25,
+					{
+						ctor: '::',
+						_0: function (_p32) {
+							return _benansell$elm_geometric_transformation$Transformer2D$scaleUniform(
+								A2(_elm_lang$core$Basics$always, maxScale, _p32));
+						},
+						_1: {
+							ctor: '::',
+							_0: function (_p33) {
 								return A2(
 									_benansell$elm_geometric_transformation$Transformer2D$rotate,
 									_benansell$elm_geometric_transformation$Transformer2D$Clockwise,
-									angleTwo.easeIn(_p35));
-							}
-							]),
-						A3(
-							_benansell$elm_webpack_seed$ShapePath$pushStep,
-							0.25,
-							_elm_lang$core$Native_List.fromArray(
-								[
-									function (_p36) {
-									return _benansell$elm_geometric_transformation$Transformer2D$scaleUniform(
-										scale.easeIn(_p36));
-								},
-									function (_p37) {
+									angleTwo.easeOut(_p33));
+							},
+							_1: {ctor: '[]'}
+						}
+					},
+					A3(
+						_benansell$elm_webpack_seed$ShapePath$pushStep,
+						0.25,
+						{
+							ctor: '::',
+							_0: function (_p34) {
+								return _benansell$elm_geometric_transformation$Transformer2D$scaleUniform(
+									A2(_elm_lang$core$Basics$always, maxScale, _p34));
+							},
+							_1: {
+								ctor: '::',
+								_0: function (_p35) {
 									return A2(
 										_benansell$elm_geometric_transformation$Transformer2D$rotate,
 										_benansell$elm_geometric_transformation$Transformer2D$Clockwise,
-										angleOne.easeIn(_p37));
+										angleTwo.easeIn(_p35));
+								},
+								_1: {ctor: '[]'}
+							}
+						},
+						A3(
+							_benansell$elm_webpack_seed$ShapePath$pushStep,
+							0.25,
+							{
+								ctor: '::',
+								_0: function (_p36) {
+									return _benansell$elm_geometric_transformation$Transformer2D$scaleUniform(
+										scale.easeIn(_p36));
+								},
+								_1: {
+									ctor: '::',
+									_0: function (_p37) {
+										return A2(
+											_benansell$elm_geometric_transformation$Transformer2D$rotate,
+											_benansell$elm_geometric_transformation$Transformer2D$Clockwise,
+											angleOne.easeIn(_p37));
+									},
+									_1: {ctor: '[]'}
 								}
-								]),
-							_elm_lang$core$Native_List.fromArray(
-								[]))))));
+							},
+							{ctor: '[]'})))));
 	}();
 	var _benansell$elm_webpack_seed$ShapePath$timeRemainingToProgress = F2(
 		function (duration, remaining) {
@@ -13791,8 +15032,7 @@ webpackJsonp([1,0],[
 					path.steps));
 			var _p38 = currentStep;
 			if (_p38.ctor === 'Nothing') {
-				return _elm_lang$core$Native_List.fromArray(
-					[]);
+				return {ctor: '[]'};
 			} else {
 				return _p38._0.progressiveTransforms(progress);
 			}
@@ -13812,6 +15052,7 @@ webpackJsonp([1,0],[
 	var _benansell$elm_webpack_seed$ShapePath$Forward = {ctor: 'Forward'};
 	var _benansell$elm_webpack_seed$ShapePath$Backward = {ctor: 'Backward'};
 	
+	var _elm_lang$svg$Svg$map = _elm_lang$virtual_dom$VirtualDom$map;
 	var _elm_lang$svg$Svg$text = _elm_lang$virtual_dom$VirtualDom$text;
 	var _elm_lang$svg$Svg$svgNamespace = A2(
 		_elm_lang$virtual_dom$VirtualDom$property,
@@ -13822,7 +15063,7 @@ webpackJsonp([1,0],[
 			return A3(
 				_elm_lang$virtual_dom$VirtualDom$node,
 				name,
-				A2(_elm_lang$core$List_ops['::'], _elm_lang$svg$Svg$svgNamespace, attributes),
+				{ctor: '::', _0: _elm_lang$svg$Svg$svgNamespace, _1: attributes},
 				children);
 		});
 	var _elm_lang$svg$Svg$svg = _elm_lang$svg$Svg$node('svg');
@@ -13838,7 +15079,6 @@ webpackJsonp([1,0],[
 	var _elm_lang$svg$Svg$g = _elm_lang$svg$Svg$node('g');
 	var _elm_lang$svg$Svg$marker = _elm_lang$svg$Svg$node('marker');
 	var _elm_lang$svg$Svg$mask = _elm_lang$svg$Svg$node('mask');
-	var _elm_lang$svg$Svg$missingGlyph = _elm_lang$svg$Svg$node('missingGlyph');
 	var _elm_lang$svg$Svg$pattern = _elm_lang$svg$Svg$node('pattern');
 	var _elm_lang$svg$Svg$switch = _elm_lang$svg$Svg$node('switch');
 	var _elm_lang$svg$Svg$symbol = _elm_lang$svg$Svg$node('symbol');
@@ -13867,13 +15107,6 @@ webpackJsonp([1,0],[
 	var _elm_lang$svg$Svg$feTile = _elm_lang$svg$Svg$node('feTile');
 	var _elm_lang$svg$Svg$feTurbulence = _elm_lang$svg$Svg$node('feTurbulence');
 	var _elm_lang$svg$Svg$font = _elm_lang$svg$Svg$node('font');
-	var _elm_lang$svg$Svg$fontFace = _elm_lang$svg$Svg$node('fontFace');
-	var _elm_lang$svg$Svg$fontFaceFormat = _elm_lang$svg$Svg$node('fontFaceFormat');
-	var _elm_lang$svg$Svg$fontFaceName = _elm_lang$svg$Svg$node('fontFaceName');
-	var _elm_lang$svg$Svg$fontFaceSrc = _elm_lang$svg$Svg$node('fontFaceSrc');
-	var _elm_lang$svg$Svg$fontFaceUri = _elm_lang$svg$Svg$node('fontFaceUri');
-	var _elm_lang$svg$Svg$hkern = _elm_lang$svg$Svg$node('hkern');
-	var _elm_lang$svg$Svg$vkern = _elm_lang$svg$Svg$node('vkern');
 	var _elm_lang$svg$Svg$linearGradient = _elm_lang$svg$Svg$node('linearGradient');
 	var _elm_lang$svg$Svg$radialGradient = _elm_lang$svg$Svg$node('radialGradient');
 	var _elm_lang$svg$Svg$stop = _elm_lang$svg$Svg$node('stop');
@@ -13895,7 +15128,7 @@ webpackJsonp([1,0],[
 	var _elm_lang$svg$Svg$glyph = _elm_lang$svg$Svg$node('glyph');
 	var _elm_lang$svg$Svg$glyphRef = _elm_lang$svg$Svg$node('glyphRef');
 	var _elm_lang$svg$Svg$textPath = _elm_lang$svg$Svg$node('textPath');
-	var _elm_lang$svg$Svg$text$ = _elm_lang$svg$Svg$node('text');
+	var _elm_lang$svg$Svg$text_ = _elm_lang$svg$Svg$node('text');
 	var _elm_lang$svg$Svg$tref = _elm_lang$svg$Svg$node('tref');
 	var _elm_lang$svg$Svg$tspan = _elm_lang$svg$Svg$node('tspan');
 	var _elm_lang$svg$Svg$clipPath = _elm_lang$svg$Svg$node('clipPath');
@@ -14006,7 +15239,7 @@ webpackJsonp([1,0],[
 	var _elm_lang$svg$Svg_Attributes$underlinePosition = _elm_lang$virtual_dom$VirtualDom$attribute('underline-position');
 	var _elm_lang$svg$Svg_Attributes$u2 = _elm_lang$virtual_dom$VirtualDom$attribute('u2');
 	var _elm_lang$svg$Svg_Attributes$u1 = _elm_lang$virtual_dom$VirtualDom$attribute('u1');
-	var _elm_lang$svg$Svg_Attributes$type$ = _elm_lang$virtual_dom$VirtualDom$attribute('type');
+	var _elm_lang$svg$Svg_Attributes$type_ = _elm_lang$virtual_dom$VirtualDom$attribute('type');
 	var _elm_lang$svg$Svg_Attributes$transform = _elm_lang$virtual_dom$VirtualDom$attribute('transform');
 	var _elm_lang$svg$Svg_Attributes$to = _elm_lang$virtual_dom$VirtualDom$attribute('to');
 	var _elm_lang$svg$Svg_Attributes$title = _elm_lang$virtual_dom$VirtualDom$attribute('title');
@@ -14099,7 +15332,7 @@ webpackJsonp([1,0],[
 	var _elm_lang$svg$Svg_Attributes$k = _elm_lang$virtual_dom$VirtualDom$attribute('k');
 	var _elm_lang$svg$Svg_Attributes$intercept = _elm_lang$virtual_dom$VirtualDom$attribute('intercept');
 	var _elm_lang$svg$Svg_Attributes$in2 = _elm_lang$virtual_dom$VirtualDom$attribute('in2');
-	var _elm_lang$svg$Svg_Attributes$in$ = _elm_lang$virtual_dom$VirtualDom$attribute('in');
+	var _elm_lang$svg$Svg_Attributes$in_ = _elm_lang$virtual_dom$VirtualDom$attribute('in');
 	var _elm_lang$svg$Svg_Attributes$ideographic = _elm_lang$virtual_dom$VirtualDom$attribute('ideographic');
 	var _elm_lang$svg$Svg_Attributes$id = _elm_lang$virtual_dom$VirtualDom$attribute('id');
 	var _elm_lang$svg$Svg_Attributes$horizOriginY = _elm_lang$virtual_dom$VirtualDom$attribute('horiz-origin-y');
@@ -14239,51 +15472,72 @@ webpackJsonp([1,0],[
 	var _benansell$elm_webpack_seed$LogoAnimation$shapeToPolygon = function (shape) {
 		return A2(
 			_elm_lang$svg$Svg$polygon,
-			_elm_lang$core$Native_List.fromArray(
-				[
-					_elm_lang$svg$Svg_Attributes$fill(
+			{
+				ctor: '::',
+				_0: _elm_lang$svg$Svg_Attributes$fill(
 					_benansell$elm_webpack_seed$LogoAnimation$cssToString(shape.color)),
-					_elm_lang$svg$Svg_Attributes$points(
-					_benansell$elm_webpack_seed$LogoAnimation$pointsToString(
-						_benansell$elm_webpack_seed$LogoAnimation$shapeToViewPoints(shape))),
-					_elm_lang$svg$Svg_Events$onClick(shape.action)
-				]),
-			_elm_lang$core$Native_List.fromArray(
-				[]));
+				_1: {
+					ctor: '::',
+					_0: _elm_lang$svg$Svg_Attributes$points(
+						_benansell$elm_webpack_seed$LogoAnimation$pointsToString(
+							_benansell$elm_webpack_seed$LogoAnimation$shapeToViewPoints(shape))),
+					_1: {
+						ctor: '::',
+						_0: _elm_lang$svg$Svg_Events$onClick(shape.action),
+						_1: {ctor: '[]'}
+					}
+				}
+			},
+			{ctor: '[]'});
 	};
 	var _benansell$elm_webpack_seed$LogoAnimation$view = function (model) {
 		return A2(
 			_elm_lang$html$Html$div,
-			_elm_lang$core$Native_List.fromArray(
-				[
-					_benansell$elm_webpack_seed$LogoAnimation$class(
-					_elm_lang$core$Native_List.fromArray(
-						[_benansell$elm_webpack_seed$LogoAnimationCss$Container]))
-				]),
-			_elm_lang$core$Native_List.fromArray(
-				[
-					A2(
+			{
+				ctor: '::',
+				_0: _benansell$elm_webpack_seed$LogoAnimation$class(
+					{
+						ctor: '::',
+						_0: _benansell$elm_webpack_seed$LogoAnimationCss$Container,
+						_1: {ctor: '[]'}
+					}),
+				_1: {ctor: '[]'}
+			},
+			{
+				ctor: '::',
+				_0: A2(
 					_elm_lang$svg$Svg$svg,
-					_elm_lang$core$Native_List.fromArray(
-						[
-							_elm_lang$svg$Svg_Attributes$version('1.1'),
-							_elm_lang$svg$Svg_Attributes$viewBox('100 100 523.141 522.95'),
-							_elm_lang$svg$Svg_Attributes$x(
-							_benansell$elm_webpack_seed$LogoAnimation$cssToString(
-								_rtfeldman$elm_css$Css$px(0))),
-							_elm_lang$svg$Svg_Attributes$y(
-							_benansell$elm_webpack_seed$LogoAnimation$cssToString(
-								_rtfeldman$elm_css$Css$px(0)))
-						]),
-					_elm_lang$core$Native_List.fromArray(
-						[
-							A2(
+					{
+						ctor: '::',
+						_0: _elm_lang$svg$Svg_Attributes$version('1.1'),
+						_1: {
+							ctor: '::',
+							_0: _elm_lang$svg$Svg_Attributes$viewBox('100 100 523.141 522.95'),
+							_1: {
+								ctor: '::',
+								_0: _elm_lang$svg$Svg_Attributes$x(
+									_benansell$elm_webpack_seed$LogoAnimation$cssToString(
+										_rtfeldman$elm_css$Css$px(0))),
+								_1: {
+									ctor: '::',
+									_0: _elm_lang$svg$Svg_Attributes$y(
+										_benansell$elm_webpack_seed$LogoAnimation$cssToString(
+											_rtfeldman$elm_css$Css$px(0))),
+									_1: {ctor: '[]'}
+								}
+							}
+						}
+					},
+					{
+						ctor: '::',
+						_0: A2(
 							_elm_lang$svg$Svg$g,
-							_elm_lang$core$Native_List.fromArray(
-								[]),
-							A2(_elm_lang$core$List$map, _benansell$elm_webpack_seed$LogoAnimation$shapeToPolygon, model.shapes))
-						]))
-				]));
+							{ctor: '[]'},
+							A2(_elm_lang$core$List$map, _benansell$elm_webpack_seed$LogoAnimation$shapeToPolygon, model.shapes)),
+						_1: {ctor: '[]'}
+					}),
+				_1: {ctor: '[]'}
+			});
 	};
 	var _benansell$elm_webpack_seed$LogoAnimation$firstTransform = function (transforms) {
 		var head = _elm_lang$core$List$head(transforms);
@@ -14300,8 +15554,7 @@ webpackJsonp([1,0],[
 		function (path, endTime, time) {
 			var _p5 = path;
 			if (_p5.ctor === 'Nothing') {
-				return _elm_lang$core$Native_List.fromArray(
-					[]);
+				return {ctor: '[]'};
 			} else {
 				return A3(
 					_benansell$elm_webpack_seed$ShapePath$pathToTransformations,
@@ -14317,8 +15570,11 @@ webpackJsonp([1,0],[
 			var transformsWithInitial = A2(
 				_elm_lang$core$Basics_ops['++'],
 				A2(_elm_lang$core$List$drop, 1, transforms),
-				_elm_lang$core$Native_List.fromArray(
-					[shape.initialTransform]));
+				{
+					ctor: '::',
+					_0: shape.initialTransform,
+					_1: {ctor: '[]'}
+				});
 			return _elm_lang$core$Native_Utils.update(
 				shape,
 				{
@@ -14385,91 +15641,173 @@ webpackJsonp([1,0],[
 		_benansell$elm_webpack_seed$LogoAnimation$Wobble,
 		_benansell$elm_webpack_seed$LogoAnimationCss$yellow,
 		{ctor: '_Tuple2', _0: 361.649, _1: 306.205},
-		_elm_lang$core$Native_List.fromArray(
-			[
-				{ctor: '_Tuple2', _0: 0, _1: 46.577},
-				{ctor: '_Tuple2', _0: 69.865, _1: -23.289},
-				{ctor: '_Tuple2', _0: -69.866, _1: -23.289}
-			]));
+		{
+			ctor: '::',
+			_0: {ctor: '_Tuple2', _0: 0, _1: 46.577},
+			_1: {
+				ctor: '::',
+				_0: {ctor: '_Tuple2', _0: 69.865, _1: -23.289},
+				_1: {
+					ctor: '::',
+					_0: {ctor: '_Tuple2', _0: -69.866, _1: -23.289},
+					_1: {ctor: '[]'}
+				}
+			}
+		});
 	var _benansell$elm_webpack_seed$LogoAnimation$Shrink = {ctor: 'Shrink'};
 	var _benansell$elm_webpack_seed$LogoAnimation$centerSquare = A4(
 		_benansell$elm_webpack_seed$LogoAnimation$createShape,
 		_benansell$elm_webpack_seed$LogoAnimation$Shrink,
 		_benansell$elm_webpack_seed$LogoAnimationCss$green,
 		{ctor: '_Tuple2', _0: 446.9075, _1: 361.3065},
-		_elm_lang$core$Native_List.fromArray(
-			[
-				{ctor: '_Tuple2', _0: -76.3905, _1: 0},
-				{ctor: '_Tuple2', _0: 0, _1: 76.3905},
-				{ctor: '_Tuple2', _0: 76.3905, _1: 0},
-				{ctor: '_Tuple2', _0: 0, _1: -76.3905}
-			]));
+		{
+			ctor: '::',
+			_0: {ctor: '_Tuple2', _0: -76.3905, _1: 0},
+			_1: {
+				ctor: '::',
+				_0: {ctor: '_Tuple2', _0: 0, _1: 76.3905},
+				_1: {
+					ctor: '::',
+					_0: {ctor: '_Tuple2', _0: 76.3905, _1: 0},
+					_1: {
+						ctor: '::',
+						_0: {ctor: '_Tuple2', _0: 0, _1: -76.3905},
+						_1: {ctor: '[]'}
+					}
+				}
+			}
+		});
 	var _benansell$elm_webpack_seed$LogoAnimation$Shear = {ctor: 'Shear'};
 	var _benansell$elm_webpack_seed$LogoAnimation$topParallelogram = A4(
 		_benansell$elm_webpack_seed$LogoAnimation$createShape,
 		_benansell$elm_webpack_seed$LogoAnimation$Shear,
 		_benansell$elm_webpack_seed$LogoAnimationCss$green,
 		{ctor: '_Tuple2', _0: 320.54, _1: 235.188},
-		_elm_lang$core$Native_List.fromArray(
-			[
-				{ctor: '_Tuple2', _0: -111.673, _1: -35.188},
-				{ctor: '_Tuple2', _0: -41.299, _1: 35.187},
-				{ctor: '_Tuple2', _0: 111.673, _1: 35.187},
-				{ctor: '_Tuple2', _0: 41.298, _1: -35.188}
-			]));
+		{
+			ctor: '::',
+			_0: {ctor: '_Tuple2', _0: -111.673, _1: -35.188},
+			_1: {
+				ctor: '::',
+				_0: {ctor: '_Tuple2', _0: -41.299, _1: 35.187},
+				_1: {
+					ctor: '::',
+					_0: {ctor: '_Tuple2', _0: 111.673, _1: 35.187},
+					_1: {
+						ctor: '::',
+						_0: {ctor: '_Tuple2', _0: 41.298, _1: -35.188},
+						_1: {ctor: '[]'}
+					}
+				}
+			}
+		});
 	var _benansell$elm_webpack_seed$LogoAnimation$Rotate = {ctor: 'Rotate'};
 	var _benansell$elm_webpack_seed$LogoAnimation$topRightTriangle = A4(
 		_benansell$elm_webpack_seed$LogoAnimation$createShape,
 		_benansell$elm_webpack_seed$LogoAnimation$Rotate,
 		_benansell$elm_webpack_seed$LogoAnimationCss$blue,
 		{ctor: '_Tuple2', _0: 475.39, _1: 247.908},
-		_elm_lang$core$Native_List.fromArray(
-			[
-				{ctor: '_Tuple2', _0: 47.908, _1: 95.816},
-				{ctor: '_Tuple2', _0: 47.908, _1: -47.908},
-				{ctor: '_Tuple2', _0: -95.817, _1: -47.908}
-			]));
+		{
+			ctor: '::',
+			_0: {ctor: '_Tuple2', _0: 47.908, _1: 95.816},
+			_1: {
+				ctor: '::',
+				_0: {ctor: '_Tuple2', _0: 47.908, _1: -47.908},
+				_1: {
+					ctor: '::',
+					_0: {ctor: '_Tuple2', _0: -95.817, _1: -47.908},
+					_1: {ctor: '[]'}
+				}
+			}
+		});
 	var _benansell$elm_webpack_seed$LogoAnimation$MoveRight = {ctor: 'MoveRight'};
 	var _benansell$elm_webpack_seed$LogoAnimation$leftBigTriangle = A4(
 		_benansell$elm_webpack_seed$LogoAnimation$createShape,
 		_benansell$elm_webpack_seed$LogoAnimation$MoveRight,
 		_benansell$elm_webpack_seed$LogoAnimationCss$blueGray,
 		{ctor: '_Tuple2', _0: 250.927, _1: 361.649},
-		_elm_lang$core$Native_List.fromArray(
-			[
-				{ctor: '_Tuple2', _0: 101.854, _1: 0},
-				{ctor: '_Tuple2', _0: -50.927, _1: -152.781},
-				{ctor: '_Tuple2', _0: -50.927, _1: 152.783}
-			]));
+		{
+			ctor: '::',
+			_0: {ctor: '_Tuple2', _0: 101.854, _1: 0},
+			_1: {
+				ctor: '::',
+				_0: {ctor: '_Tuple2', _0: -50.927, _1: -152.781},
+				_1: {
+					ctor: '::',
+					_0: {ctor: '_Tuple2', _0: -50.927, _1: 152.783},
+					_1: {ctor: '[]'}
+				}
+			}
+		});
 	var _benansell$elm_webpack_seed$LogoAnimation$MoveDown = {ctor: 'MoveDown'};
 	var _benansell$elm_webpack_seed$LogoAnimation$bottomBigTriangle = A4(
 		_benansell$elm_webpack_seed$LogoAnimation$createShape,
 		_benansell$elm_webpack_seed$LogoAnimation$MoveDown,
 		_benansell$elm_webpack_seed$LogoAnimationCss$blue,
 		{ctor: '_Tuple2', _0: 361.649, _1: 472.371},
-		_elm_lang$core$Native_List.fromArray(
-			[
-				{ctor: '_Tuple2', _0: 0, _1: -101.854},
-				{ctor: '_Tuple2', _0: -152.78, _1: 50.927},
-				{ctor: '_Tuple2', _0: 152.781, _1: 50.927}
-			]));
+		{
+			ctor: '::',
+			_0: {ctor: '_Tuple2', _0: 0, _1: -101.854},
+			_1: {
+				ctor: '::',
+				_0: {ctor: '_Tuple2', _0: -152.78, _1: 50.927},
+				_1: {
+					ctor: '::',
+					_0: {ctor: '_Tuple2', _0: 152.781, _1: 50.927},
+					_1: {ctor: '[]'}
+				}
+			}
+		});
 	var _benansell$elm_webpack_seed$LogoAnimation$Hinge = {ctor: 'Hinge'};
 	var _benansell$elm_webpack_seed$LogoAnimation$bottomRightTriangle = A4(
 		_benansell$elm_webpack_seed$LogoAnimation$createShape,
 		_benansell$elm_webpack_seed$LogoAnimation$Hinge,
 		_benansell$elm_webpack_seed$LogoAnimationCss$yellow,
 		{ctor: '_Tuple2', _0: 523.298, _1: 514.432},
-		_elm_lang$core$Native_List.fromArray(
-			[
-				{ctor: '_Tuple2', _0: -67.776, _1: -67.777},
-				{ctor: '_Tuple2', _0: 0, _1: 0},
-				{ctor: '_Tuple2', _0: 0, _1: -135.553}
-			]));
+		{
+			ctor: '::',
+			_0: {ctor: '_Tuple2', _0: -67.776, _1: -67.777},
+			_1: {
+				ctor: '::',
+				_0: {ctor: '_Tuple2', _0: 0, _1: 0},
+				_1: {
+					ctor: '::',
+					_0: {ctor: '_Tuple2', _0: 0, _1: -135.553},
+					_1: {ctor: '[]'}
+				}
+			}
+		});
 	var _benansell$elm_webpack_seed$LogoAnimation$None = {ctor: 'None'};
 	var _benansell$elm_webpack_seed$LogoAnimation$init = {
 		action: _benansell$elm_webpack_seed$LogoAnimation$None,
-		shapes: _elm_lang$core$Native_List.fromArray(
-			[_benansell$elm_webpack_seed$LogoAnimation$bottomBigTriangle, _benansell$elm_webpack_seed$LogoAnimation$bottomRightTriangle, _benansell$elm_webpack_seed$LogoAnimation$centerSquare, _benansell$elm_webpack_seed$LogoAnimation$centerTriangle, _benansell$elm_webpack_seed$LogoAnimation$leftBigTriangle, _benansell$elm_webpack_seed$LogoAnimation$topParallelogram, _benansell$elm_webpack_seed$LogoAnimation$topRightTriangle])
+		shapes: {
+			ctor: '::',
+			_0: _benansell$elm_webpack_seed$LogoAnimation$bottomBigTriangle,
+			_1: {
+				ctor: '::',
+				_0: _benansell$elm_webpack_seed$LogoAnimation$bottomRightTriangle,
+				_1: {
+					ctor: '::',
+					_0: _benansell$elm_webpack_seed$LogoAnimation$centerSquare,
+					_1: {
+						ctor: '::',
+						_0: _benansell$elm_webpack_seed$LogoAnimation$centerTriangle,
+						_1: {
+							ctor: '::',
+							_0: _benansell$elm_webpack_seed$LogoAnimation$leftBigTriangle,
+							_1: {
+								ctor: '::',
+								_0: _benansell$elm_webpack_seed$LogoAnimation$topParallelogram,
+								_1: {
+									ctor: '::',
+									_0: _benansell$elm_webpack_seed$LogoAnimation$topRightTriangle,
+									_1: {ctor: '[]'}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
 	};
 	var _benansell$elm_webpack_seed$LogoAnimation$update = F2(
 		function (newAction, model) {
@@ -14507,32 +15845,22 @@ webpackJsonp([1,0],[
 	var _elm_lang$animation_frame$Native_AnimationFrame = function()
 	{
 	
-	var hasStartTime =
-		window.performance &&
-		window.performance.timing &&
-		window.performance.timing.navigationStart;
-	
-	var navStart = hasStartTime
-		? window.performance.timing.navigationStart
-		: Date.now();
-	
-	var rAF = _elm_lang$core$Native_Scheduler.nativeBinding(function(callback)
+	function create()
 	{
-		var id = requestAnimationFrame(function(time) {
-			var timeNow = time
-				? (time > navStart ? time : time + navStart)
-				: Date.now();
+		return _elm_lang$core$Native_Scheduler.nativeBinding(function(callback)
+		{
+			var id = requestAnimationFrame(function() {
+				callback(_elm_lang$core$Native_Scheduler.succeed(Date.now()));
+			});
 	
-			callback(_elm_lang$core$Native_Scheduler.succeed(timeNow));
+			return function() {
+				cancelAnimationFrame(id);
+			};
 		});
-	
-		return function() {
-			cancelAnimationFrame(id);
-		};
-	});
+	}
 	
 	return {
-		rAF: rAF
+		create: create
 	};
 	
 	}();
@@ -14545,158 +15873,142 @@ webpackJsonp([1,0],[
 			return _elm_lang$core$Native_Scheduler.spawn(
 				A2(
 					_elm_lang$core$Task$andThen,
-					_p1._0,
-					_elm_lang$core$Platform$sendToApp(router)));
+					_elm_lang$core$Platform$sendToApp(router),
+					_p1._0));
 		});
 	var _elm_lang$core$Task$fail = _elm_lang$core$Native_Scheduler.fail;
 	var _elm_lang$core$Task$mapError = F2(
-		function (f, task) {
+		function (convert, task) {
 			return A2(
 				_elm_lang$core$Task$onError,
-				task,
-				function (err) {
+				function (_p2) {
 					return _elm_lang$core$Task$fail(
-						f(err));
-				});
+						convert(_p2));
+				},
+				task);
 		});
 	var _elm_lang$core$Task$succeed = _elm_lang$core$Native_Scheduler.succeed;
 	var _elm_lang$core$Task$map = F2(
 		function (func, taskA) {
 			return A2(
 				_elm_lang$core$Task$andThen,
-				taskA,
 				function (a) {
 					return _elm_lang$core$Task$succeed(
 						func(a));
-				});
+				},
+				taskA);
 		});
 	var _elm_lang$core$Task$map2 = F3(
 		function (func, taskA, taskB) {
 			return A2(
 				_elm_lang$core$Task$andThen,
-				taskA,
 				function (a) {
 					return A2(
 						_elm_lang$core$Task$andThen,
-						taskB,
 						function (b) {
 							return _elm_lang$core$Task$succeed(
 								A2(func, a, b));
-						});
-				});
+						},
+						taskB);
+				},
+				taskA);
 		});
 	var _elm_lang$core$Task$map3 = F4(
 		function (func, taskA, taskB, taskC) {
 			return A2(
 				_elm_lang$core$Task$andThen,
-				taskA,
 				function (a) {
 					return A2(
 						_elm_lang$core$Task$andThen,
-						taskB,
 						function (b) {
 							return A2(
 								_elm_lang$core$Task$andThen,
-								taskC,
 								function (c) {
 									return _elm_lang$core$Task$succeed(
 										A3(func, a, b, c));
-								});
-						});
-				});
+								},
+								taskC);
+						},
+						taskB);
+				},
+				taskA);
 		});
 	var _elm_lang$core$Task$map4 = F5(
 		function (func, taskA, taskB, taskC, taskD) {
 			return A2(
 				_elm_lang$core$Task$andThen,
-				taskA,
 				function (a) {
 					return A2(
 						_elm_lang$core$Task$andThen,
-						taskB,
 						function (b) {
 							return A2(
 								_elm_lang$core$Task$andThen,
-								taskC,
 								function (c) {
 									return A2(
 										_elm_lang$core$Task$andThen,
-										taskD,
 										function (d) {
 											return _elm_lang$core$Task$succeed(
 												A4(func, a, b, c, d));
-										});
-								});
-						});
-				});
+										},
+										taskD);
+								},
+								taskC);
+						},
+						taskB);
+				},
+				taskA);
 		});
 	var _elm_lang$core$Task$map5 = F6(
 		function (func, taskA, taskB, taskC, taskD, taskE) {
 			return A2(
 				_elm_lang$core$Task$andThen,
-				taskA,
 				function (a) {
 					return A2(
 						_elm_lang$core$Task$andThen,
-						taskB,
 						function (b) {
 							return A2(
 								_elm_lang$core$Task$andThen,
-								taskC,
 								function (c) {
 									return A2(
 										_elm_lang$core$Task$andThen,
-										taskD,
 										function (d) {
 											return A2(
 												_elm_lang$core$Task$andThen,
-												taskE,
 												function (e) {
 													return _elm_lang$core$Task$succeed(
 														A5(func, a, b, c, d, e));
-												});
-										});
-								});
-						});
-				});
-		});
-	var _elm_lang$core$Task$andMap = F2(
-		function (taskFunc, taskValue) {
-			return A2(
-				_elm_lang$core$Task$andThen,
-				taskFunc,
-				function (func) {
-					return A2(
-						_elm_lang$core$Task$andThen,
-						taskValue,
-						function (value) {
-							return _elm_lang$core$Task$succeed(
-								func(value));
-						});
-				});
+												},
+												taskE);
+										},
+										taskD);
+								},
+								taskC);
+						},
+						taskB);
+				},
+				taskA);
 		});
 	var _elm_lang$core$Task$sequence = function (tasks) {
-		var _p2 = tasks;
-		if (_p2.ctor === '[]') {
+		var _p3 = tasks;
+		if (_p3.ctor === '[]') {
 			return _elm_lang$core$Task$succeed(
-				_elm_lang$core$Native_List.fromArray(
-					[]));
+				{ctor: '[]'});
 		} else {
 			return A3(
 				_elm_lang$core$Task$map2,
 				F2(
 					function (x, y) {
-						return A2(_elm_lang$core$List_ops['::'], x, y);
+						return {ctor: '::', _0: x, _1: y};
 					}),
-				_p2._0,
-				_elm_lang$core$Task$sequence(_p2._1));
+				_p3._0,
+				_elm_lang$core$Task$sequence(_p3._1));
 		}
 	};
 	var _elm_lang$core$Task$onEffects = F3(
 		function (router, commands, state) {
 			return A2(
 				_elm_lang$core$Task$map,
-				function (_p3) {
+				function (_p4) {
 					return {ctor: '_Tuple0'};
 				},
 				_elm_lang$core$Task$sequence(
@@ -14705,67 +16017,47 @@ webpackJsonp([1,0],[
 						_elm_lang$core$Task$spawnCmd(router),
 						commands)));
 		});
-	var _elm_lang$core$Task$toMaybe = function (task) {
-		return A2(
-			_elm_lang$core$Task$onError,
-			A2(_elm_lang$core$Task$map, _elm_lang$core$Maybe$Just, task),
-			function (_p4) {
-				return _elm_lang$core$Task$succeed(_elm_lang$core$Maybe$Nothing);
-			});
-	};
-	var _elm_lang$core$Task$fromMaybe = F2(
-		function ($default, maybe) {
-			var _p5 = maybe;
-			if (_p5.ctor === 'Just') {
-				return _elm_lang$core$Task$succeed(_p5._0);
-			} else {
-				return _elm_lang$core$Task$fail($default);
-			}
-		});
-	var _elm_lang$core$Task$toResult = function (task) {
-		return A2(
-			_elm_lang$core$Task$onError,
-			A2(_elm_lang$core$Task$map, _elm_lang$core$Result$Ok, task),
-			function (msg) {
-				return _elm_lang$core$Task$succeed(
-					_elm_lang$core$Result$Err(msg));
-			});
-	};
-	var _elm_lang$core$Task$fromResult = function (result) {
-		var _p6 = result;
-		if (_p6.ctor === 'Ok') {
-			return _elm_lang$core$Task$succeed(_p6._0);
-		} else {
-			return _elm_lang$core$Task$fail(_p6._0);
-		}
-	};
 	var _elm_lang$core$Task$init = _elm_lang$core$Task$succeed(
 		{ctor: '_Tuple0'});
 	var _elm_lang$core$Task$onSelfMsg = F3(
-		function (_p9, _p8, _p7) {
+		function (_p7, _p6, _p5) {
 			return _elm_lang$core$Task$succeed(
 				{ctor: '_Tuple0'});
 		});
 	var _elm_lang$core$Task$command = _elm_lang$core$Native_Platform.leaf('Task');
-	var _elm_lang$core$Task$T = function (a) {
-		return {ctor: 'T', _0: a};
+	var _elm_lang$core$Task$Perform = function (a) {
+		return {ctor: 'Perform', _0: a};
 	};
-	var _elm_lang$core$Task$perform = F3(
-		function (onFail, onSuccess, task) {
+	var _elm_lang$core$Task$perform = F2(
+		function (toMessage, task) {
 			return _elm_lang$core$Task$command(
-				_elm_lang$core$Task$T(
+				_elm_lang$core$Task$Perform(
+					A2(_elm_lang$core$Task$map, toMessage, task)));
+		});
+	var _elm_lang$core$Task$attempt = F2(
+		function (resultToMessage, task) {
+			return _elm_lang$core$Task$command(
+				_elm_lang$core$Task$Perform(
 					A2(
 						_elm_lang$core$Task$onError,
-						A2(_elm_lang$core$Task$map, onSuccess, task),
-						function (x) {
+						function (_p8) {
 							return _elm_lang$core$Task$succeed(
-								onFail(x));
-						})));
+								resultToMessage(
+									_elm_lang$core$Result$Err(_p8)));
+						},
+						A2(
+							_elm_lang$core$Task$andThen,
+							function (_p9) {
+								return _elm_lang$core$Task$succeed(
+									resultToMessage(
+										_elm_lang$core$Result$Ok(_p9)));
+							},
+							task))));
 		});
 	var _elm_lang$core$Task$cmdMap = F2(
 		function (tagger, _p10) {
 			var _p11 = _p10;
-			return _elm_lang$core$Task$T(
+			return _elm_lang$core$Task$Perform(
 				A2(_elm_lang$core$Task$map, tagger, _p11._0));
 		});
 	_elm_lang$core$Native_Platform.effectManagers['Task'] = {pkg: 'elm-lang/core', init: _elm_lang$core$Task$init, onEffects: _elm_lang$core$Task$onEffects, onSelfMsg: _elm_lang$core$Task$onSelfMsg, tag: 'cmd', cmdMap: _elm_lang$core$Task$cmdMap};
@@ -14805,20 +16097,19 @@ webpackJsonp([1,0],[
 				return _elm_lang$core$Task$succeed(processes);
 			} else {
 				var _p1 = _p0._0;
-				return A2(
-					_elm_lang$core$Task$andThen,
-					_elm_lang$core$Native_Scheduler.spawn(
-						A2(
-							_elm_lang$core$Time$setInterval,
-							_p1,
-							A2(_elm_lang$core$Platform$sendToSelf, router, _p1))),
-					function (id) {
-						return A3(
-							_elm_lang$core$Time$spawnHelp,
-							router,
-							_p0._1,
-							A3(_elm_lang$core$Dict$insert, _p1, id, processes));
-					});
+				var spawnRest = function (id) {
+					return A3(
+						_elm_lang$core$Time$spawnHelp,
+						router,
+						_p0._1,
+						A3(_elm_lang$core$Dict$insert, _p1, id, processes));
+				};
+				var spawnTimer = _elm_lang$core$Native_Scheduler.spawn(
+					A2(
+						_elm_lang$core$Time$setInterval,
+						_p1,
+						A2(_elm_lang$core$Platform$sendToSelf, router, _p1)));
+				return A2(_elm_lang$core$Task$andThen, spawnRest, spawnTimer);
 			}
 		});
 	var _elm_lang$core$Time$addMySub = F2(
@@ -14831,14 +16122,17 @@ webpackJsonp([1,0],[
 				return A3(
 					_elm_lang$core$Dict$insert,
 					_p5,
-					_elm_lang$core$Native_List.fromArray(
-						[_p6]),
+					{
+						ctor: '::',
+						_0: _p6,
+						_1: {ctor: '[]'}
+					},
 					state);
 			} else {
 				return A3(
 					_elm_lang$core$Dict$insert,
 					_p5,
-					A2(_elm_lang$core$List_ops['::'], _p6, _p4._0),
+					{ctor: '::', _0: _p6, _1: _p4._0},
 					state);
 			}
 		});
@@ -14865,26 +16159,24 @@ webpackJsonp([1,0],[
 			if (_p7.ctor === 'Nothing') {
 				return _elm_lang$core$Task$succeed(state);
 			} else {
+				var tellTaggers = function (time) {
+					return _elm_lang$core$Task$sequence(
+						A2(
+							_elm_lang$core$List$map,
+							function (tagger) {
+								return A2(
+									_elm_lang$core$Platform$sendToApp,
+									router,
+									tagger(time));
+							},
+							_p7._0));
+				};
 				return A2(
 					_elm_lang$core$Task$andThen,
-					_elm_lang$core$Time$now,
-					function (time) {
-						return A2(
-							_elm_lang$core$Task$andThen,
-							_elm_lang$core$Task$sequence(
-								A2(
-									_elm_lang$core$List$map,
-									function (tagger) {
-										return A2(
-											_elm_lang$core$Platform$sendToApp,
-											router,
-											tagger(time));
-									},
-									_p7._0)),
-							function (_p8) {
-								return _elm_lang$core$Task$succeed(state);
-							});
-					});
+					function (_p8) {
+						return _elm_lang$core$Task$succeed(state);
+					},
+					A2(_elm_lang$core$Task$andThen, tellTaggers, _elm_lang$core$Time$now));
 			}
 		});
 	var _elm_lang$core$Time$subscription = _elm_lang$core$Native_Platform.leaf('Time');
@@ -14906,10 +16198,10 @@ webpackJsonp([1,0],[
 						_1: _p13._1,
 						_2: A2(
 							_elm_lang$core$Task$andThen,
-							_elm_lang$core$Native_Scheduler.kill(id),
 							function (_p14) {
 								return _p13._2;
-							})
+							},
+							_elm_lang$core$Native_Scheduler.kill(id))
 					};
 				});
 			var bothStep = F4(
@@ -14927,7 +16219,7 @@ webpackJsonp([1,0],[
 					var _p18 = _p17;
 					return {
 						ctor: '_Tuple3',
-						_0: A2(_elm_lang$core$List_ops['::'], interval, _p18._0),
+						_0: {ctor: '::', _0: interval, _1: _p18._0},
 						_1: _p18._1,
 						_2: _p18._2
 					};
@@ -14942,8 +16234,7 @@ webpackJsonp([1,0],[
 				_p10.processes,
 				{
 					ctor: '_Tuple3',
-					_0: _elm_lang$core$Native_List.fromArray(
-						[]),
+					_0: {ctor: '[]'},
 					_1: _elm_lang$core$Dict$empty,
 					_2: _elm_lang$core$Task$succeed(
 						{ctor: '_Tuple0'})
@@ -14953,16 +16244,16 @@ webpackJsonp([1,0],[
 			var killTask = _p19._2;
 			return A2(
 				_elm_lang$core$Task$andThen,
-				killTask,
-				function (_p20) {
-					return A2(
-						_elm_lang$core$Task$andThen,
-						A3(_elm_lang$core$Time$spawnHelp, router, spawnList, existingDict),
-						function (newProcesses) {
-							return _elm_lang$core$Task$succeed(
-								A2(_elm_lang$core$Time$State, newTaggers, newProcesses));
-						});
-				});
+				function (newProcesses) {
+					return _elm_lang$core$Task$succeed(
+						A2(_elm_lang$core$Time$State, newTaggers, newProcesses));
+				},
+				A2(
+					_elm_lang$core$Task$andThen,
+					function (_p20) {
+						return A3(_elm_lang$core$Time$spawnHelp, router, spawnList, existingDict);
+					},
+					killTask));
 		});
 	var _elm_lang$core$Time$Every = F2(
 		function (a, b) {
@@ -14990,7 +16281,8 @@ webpackJsonp([1,0],[
 	var _elm_lang$core$Process$sleep = _elm_lang$core$Native_Scheduler.sleep;
 	var _elm_lang$core$Process$spawn = _elm_lang$core$Native_Scheduler.spawn;
 	
-	var _elm_lang$animation_frame$AnimationFrame$rAF = _elm_lang$animation_frame$Native_AnimationFrame.rAF;
+	var _elm_lang$animation_frame$AnimationFrame$rAF = _elm_lang$animation_frame$Native_AnimationFrame.create(
+		{ctor: '_Tuple0'});
 	var _elm_lang$animation_frame$AnimationFrame$subscription = _elm_lang$core$Native_Platform.leaf('AnimationFrame');
 	var _elm_lang$animation_frame$AnimationFrame$State = F3(
 		function (a, b, c) {
@@ -14999,8 +16291,7 @@ webpackJsonp([1,0],[
 	var _elm_lang$animation_frame$AnimationFrame$init = _elm_lang$core$Task$succeed(
 		A3(
 			_elm_lang$animation_frame$AnimationFrame$State,
-			_elm_lang$core$Native_List.fromArray(
-				[]),
+			{ctor: '[]'},
 			_elm_lang$core$Maybe$Nothing,
 			0));
 	var _elm_lang$animation_frame$AnimationFrame$onEffects = F3(
@@ -15014,22 +16305,15 @@ webpackJsonp([1,0],[
 					return _elm_lang$core$Task$succeed(
 						A3(
 							_elm_lang$animation_frame$AnimationFrame$State,
-							_elm_lang$core$Native_List.fromArray(
-								[]),
+							{ctor: '[]'},
 							_elm_lang$core$Maybe$Nothing,
 							_p4));
 				} else {
 					return A2(
 						_elm_lang$core$Task$andThen,
-						_elm_lang$core$Process$spawn(
-							A2(
-								_elm_lang$core$Task$andThen,
-								_elm_lang$animation_frame$AnimationFrame$rAF,
-								_elm_lang$core$Platform$sendToSelf(router))),
 						function (pid) {
 							return A2(
 								_elm_lang$core$Task$andThen,
-								_elm_lang$core$Time$now,
 								function (time) {
 									return _elm_lang$core$Task$succeed(
 										A3(
@@ -15037,23 +16321,28 @@ webpackJsonp([1,0],[
 											subs,
 											_elm_lang$core$Maybe$Just(pid),
 											time));
-								});
-						});
+								},
+								_elm_lang$core$Time$now);
+						},
+						_elm_lang$core$Process$spawn(
+							A2(
+								_elm_lang$core$Task$andThen,
+								_elm_lang$core$Platform$sendToSelf(router),
+								_elm_lang$animation_frame$AnimationFrame$rAF)));
 				}
 			} else {
 				if (_p2._1.ctor === '[]') {
 					return A2(
 						_elm_lang$core$Task$andThen,
-						_elm_lang$core$Process$kill(_p2._0._0),
 						function (_p3) {
 							return _elm_lang$core$Task$succeed(
 								A3(
 									_elm_lang$animation_frame$AnimationFrame$State,
-									_elm_lang$core$Native_List.fromArray(
-										[]),
+									{ctor: '[]'},
 									_elm_lang$core$Maybe$Nothing,
 									_p4));
-						});
+						},
+						_elm_lang$core$Process$kill(_p2._0._0));
 				} else {
 					return _elm_lang$core$Task$succeed(
 						A3(_elm_lang$animation_frame$AnimationFrame$State, subs, _p5, _p4));
@@ -15081,16 +16370,9 @@ webpackJsonp([1,0],[
 			};
 			return A2(
 				_elm_lang$core$Task$andThen,
-				_elm_lang$core$Process$spawn(
-					A2(
-						_elm_lang$core$Task$andThen,
-						_elm_lang$animation_frame$AnimationFrame$rAF,
-						_elm_lang$core$Platform$sendToSelf(router))),
 				function (pid) {
 					return A2(
 						_elm_lang$core$Task$andThen,
-						_elm_lang$core$Task$sequence(
-							A2(_elm_lang$core$List$map, send, _p10)),
 						function (_p9) {
 							return _elm_lang$core$Task$succeed(
 								A3(
@@ -15098,8 +16380,15 @@ webpackJsonp([1,0],[
 									_p10,
 									_elm_lang$core$Maybe$Just(pid),
 									newTime));
-						});
-				});
+						},
+						_elm_lang$core$Task$sequence(
+							A2(_elm_lang$core$List$map, send, _p10)));
+				},
+				_elm_lang$core$Process$spawn(
+					A2(
+						_elm_lang$core$Task$andThen,
+						_elm_lang$core$Platform$sendToSelf(router),
+						_elm_lang$animation_frame$AnimationFrame$rAF)));
 		});
 	var _elm_lang$animation_frame$AnimationFrame$Diff = function (a) {
 		return {ctor: 'Diff', _0: a};
@@ -15134,68 +16423,28 @@ webpackJsonp([1,0],[
 		});
 	_elm_lang$core$Native_Platform.effectManagers['AnimationFrame'] = {pkg: 'elm-lang/animation-frame', init: _elm_lang$animation_frame$AnimationFrame$init, onEffects: _elm_lang$animation_frame$AnimationFrame$onEffects, onSelfMsg: _elm_lang$animation_frame$AnimationFrame$onSelfMsg, tag: 'sub', subMap: _elm_lang$animation_frame$AnimationFrame$subMap};
 	
-	var _elm_lang$html$Html_App$programWithFlags = _elm_lang$virtual_dom$VirtualDom$programWithFlags;
-	var _elm_lang$html$Html_App$program = function (app) {
-		return _elm_lang$html$Html_App$programWithFlags(
-			_elm_lang$core$Native_Utils.update(
-				app,
-				{
-					init: function (_p0) {
-						return app.init;
-					}
-				}));
-	};
-	var _elm_lang$html$Html_App$beginnerProgram = function (_p1) {
-		var _p2 = _p1;
-		return _elm_lang$html$Html_App$programWithFlags(
-			{
-				init: function (_p3) {
-					return A2(
-						_elm_lang$core$Platform_Cmd_ops['!'],
-						_p2.model,
-						_elm_lang$core$Native_List.fromArray(
-							[]));
-				},
-				update: F2(
-					function (msg, model) {
-						return A2(
-							_elm_lang$core$Platform_Cmd_ops['!'],
-							A2(_p2.update, msg, model),
-							_elm_lang$core$Native_List.fromArray(
-								[]));
-					}),
-				view: _p2.view,
-				subscriptions: function (_p4) {
-					return _elm_lang$core$Platform_Sub$none;
-				}
-			});
-	};
-	var _elm_lang$html$Html_App$map = _elm_lang$virtual_dom$VirtualDom$map;
-	
 	var _rtfeldman$elm_css$Css_Elements$typeSelector = F2(
 		function (selectorStr, mixins) {
 			var sequence = A2(
 				_rtfeldman$elm_css$Css_Structure$TypeSelectorSequence,
 				_rtfeldman$elm_css$Css_Structure$TypeSelector(selectorStr),
-				_elm_lang$core$Native_List.fromArray(
-					[]));
+				{ctor: '[]'});
 			var selector = A3(
 				_rtfeldman$elm_css$Css_Structure$Selector,
 				sequence,
-				_elm_lang$core$Native_List.fromArray(
-					[]),
+				{ctor: '[]'},
 				_elm_lang$core$Maybe$Nothing);
 			return _rtfeldman$elm_css$Css_Preprocess$Snippet(
-				_elm_lang$core$Native_List.fromArray(
-					[
-						_rtfeldman$elm_css$Css_Preprocess$StyleBlockDeclaration(
+				{
+					ctor: '::',
+					_0: _rtfeldman$elm_css$Css_Preprocess$StyleBlockDeclaration(
 						A3(
 							_rtfeldman$elm_css$Css_Preprocess$StyleBlock,
 							selector,
-							_elm_lang$core$Native_List.fromArray(
-								[]),
-							mixins))
-					]));
+							{ctor: '[]'},
+							mixins)),
+					_1: {ctor: '[]'}
+				});
 		});
 	var _rtfeldman$elm_css$Css_Elements$html = _rtfeldman$elm_css$Css_Elements$typeSelector('html');
 	var _rtfeldman$elm_css$Css_Elements$body = _rtfeldman$elm_css$Css_Elements$typeSelector('body');
@@ -15213,7 +16462,7 @@ webpackJsonp([1,0],[
 	var _rtfeldman$elm_css$Css_Elements$div = _rtfeldman$elm_css$Css_Elements$typeSelector('div');
 	var _rtfeldman$elm_css$Css_Elements$hr = _rtfeldman$elm_css$Css_Elements$typeSelector('hr');
 	var _rtfeldman$elm_css$Css_Elements$li = _rtfeldman$elm_css$Css_Elements$typeSelector('li');
-	var _rtfeldman$elm_css$Css_Elements$main$ = _rtfeldman$elm_css$Css_Elements$typeSelector('main');
+	var _rtfeldman$elm_css$Css_Elements$main_ = _rtfeldman$elm_css$Css_Elements$typeSelector('main');
 	var _rtfeldman$elm_css$Css_Elements$ol = _rtfeldman$elm_css$Css_Elements$typeSelector('ol');
 	var _rtfeldman$elm_css$Css_Elements$p = _rtfeldman$elm_css$Css_Elements$typeSelector('p');
 	var _rtfeldman$elm_css$Css_Elements$ul = _rtfeldman$elm_css$Css_Elements$typeSelector('ul');
@@ -15256,12 +16505,19 @@ webpackJsonp([1,0],[
 	var _benansell$elm_webpack_seed$SharedCss$white = _rtfeldman$elm_css$Css$hex('#fff');
 	var _benansell$elm_webpack_seed$SharedCss$linkColor = _benansell$elm_webpack_seed$SharedCss$white;
 	var _benansell$elm_webpack_seed$SharedCss$aligner = _rtfeldman$elm_css$Css$mixin(
-		_elm_lang$core$Native_List.fromArray(
-			[
-				_rtfeldman$elm_css$Css$displayFlex,
-				_rtfeldman$elm_css$Css$alignItems(_rtfeldman$elm_css$Css$center),
-				A2(_rtfeldman$elm_css$Css$property, 'justify-content', 'center')
-			]));
+		{
+			ctor: '::',
+			_0: _rtfeldman$elm_css$Css$displayFlex,
+			_1: {
+				ctor: '::',
+				_0: _rtfeldman$elm_css$Css$alignItems(_rtfeldman$elm_css$Css$center),
+				_1: {
+					ctor: '::',
+					_0: A2(_rtfeldman$elm_css$Css$property, 'justify-content', 'center'),
+					_1: {ctor: '[]'}
+				}
+			}
+		});
 	var _benansell$elm_webpack_seed$SharedCss$spaceLeft = _rtfeldman$elm_css$Css$paddingLeft(
 		_rtfeldman$elm_css$Css$pct(5));
 	var _benansell$elm_webpack_seed$SharedCss$layoutNamespace = _rtfeldman$elm_css_helpers$Html_CssHelpers$withNamespace('layout');
@@ -15281,282 +16537,448 @@ webpackJsonp([1,0],[
 		return _rtfeldman$elm_css$Css$stylesheet(
 			A2(_rtfeldman$elm_css$Css_Namespace$namespace, _benansell$elm_webpack_seed$SharedCss$layoutNamespace.name, _p0));
 	}(
-		_elm_lang$core$Native_List.fromArray(
-			[
-				_rtfeldman$elm_css$Css_Elements$a(
-				_elm_lang$core$Native_List.fromArray(
-					[
-						_rtfeldman$elm_css$Css$textDecoration(_rtfeldman$elm_css$Css$none),
-						_rtfeldman$elm_css$Css$color(_benansell$elm_webpack_seed$SharedCss$linkColor)
-					])),
-				_rtfeldman$elm_css$Css_Elements$body(
-				_elm_lang$core$Native_List.fromArray(
-					[
-						_rtfeldman$elm_css$Css$margin(
-						_rtfeldman$elm_css$Css$px(0)),
-						_rtfeldman$elm_css$Css$minWidth(
-						_rtfeldman$elm_css$Css$px(260))
-					])),
-				_rtfeldman$elm_css$Css_Elements$footer(
-				_elm_lang$core$Native_List.fromArray(
-					[
-						_rtfeldman$elm_css$Css$flex(_rtfeldman$elm_css$Css$none)
-					])),
-				_rtfeldman$elm_css$Css_Elements$header(
-				_elm_lang$core$Native_List.fromArray(
-					[
-						_rtfeldman$elm_css$Css$backgroundColor(_benansell$elm_webpack_seed$SharedCss$blue),
-						_rtfeldman$elm_css$Css$flex(_rtfeldman$elm_css$Css$none),
-						_benansell$elm_webpack_seed$SharedCss$spaceLeft
-					])),
-				A2(
-				F2(
-					function (x, y) {
-						return A2(_rtfeldman$elm_css$Css_ops['.'], x, y);
+		{
+			ctor: '::',
+			_0: _rtfeldman$elm_css$Css_Elements$a(
+				{
+					ctor: '::',
+					_0: _rtfeldman$elm_css$Css$textDecoration(_rtfeldman$elm_css$Css$none),
+					_1: {
+						ctor: '::',
+						_0: _rtfeldman$elm_css$Css$color(_benansell$elm_webpack_seed$SharedCss$linkColor),
+						_1: {ctor: '[]'}
+					}
+				}),
+			_1: {
+				ctor: '::',
+				_0: _rtfeldman$elm_css$Css_Elements$body(
+					{
+						ctor: '::',
+						_0: _rtfeldman$elm_css$Css$margin(
+							_rtfeldman$elm_css$Css$px(0)),
+						_1: {
+							ctor: '::',
+							_0: _rtfeldman$elm_css$Css$minWidth(
+								_rtfeldman$elm_css$Css$px(260)),
+							_1: {ctor: '[]'}
+						}
 					}),
-				_benansell$elm_webpack_seed$SharedCss$Page,
-				_elm_lang$core$Native_List.fromArray(
-					[
-						_rtfeldman$elm_css$Css$backgroundColor(
-						A4(_rtfeldman$elm_css$Css$rgba, 220, 220, 221, 1)),
-						_rtfeldman$elm_css$Css$displayFlex,
-						_rtfeldman$elm_css$Css$minHeight(
-						_rtfeldman$elm_css$Css$vh(100)),
-						_rtfeldman$elm_css$Css$flexDirection(_rtfeldman$elm_css$Css$column),
-						_rtfeldman$elm_css$Css$fontFamily(_rtfeldman$elm_css$Css$sansSerif)
-					])),
-				A2(
-				F2(
-					function (x, y) {
-						return A2(_rtfeldman$elm_css$Css_ops['.'], x, y);
-					}),
-				_benansell$elm_webpack_seed$SharedCss$Body,
-				_elm_lang$core$Native_List.fromArray(
-					[
-						_rtfeldman$elm_css$Css$displayFlex,
-						A2(
-						_rtfeldman$elm_css$Css$flex2,
-						_rtfeldman$elm_css$Css$int(1),
-						_rtfeldman$elm_css$Css$int(0)),
-						_rtfeldman$elm_css$Css$flexDirection(_rtfeldman$elm_css$Css$column)
-					])),
-				A2(
-				F2(
-					function (x, y) {
-						return A2(_rtfeldman$elm_css$Css_ops['.'], x, y);
-					}),
-				_benansell$elm_webpack_seed$SharedCss$Content,
-				_elm_lang$core$Native_List.fromArray(
-					[
-						_rtfeldman$elm_css$Css$backgroundColor(_benansell$elm_webpack_seed$SharedCss$lightGray),
-						_rtfeldman$elm_css$Css$flex(
-						_rtfeldman$elm_css$Css$int(1)),
-						_benansell$elm_webpack_seed$SharedCss$aligner
-					])),
-				A2(
-				F2(
-					function (x, y) {
-						return A2(_rtfeldman$elm_css$Css_ops['.'], x, y);
-					}),
-				_benansell$elm_webpack_seed$SharedCss$Aside,
-				_elm_lang$core$Native_List.fromArray(
-					[
-						_rtfeldman$elm_css$Css$backgroundColor(_benansell$elm_webpack_seed$SharedCss$mediumGray),
-						_rtfeldman$elm_css$Css$padding(
-						_rtfeldman$elm_css$Css$em(1))
-					])),
-				A2(
-				F2(
-					function (x, y) {
-						return A2(_rtfeldman$elm_css$Css_ops['.'], x, y);
-					}),
-				_benansell$elm_webpack_seed$SharedCss$Nav,
-				_elm_lang$core$Native_List.fromArray(
-					[
-						_rtfeldman$elm_css$Css$backgroundColor(_benansell$elm_webpack_seed$SharedCss$darkBlueGray),
-						_rtfeldman$elm_css$Css$order(
-						_rtfeldman$elm_css$Css$int(-1)),
-						_rtfeldman$elm_css$Css$padding(
-						_rtfeldman$elm_css$Css$em(1))
-					])),
-				A2(
-				F2(
-					function (x, y) {
-						return A2(_rtfeldman$elm_css$Css_ops['.'], x, y);
-					}),
-				_benansell$elm_webpack_seed$SharedCss$NavAsideStatus,
-				_elm_lang$core$Native_List.fromArray(
-					[
-						_rtfeldman$elm_css$Css$fontWeight(
-						_rtfeldman$elm_css$Css$int(300))
-					])),
-				A2(
-				F2(
-					function (x, y) {
-						return A2(_rtfeldman$elm_css$Css_ops['.'], x, y);
-					}),
-				_benansell$elm_webpack_seed$SharedCss$NavMessage,
-				_elm_lang$core$Native_List.fromArray(
-					[
-						_rtfeldman$elm_css$Css$color(_benansell$elm_webpack_seed$SharedCss$white),
-						_rtfeldman$elm_css$Css$fontWeight(
-						_rtfeldman$elm_css$Css$int(300)),
-						_rtfeldman$elm_css$Css$lineHeight(
-						_rtfeldman$elm_css$Css$em(1.4))
-					])),
-				A2(
-				F2(
-					function (x, y) {
-						return A2(_rtfeldman$elm_css$Css_ops['.'], x, y);
-					}),
-				_benansell$elm_webpack_seed$SharedCss$Footer,
-				_elm_lang$core$Native_List.fromArray(
-					[
-						_rtfeldman$elm_css$Css$backgroundColor(_benansell$elm_webpack_seed$SharedCss$darkGray)
-					])),
-				A2(
-				F2(
-					function (x, y) {
-						return A2(_rtfeldman$elm_css$Css_ops['.'], x, y);
-					}),
-				_benansell$elm_webpack_seed$SharedCss$FooterItems,
-				_elm_lang$core$Native_List.fromArray(
-					[
-						_rtfeldman$elm_css$Css$displayFlex,
-						_rtfeldman$elm_css$Css$flexDirection(_rtfeldman$elm_css$Css$row),
-						_rtfeldman$elm_css$Css$marginLeft(
-						_rtfeldman$elm_css$Css$pct(5)),
-						_rtfeldman$elm_css$Css$marginRight(
-						_rtfeldman$elm_css$Css$pct(5)),
-						_rtfeldman$elm_css$Css$paddingLeft(
-						_rtfeldman$elm_css$Css$px(0)),
-						A2(_rtfeldman$elm_css$Css$property, 'list-style', 'none'),
-						_rtfeldman$elm_css$Css$alignItems(_rtfeldman$elm_css$Css$center),
-						_rtfeldman$elm_css$Css$children(
-						_elm_lang$core$Native_List.fromArray(
-							[
-								_rtfeldman$elm_css$Css_Elements$li(
-								_elm_lang$core$Native_List.fromArray(
-									[
-										_rtfeldman$elm_css$Css$lastChild(
-										_elm_lang$core$Native_List.fromArray(
-											[
-												_rtfeldman$elm_css$Css$marginLeft(_rtfeldman$elm_css$Css$auto)
-											]))
-									]))
-							]))
-					])),
-				A2(
-				F2(
-					function (x, y) {
-						return A2(_rtfeldman$elm_css$Css_ops['.'], x, y);
-					}),
-				_benansell$elm_webpack_seed$SharedCss$Media,
-				_elm_lang$core$Native_List.fromArray(
-					[
-						_rtfeldman$elm_css$Css$displayFlex,
-						_rtfeldman$elm_css$Css$alignItems(_rtfeldman$elm_css$Css$center)
-					])),
-				A2(
-				F2(
-					function (x, y) {
-						return A2(_rtfeldman$elm_css$Css_ops['.'], x, y);
-					}),
-				_benansell$elm_webpack_seed$SharedCss$MediaBody,
-				_elm_lang$core$Native_List.fromArray(
-					[
-						_rtfeldman$elm_css$Css$flex(
-						_rtfeldman$elm_css$Css$int(1)),
-						_rtfeldman$elm_css$Css$whiteSpace(_rtfeldman$elm_css$Css$noWrap)
-					])),
-				A2(
-				F2(
-					function (x, y) {
-						return A2(_rtfeldman$elm_css$Css_ops['.'], x, y);
-					}),
-				_benansell$elm_webpack_seed$SharedCss$MediaFigure,
-				_elm_lang$core$Native_List.fromArray(
-					[
-						_rtfeldman$elm_css$Css$marginRight(
-						_rtfeldman$elm_css$Css$em(1))
-					])),
-				A2(
-				_rtfeldman$elm_css$Css$mediaQuery,
-				'(min-width: 1000px)',
-				_elm_lang$core$Native_List.fromArray(
-					[
-						A2(
-						F2(
-							function (x, y) {
-								return A2(_rtfeldman$elm_css$Css_ops['.'], x, y);
+				_1: {
+					ctor: '::',
+					_0: _rtfeldman$elm_css$Css_Elements$footer(
+						{
+							ctor: '::',
+							_0: _rtfeldman$elm_css$Css$flex(_rtfeldman$elm_css$Css$none),
+							_1: {ctor: '[]'}
+						}),
+					_1: {
+						ctor: '::',
+						_0: _rtfeldman$elm_css$Css_Elements$header(
+							{
+								ctor: '::',
+								_0: _rtfeldman$elm_css$Css$backgroundColor(_benansell$elm_webpack_seed$SharedCss$blue),
+								_1: {
+									ctor: '::',
+									_0: _rtfeldman$elm_css$Css$flex(_rtfeldman$elm_css$Css$none),
+									_1: {
+										ctor: '::',
+										_0: _benansell$elm_webpack_seed$SharedCss$spaceLeft,
+										_1: {ctor: '[]'}
+									}
+								}
 							}),
-						_benansell$elm_webpack_seed$SharedCss$Body,
-						_elm_lang$core$Native_List.fromArray(
-							[
-								_rtfeldman$elm_css$Css$flexDirection(_rtfeldman$elm_css$Css$row)
-							])),
-						A2(
-						F2(
-							function (x, y) {
-								return A2(_rtfeldman$elm_css$Css_ops['.'], x, y);
-							}),
-						_benansell$elm_webpack_seed$SharedCss$Content,
-						_elm_lang$core$Native_List.fromArray(
-							[
-								_rtfeldman$elm_css$Css$flex(
-								_rtfeldman$elm_css$Css$int(1)),
-								_rtfeldman$elm_css$Css$padding(
-								_rtfeldman$elm_css$Css$px(0)),
-								_rtfeldman$elm_css$Css$margin(
-								_rtfeldman$elm_css$Css$px(0))
-							])),
-						A2(
-						F2(
-							function (x, y) {
-								return A2(_rtfeldman$elm_css$Css_ops['.'], x, y);
-							}),
-						_benansell$elm_webpack_seed$SharedCss$Nav,
-						_elm_lang$core$Native_List.fromArray(
-							[
-								A3(
-								_rtfeldman$elm_css$Css$flex3,
-								_rtfeldman$elm_css$Css$int(0),
-								_rtfeldman$elm_css$Css$int(0),
-								_rtfeldman$elm_css$Css$em(12))
-							])),
-						A2(
-						F2(
-							function (x, y) {
-								return A2(_rtfeldman$elm_css$Css_ops['.'], x, y);
-							}),
-						_benansell$elm_webpack_seed$SharedCss$Aside,
-						_elm_lang$core$Native_List.fromArray(
-							[
-								A3(
-								_rtfeldman$elm_css$Css$flex3,
-								_rtfeldman$elm_css$Css$int(0),
-								_rtfeldman$elm_css$Css$int(0),
-								_rtfeldman$elm_css$Css$em(12))
-							]))
-					]))
-			]));
+						_1: {
+							ctor: '::',
+							_0: A2(
+								F2(
+									function (x, y) {
+										return A2(_rtfeldman$elm_css$Css_ops['.'], x, y);
+									}),
+								_benansell$elm_webpack_seed$SharedCss$Page,
+								{
+									ctor: '::',
+									_0: _rtfeldman$elm_css$Css$backgroundColor(
+										A4(_rtfeldman$elm_css$Css$rgba, 220, 220, 221, 1)),
+									_1: {
+										ctor: '::',
+										_0: _rtfeldman$elm_css$Css$displayFlex,
+										_1: {
+											ctor: '::',
+											_0: _rtfeldman$elm_css$Css$minHeight(
+												_rtfeldman$elm_css$Css$vh(100)),
+											_1: {
+												ctor: '::',
+												_0: _rtfeldman$elm_css$Css$flexDirection(_rtfeldman$elm_css$Css$column),
+												_1: {
+													ctor: '::',
+													_0: _rtfeldman$elm_css$Css$fontFamily(_rtfeldman$elm_css$Css$sansSerif),
+													_1: {ctor: '[]'}
+												}
+											}
+										}
+									}
+								}),
+							_1: {
+								ctor: '::',
+								_0: A2(
+									F2(
+										function (x, y) {
+											return A2(_rtfeldman$elm_css$Css_ops['.'], x, y);
+										}),
+									_benansell$elm_webpack_seed$SharedCss$Body,
+									{
+										ctor: '::',
+										_0: _rtfeldman$elm_css$Css$displayFlex,
+										_1: {
+											ctor: '::',
+											_0: A2(
+												_rtfeldman$elm_css$Css$flex2,
+												_rtfeldman$elm_css$Css$int(1),
+												_rtfeldman$elm_css$Css$int(0)),
+											_1: {
+												ctor: '::',
+												_0: _rtfeldman$elm_css$Css$flexDirection(_rtfeldman$elm_css$Css$column),
+												_1: {ctor: '[]'}
+											}
+										}
+									}),
+								_1: {
+									ctor: '::',
+									_0: A2(
+										F2(
+											function (x, y) {
+												return A2(_rtfeldman$elm_css$Css_ops['.'], x, y);
+											}),
+										_benansell$elm_webpack_seed$SharedCss$Content,
+										{
+											ctor: '::',
+											_0: _rtfeldman$elm_css$Css$backgroundColor(_benansell$elm_webpack_seed$SharedCss$lightGray),
+											_1: {
+												ctor: '::',
+												_0: _rtfeldman$elm_css$Css$flex(
+													_rtfeldman$elm_css$Css$int(1)),
+												_1: {
+													ctor: '::',
+													_0: _benansell$elm_webpack_seed$SharedCss$aligner,
+													_1: {ctor: '[]'}
+												}
+											}
+										}),
+									_1: {
+										ctor: '::',
+										_0: A2(
+											F2(
+												function (x, y) {
+													return A2(_rtfeldman$elm_css$Css_ops['.'], x, y);
+												}),
+											_benansell$elm_webpack_seed$SharedCss$Aside,
+											{
+												ctor: '::',
+												_0: _rtfeldman$elm_css$Css$backgroundColor(_benansell$elm_webpack_seed$SharedCss$mediumGray),
+												_1: {
+													ctor: '::',
+													_0: _rtfeldman$elm_css$Css$padding(
+														_rtfeldman$elm_css$Css$em(1)),
+													_1: {ctor: '[]'}
+												}
+											}),
+										_1: {
+											ctor: '::',
+											_0: A2(
+												F2(
+													function (x, y) {
+														return A2(_rtfeldman$elm_css$Css_ops['.'], x, y);
+													}),
+												_benansell$elm_webpack_seed$SharedCss$Nav,
+												{
+													ctor: '::',
+													_0: _rtfeldman$elm_css$Css$backgroundColor(_benansell$elm_webpack_seed$SharedCss$darkBlueGray),
+													_1: {
+														ctor: '::',
+														_0: _rtfeldman$elm_css$Css$order(
+															_rtfeldman$elm_css$Css$int(-1)),
+														_1: {
+															ctor: '::',
+															_0: _rtfeldman$elm_css$Css$padding(
+																_rtfeldman$elm_css$Css$em(1)),
+															_1: {ctor: '[]'}
+														}
+													}
+												}),
+											_1: {
+												ctor: '::',
+												_0: A2(
+													F2(
+														function (x, y) {
+															return A2(_rtfeldman$elm_css$Css_ops['.'], x, y);
+														}),
+													_benansell$elm_webpack_seed$SharedCss$NavAsideStatus,
+													{
+														ctor: '::',
+														_0: _rtfeldman$elm_css$Css$fontWeight(
+															_rtfeldman$elm_css$Css$int(300)),
+														_1: {ctor: '[]'}
+													}),
+												_1: {
+													ctor: '::',
+													_0: A2(
+														F2(
+															function (x, y) {
+																return A2(_rtfeldman$elm_css$Css_ops['.'], x, y);
+															}),
+														_benansell$elm_webpack_seed$SharedCss$NavMessage,
+														{
+															ctor: '::',
+															_0: _rtfeldman$elm_css$Css$color(_benansell$elm_webpack_seed$SharedCss$white),
+															_1: {
+																ctor: '::',
+																_0: _rtfeldman$elm_css$Css$fontWeight(
+																	_rtfeldman$elm_css$Css$int(300)),
+																_1: {
+																	ctor: '::',
+																	_0: _rtfeldman$elm_css$Css$lineHeight(
+																		_rtfeldman$elm_css$Css$em(1.4)),
+																	_1: {ctor: '[]'}
+																}
+															}
+														}),
+													_1: {
+														ctor: '::',
+														_0: A2(
+															F2(
+																function (x, y) {
+																	return A2(_rtfeldman$elm_css$Css_ops['.'], x, y);
+																}),
+															_benansell$elm_webpack_seed$SharedCss$Footer,
+															{
+																ctor: '::',
+																_0: _rtfeldman$elm_css$Css$backgroundColor(_benansell$elm_webpack_seed$SharedCss$darkGray),
+																_1: {ctor: '[]'}
+															}),
+														_1: {
+															ctor: '::',
+															_0: A2(
+																F2(
+																	function (x, y) {
+																		return A2(_rtfeldman$elm_css$Css_ops['.'], x, y);
+																	}),
+																_benansell$elm_webpack_seed$SharedCss$FooterItems,
+																{
+																	ctor: '::',
+																	_0: _rtfeldman$elm_css$Css$displayFlex,
+																	_1: {
+																		ctor: '::',
+																		_0: _rtfeldman$elm_css$Css$flexDirection(_rtfeldman$elm_css$Css$row),
+																		_1: {
+																			ctor: '::',
+																			_0: _rtfeldman$elm_css$Css$marginLeft(
+																				_rtfeldman$elm_css$Css$pct(5)),
+																			_1: {
+																				ctor: '::',
+																				_0: _rtfeldman$elm_css$Css$marginRight(
+																					_rtfeldman$elm_css$Css$pct(5)),
+																				_1: {
+																					ctor: '::',
+																					_0: _rtfeldman$elm_css$Css$paddingLeft(
+																						_rtfeldman$elm_css$Css$px(0)),
+																					_1: {
+																						ctor: '::',
+																						_0: A2(_rtfeldman$elm_css$Css$property, 'list-style', 'none'),
+																						_1: {
+																							ctor: '::',
+																							_0: _rtfeldman$elm_css$Css$alignItems(_rtfeldman$elm_css$Css$center),
+																							_1: {
+																								ctor: '::',
+																								_0: _rtfeldman$elm_css$Css$children(
+																									{
+																										ctor: '::',
+																										_0: _rtfeldman$elm_css$Css_Elements$li(
+																											{
+																												ctor: '::',
+																												_0: _rtfeldman$elm_css$Css$lastChild(
+																													{
+																														ctor: '::',
+																														_0: _rtfeldman$elm_css$Css$marginLeft(_rtfeldman$elm_css$Css$auto),
+																														_1: {ctor: '[]'}
+																													}),
+																												_1: {ctor: '[]'}
+																											}),
+																										_1: {ctor: '[]'}
+																									}),
+																								_1: {ctor: '[]'}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}),
+															_1: {
+																ctor: '::',
+																_0: A2(
+																	F2(
+																		function (x, y) {
+																			return A2(_rtfeldman$elm_css$Css_ops['.'], x, y);
+																		}),
+																	_benansell$elm_webpack_seed$SharedCss$Media,
+																	{
+																		ctor: '::',
+																		_0: _rtfeldman$elm_css$Css$displayFlex,
+																		_1: {
+																			ctor: '::',
+																			_0: _rtfeldman$elm_css$Css$alignItems(_rtfeldman$elm_css$Css$center),
+																			_1: {ctor: '[]'}
+																		}
+																	}),
+																_1: {
+																	ctor: '::',
+																	_0: A2(
+																		F2(
+																			function (x, y) {
+																				return A2(_rtfeldman$elm_css$Css_ops['.'], x, y);
+																			}),
+																		_benansell$elm_webpack_seed$SharedCss$MediaBody,
+																		{
+																			ctor: '::',
+																			_0: _rtfeldman$elm_css$Css$flex(
+																				_rtfeldman$elm_css$Css$int(1)),
+																			_1: {
+																				ctor: '::',
+																				_0: _rtfeldman$elm_css$Css$whiteSpace(_rtfeldman$elm_css$Css$noWrap),
+																				_1: {ctor: '[]'}
+																			}
+																		}),
+																	_1: {
+																		ctor: '::',
+																		_0: A2(
+																			F2(
+																				function (x, y) {
+																					return A2(_rtfeldman$elm_css$Css_ops['.'], x, y);
+																				}),
+																			_benansell$elm_webpack_seed$SharedCss$MediaFigure,
+																			{
+																				ctor: '::',
+																				_0: _rtfeldman$elm_css$Css$marginRight(
+																					_rtfeldman$elm_css$Css$em(1)),
+																				_1: {ctor: '[]'}
+																			}),
+																		_1: {
+																			ctor: '::',
+																			_0: A2(
+																				_rtfeldman$elm_css$Css$mediaQuery,
+																				'(min-width: 1000px)',
+																				{
+																					ctor: '::',
+																					_0: A2(
+																						F2(
+																							function (x, y) {
+																								return A2(_rtfeldman$elm_css$Css_ops['.'], x, y);
+																							}),
+																						_benansell$elm_webpack_seed$SharedCss$Body,
+																						{
+																							ctor: '::',
+																							_0: _rtfeldman$elm_css$Css$flexDirection(_rtfeldman$elm_css$Css$row),
+																							_1: {ctor: '[]'}
+																						}),
+																					_1: {
+																						ctor: '::',
+																						_0: A2(
+																							F2(
+																								function (x, y) {
+																									return A2(_rtfeldman$elm_css$Css_ops['.'], x, y);
+																								}),
+																							_benansell$elm_webpack_seed$SharedCss$Content,
+																							{
+																								ctor: '::',
+																								_0: _rtfeldman$elm_css$Css$flex(
+																									_rtfeldman$elm_css$Css$int(1)),
+																								_1: {
+																									ctor: '::',
+																									_0: _rtfeldman$elm_css$Css$padding(
+																										_rtfeldman$elm_css$Css$px(0)),
+																									_1: {
+																										ctor: '::',
+																										_0: _rtfeldman$elm_css$Css$margin(
+																											_rtfeldman$elm_css$Css$px(0)),
+																										_1: {ctor: '[]'}
+																									}
+																								}
+																							}),
+																						_1: {
+																							ctor: '::',
+																							_0: A2(
+																								F2(
+																									function (x, y) {
+																										return A2(_rtfeldman$elm_css$Css_ops['.'], x, y);
+																									}),
+																								_benansell$elm_webpack_seed$SharedCss$Nav,
+																								{
+																									ctor: '::',
+																									_0: A3(
+																										_rtfeldman$elm_css$Css$flex3,
+																										_rtfeldman$elm_css$Css$int(0),
+																										_rtfeldman$elm_css$Css$int(0),
+																										_rtfeldman$elm_css$Css$em(12)),
+																									_1: {ctor: '[]'}
+																								}),
+																							_1: {
+																								ctor: '::',
+																								_0: A2(
+																									F2(
+																										function (x, y) {
+																											return A2(_rtfeldman$elm_css$Css_ops['.'], x, y);
+																										}),
+																									_benansell$elm_webpack_seed$SharedCss$Aside,
+																									{
+																										ctor: '::',
+																										_0: A3(
+																											_rtfeldman$elm_css$Css$flex3,
+																											_rtfeldman$elm_css$Css$int(0),
+																											_rtfeldman$elm_css$Css$int(0),
+																											_rtfeldman$elm_css$Css$em(12)),
+																										_1: {ctor: '[]'}
+																									}),
+																								_1: {ctor: '[]'}
+																							}
+																						}
+																					}
+																				}),
+																			_1: {ctor: '[]'}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		});
 	var _benansell$elm_webpack_seed$SharedCss$App = {ctor: 'App'};
 	
 	var _benansell$elm_webpack_seed$Main$viewHeader = A2(
 		_elm_lang$html$Html$div,
-		_elm_lang$core$Native_List.fromArray(
-			[]),
-		_elm_lang$core$Native_List.fromArray(
-			[
-				A2(
+		{ctor: '[]'},
+		{
+			ctor: '::',
+			_0: A2(
 				_elm_lang$html$Html$h1,
-				_elm_lang$core$Native_List.fromArray(
-					[]),
-				_elm_lang$core$Native_List.fromArray(
-					[
-						_elm_lang$html$Html$text('elm-webpack-seed')
-					]))
-			]));
+				{ctor: '[]'},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text('elm-webpack-seed'),
+					_1: {ctor: '[]'}
+				}),
+			_1: {ctor: '[]'}
+		});
 	var _benansell$elm_webpack_seed$Main$styles = function (_p0) {
 		return _elm_lang$html$Html_Attributes$style(
 			_rtfeldman$elm_css$Css$asPairs(_p0));
@@ -15566,138 +16988,189 @@ webpackJsonp([1,0],[
 	var _benansell$elm_webpack_seed$Main$viewNav = function (model) {
 		return A2(
 			_elm_lang$html$Html$div,
-			_elm_lang$core$Native_List.fromArray(
-				[]),
-			_elm_lang$core$Native_List.fromArray(
-				[
-					A2(
+			{ctor: '[]'},
+			{
+				ctor: '::',
+				_0: A2(
 					_elm_lang$html$Html$p,
-					_elm_lang$core$Native_List.fromArray(
-						[
-							_benansell$elm_webpack_seed$Main$class(
-							_elm_lang$core$Native_List.fromArray(
-								[_benansell$elm_webpack_seed$SharedCss$NavMessage]))
-						]),
-					_elm_lang$core$Native_List.fromArray(
-						[
-							_elm_lang$html$Html$text(model.status)
-						]))
-				]));
+					{
+						ctor: '::',
+						_0: _benansell$elm_webpack_seed$Main$class(
+							{
+								ctor: '::',
+								_0: _benansell$elm_webpack_seed$SharedCss$NavMessage,
+								_1: {ctor: '[]'}
+							}),
+						_1: {ctor: '[]'}
+					},
+					{
+						ctor: '::',
+						_0: _elm_lang$html$Html$text(model.status),
+						_1: {ctor: '[]'}
+					}),
+				_1: {ctor: '[]'}
+			});
 	};
 	var _benansell$elm_webpack_seed$Main$viewAside = function (model) {
 		return A2(
 			_elm_lang$html$Html$span,
-			_elm_lang$core$Native_List.fromArray(
-				[]),
-			_elm_lang$core$Native_List.fromArray(
-				[
-					A2(
+			{ctor: '[]'},
+			{
+				ctor: '::',
+				_0: A2(
 					_elm_lang$html$Html$p,
-					_elm_lang$core$Native_List.fromArray(
-						[
-							_benansell$elm_webpack_seed$Main$class(
-							_elm_lang$core$Native_List.fromArray(
-								[_benansell$elm_webpack_seed$SharedCss$NavAsideStatus]))
-						]),
-					_elm_lang$core$Native_List.fromArray(
-						[
-							_Fresheyeball$elm_font_awesome$FontAwesome_Web$info_circle,
-							_elm_lang$html$Html$text('  Nudge the logo to make it move')
-						]))
-				]));
+					{
+						ctor: '::',
+						_0: _benansell$elm_webpack_seed$Main$class(
+							{
+								ctor: '::',
+								_0: _benansell$elm_webpack_seed$SharedCss$NavAsideStatus,
+								_1: {ctor: '[]'}
+							}),
+						_1: {ctor: '[]'}
+					},
+					{
+						ctor: '::',
+						_0: _Fresheyeball$elm_font_awesome$FontAwesome_Web$info_circle,
+						_1: {
+							ctor: '::',
+							_0: _elm_lang$html$Html$text('  Nudge the logo to make it move'),
+							_1: {ctor: '[]'}
+						}
+					}),
+				_1: {ctor: '[]'}
+			});
 	};
 	var _benansell$elm_webpack_seed$Main$viewFooter = A2(
 		_elm_lang$html$Html$div,
-		_elm_lang$core$Native_List.fromArray(
-			[]),
-		_elm_lang$core$Native_List.fromArray(
-			[
-				A2(
+		{ctor: '[]'},
+		{
+			ctor: '::',
+			_0: A2(
 				_elm_lang$html$Html$ul,
-				_elm_lang$core$Native_List.fromArray(
-					[
-						_benansell$elm_webpack_seed$Main$class(
-						_elm_lang$core$Native_List.fromArray(
-							[_benansell$elm_webpack_seed$SharedCss$FooterItems]))
-					]),
-				_elm_lang$core$Native_List.fromArray(
-					[
-						A2(
+				{
+					ctor: '::',
+					_0: _benansell$elm_webpack_seed$Main$class(
+						{
+							ctor: '::',
+							_0: _benansell$elm_webpack_seed$SharedCss$FooterItems,
+							_1: {ctor: '[]'}
+						}),
+					_1: {ctor: '[]'}
+				},
+				{
+					ctor: '::',
+					_0: A2(
 						_elm_lang$html$Html$li,
-						_elm_lang$core$Native_List.fromArray(
-							[]),
-						_elm_lang$core$Native_List.fromArray(
-							[
-								A2(
+						{ctor: '[]'},
+						{
+							ctor: '::',
+							_0: A2(
 								_elm_lang$html$Html$a,
-								_elm_lang$core$Native_List.fromArray(
-									[
-										_elm_lang$html$Html_Attributes$href('http://elm-lang.org/')
-									]),
-								_elm_lang$core$Native_List.fromArray(
-									[
-										A2(
+								{
+									ctor: '::',
+									_0: _elm_lang$html$Html_Attributes$href('http://elm-lang.org/'),
+									_1: {ctor: '[]'}
+								},
+								{
+									ctor: '::',
+									_0: A2(
 										_elm_lang$html$Html$div,
-										_elm_lang$core$Native_List.fromArray(
-											[
-												_benansell$elm_webpack_seed$Main$class(
-												_elm_lang$core$Native_List.fromArray(
-													[_benansell$elm_webpack_seed$SharedCss$Media]))
-											]),
-										_elm_lang$core$Native_List.fromArray(
-											[
-												A2(
+										{
+											ctor: '::',
+											_0: _benansell$elm_webpack_seed$Main$class(
+												{
+													ctor: '::',
+													_0: _benansell$elm_webpack_seed$SharedCss$Media,
+													_1: {ctor: '[]'}
+												}),
+											_1: {ctor: '[]'}
+										},
+										{
+											ctor: '::',
+											_0: A2(
 												_elm_lang$html$Html$img,
-												_elm_lang$core$Native_List.fromArray(
-													[
-														_elm_lang$html$Html_Attributes$src('assets/elm_logo.svg'),
-														_benansell$elm_webpack_seed$Main$class(
-														_elm_lang$core$Native_List.fromArray(
-															[_benansell$elm_webpack_seed$SharedCss$MediaFigure])),
-														_benansell$elm_webpack_seed$Main$styles(
-														_elm_lang$core$Native_List.fromArray(
-															[
-																_rtfeldman$elm_css$Css$maxWidth(
-																_rtfeldman$elm_css$Css$px(30))
-															]))
-													]),
-												_elm_lang$core$Native_List.fromArray(
-													[])),
-												A2(
-												_elm_lang$html$Html$div,
-												_elm_lang$core$Native_List.fromArray(
-													[
-														_benansell$elm_webpack_seed$Main$class(
-														_elm_lang$core$Native_List.fromArray(
-															[_benansell$elm_webpack_seed$SharedCss$MediaBody]))
-													]),
-												_elm_lang$core$Native_List.fromArray(
-													[
-														_elm_lang$html$Html$text('Powered by Elm')
-													]))
-											]))
-									]))
-							])),
-						A2(
-						_elm_lang$html$Html$li,
-						_elm_lang$core$Native_List.fromArray(
-							[]),
-						_elm_lang$core$Native_List.fromArray(
-							[
-								A2(
-								_elm_lang$html$Html$a,
-								_elm_lang$core$Native_List.fromArray(
-									[
-										_elm_lang$html$Html_Attributes$href('https://github.com/benansell/elm-webpack-seed')
-									]),
-								_elm_lang$core$Native_List.fromArray(
-									[
-										_Fresheyeball$elm_font_awesome$FontAwesome_Brand$github,
-										_elm_lang$html$Html$text(' Github')
-									]))
-							]))
-					]))
-			]));
+												{
+													ctor: '::',
+													_0: _elm_lang$html$Html_Attributes$src('assets/elm_logo.svg'),
+													_1: {
+														ctor: '::',
+														_0: _benansell$elm_webpack_seed$Main$class(
+															{
+																ctor: '::',
+																_0: _benansell$elm_webpack_seed$SharedCss$MediaFigure,
+																_1: {ctor: '[]'}
+															}),
+														_1: {
+															ctor: '::',
+															_0: _benansell$elm_webpack_seed$Main$styles(
+																{
+																	ctor: '::',
+																	_0: _rtfeldman$elm_css$Css$maxWidth(
+																		_rtfeldman$elm_css$Css$px(30)),
+																	_1: {ctor: '[]'}
+																}),
+															_1: {ctor: '[]'}
+														}
+													}
+												},
+												{ctor: '[]'}),
+											_1: {
+												ctor: '::',
+												_0: A2(
+													_elm_lang$html$Html$div,
+													{
+														ctor: '::',
+														_0: _benansell$elm_webpack_seed$Main$class(
+															{
+																ctor: '::',
+																_0: _benansell$elm_webpack_seed$SharedCss$MediaBody,
+																_1: {ctor: '[]'}
+															}),
+														_1: {ctor: '[]'}
+													},
+													{
+														ctor: '::',
+														_0: _elm_lang$html$Html$text('Powered by Elm'),
+														_1: {ctor: '[]'}
+													}),
+												_1: {ctor: '[]'}
+											}
+										}),
+									_1: {ctor: '[]'}
+								}),
+							_1: {ctor: '[]'}
+						}),
+					_1: {
+						ctor: '::',
+						_0: A2(
+							_elm_lang$html$Html$li,
+							{ctor: '[]'},
+							{
+								ctor: '::',
+								_0: A2(
+									_elm_lang$html$Html$a,
+									{
+										ctor: '::',
+										_0: _elm_lang$html$Html_Attributes$href('https://github.com/benansell/elm-webpack-seed'),
+										_1: {ctor: '[]'}
+									},
+									{
+										ctor: '::',
+										_0: _Fresheyeball$elm_font_awesome$FontAwesome_Brand$github,
+										_1: {
+											ctor: '::',
+											_0: _elm_lang$html$Html$text(' Github'),
+											_1: {ctor: '[]'}
+										}
+									}),
+								_1: {ctor: '[]'}
+							}),
+						_1: {ctor: '[]'}
+					}
+				}),
+			_1: {ctor: '[]'}
+		});
 	var _benansell$elm_webpack_seed$Main$updateStatus = function (action) {
 		var actionDescription = _benansell$elm_webpack_seed$LogoAnimation$actionToString(action);
 		var _p2 = actionDescription;
@@ -15751,85 +17224,131 @@ webpackJsonp([1,0],[
 	};
 	var _benansell$elm_webpack_seed$Main$viewContent = function (model) {
 		return A2(
-			_elm_lang$html$Html_App$map,
+			_elm_lang$html$Html$map,
 			_benansell$elm_webpack_seed$Main$Logo,
 			_benansell$elm_webpack_seed$LogoAnimation$view(model.logoModel));
 	};
 	var _benansell$elm_webpack_seed$Main$view = function (model) {
 		return A2(
 			_elm_lang$html$Html$div,
-			_elm_lang$core$Native_List.fromArray(
-				[
-					_benansell$elm_webpack_seed$Main$class(
-					_elm_lang$core$Native_List.fromArray(
-						[_benansell$elm_webpack_seed$SharedCss$Page]))
-				]),
-			_elm_lang$core$Native_List.fromArray(
-				[
-					A2(
+			{
+				ctor: '::',
+				_0: _benansell$elm_webpack_seed$Main$class(
+					{
+						ctor: '::',
+						_0: _benansell$elm_webpack_seed$SharedCss$Page,
+						_1: {ctor: '[]'}
+					}),
+				_1: {ctor: '[]'}
+			},
+			{
+				ctor: '::',
+				_0: A2(
 					_elm_lang$html$Html$header,
-					_elm_lang$core$Native_List.fromArray(
-						[]),
-					_elm_lang$core$Native_List.fromArray(
-						[_benansell$elm_webpack_seed$Main$viewHeader])),
-					A2(
-					_elm_lang$html$Html$div,
-					_elm_lang$core$Native_List.fromArray(
-						[
-							_benansell$elm_webpack_seed$Main$class(
-							_elm_lang$core$Native_List.fromArray(
-								[_benansell$elm_webpack_seed$SharedCss$Body]))
-						]),
-					_elm_lang$core$Native_List.fromArray(
-						[
-							A2(
-							_elm_lang$html$Html$main$,
-							_elm_lang$core$Native_List.fromArray(
-								[
-									_benansell$elm_webpack_seed$Main$class(
-									_elm_lang$core$Native_List.fromArray(
-										[_benansell$elm_webpack_seed$SharedCss$Content]))
-								]),
-							_elm_lang$core$Native_List.fromArray(
-								[
-									_benansell$elm_webpack_seed$Main$viewContent(model)
-								])),
-							A2(
-							_elm_lang$html$Html$nav,
-							_elm_lang$core$Native_List.fromArray(
-								[
-									_benansell$elm_webpack_seed$Main$class(
-									_elm_lang$core$Native_List.fromArray(
-										[_benansell$elm_webpack_seed$SharedCss$Nav]))
-								]),
-							_elm_lang$core$Native_List.fromArray(
-								[
-									_benansell$elm_webpack_seed$Main$viewNav(model)
-								])),
-							A2(
-							_elm_lang$html$Html$aside,
-							_elm_lang$core$Native_List.fromArray(
-								[
-									_benansell$elm_webpack_seed$Main$class(
-									_elm_lang$core$Native_List.fromArray(
-										[_benansell$elm_webpack_seed$SharedCss$Aside]))
-								]),
-							_elm_lang$core$Native_List.fromArray(
-								[
-									_benansell$elm_webpack_seed$Main$viewAside(model)
-								]))
-						])),
-					A2(
-					_elm_lang$html$Html$footer,
-					_elm_lang$core$Native_List.fromArray(
-						[
-							_benansell$elm_webpack_seed$Main$class(
-							_elm_lang$core$Native_List.fromArray(
-								[_benansell$elm_webpack_seed$SharedCss$Footer]))
-						]),
-					_elm_lang$core$Native_List.fromArray(
-						[_benansell$elm_webpack_seed$Main$viewFooter]))
-				]));
+					{ctor: '[]'},
+					{
+						ctor: '::',
+						_0: _benansell$elm_webpack_seed$Main$viewHeader,
+						_1: {ctor: '[]'}
+					}),
+				_1: {
+					ctor: '::',
+					_0: A2(
+						_elm_lang$html$Html$div,
+						{
+							ctor: '::',
+							_0: _benansell$elm_webpack_seed$Main$class(
+								{
+									ctor: '::',
+									_0: _benansell$elm_webpack_seed$SharedCss$Body,
+									_1: {ctor: '[]'}
+								}),
+							_1: {ctor: '[]'}
+						},
+						{
+							ctor: '::',
+							_0: A2(
+								_elm_lang$html$Html$main_,
+								{
+									ctor: '::',
+									_0: _benansell$elm_webpack_seed$Main$class(
+										{
+											ctor: '::',
+											_0: _benansell$elm_webpack_seed$SharedCss$Content,
+											_1: {ctor: '[]'}
+										}),
+									_1: {ctor: '[]'}
+								},
+								{
+									ctor: '::',
+									_0: _benansell$elm_webpack_seed$Main$viewContent(model),
+									_1: {ctor: '[]'}
+								}),
+							_1: {
+								ctor: '::',
+								_0: A2(
+									_elm_lang$html$Html$nav,
+									{
+										ctor: '::',
+										_0: _benansell$elm_webpack_seed$Main$class(
+											{
+												ctor: '::',
+												_0: _benansell$elm_webpack_seed$SharedCss$Nav,
+												_1: {ctor: '[]'}
+											}),
+										_1: {ctor: '[]'}
+									},
+									{
+										ctor: '::',
+										_0: _benansell$elm_webpack_seed$Main$viewNav(model),
+										_1: {ctor: '[]'}
+									}),
+								_1: {
+									ctor: '::',
+									_0: A2(
+										_elm_lang$html$Html$aside,
+										{
+											ctor: '::',
+											_0: _benansell$elm_webpack_seed$Main$class(
+												{
+													ctor: '::',
+													_0: _benansell$elm_webpack_seed$SharedCss$Aside,
+													_1: {ctor: '[]'}
+												}),
+											_1: {ctor: '[]'}
+										},
+										{
+											ctor: '::',
+											_0: _benansell$elm_webpack_seed$Main$viewAside(model),
+											_1: {ctor: '[]'}
+										}),
+									_1: {ctor: '[]'}
+								}
+							}
+						}),
+					_1: {
+						ctor: '::',
+						_0: A2(
+							_elm_lang$html$Html$footer,
+							{
+								ctor: '::',
+								_0: _benansell$elm_webpack_seed$Main$class(
+									{
+										ctor: '::',
+										_0: _benansell$elm_webpack_seed$SharedCss$Footer,
+										_1: {ctor: '[]'}
+									}),
+								_1: {ctor: '[]'}
+							},
+							{
+								ctor: '::',
+								_0: _benansell$elm_webpack_seed$Main$viewFooter,
+								_1: {ctor: '[]'}
+							}),
+						_1: {ctor: '[]'}
+					}
+				}
+			});
 	};
 	var _benansell$elm_webpack_seed$Main$Tick = function (a) {
 		return {ctor: 'Tick', _0: a};
@@ -15837,14 +17356,14 @@ webpackJsonp([1,0],[
 	var _benansell$elm_webpack_seed$Main$subscriptions = function (model) {
 		return _elm_lang$animation_frame$AnimationFrame$times(_benansell$elm_webpack_seed$Main$Tick);
 	};
-	var _benansell$elm_webpack_seed$Main$main = {
-		main: _elm_lang$html$Html_App$program(
-			{init: _benansell$elm_webpack_seed$Main$init, view: _benansell$elm_webpack_seed$Main$view, update: _benansell$elm_webpack_seed$Main$update, subscriptions: _benansell$elm_webpack_seed$Main$subscriptions})
-	};
+	var _benansell$elm_webpack_seed$Main$main = _elm_lang$html$Html$program(
+		{init: _benansell$elm_webpack_seed$Main$init, view: _benansell$elm_webpack_seed$Main$view, update: _benansell$elm_webpack_seed$Main$update, subscriptions: _benansell$elm_webpack_seed$Main$subscriptions})();
 	
 	var Elm = {};
 	Elm['Main'] = Elm['Main'] || {};
-	_elm_lang$core$Native_Platform.addPublicModule(Elm['Main'], 'Main', typeof _benansell$elm_webpack_seed$Main$main === 'undefined' ? null : _benansell$elm_webpack_seed$Main$main);
+	if (typeof _benansell$elm_webpack_seed$Main$main !== 'undefined') {
+	    _benansell$elm_webpack_seed$Main$main(Elm['Main'], 'Main', undefined);
+	}
 	
 	if (typeof define === "function" && define['amd'])
 	{
