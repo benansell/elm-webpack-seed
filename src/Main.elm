@@ -4,17 +4,17 @@ import AnimationFrame exposing (times)
 import Css as Css
 import FontAwesome.Brand as FontAwesomeBrand
 import FontAwesome.Web as FontAwesomeWeb
-import Html exposing (Html, Attribute, a, aside, div, footer, h1, header, img, li, main', nav, p, span, text, ul)
-import Html.App as App
+import Html exposing (Html, Attribute, a, aside, div, footer, h1, header, img, li, main_, nav, p, span, text, ul)
+import Html as Html
 import Html.Attributes as Attr
 import LogoAnimation as LogoAnim exposing (Action, Model, init, tick, update, view)
 import SharedCss exposing (CssClasses, layoutNamespace)
 import String
 
 
-main : Program Never
+main : Program Never Model Msg
 main =
-    App.program
+    Html.program
         { init = init
         , view = view
         , update = update
@@ -114,7 +114,7 @@ view model =
     div [ class [ SharedCss.Page ] ]
         [ header [] [ viewHeader ]
         , div [ class [ SharedCss.Body ] ]
-            [ main' [ class [ SharedCss.Content ] ]
+            [ main_ [ class [ SharedCss.Content ] ]
                 [ viewContent model ]
             , nav [ class [ SharedCss.Nav ] ] [ viewNav model ]
             , aside [ class [ SharedCss.Aside ] ] [ viewAside model ]
@@ -171,4 +171,4 @@ viewFooter =
 viewContent : Model -> Html Msg
 viewContent model =
     LogoAnim.view model.logoModel
-        |> App.map Logo
+        |> Html.map Logo

@@ -94,7 +94,7 @@ if (environment === 'development') {
                     ],
                     loaders: [
                         'elm-hot-loader',
-                        'elm-webpack-loader'
+                        'elm-webpack-loader?verbose=true&warn=true&debug=false'
                     ]
                 }
             ]
@@ -200,8 +200,6 @@ if (environment === 'development') {
 
         plugins: [
             new CopyWebpackPlugin([{
-                from: 'src/index.html'
-            }, {
                 from: 'src/assets',
                 to: 'assets'
             }]),
@@ -210,7 +208,9 @@ if (environment === 'development') {
             new UnminifiedWebpackPlugin(),
             new Webpack.optimize.UglifyJsPlugin({
                 compress: {
-                    warnings: false
+                  warnings: false,
+                  dead_code: true,
+                  unused: true
                 }
             })
         ]
