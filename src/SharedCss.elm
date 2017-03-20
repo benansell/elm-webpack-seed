@@ -81,44 +81,44 @@ css =
             , flex none
             , spaceLeft
             ]
-        , ((.) Page)
+        , class Page
             [ backgroundColor (rgba 220 220 221 1)
             , displayFlex
             , minHeight (vh 100)
             , flexDirection column
             , fontFamily sansSerif
             ]
-        , ((.) Body)
+        , class Body
             [ displayFlex
             , flex2 (int 1) (int 0)
             , flexDirection column
             ]
-        , ((.) Content)
+        , class Content
             [ backgroundColor lightGray
             , flex (int 1)
             , aligner
             ]
-        , ((.) Aside)
+        , class Aside
             [ backgroundColor mediumGray
             , padding (em 1)
             ]
-        , ((.) Nav)
+        , class Nav
             [ backgroundColor darkBlueGray
             , order (int -1)
             , padding (em 1)
             ]
-        , ((.) NavAsideStatus)
+        , class NavAsideStatus
             [ fontWeight (int 300)
             ]
-        , ((.) NavMessage)
+        , class NavMessage
             [ color white
             , fontWeight (int 300)
             , lineHeight (em 1.4)
             ]
-        , ((.) Footer)
+        , class Footer
             [ backgroundColor darkGray
             ]
-        , ((.) FooterItems)
+        , class FooterItems
             [ displayFlex
             , flexDirection row
             , marginLeft (pct 5)
@@ -130,26 +130,26 @@ css =
                 [ Elements.li [ lastChild [ marginLeft auto ] ]
                 ]
             ]
-        , ((.) Media)
+        , class Media
             [ displayFlex
             , alignItems center
             ]
-        , ((.) MediaBody)
+        , class MediaBody
             [ flex (int 1)
             , whiteSpace noWrap
             ]
-        , ((.) MediaFigure)
+        , class MediaFigure
             [ marginRight (em 1)
             ]
         , (mediaQuery "(min-width: 1000px)")
-            [ ((.) Body) [ flexDirection row ]
-            , ((.) Content)
+            [ class Body [ flexDirection row ]
+            , class Content
                 [ flex (int 1)
                 , padding (px 0)
                 , margin (px 0)
                 ]
-            , ((.) Nav) [ flex3 (int 0) (int 0) (em 12) ]
-            , ((.) Aside) [ flex3 (int 0) (int 0) (em 12) ]
+            , class Nav [ flex3 (int 0) (int 0) (em 12) ]
+            , class Aside [ flex3 (int 0) (int 0) (em 12) ]
             ]
         ]
 
