@@ -48,13 +48,6 @@ var common = {
             name: "init",
             minChunks: Infinity
         }),
-        new Webpack.LoaderOptionsPlugin({
-           options: {
-               postcss: [ AutoPrefixer({
-                 browsers: ['last 2 versions']
-               }) ]
-           }
-        }),
         new Webpack.optimize.OccurrenceOrderPlugin()
     ],
 
@@ -103,8 +96,18 @@ if (environment === 'development') {
                         /src\/Stylesheets.elm$/
                     ],
                     use: [
-                        'elm-hot-loader',
-                        'elm-webpack-loader?verbose=true&warn=true&debug=false'
+                      {
+                          loader: 'elm-hot-loader'
+                      },
+                      {
+                        loader: 'elm-webpack-loader',
+                        options: {
+                          verbose: true,
+                          warn: true,
+                          debug: false,
+                          forceWatch: true
+                        }
+                      }
                     ]
                 }
             ]
@@ -173,7 +176,7 @@ if (environment === 'development') {
 
     var prodOnly = {
         output: {
-            path: './dist',
+            path: __dirname + './dist',
             filename: '[name]-[chunkhash].min.js',
             chunkFilename: '[name]-[chunkhash].min.js'
         },
