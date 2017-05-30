@@ -26,7 +26,7 @@ logoAnimationNamespace =
 css : Stylesheet
 css =
     (stylesheet << namespace logoAnimationNamespace.name)
-        [ ((.) Container)
+        [ class Container
             [ padding (pct 2)
             , width (pct 96)
             ]
